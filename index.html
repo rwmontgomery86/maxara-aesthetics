@@ -4,6 +4,21 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Maxará Aesthetics — Elevated Aesthetics. Quiet Luxury.</title>
+  <meta name="description" content="Maxará Aesthetics offers personalized HydraFacials, chemical peels, microneedling, laser hair removal, and advanced skincare treatments in Griffin, GA. Licensed esthetician Amanda Cortes.">
+  <link rel="icon" href="assets/images/logos/Logo.png" type="image/png">
+
+  <!-- Open Graph -->
+  <meta property="og:title" content="Maxará Aesthetics — Elevated Aesthetics. Quiet Luxury.">
+  <meta property="og:description" content="Personalized aesthetic treatments crafted for the woman who values subtlety, precision, and the art of feeling effortlessly herself.">
+  <meta property="og:image" content="assets/images/home-page/Hero.png">
+  <meta property="og:type" content="website">
+
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Maxará Aesthetics — Elevated Aesthetics. Quiet Luxury.">
+  <meta name="twitter:description" content="Personalized aesthetic treatments crafted for the woman who values subtlety, precision, and the art of feeling effortlessly herself.">
+  <meta name="twitter:image" content="assets/images/home-page/Hero.png">
+
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400;1,600&family=Josefin+Sans:wght@100;300;400&family=Lato:wght@300;400&display=swap" rel="stylesheet">
@@ -221,6 +236,9 @@
       gap: 5px;
       cursor: pointer;
       padding: 4px;
+      background: none;
+      border: none;
+      z-index: 1001;
     }
 
     .nav__hamburger span {
@@ -233,6 +251,74 @@
 
     .nav.scrolled .nav__hamburger span {
       background: var(--color-charcoal);
+    }
+
+    .nav__hamburger.open span {
+      background: var(--color-cream-pure);
+    }
+
+    .nav__hamburger.open span:nth-child(1) {
+      transform: translateY(6px) rotate(45deg);
+    }
+
+    .nav__hamburger.open span:nth-child(2) {
+      opacity: 0;
+    }
+
+    .nav__hamburger.open span:nth-child(3) {
+      transform: translateY(-6px) rotate(-45deg);
+    }
+
+    .nav__hamburger span {
+      transition: transform 0.3s var(--ease-expo), opacity 0.3s, background 0.3s;
+    }
+
+    /* Mobile Menu Panel */
+    .mobile-menu {
+      position: fixed;
+      top: 0; right: 0;
+      width: 100%;
+      height: 100vh;
+      background: var(--color-walnut);
+      z-index: 999;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      gap: 2.5rem;
+      transform: translateX(100%);
+      transition: transform 0.5s var(--ease-expo);
+    }
+
+    .mobile-menu.open {
+      transform: translateX(0);
+    }
+
+    .mobile-menu a {
+      font-family: var(--font-label);
+      font-size: 0.8rem;
+      font-weight: 300;
+      letter-spacing: 0.35em;
+      text-transform: uppercase;
+      color: var(--color-cream-pure);
+      opacity: 0;
+      transform: translateY(20px);
+      transition: opacity 0.4s ease, transform 0.4s var(--ease-expo), color 0.3s;
+    }
+
+    .mobile-menu.open a {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    .mobile-menu.open a:nth-child(1) { transition-delay: 0.15s; }
+    .mobile-menu.open a:nth-child(2) { transition-delay: 0.2s; }
+    .mobile-menu.open a:nth-child(3) { transition-delay: 0.25s; }
+    .mobile-menu.open a:nth-child(4) { transition-delay: 0.3s; }
+    .mobile-menu.open a:nth-child(5) { transition-delay: 0.35s; }
+
+    .mobile-menu a:hover {
+      color: var(--color-terracotta);
     }
 
     /* ============================================================
@@ -1573,12 +1659,21 @@
       <li><a href="#gallery">Results</a></li>
     </ul>
     <a href="https://maxaraaesthetics.glossgenius.com/services?_gl=1*szgjwc*_gcl_au*MTQwNjQwOTgyNi4xNzY5MTA4NjQw*_ga*ODI5Mjk3MzIuMTc2OTEwODY0MA..*_ga_2DF817SLF4*czE3NzUxMzY0ODEkbzE2JGcwJHQxNzc1MTM2NDgxJGo2MCRsMCRoMjA2MTA2ODA5Mw.." target="_blank" class="nav__cta"><span>Book Now</span></a>
-    <div class="nav__hamburger" aria-label="Menu">
+    <button class="nav__hamburger" aria-label="Menu" aria-expanded="false" aria-controls="mobileMenu">
       <span></span>
       <span></span>
       <span></span>
-    </div>
+    </button>
   </nav>
+
+  <!-- Mobile Menu Panel -->
+  <div class="mobile-menu" id="mobileMenu">
+    <a href="#about">Philosophy</a>
+    <a href="#services">Services</a>
+    <a href="#meet">About</a>
+    <a href="#gallery">Results</a>
+    <a href="https://maxaraaesthetics.glossgenius.com/services?_gl=1*szgjwc*_gcl_au*MTQwNjQwOTgyNi4xNzY5MTA4NjQw*_ga*ODI5Mjk3MzIuMTc2OTEwODY0MA..*_ga_2DF817SLF4*czE3NzUxMzY0ODEkbzE2JGcwJHQxNzc1MTM2NDgxJGo2MCRsMCRoMjA2MTA2ODA5Mw.." target="_blank">Book Now</a>
+  </div>
 
   <!-- ============================================================
        HERO
@@ -1675,7 +1770,7 @@
           <p>A multi-step resurfacing treatment that deeply cleanses, extracts, and infuses your skin with nourishing serums — leaving it visibly plump, clear, and radiant after just one session.</p>
           <a href="hydrafacial.html" class="service-card__link">
             Learn More
-            <svg viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M17 8l4 4m0 0l-4 4m4-4H3"/></svg>
+            <svg viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" d="M17 8l4 4m0 0l-4 4m4-4H3"/></svg>
           </a>
         </div>
       </div>
@@ -1687,7 +1782,7 @@
           <p>Expertly selected acid formulations that resurface, refine, and renew — targeting uneven tone, fine lines, acne scarring, and dullness with precision and measurable results.</p>
           <a href="#" class="service-card__link">
             Learn More
-            <svg viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M17 8l4 4m0 0l-4 4m4-4H3"/></svg>
+            <svg viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" d="M17 8l4 4m0 0l-4 4m4-4H3"/></svg>
           </a>
         </div>
       </div>
@@ -1699,7 +1794,7 @@
           <p>Long-lasting smoothness through state-of-the-art laser technology — safe, effective, and tailored to your skin tone and hair type for permanent reduction with every session.</p>
           <a href="#" class="service-card__link">
             Learn More
-            <svg viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M17 8l4 4m0 0l-4 4m4-4H3"/></svg>
+            <svg viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" d="M17 8l4 4m0 0l-4 4m4-4H3"/></svg>
           </a>
         </div>
       </div>
@@ -1711,7 +1806,7 @@
           <p>Controlled micro-channels stimulate your skin's natural collagen response — visibly reducing scarring, laxity, and texture while restoring a firm, smooth, and luminous complexion.</p>
           <a href="#" class="service-card__link">
             Learn More
-            <svg viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M17 8l4 4m0 0l-4 4m4-4H3"/></svg>
+            <svg viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" d="M17 8l4 4m0 0l-4 4m4-4H3"/></svg>
           </a>
         </div>
       </div>
@@ -1723,7 +1818,7 @@
           <p>Smooth, precise, and thorough hair removal using premium waxes formulated for sensitive skin — from brows and face to full body, delivered with care and expert technique.</p>
           <a href="#" class="service-card__link">
             Learn More
-            <svg viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M17 8l4 4m0 0l-4 4m4-4H3"/></svg>
+            <svg viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" d="M17 8l4 4m0 0l-4 4m4-4H3"/></svg>
           </a>
         </div>
       </div>
@@ -1735,7 +1830,7 @@
           <p>A curated collection of specialized treatments — including Ultherapy, body contouring, and more — each designed for targeted transformation. Explore our full menu of advanced offerings.</p>
           <a href="advanced-skincare.html" class="service-card__link">
             Explore All Treatments
-            <svg viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M17 8l4 4m0 0l-4 4m4-4H3"/></svg>
+            <svg viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" d="M17 8l4 4m0 0l-4 4m4-4H3"/></svg>
           </a>
         </div>
       </div>
@@ -1853,7 +1948,7 @@
     </div>
     <div class="testimonials__track" id="testimonialsTrack">
       <div class="testimonial-card">
-        <div class="testimonial-card__stars">
+        <div class="testimonial-card__stars" role="img" aria-label="5 out of 5 stars">
           <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
           <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
           <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
@@ -1864,7 +1959,7 @@
         <cite>— Toi J.</cite>
       </div>
       <div class="testimonial-card">
-        <div class="testimonial-card__stars">
+        <div class="testimonial-card__stars" role="img" aria-label="5 out of 5 stars">
           <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
           <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
           <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
@@ -1875,7 +1970,7 @@
         <cite>— Nita L.</cite>
       </div>
       <div class="testimonial-card">
-        <div class="testimonial-card__stars">
+        <div class="testimonial-card__stars" role="img" aria-label="5 out of 5 stars">
           <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
           <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
           <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
@@ -1886,7 +1981,7 @@
         <cite>— Carol D.</cite>
       </div>
       <div class="testimonial-card">
-        <div class="testimonial-card__stars">
+        <div class="testimonial-card__stars" role="img" aria-label="5 out of 5 stars">
           <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
           <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
           <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
@@ -1897,7 +1992,7 @@
         <cite>— Ashley F.</cite>
       </div>
       <div class="testimonial-card">
-        <div class="testimonial-card__stars">
+        <div class="testimonial-card__stars" role="img" aria-label="5 out of 5 stars">
           <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
           <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
           <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
@@ -2027,6 +2122,32 @@
           });
           ticking = true;
         }
+      });
+    })();
+
+    // ================================================================
+    // 3b. MOBILE MENU TOGGLE
+    // ================================================================
+    (function initMobileMenu() {
+      const hamburger = document.querySelector('.nav__hamburger');
+      const mobileMenu = document.getElementById('mobileMenu');
+      if (!hamburger || !mobileMenu) return;
+
+      hamburger.addEventListener('click', () => {
+        const isOpen = mobileMenu.classList.toggle('open');
+        hamburger.classList.toggle('open');
+        hamburger.setAttribute('aria-expanded', isOpen);
+        document.body.style.overflow = isOpen ? 'hidden' : '';
+      });
+
+      // Close menu when a link is clicked
+      mobileMenu.querySelectorAll('a').forEach(link => {
+        link.addEventListener('click', () => {
+          mobileMenu.classList.remove('open');
+          hamburger.classList.remove('open');
+          hamburger.setAttribute('aria-expanded', 'false');
+          document.body.style.overflow = '';
+        });
       });
     })();
 
