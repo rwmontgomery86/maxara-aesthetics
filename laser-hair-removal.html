@@ -1,0 +1,3039 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Laser Hair Removal — Maxara Aesthetics</title>
+  <meta name="description" content="Professional laser hair removal in Griffin, GA. Safe for all skin tones with the Candela GentleYAG. Small, medium, and large area treatments for permanent hair reduction at Maxara Aesthetics.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400;1,600&family=Josefin+Sans:wght@100;300;400&family=Lato:wght@300;400&display=swap" rel="stylesheet">
+
+  <style>
+    /* ============================================================
+       CSS CUSTOM PROPERTIES
+    ============================================================ */
+    :root {
+      --color-oyster:      #F5F0E8;
+      --color-oyster-dark: #EDE6D6;
+      --color-charcoal:    #2C2C2C;
+      --color-walnut:      #5C3D2E;
+      --color-terracotta:  #C4673A;
+      --color-gold:        #B89A5A;
+      --color-cream-pure:  #FAF7F2;
+      --color-mist:        rgba(245, 240, 232, 0.92);
+
+      --font-display: 'Cormorant Garamond', Georgia, serif;
+      --font-label:   'Josefin Sans', sans-serif;
+      --font-body:    'Lato', system-ui, sans-serif;
+
+      --ease-expo:    cubic-bezier(0.16, 1, 0.3, 1);
+      --ease-quart:   cubic-bezier(0.76, 0, 0.24, 1);
+    }
+
+    /* ============================================================
+       RESET & BASE
+    ============================================================ */
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    html {
+      scroll-behavior: smooth;
+      font-size: 16px;
+    }
+
+    body {
+      background: var(--color-oyster);
+      color: var(--color-charcoal);
+      font-family: var(--font-body);
+      font-weight: 300;
+      line-height: 1.85;
+      overflow-x: hidden;
+    }
+
+    img { display: block; max-width: 100%; }
+    a { text-decoration: none; color: inherit; }
+    ul { list-style: none; }
+
+    /* ============================================================
+       SCROLL PROGRESS
+    ============================================================ */
+    .scroll-progress {
+      position: fixed;
+      top: 0; left: 0;
+      width: 100%;
+      height: 2px;
+      background: var(--color-terracotta);
+      transform: scaleX(0);
+      transform-origin: left;
+      z-index: 1001;
+      will-change: transform;
+      transition: transform 0.05s linear;
+    }
+
+    /* ============================================================
+       NAVIGATION
+    ============================================================ */
+    .nav {
+      position: fixed;
+      top: 0; left: 0; right: 0;
+      z-index: 1000;
+      padding: 1rem 5%;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      background: var(--color-mist);
+      backdrop-filter: blur(14px);
+      -webkit-backdrop-filter: blur(14px);
+      box-shadow: 0 1px 0 rgba(184, 154, 90, 0.2);
+      transition:
+        padding 0.5s var(--ease-expo),
+        transform 0.45s var(--ease-expo);
+    }
+
+    .nav.hidden {
+      transform: translateY(-100%);
+    }
+
+    .nav__logo {
+      height: 40px;
+      mix-blend-mode: multiply;
+    }
+
+    .nav__links {
+      display: flex;
+      align-items: center;
+      gap: 3rem;
+    }
+
+    .nav__links a {
+      font-family: var(--font-label);
+      font-size: 0.65rem;
+      font-weight: 300;
+      letter-spacing: 0.28em;
+      text-transform: uppercase;
+      color: var(--color-charcoal);
+      position: relative;
+      transition: color 0.4s;
+    }
+
+    .nav__links a::after {
+      content: '';
+      position: absolute;
+      bottom: -3px; left: 0; right: 0;
+      height: 1px;
+      background: var(--color-terracotta);
+      transform: scaleX(0);
+      transform-origin: right;
+      transition: transform 0.4s var(--ease-expo);
+    }
+
+    .nav__links a:hover::after {
+      transform: scaleX(1);
+      transform-origin: left;
+    }
+
+    .nav__cta {
+      font-family: var(--font-label);
+      font-size: 0.62rem;
+      font-weight: 300;
+      letter-spacing: 0.28em;
+      text-transform: uppercase;
+      color: var(--color-charcoal);
+      border: 1px solid rgba(44, 44, 44, 0.3);
+      padding: 0.65rem 1.6rem;
+      position: relative;
+      overflow: hidden;
+      transition: color 0.4s ease, border-color 0.4s;
+    }
+
+    .nav__cta::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: var(--color-terracotta);
+      transform: scaleX(0);
+      transform-origin: left;
+      transition: transform 0.4s var(--ease-expo);
+      z-index: 0;
+    }
+
+    .nav__cta:hover::before { transform: scaleX(1); }
+    .nav__cta span { position: relative; z-index: 1; }
+    .nav__cta:hover span { color: var(--color-cream-pure); }
+
+    .nav__hamburger {
+      display: none;
+      flex-direction: column;
+      gap: 5px;
+      cursor: pointer;
+      padding: 4px;
+      background: none;
+      border: none;
+      z-index: 1001;
+    }
+
+    .nav__hamburger span {
+      display: block;
+      width: 24px;
+      height: 1px;
+      background: var(--color-charcoal);
+      transition: transform 0.3s var(--ease-expo), opacity 0.3s, background 0.3s;
+    }
+
+    .nav__hamburger.open span:nth-child(1) {
+      transform: translateY(6px) rotate(45deg);
+    }
+
+    .nav__hamburger.open span:nth-child(2) {
+      opacity: 0;
+    }
+
+    .nav__hamburger.open span:nth-child(3) {
+      transform: translateY(-6px) rotate(-45deg);
+    }
+
+    /* Mobile Menu Panel */
+    .mobile-menu {
+      position: fixed;
+      top: 0; right: 0;
+      width: 100%;
+      height: 100vh;
+      background: var(--color-walnut);
+      z-index: 999;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      gap: 2.5rem;
+      transform: translateX(100%);
+      transition: transform 0.5s var(--ease-expo);
+    }
+
+    .mobile-menu.open {
+      transform: translateX(0);
+    }
+
+    .mobile-menu a {
+      font-family: var(--font-label);
+      font-size: 0.8rem;
+      font-weight: 300;
+      letter-spacing: 0.35em;
+      text-transform: uppercase;
+      color: var(--color-cream-pure);
+      opacity: 0;
+      transform: translateY(20px);
+      transition: opacity 0.4s ease, transform 0.4s var(--ease-expo), color 0.3s;
+    }
+
+    .mobile-menu.open a {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    .mobile-menu.open a:nth-child(1) { transition-delay: 0.15s; }
+    .mobile-menu.open a:nth-child(2) { transition-delay: 0.2s; }
+    .mobile-menu.open a:nth-child(3) { transition-delay: 0.25s; }
+    .mobile-menu.open a:nth-child(4) { transition-delay: 0.3s; }
+    .mobile-menu.open a:nth-child(5) { transition-delay: 0.35s; }
+
+    .mobile-menu a:hover {
+      color: var(--color-terracotta);
+    }
+
+    /* ============================================================
+       SHARED UTILITIES
+    ============================================================ */
+    .eyebrow {
+      font-family: var(--font-label);
+      font-size: 0.65rem;
+      font-weight: 300;
+      letter-spacing: 0.42em;
+      text-transform: uppercase;
+      color: var(--color-terracotta);
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+      margin-bottom: 1.5rem;
+    }
+
+    .eyebrow::before {
+      content: '';
+      display: block;
+      width: 0;
+      height: 1px;
+      background: var(--color-gold);
+      flex-shrink: 0;
+      transition: width 1s var(--ease-expo);
+    }
+
+    .eyebrow.in-view::before {
+      width: 40px;
+    }
+
+    .section-headline {
+      font-family: var(--font-display);
+      font-weight: 300;
+      font-size: clamp(2.2rem, 4vw, 3.4rem);
+      line-height: 1.12;
+      color: var(--color-charcoal);
+    }
+
+    .section-headline em {
+      font-style: italic;
+      font-weight: 300;
+    }
+
+    .btn {
+      display: inline-block;
+      font-family: var(--font-label);
+      font-size: 0.63rem;
+      font-weight: 300;
+      letter-spacing: 0.32em;
+      text-transform: uppercase;
+      padding: 1rem 2.5rem;
+      border: 1px solid currentColor;
+      position: relative;
+      overflow: hidden;
+      transition: color 0.4s ease;
+      cursor: pointer;
+    }
+
+    .btn::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: currentColor;
+      transform: scaleX(0);
+      transform-origin: left;
+      transition: transform 0.45s var(--ease-expo);
+      z-index: 0;
+    }
+
+    .btn:hover::before { transform: scaleX(1); }
+    .btn > span { position: relative; z-index: 1; transition: color 0.4s ease; }
+    .btn--dark { color: var(--color-charcoal); }
+    .btn--dark:hover > span { color: var(--color-cream-pure); }
+    .btn--light { color: var(--color-oyster); }
+    .btn--light:hover > span { color: var(--color-charcoal); }
+    .btn--light::before { background: var(--color-oyster); }
+    .btn--terracotta { color: var(--color-terracotta); }
+    .btn--terracotta:hover > span { color: var(--color-cream-pure); }
+
+    .reveal-up {
+      opacity: 0;
+      transform: translateY(40px);
+      transition: opacity 0.9s ease, transform 1s var(--ease-expo);
+    }
+
+    .reveal-up.in-view {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    .reveal-left {
+      opacity: 0;
+      transform: translateX(-50px);
+      transition: opacity 0.9s ease, transform 1.1s var(--ease-expo);
+    }
+
+    .reveal-left.in-view {
+      opacity: 1;
+      transform: translateX(0);
+    }
+
+    .reveal-right {
+      opacity: 0;
+      transform: translateX(60px);
+      transition: opacity 0.9s ease, transform 1.1s var(--ease-expo);
+    }
+
+    .reveal-right.in-view {
+      opacity: 1;
+      transform: translateX(0);
+    }
+
+    /* ============================================================
+       IMAGE PLACEHOLDER
+    ============================================================ */
+    .img-placeholder {
+      position: relative;
+      width: 100%;
+      height: 100%;
+      background: linear-gradient(135deg, var(--color-walnut) 0%, #3d2518 100%);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      overflow: hidden;
+    }
+
+    .img-placeholder__label {
+      font-family: var(--font-label);
+      font-size: 0.55rem;
+      letter-spacing: 0.25em;
+      text-transform: uppercase;
+      color: rgba(245, 240, 232, 0.35);
+      text-align: center;
+      padding: 1rem;
+      line-height: 1.8;
+      z-index: 1;
+    }
+
+    .img-placeholder img {
+      position: absolute;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      z-index: 2;
+    }
+
+    .img-placeholder img.img-hidden {
+      display: none;
+    }
+
+    /* ============================================================
+       HERO SECTION
+    ============================================================ */
+    .lhr-hero {
+      padding: 8rem 8% 5rem;
+      background: var(--color-charcoal);
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 4rem;
+      align-items: center;
+      min-height: 85vh;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .lhr-hero__images {
+      position: relative;
+      height: 520px;
+    }
+
+    .lhr-hero__img-main {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 65%;
+      height: 100%;
+      border-radius: 2px;
+      opacity: 0;
+      transform: translateX(-40px);
+      transition: opacity 1s ease 0.3s, transform 1.2s var(--ease-expo) 0.3s;
+    }
+
+    .lhr-hero__img-accent {
+      position: absolute;
+      bottom: 0;
+      right: 5%;
+      width: 48%;
+      height: 60%;
+      border-radius: 2px;
+      box-shadow: -12px -12px 0 var(--color-charcoal);
+      opacity: 0;
+      transform: translateX(-30px) translateY(20px);
+      transition: opacity 1s ease 0.6s, transform 1.2s var(--ease-expo) 0.6s;
+    }
+
+    .lhr-hero.in-view .lhr-hero__img-main,
+    .lhr-hero.in-view .lhr-hero__img-accent {
+      opacity: 1;
+      transform: translateX(0) translateY(0);
+    }
+
+    .lhr-hero__content {
+      color: var(--color-cream-pure);
+      opacity: 0;
+      transform: translateY(30px);
+      transition: opacity 1s ease 0.4s, transform 1.1s var(--ease-expo) 0.4s;
+    }
+
+    .lhr-hero.in-view .lhr-hero__content {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    .lhr-hero__title {
+      font-family: var(--font-display);
+      font-weight: 300;
+      font-size: clamp(3rem, 6vw, 5rem);
+      line-height: 1.05;
+      color: var(--color-cream-pure);
+      margin-bottom: 0.5rem;
+    }
+
+    .lhr-hero__subtitle {
+      font-family: var(--font-display);
+      font-style: italic;
+      font-weight: 300;
+      font-size: clamp(1.1rem, 2vw, 1.5rem);
+      color: var(--color-gold);
+      margin-bottom: 1.75rem;
+    }
+
+    .lhr-hero__text {
+      font-size: 0.97rem;
+      color: rgba(245, 240, 232, 0.72);
+      max-width: 440px;
+      margin-bottom: 2.5rem;
+      line-height: 1.85;
+    }
+
+    .lhr-hero .eyebrow {
+      color: var(--color-gold);
+    }
+
+    .lhr-hero .eyebrow::before {
+      background: rgba(245, 240, 232, 0.3);
+    }
+
+    .lhr-hero__stats {
+      display: flex;
+      gap: 2.5rem;
+      margin-top: 3rem;
+      padding-top: 2rem;
+      border-top: 1px solid rgba(184, 154, 90, 0.25);
+    }
+
+    .lhr-hero__stat {
+      text-align: center;
+    }
+
+    .lhr-hero__stat-number {
+      font-family: var(--font-display);
+      font-size: 2rem;
+      font-weight: 300;
+      color: var(--color-cream-pure);
+      line-height: 1;
+      margin-bottom: 0.35rem;
+    }
+
+    .lhr-hero__stat-label {
+      font-family: var(--font-label);
+      font-size: 0.5rem;
+      letter-spacing: 0.25em;
+      text-transform: uppercase;
+      color: rgba(245, 240, 232, 0.5);
+    }
+
+    /* ============================================================
+       MARQUEE STRIP
+    ============================================================ */
+    .marquee-strip {
+      overflow: hidden;
+      background: var(--color-walnut);
+      padding: 1.1rem 0;
+      border-top: 1px solid rgba(184, 154, 90, 0.25);
+      border-bottom: 1px solid rgba(184, 154, 90, 0.25);
+    }
+
+    .marquee-strip--dark {
+      background: var(--color-charcoal);
+    }
+
+    .marquee-strip--lg .marquee-strip__track span {
+      font-size: 0.85rem;
+      letter-spacing: 0.5em;
+      padding: 0 4rem;
+    }
+
+    .marquee-strip__track {
+      display: flex;
+      width: max-content;
+      animation: marquee 36s linear infinite;
+    }
+
+    .marquee-strip__track:hover {
+      animation-play-state: paused;
+    }
+
+    .marquee-strip__track span {
+      font-family: var(--font-label);
+      font-size: 0.62rem;
+      font-weight: 100;
+      letter-spacing: 0.38em;
+      text-transform: uppercase;
+      color: var(--color-gold);
+      white-space: nowrap;
+      padding: 0 3rem;
+    }
+
+    .marquee-strip__track span.dot {
+      color: var(--color-terracotta);
+      padding: 0;
+      letter-spacing: 0;
+    }
+
+    @keyframes marquee {
+      from { transform: translateX(0); }
+      to   { transform: translateX(-50%); }
+    }
+
+    /* ============================================================
+       FEATURE SPLIT SECTIONS
+    ============================================================ */
+    .feature-split {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      min-height: 55vh;
+    }
+
+    .feature-split--reverse {
+      direction: rtl;
+    }
+
+    .feature-split--reverse > * {
+      direction: ltr;
+    }
+
+    .feature-split__media {
+      position: relative;
+      overflow: hidden;
+    }
+
+    .feature-split__media img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+      transform: scale(1.06);
+      transition: transform 2s var(--ease-expo);
+    }
+
+    .feature-split__media.in-view img {
+      transform: scale(1);
+    }
+
+    .feature-split__media-placeholder {
+      width: 100%;
+      height: 100%;
+      min-height: 400px;
+      background: linear-gradient(135deg, var(--color-walnut) 0%, #3d2518 100%);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .feature-split__media-placeholder span {
+      font-family: var(--font-label);
+      font-size: 0.6rem;
+      letter-spacing: 0.3em;
+      text-transform: uppercase;
+      color: rgba(245, 240, 232, 0.3);
+    }
+
+    .feature-split__content {
+      padding: 5rem 4.5rem;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      opacity: 0;
+      transform: translateX(40px);
+      transition: opacity 1s ease, transform 1.2s var(--ease-expo);
+    }
+
+    .feature-split--reverse .feature-split__content {
+      transform: translateX(-40px);
+    }
+
+    .feature-split__content.in-view {
+      opacity: 1;
+      transform: translateX(0);
+    }
+
+    .feature-split__content--walnut {
+      background: var(--color-walnut);
+      color: var(--color-oyster);
+    }
+
+    .feature-split__content--walnut .eyebrow {
+      color: var(--color-gold);
+    }
+
+    .feature-split__content--walnut .section-headline {
+      color: var(--color-oyster);
+    }
+
+    .feature-split__content--walnut p {
+      color: rgba(245, 240, 232, 0.72);
+    }
+
+    .feature-split__content--oyster {
+      background: var(--color-oyster);
+    }
+
+    .feature-split__content .section-headline {
+      margin-bottom: 1.5rem;
+    }
+
+    .feature-split__content p {
+      font-size: 0.95rem;
+      line-height: 1.9;
+      margin-bottom: 1.25rem;
+      color: rgba(44, 44, 44, 0.72);
+    }
+
+    .feature-split__content--walnut p {
+      color: rgba(245, 240, 232, 0.72);
+    }
+
+    .ingredient-list {
+      margin: 1rem 0 2rem;
+    }
+
+    .ingredient-list li {
+      font-family: var(--font-label);
+      font-size: 0.6rem;
+      letter-spacing: 0.22em;
+      text-transform: uppercase;
+      color: var(--color-walnut);
+      padding: 0.55rem 0;
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+    }
+
+    .ingredient-list--light li {
+      color: rgba(245, 240, 232, 0.85);
+    }
+
+    .ingredient-list li::before {
+      content: '';
+      display: block;
+      width: 4px;
+      height: 4px;
+      background: var(--color-terracotta);
+      border-radius: 50%;
+      flex-shrink: 0;
+    }
+
+    .ingredient-list--light li::before {
+      background: var(--color-gold);
+    }
+
+    /* ============================================================
+       BENEFITS GRID
+    ============================================================ */
+    .concerns {
+      padding: 9rem 8%;
+      background: var(--color-oyster-dark);
+    }
+
+    .concerns__header {
+      text-align: center;
+      max-width: 640px;
+      margin: 0 auto 3.5rem;
+    }
+
+    .concerns__header .eyebrow {
+      justify-content: center;
+    }
+
+    .concerns__header .section-headline {
+      margin-bottom: 1rem;
+    }
+
+    .concerns__header p {
+      color: rgba(44, 44, 44, 0.65);
+      font-size: 0.95rem;
+    }
+
+    .concerns__grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 2rem;
+      max-width: 1100px;
+      margin: 0 auto;
+    }
+
+    .concerns__card {
+      background: var(--color-cream-pure);
+      padding: 2.5rem;
+      position: relative;
+      box-shadow: 0 4px 24px rgba(44, 44, 44, 0.05);
+      transition: transform 0.5s var(--ease-expo), box-shadow 0.5s var(--ease-expo);
+      overflow: hidden;
+      opacity: 0;
+      transform: translateY(30px);
+    }
+
+    .concerns__card.in-view {
+      opacity: 1;
+      transform: translateY(0);
+      transition: opacity 0.9s ease, transform 1s var(--ease-expo),
+                  box-shadow 0.5s var(--ease-expo);
+    }
+
+    .concerns__card::before {
+      content: '';
+      position: absolute;
+      top: 0; left: 0; right: 0;
+      height: 2px;
+      background: var(--color-gold);
+      transform: scaleX(0);
+      transform-origin: left;
+      transition: transform 0.5s var(--ease-expo);
+    }
+
+    .concerns__card:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 8px 32px rgba(44, 44, 44, 0.08);
+    }
+
+    .concerns__card:hover::before {
+      transform: scaleX(1);
+    }
+
+    .concerns__icon {
+      width: 40px;
+      height: 40px;
+      margin-bottom: 1.25rem;
+    }
+
+    .concerns__icon svg {
+      width: 100%;
+      height: 100%;
+      stroke: var(--color-terracotta);
+      fill: none;
+      stroke-width: 1.5;
+      stroke-linecap: round;
+      stroke-linejoin: round;
+    }
+
+    .concerns__title {
+      font-family: var(--font-display);
+      font-size: 1.2rem;
+      font-weight: 400;
+      color: var(--color-walnut);
+      margin-bottom: 0.5rem;
+    }
+
+    .concerns__desc {
+      font-size: 0.9rem;
+      color: rgba(44, 44, 44, 0.68);
+      line-height: 1.7;
+    }
+
+    /* ============================================================
+       TREATMENT TIERS — TABS
+    ============================================================ */
+    .tiers {
+      padding: 9rem 8%;
+      background: var(--color-oyster);
+    }
+
+    .tiers__header {
+      text-align: center;
+      max-width: 640px;
+      margin: 0 auto 3.5rem;
+    }
+
+    .tiers__header .eyebrow {
+      justify-content: center;
+    }
+
+    .tiers__header .section-headline {
+      margin-bottom: 1rem;
+    }
+
+    .tiers__header p {
+      color: rgba(44, 44, 44, 0.65);
+      font-size: 0.95rem;
+    }
+
+    .tiers__tabs {
+      display: flex;
+      justify-content: center;
+      gap: 0;
+      position: relative;
+      margin-bottom: 3.5rem;
+      border-bottom: 1px solid rgba(184, 154, 90, 0.3);
+    }
+
+    .tiers__tab {
+      font-family: var(--font-label);
+      font-size: 0.65rem;
+      font-weight: 300;
+      letter-spacing: 0.3em;
+      text-transform: uppercase;
+      color: rgba(44, 44, 44, 0.5);
+      padding: 1rem 2.5rem;
+      cursor: pointer;
+      background: none;
+      border: none;
+      position: relative;
+      transition: color 0.4s ease;
+    }
+
+    .tiers__tab:hover {
+      color: var(--color-charcoal);
+    }
+
+    .tiers__tab.active {
+      color: var(--color-terracotta);
+    }
+
+    .tiers__indicator {
+      position: absolute;
+      bottom: -1px;
+      height: 2px;
+      background: var(--color-terracotta);
+      transition: left 0.45s var(--ease-expo), width 0.45s var(--ease-expo);
+    }
+
+    .tiers__panels {
+      position: relative;
+      min-height: 320px;
+    }
+
+    .tiers__panel {
+      display: grid;
+      grid-template-columns: 1.1fr 1fr;
+      gap: 4rem;
+      align-items: center;
+      opacity: 0;
+      transform: translateY(16px);
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      pointer-events: none;
+      transition: opacity 0.5s ease, transform 0.6s var(--ease-expo);
+    }
+
+    .tiers__panel.active {
+      opacity: 1;
+      transform: translateY(0);
+      position: relative;
+      pointer-events: auto;
+    }
+
+    .tiers__panel-content {
+      padding: 2rem 0;
+    }
+
+    .tiers__tier-name {
+      font-family: var(--font-display);
+      font-size: 2.4rem;
+      font-weight: 300;
+      margin-bottom: 0.25rem;
+    }
+
+    .tiers__tier-tagline {
+      font-family: var(--font-label);
+      font-size: 0.6rem;
+      letter-spacing: 0.28em;
+      text-transform: uppercase;
+      color: var(--color-terracotta);
+      margin-bottom: 1.5rem;
+    }
+
+    .tiers__tier-desc {
+      font-size: 0.95rem;
+      color: rgba(44, 44, 44, 0.72);
+      margin-bottom: 2rem;
+      line-height: 1.85;
+    }
+
+    .tiers__tier-features {
+      margin-bottom: 2.5rem;
+    }
+
+    .tiers__tier-features li {
+      font-family: var(--font-label);
+      font-size: 0.62rem;
+      letter-spacing: 0.22em;
+      text-transform: uppercase;
+      color: var(--color-walnut);
+      padding: 0.7rem 0;
+      border-bottom: 1px solid rgba(184, 154, 90, 0.2);
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+    }
+
+    .tiers__tier-features li::before {
+      content: '';
+      display: block;
+      width: 16px;
+      height: 1px;
+      background: var(--color-terracotta);
+      flex-shrink: 0;
+    }
+
+    .tiers__tier-price {
+      display: flex;
+      align-items: baseline;
+      gap: 1rem;
+      margin-bottom: 2rem;
+    }
+
+    .tiers__price-amount {
+      font-family: var(--font-display);
+      font-size: 2rem;
+      font-weight: 300;
+      color: var(--color-charcoal);
+    }
+
+    .tiers__price-duration {
+      font-family: var(--font-label);
+      font-size: 0.58rem;
+      letter-spacing: 0.25em;
+      text-transform: uppercase;
+      color: rgba(44, 44, 44, 0.5);
+    }
+
+    .tiers__panel-image {
+      position: relative;
+      overflow: hidden;
+      border-radius: 2px;
+      min-height: 420px;
+    }
+
+    .tiers__panel-image img {
+      width: 100%;
+      height: 420px;
+      object-fit: cover;
+      object-position: top;
+      display: block;
+    }
+
+    .tiers__panel-image .tiers__image-placeholder {
+      width: 100%;
+      height: 420px;
+      background: linear-gradient(135deg, var(--color-walnut) 0%, #3d2518 100%);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .tiers__image-placeholder span {
+      font-family: var(--font-label);
+      font-size: 0.6rem;
+      letter-spacing: 0.3em;
+      text-transform: uppercase;
+      color: rgba(245, 240, 232, 0.3);
+    }
+
+    .tiers__note {
+      text-align: center;
+      font-family: var(--font-label);
+      font-size: 0.58rem;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: rgba(44, 44, 44, 0.45);
+      margin-top: 2.5rem;
+    }
+
+    .tiers__areas-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 0;
+    }
+
+    /* ============================================================
+       AREA EXPLORER CARDS
+    ============================================================ */
+    .area-explorer {
+      padding: 9rem 8%;
+      background: var(--color-oyster-dark);
+    }
+
+    .area-explorer__header {
+      text-align: center;
+      max-width: 640px;
+      margin: 0 auto 3.5rem;
+    }
+
+    .area-explorer__header .eyebrow {
+      justify-content: center;
+    }
+
+    .area-explorer__header .section-headline {
+      margin-bottom: 1rem;
+    }
+
+    .area-explorer__header p {
+      color: rgba(44, 44, 44, 0.65);
+      font-size: 0.95rem;
+    }
+
+    .area-explorer__grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 2rem;
+      max-width: 1100px;
+      margin: 0 auto;
+    }
+
+    .area-explorer__card {
+      background: var(--color-cream-pure);
+      box-shadow: 0 4px 24px rgba(44, 44, 44, 0.05);
+      overflow: hidden;
+      transition: box-shadow 0.5s var(--ease-expo);
+    }
+
+    .area-explorer__card:hover {
+      box-shadow: 0 8px 32px rgba(44, 44, 44, 0.1);
+    }
+
+    .area-explorer__trigger {
+      width: 100%;
+      padding: 2.5rem;
+      background: none;
+      border: none;
+      cursor: pointer;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
+      gap: 1rem;
+      position: relative;
+    }
+
+    .area-explorer__icon {
+      width: 48px;
+      height: 48px;
+      stroke: var(--color-terracotta);
+      fill: none;
+      stroke-width: 1.2;
+      stroke-linecap: round;
+      stroke-linejoin: round;
+      margin-bottom: 0.5rem;
+    }
+
+    .area-explorer__card-title {
+      font-family: var(--font-display);
+      font-size: 1.4rem;
+      font-weight: 400;
+      color: var(--color-walnut);
+    }
+
+    .area-explorer__card-count {
+      font-family: var(--font-label);
+      font-size: 0.55rem;
+      letter-spacing: 0.25em;
+      text-transform: uppercase;
+      color: rgba(44, 44, 44, 0.5);
+    }
+
+    .area-explorer__chevron {
+      width: 14px;
+      height: 14px;
+      stroke: var(--color-gold);
+      fill: none;
+      stroke-width: 1.5;
+      transition: transform 0.4s var(--ease-expo);
+      margin-top: 0.5rem;
+    }
+
+    .area-explorer__card.open .area-explorer__chevron {
+      transform: rotate(180deg);
+    }
+
+    .area-explorer__body {
+      max-height: 0;
+      overflow: hidden;
+      transition: max-height 0.6s var(--ease-expo);
+    }
+
+    .area-explorer__card.open .area-explorer__body {
+      max-height: 600px;
+    }
+
+    .area-explorer__body-inner {
+      padding: 0 2.5rem 2.5rem;
+      border-top: 1px solid rgba(184, 154, 90, 0.2);
+    }
+
+    .area-explorer__tier-group {
+      padding: 1.25rem 0;
+      border-bottom: 1px solid rgba(184, 154, 90, 0.12);
+    }
+
+    .area-explorer__tier-group:last-child {
+      border-bottom: none;
+      padding-bottom: 0.5rem;
+    }
+
+    .area-explorer__tier-label {
+      display: flex;
+      align-items: center;
+      gap: 0.6rem;
+      margin-bottom: 0.75rem;
+    }
+
+    .area-explorer__tier-dot {
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+      flex-shrink: 0;
+    }
+
+    .area-explorer__tier-dot--small { background: var(--color-gold); }
+    .area-explorer__tier-dot--medium { background: var(--color-terracotta); }
+    .area-explorer__tier-dot--large { background: var(--color-walnut); }
+
+    .area-explorer__tier-name {
+      font-family: var(--font-label);
+      font-size: 0.55rem;
+      letter-spacing: 0.25em;
+      text-transform: uppercase;
+      color: var(--color-charcoal);
+    }
+
+    .area-explorer__tier-price {
+      font-family: var(--font-label);
+      font-size: 0.5rem;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: rgba(44, 44, 44, 0.45);
+      margin-left: auto;
+    }
+
+    .area-explorer__areas {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 0.2rem 1rem;
+    }
+
+    .area-explorer__areas li {
+      font-family: var(--font-label);
+      font-size: 0.56rem;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: rgba(44, 44, 44, 0.6);
+      padding: 0.35rem 0;
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+
+    .area-explorer__areas li::before {
+      content: '';
+      width: 10px;
+      height: 1px;
+      background: var(--color-terracotta);
+      flex-shrink: 0;
+    }
+
+    .area-explorer__cta {
+      margin-top: 1rem;
+      text-align: center;
+    }
+
+    .area-explorer__cta .btn {
+      width: 100%;
+    }
+
+    /* ============================================================
+       SESSION PROGRESS TIMELINE
+    ============================================================ */
+    .journey-section {
+      padding: 7rem 8% 9rem;
+      background: var(--color-oyster);
+    }
+
+    .journey-section__header {
+      text-align: center;
+      margin-bottom: 3rem;
+    }
+
+    .journey-section__header .eyebrow {
+      justify-content: center;
+    }
+
+    .journey-section__header .section-headline {
+      margin-bottom: 0.75rem;
+    }
+
+    .journey-section__header p {
+      color: rgba(44, 44, 44, 0.6);
+      font-size: 0.95rem;
+    }
+
+    .journey {
+      max-width: 720px;
+      margin: 0 auto;
+      background: var(--color-cream-pure);
+      padding: 3rem;
+      position: relative;
+      overflow: hidden;
+      box-shadow: 0 8px 40px rgba(44, 44, 44, 0.06);
+    }
+
+    .journey__progress {
+      position: relative;
+      height: 3px;
+      background: rgba(184, 154, 90, 0.2);
+      margin-bottom: 2.5rem;
+    }
+
+    .journey__progress-fill {
+      position: absolute;
+      top: 0; left: 0;
+      height: 100%;
+      width: 0%;
+      background: var(--color-terracotta);
+      transition: width 0.6s var(--ease-expo);
+    }
+
+    .journey__markers {
+      position: absolute;
+      top: 50%;
+      left: 0; right: 0;
+      transform: translateY(-50%);
+      display: flex;
+      justify-content: space-between;
+    }
+
+    .journey__marker {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      cursor: pointer;
+      background: none;
+      border: none;
+      padding: 0;
+    }
+
+    .journey__marker-dot {
+      width: 14px;
+      height: 14px;
+      border-radius: 50%;
+      border: 1.5px solid var(--color-gold);
+      background: var(--color-oyster);
+      transition: background 0.4s ease, border-color 0.4s ease, transform 0.3s var(--ease-expo);
+    }
+
+    .journey__marker.active .journey__marker-dot {
+      background: var(--color-terracotta);
+      border-color: var(--color-terracotta);
+      transform: scale(1.25);
+    }
+
+    .journey__marker.completed .journey__marker-dot {
+      background: var(--color-gold);
+      border-color: var(--color-gold);
+    }
+
+    .journey__marker-label {
+      font-family: var(--font-label);
+      font-size: 0.52rem;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: rgba(44, 44, 44, 0.45);
+      margin-top: 12px;
+      white-space: nowrap;
+      transition: color 0.3s;
+    }
+
+    .journey__marker.active .journey__marker-label {
+      color: var(--color-terracotta);
+    }
+
+    .journey__panels {
+      min-height: 220px;
+    }
+
+    .journey__panel {
+      display: none;
+    }
+
+    .journey__panel.active {
+      display: block;
+      animation: journeyFadeIn 0.45s var(--ease-expo);
+    }
+
+    @keyframes journeyFadeIn {
+      from { opacity: 0; transform: translateX(20px); }
+      to   { opacity: 1; transform: translateX(0); }
+    }
+
+    .journey__panel-label {
+      font-family: var(--font-label);
+      font-size: 0.6rem;
+      letter-spacing: 0.3em;
+      text-transform: uppercase;
+      color: var(--color-terracotta);
+      margin-bottom: 0.5rem;
+    }
+
+    .journey__panel-title {
+      font-family: var(--font-display);
+      font-size: 1.6rem;
+      font-weight: 300;
+      color: var(--color-charcoal);
+      margin-bottom: 1rem;
+      line-height: 1.2;
+    }
+
+    .journey__panel-text {
+      font-size: 0.93rem;
+      color: rgba(44, 44, 44, 0.7);
+      line-height: 1.85;
+    }
+
+    .journey__panel-subtitle {
+      font-family: var(--font-label);
+      font-size: 0.58rem;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--color-walnut);
+      margin-bottom: 0.75rem;
+      margin-top: 1.5rem;
+    }
+
+    .journey__panel-dos {
+      margin-top: 0.5rem;
+    }
+
+    .journey__panel-dos li {
+      font-family: var(--font-label);
+      font-size: 0.6rem;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--color-walnut);
+      padding: 0.5rem 0;
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+    }
+
+    .journey__panel-dos li::before {
+      content: '';
+      display: block;
+      width: 16px;
+      height: 1px;
+      background: var(--color-terracotta);
+      flex-shrink: 0;
+    }
+
+    .journey__nav {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-top: 2.5rem;
+      padding-top: 1.5rem;
+      border-top: 1px solid rgba(184, 154, 90, 0.2);
+    }
+
+    .journey__nav-btn {
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      background: none;
+      border: none;
+      cursor: pointer;
+      font-family: var(--font-label);
+      font-size: 0.6rem;
+      letter-spacing: 0.25em;
+      text-transform: uppercase;
+      color: var(--color-gold);
+      transition: color 0.3s;
+      padding: 0.5rem 0;
+    }
+
+    .journey__nav-btn:hover {
+      color: var(--color-terracotta);
+    }
+
+    .journey__nav-btn:disabled {
+      opacity: 0.3;
+      pointer-events: none;
+    }
+
+    .journey__nav-btn svg {
+      width: 16px;
+      height: 16px;
+      stroke: currentColor;
+      fill: none;
+      stroke-width: 1.5;
+    }
+
+    .journey__step-count {
+      font-family: var(--font-label);
+      font-size: 0.55rem;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: rgba(44, 44, 44, 0.4);
+    }
+
+    /* ============================================================
+       AFTERCARE LIST
+    ============================================================ */
+    .aftercare-list {
+      margin: 1rem 0 2rem;
+    }
+
+    .aftercare-list li {
+      font-family: var(--font-label);
+      font-size: 0.6rem;
+      letter-spacing: 0.22em;
+      text-transform: uppercase;
+      color: var(--color-walnut);
+      padding: 0.55rem 0;
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+    }
+
+    .aftercare-list li::before {
+      content: '';
+      display: block;
+      width: 4px;
+      height: 4px;
+      background: var(--color-terracotta);
+      border-radius: 50%;
+      flex-shrink: 0;
+    }
+
+    .aftercare-list--light li {
+      color: rgba(245, 240, 232, 0.85);
+    }
+
+    .aftercare-list--light li::before {
+      background: var(--color-gold);
+    }
+
+    /* ============================================================
+       FAQ ACCORDION
+    ============================================================ */
+    .faq {
+      padding: 9rem 8%;
+      background: var(--color-oyster);
+      display: grid;
+      grid-template-columns: 1fr 1.6fr;
+      gap: 6rem;
+      align-items: start;
+    }
+
+    .faq__left .section-headline {
+      margin-bottom: 1rem;
+    }
+
+    .faq__tagline {
+      font-family: var(--font-display);
+      font-style: italic;
+      font-size: 1.15rem;
+      font-weight: 300;
+      color: var(--color-walnut);
+    }
+
+    .faq__list {
+      display: flex;
+      flex-direction: column;
+    }
+
+    .faq__item {
+      border-bottom: 1px solid rgba(184, 154, 90, 0.3);
+    }
+
+    .faq__question {
+      width: 100%;
+      padding: 1.5rem 0;
+      background: none;
+      border: none;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 2rem;
+      text-align: left;
+    }
+
+    .faq__question-text {
+      font-family: var(--font-body);
+      font-size: 0.97rem;
+      font-weight: 400;
+      color: var(--color-charcoal);
+      line-height: 1.5;
+    }
+
+    .faq__chevron {
+      width: 14px;
+      height: 14px;
+      stroke: var(--color-gold);
+      fill: none;
+      stroke-width: 1.5;
+      flex-shrink: 0;
+      transition: transform 0.4s var(--ease-expo);
+    }
+
+    .faq__item.open .faq__chevron {
+      transform: rotate(180deg);
+    }
+
+    .faq__answer {
+      max-height: 0;
+      overflow: hidden;
+      transition: max-height 0.5s var(--ease-expo), padding 0.5s var(--ease-expo);
+    }
+
+    .faq__item.open .faq__answer {
+      max-height: 300px;
+    }
+
+    .faq__answer-inner {
+      padding-bottom: 1.5rem;
+      font-size: 0.93rem;
+      color: rgba(44, 44, 44, 0.68);
+      line-height: 1.85;
+    }
+
+    /* ============================================================
+       CTA / BOOKING
+    ============================================================ */
+    .cta-section {
+      position: relative;
+      min-height: 55vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      overflow: hidden;
+      text-align: center;
+    }
+
+    .cta__bg {
+      position: absolute;
+      inset: -12%;
+      background: var(--color-walnut);
+      filter: blur(3px) brightness(0.55) saturate(0.85);
+      will-change: transform;
+    }
+
+    .cta__overlay {
+      position: absolute;
+      inset: 0;
+      background: rgba(44, 44, 44, 0.4);
+    }
+
+    .cta__content {
+      position: relative;
+      z-index: 2;
+      color: var(--color-oyster);
+      max-width: 640px;
+      padding: 0 2rem;
+      opacity: 0;
+      transform: translateY(30px);
+      transition: opacity 1s ease, transform 1.1s var(--ease-expo);
+    }
+
+    .cta__content.in-view {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    .cta__content .eyebrow {
+      justify-content: center;
+      color: rgba(245, 240, 232, 0.7);
+    }
+
+    .cta__content .eyebrow::before {
+      background: rgba(245, 240, 232, 0.4);
+    }
+
+    .cta__content h2 {
+      font-family: var(--font-display);
+      font-weight: 300;
+      font-size: clamp(2rem, 4.5vw, 3.5rem);
+      line-height: 1.1;
+      color: var(--color-cream-pure);
+      margin-bottom: 1.25rem;
+    }
+
+    .cta__content p {
+      font-size: 0.95rem;
+      color: rgba(245, 240, 232, 0.72);
+      margin-bottom: 2.5rem;
+      letter-spacing: 0.02em;
+    }
+
+    /* ============================================================
+       FOOTER
+    ============================================================ */
+    .footer {
+      background: var(--color-charcoal);
+      padding: 5rem 8% 2.5rem;
+    }
+
+    .footer__top {
+      display: grid;
+      grid-template-columns: 2fr 1.5fr 1.5fr;
+      gap: 4rem;
+      padding-bottom: 3.5rem;
+      border-bottom: 1px solid rgba(184, 154, 90, 0.2);
+      margin-bottom: 2.5rem;
+    }
+
+    .footer__logo {
+      height: 44px;
+      margin-bottom: 1.25rem;
+      filter: brightness(0) invert(1);
+      opacity: 0.8;
+    }
+
+    .footer__tagline {
+      font-family: var(--font-display);
+      font-style: italic;
+      font-size: 1.05rem;
+      font-weight: 300;
+      color: rgba(245, 240, 232, 0.55);
+      line-height: 1.6;
+      max-width: 280px;
+      margin-bottom: 1.5rem;
+    }
+
+    .footer__social {
+      display: flex;
+      gap: 1.25rem;
+    }
+
+    .footer__social a {
+      font-family: var(--font-label);
+      font-size: 0.58rem;
+      letter-spacing: 0.28em;
+      text-transform: uppercase;
+      color: rgba(245, 240, 232, 0.45);
+      transition: color 0.3s;
+    }
+
+    .footer__social a:hover { color: var(--color-gold); }
+
+    .footer__col-title {
+      font-family: var(--font-label);
+      font-size: 0.6rem;
+      letter-spacing: 0.36em;
+      text-transform: uppercase;
+      color: var(--color-gold);
+      margin-bottom: 1.5rem;
+    }
+
+    .footer__links {
+      display: flex;
+      flex-direction: column;
+      gap: 0.75rem;
+    }
+
+    .footer__links a {
+      font-family: var(--font-body);
+      font-size: 0.88rem;
+      font-weight: 300;
+      color: rgba(245, 240, 232, 0.55);
+      transition: color 0.3s;
+    }
+
+    .footer__links a:hover { color: var(--color-cream-pure); }
+
+    .footer__contact-item {
+      display: flex;
+      flex-direction: column;
+      gap: 0.25rem;
+      margin-bottom: 1rem;
+    }
+
+    .footer__contact-label {
+      font-family: var(--font-label);
+      font-size: 0.58rem;
+      letter-spacing: 0.28em;
+      text-transform: uppercase;
+      color: var(--color-terracotta);
+    }
+
+    .footer__contact-value {
+      font-family: var(--font-body);
+      font-size: 0.88rem;
+      font-weight: 300;
+      color: rgba(245, 240, 232, 0.6);
+    }
+
+    .footer__bottom {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 1rem;
+    }
+
+    .footer__copy {
+      font-family: var(--font-label);
+      font-size: 0.58rem;
+      letter-spacing: 0.22em;
+      text-transform: uppercase;
+      color: rgba(245, 240, 232, 0.3);
+    }
+
+    .footer__legal {
+      display: flex;
+      gap: 2rem;
+    }
+
+    .footer__legal a {
+      font-family: var(--font-label);
+      font-size: 0.58rem;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: rgba(245, 240, 232, 0.3);
+      transition: color 0.3s;
+    }
+
+    .footer__legal a:hover { color: rgba(245, 240, 232, 0.7); }
+
+    /* ============================================================
+       RESPONSIVE
+    ============================================================ */
+    @media (max-width: 1100px) {
+      .lhr-hero {
+        grid-template-columns: 1fr;
+        gap: 3rem;
+        padding: 7rem 6% 5rem;
+      }
+
+      .lhr-hero__images {
+        height: 380px;
+        order: -1;
+      }
+
+      .concerns__grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+
+      .tiers__panel {
+        grid-template-columns: 1fr;
+        gap: 2rem;
+      }
+
+      .tiers__panel-image img,
+      .tiers__panel-image .tiers__image-placeholder {
+        height: 300px;
+      }
+
+      .feature-split {
+        grid-template-columns: 1fr;
+      }
+
+      .feature-split--reverse {
+        direction: ltr;
+      }
+
+      .feature-split__media {
+        min-height: 50vw;
+      }
+
+      .faq {
+        grid-template-columns: 1fr;
+        gap: 3rem;
+        padding: 7rem 6%;
+      }
+
+      .footer__top {
+        grid-template-columns: 1fr 1fr;
+        gap: 3rem;
+      }
+
+      .footer__top > *:first-child {
+        grid-column: span 2;
+      }
+
+      .area-explorer__grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+    }
+
+    @media (max-width: 768px) {
+      .nav__links,
+      .nav__cta {
+        display: none;
+      }
+
+      .nav__hamburger {
+        display: flex;
+      }
+
+      .nav {
+        padding: 1.25rem 5%;
+      }
+
+      .lhr-hero {
+        padding: 6.5rem 5% 4rem;
+      }
+
+      .lhr-hero__images {
+        height: 300px;
+      }
+
+      .lhr-hero__img-main {
+        width: 60%;
+      }
+
+      .lhr-hero__img-accent {
+        width: 50%;
+        right: 0;
+      }
+
+      .lhr-hero__stats {
+        gap: 1.5rem;
+      }
+
+      .lhr-hero__stat-number {
+        font-size: 1.5rem;
+      }
+
+      .concerns {
+        padding: 6rem 5%;
+      }
+
+      .concerns__grid {
+        grid-template-columns: 1fr;
+      }
+
+      .tiers,
+      .journey-section,
+      .faq,
+      .area-explorer {
+        padding-left: 5%;
+        padding-right: 5%;
+      }
+
+      .area-explorer__grid {
+        grid-template-columns: 1fr;
+      }
+
+      .tiers__tab {
+        padding: 0.75rem 1.25rem;
+        font-size: 0.58rem;
+        letter-spacing: 0.2em;
+      }
+
+      .feature-split__content {
+        padding: 3.5rem 5%;
+      }
+
+      .journey {
+        padding: 2rem 1.5rem;
+      }
+
+      .journey__marker-label {
+        font-size: 0.45rem;
+        letter-spacing: 0.15em;
+      }
+
+
+      .footer__top {
+        grid-template-columns: 1fr;
+      }
+
+      .footer__top > *:first-child {
+        grid-column: span 1;
+      }
+
+      .footer {
+        padding: 4rem 5% 2rem;
+      }
+    }
+
+    @media (max-width: 480px) {
+      .lhr-hero__images {
+        height: 240px;
+      }
+
+      .lhr-hero__stats {
+        flex-direction: column;
+        gap: 1rem;
+        align-items: flex-start;
+      }
+
+      .tiers__tabs {
+        flex-wrap: wrap;
+        justify-content: center;
+      }
+
+      .tiers__indicator {
+        display: none;
+      }
+
+      .tiers__tab.active {
+        border-bottom: 2px solid var(--color-terracotta);
+      }
+
+      .journey__marker-label {
+        display: none;
+      }
+
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- Scroll Progress Bar -->
+  <div class="scroll-progress" id="scrollProgress"></div>
+
+  <!-- ============================================================
+       NAVIGATION
+  ============================================================ -->
+  <nav class="nav" id="nav">
+    <a href="index.html" class="nav__logo-link">
+      <img class="nav__logo" src="assets/images/logos/Logo.png" alt="Maxara Aesthetics">
+    </a>
+    <ul class="nav__links">
+      <li><a href="index.html#about">Philosophy</a></li>
+      <li><a href="index.html#services">Services</a></li>
+      <li><a href="index.html#meet">About</a></li>
+      <li><a href="index.html#gallery">Results</a></li>
+    </ul>
+    <a href="https://maxaraaesthetics.glossgenius.com/services?_gl=1*szgjwc*_gcl_au*MTQwNjQwOTgyNi4xNzY5MTA4NjQw*_ga*ODI5Mjk3MzIuMTc2OTEwODY0MA..*_ga_2DF817SLF4*czE3NzUxMzY0ODEkbzE2JGcwJHQxNzc1MTM2NDgxJGo2MCRsMCRoMjA2MTA2ODA5Mw.." target="_blank" class="nav__cta"><span>Book Now</span></a>
+    <button class="nav__hamburger" aria-label="Menu" aria-expanded="false" aria-controls="mobileMenu">
+      <span></span>
+      <span></span>
+      <span></span>
+    </button>
+  </nav>
+
+  <!-- Mobile Menu Panel -->
+  <div class="mobile-menu" id="mobileMenu">
+    <a href="index.html#about">Philosophy</a>
+    <a href="index.html#services">Services</a>
+    <a href="index.html#meet">About</a>
+    <a href="index.html#gallery">Results</a>
+    <a href="https://maxaraaesthetics.glossgenius.com/services?_gl=1*szgjwc*_gcl_au*MTQwNjQwOTgyNi4xNzY5MTA4NjQw*_ga*ODI5Mjk3MzIuMTc2OTEwODY0MA..*_ga_2DF817SLF4*czE3NzUxMzY0ODEkbzE2JGcwJHQxNzc1MTM2NDgxJGo2MCRsMCRoMjA2MTA2ODA5Mw.." target="_blank">Book Now</a>
+  </div>
+
+  <!-- ============================================================
+       HERO
+  ============================================================ -->
+  <section class="lhr-hero" id="lhrHero">
+    <div class="lhr-hero__images">
+      <div class="lhr-hero__img-main img-placeholder">
+        <span class="img-placeholder__label">laser-portrait.jpg</span>
+        <img src="assets/images/laser-hair-removal/laser-portrait.jpg" alt="Laser hair removal treatment at Maxara Aesthetics" onerror="this.classList.add('img-hidden')">
+      </div>
+      <div class="lhr-hero__img-accent img-placeholder">
+        <span class="img-placeholder__label">laser-detail.jpg</span>
+        <img src="assets/images/laser-hair-removal/laser-detail.jpg" alt="Candela GentleYAG laser handpiece" onerror="this.classList.add('img-hidden')">
+      </div>
+    </div>
+    <div class="lhr-hero__content">
+      <p class="eyebrow">Laser Hair Removal</p>
+      <h1 class="lhr-hero__title">Effortless Smoothness,<br><em>Lasting Results</em></h1>
+      <p class="lhr-hero__subtitle">Candela GentleYAG &middot; Griffin, GA</p>
+      <p class="lhr-hero__text">Fast, effective hair reduction with the Candela GentleYAG Pro — safe for all skin tones with built-in cooling for added comfort. Achieve permanent reduction with each session, tailored to your unique skin and hair type.</p>
+      <a href="https://maxaraaesthetics.glossgenius.com/services?_gl=1*szgjwc*_gcl_au*MTQwNjQwOTgyNi4xNzY5MTA4NjQw*_ga*ODI5Mjk3MzIuMTc2OTEwODY0MA..*_ga_2DF817SLF4*czE3NzUxMzY0ODEkbzE2JGcwJHQxNzc1MTM2NDgxJGo2MCRsMCRoMjA2MTA2ODA5Mw.." target="_blank" class="btn btn--light"><span>Book Now</span></a>
+      <div class="lhr-hero__stats">
+        <div class="lhr-hero__stat">
+          <div class="lhr-hero__stat-number">23</div>
+          <div class="lhr-hero__stat-label">Treatment Areas</div>
+        </div>
+        <div class="lhr-hero__stat">
+          <div class="lhr-hero__stat-number">1064nm</div>
+          <div class="lhr-hero__stat-label">Wavelength</div>
+        </div>
+        <div class="lhr-hero__stat">
+          <div class="lhr-hero__stat-number">All</div>
+          <div class="lhr-hero__stat-label">Skin Tones</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================================================
+       MARQUEE — Smooth · Precise · Lasting
+  ============================================================ -->
+  <div class="marquee-strip marquee-strip--dark">
+    <div class="marquee-strip__track" aria-hidden="true">
+      <span>Smooth</span><span class="dot">&nbsp;&nbsp;&middot;&nbsp;&nbsp;</span>
+      <span>Precise</span><span class="dot">&nbsp;&nbsp;&middot;&nbsp;&nbsp;</span>
+      <span>Lasting</span><span class="dot">&nbsp;&nbsp;&middot;&nbsp;&nbsp;</span>
+      <span>Smooth</span><span class="dot">&nbsp;&nbsp;&middot;&nbsp;&nbsp;</span>
+      <span>Precise</span><span class="dot">&nbsp;&nbsp;&middot;&nbsp;&nbsp;</span>
+      <span>Lasting</span><span class="dot">&nbsp;&nbsp;&middot;&nbsp;&nbsp;</span>
+      <span>Smooth</span><span class="dot">&nbsp;&nbsp;&middot;&nbsp;&nbsp;</span>
+      <span>Precise</span><span class="dot">&nbsp;&nbsp;&middot;&nbsp;&nbsp;</span>
+      <span>Lasting</span><span class="dot">&nbsp;&nbsp;&middot;&nbsp;&nbsp;</span>
+      <span>Smooth</span><span class="dot">&nbsp;&nbsp;&middot;&nbsp;&nbsp;</span>
+      <span>Precise</span><span class="dot">&nbsp;&nbsp;&middot;&nbsp;&nbsp;</span>
+      <span>Lasting</span><span class="dot">&nbsp;&nbsp;&middot;&nbsp;&nbsp;</span>
+    </div>
+  </div>
+
+  <!-- ============================================================
+       THE TECHNOLOGY — Feature Split
+  ============================================================ -->
+  <section class="feature-split">
+    <div class="feature-split__media img-placeholder" id="techMedia">
+      <span class="img-placeholder__label">gentleyag-technology.jpg</span>
+      <img src="assets/images/laser-hair-removal/gentleyag-technology.jpg" alt="Candela GentleYAG Pro laser system" onerror="this.classList.add('img-hidden')">
+    </div>
+    <div class="feature-split__content feature-split__content--walnut" id="techContent">
+      <p class="eyebrow" id="techEyebrow">The Technology</p>
+      <h2 class="section-headline">The Candela<br><em>GentleYAG Pro</em></h2>
+      <p>Our Nd:YAG laser operates at a 1064nm wavelength, penetrating deep into the hair follicle where melanin absorbs the light energy and converts it to heat — permanently disrupting the structures responsible for hair growth.</p>
+      <p>What sets the GentleYAG apart is its Dynamic Cooling Device (DCD), which sprays a precise burst of cryogen milliseconds before each laser pulse. This delivers over 50% greater cooling than contact or air methods, ensuring your comfort throughout.</p>
+      <ul class="ingredient-list ingredient-list--light">
+        <li>1064nm Nd:YAG wavelength for deep follicle penetration</li>
+        <li>Safe for all skin tones — Fitzpatrick I through VI</li>
+        <li>Dynamic Cooling Device for superior comfort</li>
+        <li>Targets hair in active growth (anagen) phase</li>
+        <li>FDA-cleared for permanent hair reduction</li>
+      </ul>
+    </div>
+  </section>
+
+  <!-- ============================================================
+       BENEFITS GRID
+  ============================================================ -->
+  <section class="concerns">
+    <div class="concerns__header">
+      <p class="eyebrow" id="benefitsEyebrow">Why Laser</p>
+      <h2 class="section-headline reveal-up">The GentleYAG<br><em>Advantage</em></h2>
+      <p class="reveal-up" style="transition-delay:0.12s;">Advanced technology designed for effective, comfortable hair reduction — no matter your skin tone.</p>
+    </div>
+    <div class="concerns__grid">
+      <div class="concerns__card">
+        <div class="concerns__icon">
+          <svg viewBox="0 0 40 40"><circle cx="20" cy="14" r="6"/><circle cx="12" cy="28" r="5"/><circle cx="28" cy="28" r="5"/><line x1="20" y1="20" x2="12" y2="23"/><line x1="20" y1="20" x2="28" y2="23"/></svg>
+        </div>
+        <h3 class="concerns__title">All Skin Tones</h3>
+        <p class="concerns__desc">The 1064nm wavelength is specifically designed to treat all Fitzpatrick skin types safely and effectively — from very fair to deep complexions.</p>
+      </div>
+      <div class="concerns__card">
+        <div class="concerns__icon">
+          <svg viewBox="0 0 40 40"><path d="M20 6 L20 34"/><path d="M12 14 L20 6 L28 14"/><path d="M10 28 Q20 22 30 28"/></svg>
+        </div>
+        <h3 class="concerns__title">Permanent Reduction</h3>
+        <p class="concerns__desc">Achieve up to 80% hair reduction after a full course of sessions. Remaining hair grows back finer, lighter, and less noticeable.</p>
+      </div>
+      <div class="concerns__card">
+        <div class="concerns__icon">
+          <svg viewBox="0 0 40 40"><path d="M20 8 Q14 20 20 32 Q26 20 20 8Z"/><line x1="14" y1="16" x2="8" y2="12"/><line x1="26" y1="16" x2="32" y2="12"/><line x1="14" y1="24" x2="8" y2="28"/><line x1="26" y1="24" x2="32" y2="28"/></svg>
+        </div>
+        <h3 class="concerns__title">Built-In Cooling</h3>
+        <p class="concerns__desc">The Dynamic Cooling Device sprays a burst of cryogen before each pulse, protecting your skin and keeping you comfortable throughout treatment.</p>
+      </div>
+      <div class="concerns__card">
+        <div class="concerns__icon">
+          <svg viewBox="0 0 40 40"><circle cx="20" cy="20" r="12"/><polyline points="20,12 20,20 26,20"/></svg>
+        </div>
+        <h3 class="concerns__title">Speed &amp; Precision</h3>
+        <p class="concerns__desc">Small areas like the upper lip take as little as 15 minutes. The laser targets hair follicles with pinpoint accuracy, leaving surrounding skin unaffected.</p>
+      </div>
+      <div class="concerns__card">
+        <div class="concerns__icon">
+          <svg viewBox="0 0 40 40"><path d="M8 20 Q8 8 20 8 Q32 8 32 20 Q32 32 20 32 Q8 32 8 20Z"/><polyline points="14,20 18,24 26,16"/></svg>
+        </div>
+        <h3 class="concerns__title">Minimal Downtime</h3>
+        <p class="concerns__desc">Return to your daily activities immediately after treatment. Mild redness typically resolves within hours — no recovery time needed.</p>
+      </div>
+      <div class="concerns__card">
+        <div class="concerns__icon">
+          <svg viewBox="0 0 40 40"><path d="M20 6 L20 10"/><path d="M20 30 L20 34"/><path d="M6 20 L10 20"/><path d="M30 20 L34 20"/><circle cx="20" cy="20" r="8"/><circle cx="20" cy="20" r="3"/></svg>
+        </div>
+        <h3 class="concerns__title">Full Body Coverage</h3>
+        <p class="concerns__desc">From delicate facial areas to full legs and back — 23 treatable zones across three service tiers, with packages available for every area.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================================================
+       TREATMENT TIERS — TABS
+  ============================================================ -->
+  <section class="tiers" id="tiers">
+    <div class="tiers__header">
+      <p class="eyebrow" id="tiersEyebrow">Treatment Tiers</p>
+      <h2 class="section-headline reveal-up">Choose Your<br><em>Treatment Area</em></h2>
+      <p class="reveal-up" style="transition-delay:0.12s;">Three tiers based on treatment size. Packages available for all areas — inquire at booking.</p>
+    </div>
+
+    <div class="tiers__tabs" id="tiersTabs" role="tablist">
+      <button class="tiers__tab active" data-tab="small" role="tab" aria-selected="true">Small Area</button>
+      <button class="tiers__tab" data-tab="medium" role="tab" aria-selected="false">Medium Area</button>
+      <button class="tiers__tab" data-tab="large" role="tab" aria-selected="false">Large Area</button>
+      <div class="tiers__indicator" id="tiersIndicator"></div>
+    </div>
+
+    <div class="tiers__panels" id="tiersPanels">
+      <!-- SMALL AREA -->
+      <div class="tiers__panel active" data-panel="small">
+        <div class="tiers__panel-content">
+          <h3 class="tiers__tier-name">Small Area</h3>
+          <p class="tiers__tier-tagline">Quick, targeted treatments</p>
+          <p class="tiers__tier-desc">Perfect for smaller, precise areas. Each session treats one area from the list below. Most clients need a series of 6&#8211;12 sessions spaced 4&#8211;8 weeks apart for optimal results.</p>
+          <div class="tiers__tier-features tiers__areas-grid">
+            <ul>
+              <li>Underarms</li>
+              <li>Upper Lip</li>
+              <li>Chin</li>
+              <li>Bikini</li>
+              <li>Areolas</li>
+            </ul>
+            <ul>
+              <li>Happy Trail</li>
+              <li>Ears</li>
+              <li>Hairline</li>
+              <li>Glabella</li>
+              <li>Beard Line</li>
+            </ul>
+          </div>
+          <div class="tiers__tier-price">
+            <span class="tiers__price-amount">$75+</span>
+            <span class="tiers__price-duration">15+ minutes &middot; 10 areas</span>
+          </div>
+          <a href="https://maxaraaesthetics.glossgenius.com/services?_gl=1*szgjwc*_gcl_au*MTQwNjQwOTgyNi4xNzY5MTA4NjQw*_ga*ODI5Mjk3MzIuMTc2OTEwODY0MA..*_ga_2DF817SLF4*czE3NzUxMzY0ODEkbzE2JGcwJHQxNzc1MTM2NDgxJGo2MCRsMCRoMjA2MTA2ODA5Mw.." target="_blank" class="btn btn--dark"><span>Book Small Area</span></a>
+        </div>
+        <div class="tiers__panel-image">
+          <div class="tiers__image-placeholder">
+            <span>small-area.jpg</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- MEDIUM AREA -->
+      <div class="tiers__panel" data-panel="medium">
+        <div class="tiers__panel-content">
+          <h3 class="tiers__tier-name">Medium Area</h3>
+          <p class="tiers__tier-tagline">Comprehensive coverage</p>
+          <p class="tiers__tier-desc">Ideal for larger treatment zones. Each session covers one area from the list below. Best results are seen on dark, coarse hair. Very light, gray, or red hair will not respond well.</p>
+          <div class="tiers__tier-features tiers__areas-grid">
+            <ul>
+              <li>Brazilian</li>
+              <li>Manzilian</li>
+              <li>Full Face</li>
+              <li>Half Legs</li>
+              <li>Half Arms</li>
+            </ul>
+            <ul>
+              <li>Half Back</li>
+              <li>Stomach</li>
+              <li>Chest</li>
+              <li>Buttocks</li>
+            </ul>
+          </div>
+          <div class="tiers__tier-price">
+            <span class="tiers__price-amount">$125+</span>
+            <span class="tiers__price-duration">30+ minutes &middot; 9 areas</span>
+          </div>
+          <a href="https://maxaraaesthetics.glossgenius.com/services?_gl=1*szgjwc*_gcl_au*MTQwNjQwOTgyNi4xNzY5MTA4NjQw*_ga*ODI5Mjk3MzIuMTc2OTEwODY0MA..*_ga_2DF817SLF4*czE3NzUxMzY0ODEkbzE2JGcwJHQxNzc1MTM2NDgxJGo2MCRsMCRoMjA2MTA2ODA5Mw.." target="_blank" class="btn btn--dark"><span>Book Medium Area</span></a>
+        </div>
+        <div class="tiers__panel-image">
+          <div class="tiers__image-placeholder">
+            <span>medium-area.jpg</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- LARGE AREA -->
+      <div class="tiers__panel" data-panel="large">
+        <div class="tiers__panel-content">
+          <h3 class="tiers__tier-name">Large Area</h3>
+          <p class="tiers__tier-tagline">Maximum coverage</p>
+          <p class="tiers__tier-desc">For the largest treatment zones. Each session covers one area below. Shave the treatment area 12&#8211;24 hours before your appointment for best results.</p>
+          <ul class="tiers__tier-features">
+            <li>Full Back</li>
+            <li>Chest + Stomach</li>
+            <li>Full Leg</li>
+            <li>Full Arms</li>
+          </ul>
+          <div class="tiers__tier-price">
+            <span class="tiers__price-amount">$250+</span>
+            <span class="tiers__price-duration">45+ minutes &middot; 4 areas</span>
+          </div>
+          <a href="https://maxaraaesthetics.glossgenius.com/services?_gl=1*szgjwc*_gcl_au*MTQwNjQwOTgyNi4xNzY5MTA4NjQw*_ga*ODI5Mjk3MzIuMTc2OTEwODY0MA..*_ga_2DF817SLF4*czE3NzUxMzY0ODEkbzE2JGcwJHQxNzc1MTM2NDgxJGo2MCRsMCRoMjA2MTA2ODA5Mw.." target="_blank" class="btn btn--dark"><span>Book Large Area</span></a>
+        </div>
+        <div class="tiers__panel-image">
+          <div class="tiers__image-placeholder">
+            <span>large-area.jpg</span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <p class="tiers__note">Packages available for all tiers — ask about multi-session bundles at booking</p>
+  </section>
+
+  <!-- ============================================================
+       AREA EXPLORER CARDS
+  ============================================================ -->
+  <section class="area-explorer">
+    <div class="area-explorer__header">
+      <p class="eyebrow" id="explorerEyebrow">Explore</p>
+      <h2 class="section-headline reveal-up">Find Your<br><em>Treatment Area</em></h2>
+      <p class="reveal-up" style="transition-delay:0.12s;">Select a body region to see all treatable areas, tiers, and pricing.</p>
+    </div>
+
+    <div class="area-explorer__grid">
+      <!-- Card 1: Face & Neck -->
+      <div class="area-explorer__card">
+        <button class="area-explorer__trigger" aria-expanded="false">
+          <svg class="area-explorer__icon" viewBox="0 0 48 48"><circle cx="24" cy="16" r="10"/><path d="M20 26 Q24 30 28 26"/><path d="M16 28 C14 34 14 40 14 44"/><path d="M32 28 C34 34 34 40 34 44"/></svg>
+          <h3 class="area-explorer__card-title">Face &amp; Neck</h3>
+          <span class="area-explorer__card-count">7 Treatment Areas</span>
+          <svg class="area-explorer__chevron" viewBox="0 0 24 24"><path d="M6 9l6 6 6-6"/></svg>
+        </button>
+        <div class="area-explorer__body">
+          <div class="area-explorer__body-inner">
+            <div class="area-explorer__tier-group">
+              <div class="area-explorer__tier-label">
+                <span class="area-explorer__tier-dot area-explorer__tier-dot--small"></span>
+                <span class="area-explorer__tier-name">Small Area</span>
+                <span class="area-explorer__tier-price">$75+ / 15+ min</span>
+              </div>
+              <ul class="area-explorer__areas">
+                <li>Glabella</li>
+                <li>Upper Lip</li>
+                <li>Chin</li>
+                <li>Ears</li>
+                <li>Hairline</li>
+                <li>Beard Line</li>
+              </ul>
+            </div>
+            <div class="area-explorer__tier-group">
+              <div class="area-explorer__tier-label">
+                <span class="area-explorer__tier-dot area-explorer__tier-dot--medium"></span>
+                <span class="area-explorer__tier-name">Medium Area</span>
+                <span class="area-explorer__tier-price">$125+ / 30+ min</span>
+              </div>
+              <ul class="area-explorer__areas">
+                <li>Full Face</li>
+              </ul>
+            </div>
+            <div class="area-explorer__cta">
+              <a href="https://maxaraaesthetics.glossgenius.com/services?_gl=1*szgjwc*_gcl_au*MTQwNjQwOTgyNi4xNzY5MTA4NjQw*_ga*ODI5Mjk3MzIuMTc2OTEwODY0MA..*_ga_2DF817SLF4*czE3NzUxMzY0ODEkbzE2JGcwJHQxNzc1MTM2NDgxJGo2MCRsMCRoMjA2MTA2ODA5Mw.." target="_blank" class="btn btn--terracotta"><span>Book Face &amp; Neck</span></a>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Card 2: Torso & Arms -->
+      <div class="area-explorer__card">
+        <button class="area-explorer__trigger" aria-expanded="false">
+          <svg class="area-explorer__icon" viewBox="0 0 48 48"><path d="M16 8 L32 8 L36 16 L40 28 L36 28 L32 20 L32 40 L16 40 L16 20 L12 28 L8 28 L12 16 Z"/></svg>
+          <h3 class="area-explorer__card-title">Torso &amp; Arms</h3>
+          <span class="area-explorer__card-count">13 Treatment Areas</span>
+          <svg class="area-explorer__chevron" viewBox="0 0 24 24"><path d="M6 9l6 6 6-6"/></svg>
+        </button>
+        <div class="area-explorer__body">
+          <div class="area-explorer__body-inner">
+            <div class="area-explorer__tier-group">
+              <div class="area-explorer__tier-label">
+                <span class="area-explorer__tier-dot area-explorer__tier-dot--small"></span>
+                <span class="area-explorer__tier-name">Small Area</span>
+                <span class="area-explorer__tier-price">$75+ / 15+ min</span>
+              </div>
+              <ul class="area-explorer__areas">
+                <li>Underarms</li>
+                <li>Areolas</li>
+                <li>Happy Trail</li>
+                <li>Bikini</li>
+              </ul>
+            </div>
+            <div class="area-explorer__tier-group">
+              <div class="area-explorer__tier-label">
+                <span class="area-explorer__tier-dot area-explorer__tier-dot--medium"></span>
+                <span class="area-explorer__tier-name">Medium Area</span>
+                <span class="area-explorer__tier-price">$125+ / 30+ min</span>
+              </div>
+              <ul class="area-explorer__areas">
+                <li>Chest</li>
+                <li>Stomach</li>
+                <li>Half Arms</li>
+                <li>Half Back</li>
+                <li>Brazilian</li>
+                <li>Manzilian</li>
+                <li>Buttocks</li>
+              </ul>
+            </div>
+            <div class="area-explorer__tier-group">
+              <div class="area-explorer__tier-label">
+                <span class="area-explorer__tier-dot area-explorer__tier-dot--large"></span>
+                <span class="area-explorer__tier-name">Large Area</span>
+                <span class="area-explorer__tier-price">$250+ / 45+ min</span>
+              </div>
+              <ul class="area-explorer__areas">
+                <li>Chest + Stomach</li>
+                <li>Full Back</li>
+                <li>Full Arms</li>
+              </ul>
+            </div>
+            <div class="area-explorer__cta">
+              <a href="https://maxaraaesthetics.glossgenius.com/services?_gl=1*szgjwc*_gcl_au*MTQwNjQwOTgyNi4xNzY5MTA4NjQw*_ga*ODI5Mjk3MzIuMTc2OTEwODY0MA..*_ga_2DF817SLF4*czE3NzUxMzY0ODEkbzE2JGcwJHQxNzc1MTM2NDgxJGo2MCRsMCRoMjA2MTA2ODA5Mw.." target="_blank" class="btn btn--terracotta"><span>Book Torso &amp; Arms</span></a>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Card 3: Lower Body -->
+      <div class="area-explorer__card">
+        <button class="area-explorer__trigger" aria-expanded="false">
+          <svg class="area-explorer__icon" viewBox="0 0 48 48"><path d="M16 4 L32 4 L34 16 L30 16 L30 26 L34 40 L36 46 L30 46 L26 32 L24 26 L22 32 L18 46 L12 46 L14 40 L18 26 L18 16 L14 16 Z"/></svg>
+          <h3 class="area-explorer__card-title">Lower Body</h3>
+          <span class="area-explorer__card-count">3 Treatment Areas</span>
+          <svg class="area-explorer__chevron" viewBox="0 0 24 24"><path d="M6 9l6 6 6-6"/></svg>
+        </button>
+        <div class="area-explorer__body">
+          <div class="area-explorer__body-inner">
+            <div class="area-explorer__tier-group">
+              <div class="area-explorer__tier-label">
+                <span class="area-explorer__tier-dot area-explorer__tier-dot--medium"></span>
+                <span class="area-explorer__tier-name">Medium Area</span>
+                <span class="area-explorer__tier-price">$125+ / 30+ min</span>
+              </div>
+              <ul class="area-explorer__areas">
+                <li>Half Legs</li>
+              </ul>
+            </div>
+            <div class="area-explorer__tier-group">
+              <div class="area-explorer__tier-label">
+                <span class="area-explorer__tier-dot area-explorer__tier-dot--large"></span>
+                <span class="area-explorer__tier-name">Large Area</span>
+                <span class="area-explorer__tier-price">$250+ / 45+ min</span>
+              </div>
+              <ul class="area-explorer__areas">
+                <li>Full Leg</li>
+              </ul>
+            </div>
+            <div class="area-explorer__cta">
+              <a href="https://maxaraaesthetics.glossgenius.com/services?_gl=1*szgjwc*_gcl_au*MTQwNjQwOTgyNi4xNzY5MTA4NjQw*_ga*ODI5Mjk3MzIuMTc2OTEwODY0MA..*_ga_2DF817SLF4*czE3NzUxMzY0ODEkbzE2JGcwJHQxNzc1MTM2NDgxJGo2MCRsMCRoMjA2MTA2ODA5Mw.." target="_blank" class="btn btn--terracotta"><span>Book Lower Body</span></a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================================================
+       SESSION PROGRESS TIMELINE
+  ============================================================ -->
+  <section class="journey-section">
+    <div class="journey-section__header">
+      <p class="eyebrow" id="journeyEyebrow">Your Journey</p>
+      <h2 class="section-headline reveal-up">The Path to<br><em>Lasting Smoothness</em></h2>
+      <p class="reveal-up" style="transition-delay:0.12s;">Most clients need 6&#8211;12 sessions spaced 4&#8211;8 weeks apart. Here's what to expect along the way.</p>
+    </div>
+
+    <div class="journey" id="journeyWidget" tabindex="0" role="region" aria-label="Session progress timeline">
+      <div class="journey__progress">
+        <div class="journey__progress-fill" id="journeyFill"></div>
+        <div class="journey__markers">
+          <button class="journey__marker active" data-step="0" aria-label="Sessions 1-2">
+            <span class="journey__marker-dot"></span>
+            <span class="journey__marker-label">Sessions 1-2</span>
+          </button>
+          <button class="journey__marker" data-step="1" aria-label="Sessions 3-4">
+            <span class="journey__marker-dot"></span>
+            <span class="journey__marker-label">Sessions 3-4</span>
+          </button>
+          <button class="journey__marker" data-step="2" aria-label="Sessions 5-6">
+            <span class="journey__marker-dot"></span>
+            <span class="journey__marker-label">Sessions 5-6</span>
+          </button>
+          <button class="journey__marker" data-step="3" aria-label="Sessions 7-9">
+            <span class="journey__marker-dot"></span>
+            <span class="journey__marker-label">Sessions 7-9</span>
+          </button>
+          <button class="journey__marker" data-step="4" aria-label="Sessions 10-12">
+            <span class="journey__marker-dot"></span>
+            <span class="journey__marker-label">Sessions 10-12</span>
+          </button>
+        </div>
+      </div>
+
+      <div class="journey__panels">
+        <div class="journey__panel active" data-step="0">
+          <p class="journey__panel-label">Sessions 1&#8211;2</p>
+          <h3 class="journey__panel-title">Getting Started</h3>
+          <p class="journey__panel-text">Your initial treatments target visible hair currently in the active growth (anagen) phase. The laser delivers precise energy to each follicle while the cooling device keeps you comfortable. Expect mild redness that typically resolves within a few hours.</p>
+          <p class="journey__panel-subtitle">What to expect</p>
+          <ul class="journey__panel-dos">
+            <li>Hair sheds naturally 5&#8211;14 days after treatment</li>
+            <li>Some areas may appear unchanged between sessions — that's normal</li>
+            <li>Mild warmth or redness resolves within hours</li>
+          </ul>
+        </div>
+
+        <div class="journey__panel" data-step="1">
+          <p class="journey__panel-label">Sessions 3&#8211;4</p>
+          <h3 class="journey__panel-title">Building Momentum</h3>
+          <p class="journey__panel-text">As more hair cycles into the growth phase, each session captures follicles that were dormant during earlier treatments. You'll begin to notice visibly thinner regrowth and longer periods of smoothness between appointments.</p>
+          <p class="journey__panel-subtitle">What to expect</p>
+          <ul class="journey__panel-dos">
+            <li>Noticeable thinning and slower regrowth</li>
+            <li>Hair comes back finer and lighter</li>
+            <li>Smooth patches appear between sessions</li>
+          </ul>
+        </div>
+
+        <div class="journey__panel" data-step="2">
+          <p class="journey__panel-label">Sessions 5&#8211;6</p>
+          <h3 class="journey__panel-title">Significant Reduction</h3>
+          <p class="journey__panel-text">By now, a substantial percentage of hair follicles have been permanently disrupted. Many clients find that large portions of the treated area remain smooth between sessions, with only scattered regrowth remaining.</p>
+          <p class="journey__panel-subtitle">What to expect</p>
+          <ul class="journey__panel-dos">
+            <li>50&#8211;70% reduction in most areas</li>
+            <li>Extended smoothness between appointments</li>
+            <li>Remaining hair is much finer</li>
+          </ul>
+        </div>
+
+        <div class="journey__panel" data-step="3">
+          <p class="journey__panel-label">Sessions 7&#8211;9</p>
+          <h3 class="journey__panel-title">Fine-Tuning</h3>
+          <p class="journey__panel-text">These sessions target the most stubborn remaining follicles — those with longer dormant cycles. Your provider may adjust spacing between sessions as the remaining hair becomes more sparse and fine.</p>
+          <p class="journey__panel-subtitle">What to expect</p>
+          <ul class="journey__panel-dos">
+            <li>Targeting last remaining stubborn follicles</li>
+            <li>Sessions may be spaced further apart</li>
+            <li>Near-complete smoothness in many areas</li>
+          </ul>
+        </div>
+
+        <div class="journey__panel" data-step="4">
+          <p class="journey__panel-label">Sessions 10&#8211;12</p>
+          <h3 class="journey__panel-title">Lasting Smoothness</h3>
+          <p class="journey__panel-text">Final treatments maximize your reduction and address any remaining active follicles. After completing your course, most clients transition to occasional maintenance sessions every 6&#8211;12 months to keep results flawless.</p>
+          <p class="journey__panel-subtitle">What to expect</p>
+          <ul class="journey__panel-dos">
+            <li>Up to 80% permanent hair reduction</li>
+            <li>Transition to maintenance as needed</li>
+            <li>Maintenance sessions every 6&#8211;12 months</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="journey__nav">
+        <button class="journey__nav-btn" id="journeyPrev" disabled>
+          <svg viewBox="0 0 24 24"><path d="M19 12H5M5 12l6-6M5 12l6 6"/></svg>
+          Previous
+        </button>
+        <span class="journey__step-count" id="journeyCount">1 / 5</span>
+        <button class="journey__nav-btn" id="journeyNext">
+          Next
+          <svg viewBox="0 0 24 24"><path d="M5 12h14M19 12l-6-6M19 12l-6 6"/></svg>
+        </button>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================================================
+       PRE-CARE — Feature Split (Reversed)
+  ============================================================ -->
+  <section class="feature-split feature-split--reverse">
+    <div class="feature-split__media img-placeholder" id="precareMedia">
+      <span class="img-placeholder__label">pre-care.jpg</span>
+      <img src="assets/images/laser-hair-removal/pre-care.jpg" alt="Preparing for laser hair removal" onerror="this.classList.add('img-hidden')">
+    </div>
+    <div class="feature-split__content feature-split__content--oyster" id="precareContent">
+      <p class="eyebrow" id="precareEyebrow">Before Your Session</p>
+      <h2 class="section-headline">Pre-Care<br><em>Essentials</em></h2>
+      <p>Proper preparation ensures the best results and the most comfortable experience. Follow these guidelines before every session.</p>
+      <ul class="aftercare-list">
+        <li>Shave the treatment area 12&#8211;24 hours before your appointment</li>
+        <li>Stop waxing, plucking, or threading 4&#8211;6 weeks prior</li>
+        <li>Avoid sun exposure and self-tanners for 2&#8211;4 weeks</li>
+        <li>Pause retinoids and exfoliating acids 3&#8211;5 days before</li>
+        <li>Arrive with clean skin — no lotions, deodorant, or makeup on the area</li>
+        <li>Share any medications or skincare products at booking</li>
+      </ul>
+    </div>
+  </section>
+
+  <!-- ============================================================
+       AFTERCARE — Feature Split
+  ============================================================ -->
+  <section class="feature-split">
+    <div class="feature-split__media img-placeholder" id="aftercareMedia">
+      <span class="img-placeholder__label">aftercare.jpg</span>
+      <img src="assets/images/laser-hair-removal/aftercare.jpg" alt="Post-treatment skincare" onerror="this.classList.add('img-hidden')">
+    </div>
+    <div class="feature-split__content feature-split__content--walnut" id="aftercareContent">
+      <p class="eyebrow" id="aftercareEyebrow">After Your Session</p>
+      <h2 class="section-headline">Aftercare<br><em>Essentials</em></h2>
+      <p>Your skin will be slightly sensitive after treatment. These simple steps protect your results and keep your skin calm.</p>
+      <ul class="aftercare-list aftercare-list--light">
+        <li>Mild redness or warmth is normal — resolves within 24 hours</li>
+        <li>Avoid hot showers, saunas, and workouts for 24 hours</li>
+        <li>Apply SPF 30+ to treated areas daily</li>
+        <li>No waxing or plucking between sessions — shaving only</li>
+        <li>Gentle exfoliation after 5&#8211;7 days helps natural shedding</li>
+        <li>No treatment over tattoos or irritated/sunburned skin</li>
+      </ul>
+    </div>
+  </section>
+
+  <!-- ============================================================
+       PACKAGES MARQUEE
+  ============================================================ -->
+  <div class="marquee-strip marquee-strip--lg">
+    <div class="marquee-strip__track" aria-hidden="true">
+      <span>Packages Available</span><span class="dot">&nbsp;&nbsp;&middot;&nbsp;&nbsp;</span>
+      <span>All Tiers</span><span class="dot">&nbsp;&nbsp;&middot;&nbsp;&nbsp;</span>
+      <span>Ask at Booking</span><span class="dot">&nbsp;&nbsp;&middot;&nbsp;&nbsp;</span>
+      <span>Packages Available</span><span class="dot">&nbsp;&nbsp;&middot;&nbsp;&nbsp;</span>
+      <span>All Tiers</span><span class="dot">&nbsp;&nbsp;&middot;&nbsp;&nbsp;</span>
+      <span>Ask at Booking</span><span class="dot">&nbsp;&nbsp;&middot;&nbsp;&nbsp;</span>
+      <span>Packages Available</span><span class="dot">&nbsp;&nbsp;&middot;&nbsp;&nbsp;</span>
+      <span>All Tiers</span><span class="dot">&nbsp;&nbsp;&middot;&nbsp;&nbsp;</span>
+      <span>Ask at Booking</span><span class="dot">&nbsp;&nbsp;&middot;&nbsp;&nbsp;</span>
+      <span>Packages Available</span><span class="dot">&nbsp;&nbsp;&middot;&nbsp;&nbsp;</span>
+      <span>All Tiers</span><span class="dot">&nbsp;&nbsp;&middot;&nbsp;&nbsp;</span>
+      <span>Ask at Booking</span><span class="dot">&nbsp;&nbsp;&middot;&nbsp;&nbsp;</span>
+    </div>
+  </div>
+
+  <!-- ============================================================
+       FAQ ACCORDION
+  ============================================================ -->
+  <section class="faq">
+    <div class="faq__left">
+      <p class="eyebrow" id="faqEyebrow">FAQ</p>
+      <h2 class="section-headline">Common<br><em>Questions</em></h2>
+      <p class="faq__tagline">Everything you need to know before your first session.</p>
+    </div>
+    <div class="faq__list">
+      <div class="faq__item">
+        <button class="faq__question" aria-expanded="false">
+          <span class="faq__question-text">How does laser hair removal work?</span>
+          <svg class="faq__chevron" viewBox="0 0 24 24"><path d="M6 9l6 6 6-6"/></svg>
+        </button>
+        <div class="faq__answer">
+          <div class="faq__answer-inner">The Candela GentleYAG uses a 1064nm Nd:YAG laser to target melanin (pigment) in the hair follicle. The light energy converts to heat, permanently disrupting the growth cells at the root. A Dynamic Cooling Device sprays cryogen on the skin milliseconds before each pulse, protecting the surface while the laser works beneath it.</div>
+        </div>
+      </div>
+
+      <div class="faq__item">
+        <button class="faq__question" aria-expanded="false">
+          <span class="faq__question-text">Is it safe for darker skin tones?</span>
+          <svg class="faq__chevron" viewBox="0 0 24 24"><path d="M6 9l6 6 6-6"/></svg>
+        </button>
+        <div class="faq__answer">
+          <div class="faq__answer-inner">Yes. The 1064nm wavelength was specifically chosen because it bypasses the melanin in the epidermis (skin surface) and targets the deeper melanin in the hair follicle. This makes it safe and effective for all Fitzpatrick skin types, including darker complexions that are at higher risk with other laser types.</div>
+        </div>
+      </div>
+
+      <div class="faq__item">
+        <button class="faq__question" aria-expanded="false">
+          <span class="faq__question-text">How many sessions will I need?</span>
+          <svg class="faq__chevron" viewBox="0 0 24 24"><path d="M6 9l6 6 6-6"/></svg>
+        </button>
+        <div class="faq__answer">
+          <div class="faq__answer-inner">Most clients need 6 to 12 sessions, spaced 4 to 8 weeks apart, depending on the treatment area and hair type. Hair grows in cycles, and the laser can only target follicles in the active growth phase. Hormonal areas like the face, underarms, and bikini may require sessions toward the higher end of the range. After completing the initial course, occasional maintenance sessions keep results smooth.</div>
+        </div>
+      </div>
+
+      <div class="faq__item">
+        <button class="faq__question" aria-expanded="false">
+          <span class="faq__question-text">Does it hurt?</span>
+          <svg class="faq__chevron" viewBox="0 0 24 24"><path d="M6 9l6 6 6-6"/></svg>
+        </button>
+        <div class="faq__answer">
+          <div class="faq__answer-inner">Most clients describe the sensation as a mild snap or warm tingle — well tolerated by most. The GentleYAG's Dynamic Cooling Device sprays a burst of cryogen before each pulse, significantly reducing discomfort. Sensitivity varies by area, with finer-skinned zones (like the bikini line) feeling more intense than larger areas like the legs or back.</div>
+        </div>
+      </div>
+
+      <div class="faq__item">
+        <button class="faq__question" aria-expanded="false">
+          <span class="faq__question-text">What results can I expect?</span>
+          <svg class="faq__chevron" viewBox="0 0 24 24"><path d="M6 9l6 6 6-6"/></svg>
+        </button>
+        <div class="faq__answer">
+          <div class="faq__answer-inner">After a full course of treatments, most clients achieve up to 80% permanent hair reduction. You can expect 10 to 25% reduction after the very first session. Any remaining hair that does grow back is typically finer, lighter, and far less noticeable. Results are best on dark, coarse hair against lighter skin, but the GentleYAG delivers meaningful results across all skin tones.</div>
+        </div>
+      </div>
+
+      <div class="faq__item">
+        <button class="faq__question" aria-expanded="false">
+          <span class="faq__question-text">Who is not a good candidate?</span>
+          <svg class="faq__chevron" viewBox="0 0 24 24"><path d="M6 9l6 6 6-6"/></svg>
+        </button>
+        <div class="faq__answer">
+          <div class="faq__answer-inner">Very light blonde, gray, white, or red hair does not respond well to laser treatment because the laser targets melanin (pigment) in the hair. Treatment cannot be performed over tattoos, sunburned skin, or actively irritated areas. Please share any skincare products (especially retinoids) or medications at booking so we can guide you safely.</div>
+        </div>
+      </div>
+
+      <div class="faq__item">
+        <button class="faq__question" aria-expanded="false">
+          <span class="faq__question-text">Can I shave between sessions?</span>
+          <svg class="faq__chevron" viewBox="0 0 24 24"><path d="M6 9l6 6 6-6"/></svg>
+        </button>
+        <div class="faq__answer">
+          <div class="faq__answer-inner">Yes — shaving is fine and actually encouraged. Shave the treatment area 12 to 24 hours before each appointment. What you must avoid between sessions is waxing, plucking, or threading, because these methods remove the hair follicle that the laser needs to target. Shaving cuts hair at the surface only, leaving the follicle intact for your next session.</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================================================
+       CTA / BOOKING
+  ============================================================ -->
+  <section class="cta-section" id="booking">
+    <div class="cta__bg" id="ctaBg"></div>
+    <div class="cta__overlay"></div>
+    <div class="cta__content" id="ctaContent">
+      <p class="eyebrow">Ready?</p>
+      <h2>Your Smoothest Skin<br><em>Awaits</em></h2>
+      <p>Book your laser hair removal consultation and discover the treatment plan tailored to your skin, your goals, and your schedule.</p>
+      <a href="https://maxaraaesthetics.glossgenius.com/services?_gl=1*szgjwc*_gcl_au*MTQwNjQwOTgyNi4xNzY5MTA4NjQw*_ga*ODI5Mjk3MzIuMTc2OTEwODY0MA..*_ga_2DF817SLF4*czE3NzUxMzY0ODEkbzE2JGcwJHQxNzc1MTM2NDgxJGo2MCRsMCRoMjA2MTA2ODA5Mw.." target="_blank" class="btn btn--light"><span>Book Now</span></a>
+    </div>
+  </section>
+
+  <!-- ============================================================
+       FOOTER
+  ============================================================ -->
+  <footer class="footer">
+    <div class="footer__top">
+      <div>
+        <img class="footer__logo" src="assets/images/logos/Logo.png" alt="Maxara Aesthetics">
+        <p class="footer__tagline">"Elevated aesthetics rooted in the art of listening to your skin."</p>
+        <div class="footer__social">
+          <a href="#">Instagram</a>
+          <a href="#">TikTok</a>
+          <a href="#">Pinterest</a>
+        </div>
+      </div>
+      <div>
+        <p class="footer__col-title">Navigate</p>
+        <ul class="footer__links">
+          <li><a href="index.html#about">Our Philosophy</a></li>
+          <li><a href="index.html#services">Services</a></li>
+          <li><a href="index.html#meet">Meet Amanda</a></li>
+          <li><a href="index.html#gallery">Results</a></li>
+          <li><a href="#booking">Book an Appointment</a></li>
+        </ul>
+      </div>
+      <div>
+        <p class="footer__col-title">Contact</p>
+        <div class="footer__contact-item">
+          <span class="footer__contact-label">Location</span>
+          <span class="footer__contact-value">504 S 8th St<br>Griffin, GA 30224</span>
+        </div>
+        <div class="footer__contact-item">
+          <span class="footer__contact-label">Hours</span>
+          <span class="footer__contact-value">Monday - Friday<br>9:00 AM - 5:00 PM</span>
+        </div>
+        <div class="footer__contact-item">
+          <span class="footer__contact-label">Inquiries</span>
+          <span class="footer__contact-value">info@maxaraaesthetics.com</span>
+        </div>
+      </div>
+    </div>
+    <div class="footer__bottom">
+      <p class="footer__copy">&copy; 2025 Maxara Aesthetics. All rights reserved.</p>
+      <div class="footer__legal">
+        <a href="#">Privacy Policy</a>
+        <a href="#">Terms of Service</a>
+      </div>
+    </div>
+  </footer>
+
+  <!-- ============================================================
+       JAVASCRIPT
+  ============================================================ -->
+  <script>
+    // ================================================================
+    // 1. SCROLL PROGRESS BAR
+    // ================================================================
+    (function initScrollProgress() {
+      const bar = document.getElementById('scrollProgress');
+      window.addEventListener('scroll', () => {
+        const max = document.body.scrollHeight - window.innerHeight;
+        bar.style.transform = `scaleX(${window.scrollY / max})`;
+      }, { passive: true });
+    })();
+
+    // ================================================================
+    // 2. NAVIGATION — Smart Hide
+    // ================================================================
+    (function initNav() {
+      const nav = document.getElementById('nav');
+      let lastScrollY = 0;
+      let ticking = false;
+
+      window.addEventListener('scroll', () => {
+        if (!ticking) {
+          requestAnimationFrame(() => {
+            const scrollY = window.scrollY;
+            if (scrollY > lastScrollY && scrollY > 400) {
+              nav.classList.add('hidden');
+            } else {
+              nav.classList.remove('hidden');
+            }
+            lastScrollY = scrollY;
+            ticking = false;
+          });
+          ticking = true;
+        }
+      });
+    })();
+
+    // ================================================================
+    // 3. MOBILE MENU TOGGLE
+    // ================================================================
+    (function initMobileMenu() {
+      const hamburger = document.querySelector('.nav__hamburger');
+      const mobileMenu = document.getElementById('mobileMenu');
+      if (!hamburger || !mobileMenu) return;
+
+      hamburger.addEventListener('click', () => {
+        const isOpen = mobileMenu.classList.toggle('open');
+        hamburger.classList.toggle('open');
+        hamburger.setAttribute('aria-expanded', isOpen);
+        document.body.style.overflow = isOpen ? 'hidden' : '';
+      });
+
+      mobileMenu.querySelectorAll('a').forEach(link => {
+        link.addEventListener('click', () => {
+          mobileMenu.classList.remove('open');
+          hamburger.classList.remove('open');
+          hamburger.setAttribute('aria-expanded', 'false');
+          document.body.style.overflow = '';
+        });
+      });
+    })();
+
+    // ================================================================
+    // 4. PARALLAX — CTA Background
+    // ================================================================
+    (function initParallax() {
+      const ctaBg = document.getElementById('ctaBg');
+      let ticking = false;
+
+      window.addEventListener('scroll', () => {
+        if (!ticking) {
+          requestAnimationFrame(() => {
+            if (ctaBg) {
+              const rect = ctaBg.closest('.cta-section').getBoundingClientRect();
+              ctaBg.style.transform = `translateY(${-rect.top * 0.22}px)`;
+            }
+            ticking = false;
+          });
+          ticking = true;
+        }
+      }, { passive: true });
+    })();
+
+    // ================================================================
+    // 5. INTERSECTION OBSERVER — Scroll-Triggered Animations
+    // ================================================================
+    (function initScrollAnimations() {
+      document.querySelectorAll('.concerns__card').forEach((el, i) => {
+        el.style.transitionDelay = `${i * 0.08}s`;
+      });
+
+      document.querySelectorAll('.faq__item').forEach((el, i) => {
+        el.style.transitionDelay = `${i * 0.07}s`;
+      });
+
+      const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add('in-view');
+            observer.unobserve(entry.target);
+          }
+        });
+      }, {
+        threshold: 0.12,
+        rootMargin: '0px 0px -40px 0px'
+      });
+
+      const selectors = [
+        '#lhrHero',
+        '#techMedia', '#techContent', '#techEyebrow',
+        '#precareMedia', '#precareContent', '#precareEyebrow',
+        '#aftercareMedia', '#aftercareContent', '#aftercareEyebrow',
+        '.concerns__card',
+        '#tiersEyebrow',
+        '#benefitsEyebrow',
+        '#explorerEyebrow',
+        '#journeyEyebrow',
+        '#faqEyebrow',
+        '#ctaContent',
+        '.reveal-up',
+        '.eyebrow'
+      ];
+
+      document.querySelectorAll(selectors.join(', ')).forEach(el => {
+        observer.observe(el);
+      });
+    })();
+
+    // ================================================================
+    // 6. TREATMENT TIER TABS
+    // ================================================================
+    (function initTabs() {
+      const tabsContainer = document.getElementById('tiersTabs');
+      const panels = document.getElementById('tiersPanels');
+      const indicator = document.getElementById('tiersIndicator');
+      const tabs = tabsContainer.querySelectorAll('.tiers__tab');
+
+      function moveIndicator(tab) {
+        indicator.style.left = tab.offsetLeft + 'px';
+        indicator.style.width = tab.offsetWidth + 'px';
+      }
+
+      function activateTab(tabEl) {
+        const target = tabEl.getAttribute('data-tab');
+
+        tabs.forEach(t => {
+          t.classList.remove('active');
+          t.setAttribute('aria-selected', 'false');
+        });
+        tabEl.classList.add('active');
+        tabEl.setAttribute('aria-selected', 'true');
+
+        panels.querySelectorAll('.tiers__panel').forEach(p => {
+          p.classList.remove('active');
+        });
+        panels.querySelector(`[data-panel="${target}"]`).classList.add('active');
+
+        moveIndicator(tabEl);
+      }
+
+      tabs.forEach(tab => {
+        tab.addEventListener('click', () => activateTab(tab));
+      });
+
+      tabsContainer.addEventListener('keydown', (e) => {
+        const tabArray = Array.from(tabs);
+        const currentIndex = tabArray.indexOf(document.activeElement);
+        let newIndex;
+
+        if (e.key === 'ArrowRight') {
+          newIndex = (currentIndex + 1) % tabArray.length;
+        } else if (e.key === 'ArrowLeft') {
+          newIndex = (currentIndex - 1 + tabArray.length) % tabArray.length;
+        } else {
+          return;
+        }
+
+        e.preventDefault();
+        tabArray[newIndex].focus();
+        activateTab(tabArray[newIndex]);
+      });
+
+      const activeTab = tabsContainer.querySelector('.tiers__tab.active');
+      if (activeTab) {
+        moveIndicator(activeTab);
+        window.addEventListener('resize', () => moveIndicator(tabsContainer.querySelector('.tiers__tab.active')));
+      }
+    })();
+
+    // ================================================================
+    // 7. SESSION PROGRESS TIMELINE
+    // ================================================================
+    (function initJourney() {
+      const markers = document.querySelectorAll('.journey__marker');
+      const panels = document.querySelectorAll('.journey__panel');
+      const fill = document.getElementById('journeyFill');
+      const prevBtn = document.getElementById('journeyPrev');
+      const nextBtn = document.getElementById('journeyNext');
+      const counter = document.getElementById('journeyCount');
+      const total = panels.length;
+      let current = 0;
+
+      let touchStartX = 0;
+      const widget = document.getElementById('journeyWidget');
+
+      function goToStep(index) {
+        current = Math.max(0, Math.min(total - 1, index));
+
+        markers.forEach((m, i) => {
+          m.classList.remove('active', 'completed');
+          if (i < current) m.classList.add('completed');
+          if (i === current) m.classList.add('active');
+        });
+
+        panels.forEach(p => p.classList.remove('active'));
+        panels[current].classList.add('active');
+
+        const progress = total > 1 ? (current / (total - 1)) * 100 : 0;
+        fill.style.width = progress + '%';
+
+        prevBtn.disabled = current === 0;
+        nextBtn.disabled = current === total - 1;
+
+        counter.textContent = `${current + 1} / ${total}`;
+      }
+
+      markers.forEach(marker => {
+        marker.addEventListener('click', () => {
+          goToStep(parseInt(marker.getAttribute('data-step'), 10));
+        });
+      });
+
+      prevBtn.addEventListener('click', () => goToStep(current - 1));
+      nextBtn.addEventListener('click', () => goToStep(current + 1));
+
+      widget.addEventListener('touchstart', (e) => {
+        touchStartX = e.changedTouches[0].clientX;
+      }, { passive: true });
+
+      widget.addEventListener('touchend', (e) => {
+        const dx = e.changedTouches[0].clientX - touchStartX;
+        if (Math.abs(dx) > 50) {
+          if (dx < 0) goToStep(current + 1);
+          else goToStep(current - 1);
+        }
+      }, { passive: true });
+
+      widget.addEventListener('keydown', (e) => {
+        if (e.key === 'ArrowRight') goToStep(current + 1);
+        else if (e.key === 'ArrowLeft') goToStep(current - 1);
+      });
+
+      goToStep(0);
+    })();
+
+    // ================================================================
+    // 8. FAQ ACCORDION
+    // ================================================================
+    (function initFaq() {
+      const items = document.querySelectorAll('.faq__item');
+
+      items.forEach(item => {
+        const btn = item.querySelector('.faq__question');
+
+        btn.addEventListener('click', () => {
+          const isOpen = item.classList.contains('open');
+
+          items.forEach(i => {
+            i.classList.remove('open');
+            i.querySelector('.faq__question').setAttribute('aria-expanded', 'false');
+          });
+
+          if (!isOpen) {
+            item.classList.add('open');
+            btn.setAttribute('aria-expanded', 'true');
+          }
+        });
+      });
+    })();
+
+    // ================================================================
+    // 9. AREA EXPLORER CARDS
+    // ================================================================
+    (function initAreaExplorer() {
+      const cards = document.querySelectorAll('.area-explorer__card');
+
+      cards.forEach(card => {
+        const trigger = card.querySelector('.area-explorer__trigger');
+
+        trigger.addEventListener('click', () => {
+          const isOpen = card.classList.contains('open');
+
+          // Close all cards
+          cards.forEach(c => {
+            c.classList.remove('open');
+            c.querySelector('.area-explorer__trigger').setAttribute('aria-expanded', 'false');
+          });
+
+          // Open clicked (if it was closed)
+          if (!isOpen) {
+            card.classList.add('open');
+            trigger.setAttribute('aria-expanded', 'true');
+          }
+        });
+      });
+    })();
+  </script>
+</body>
+</html>
