@@ -1,0 +1,2487 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Waxing Services — Maxara Aesthetics</title>
+  <meta name="description" content="Professional waxing services in Griffin, GA. Face, body, and intimate waxing using premium hard and soft waxes formulated for sensitive skin at Maxara Aesthetics.">
+  <meta property="og:title" content="Waxing Services — Maxara Aesthetics">
+  <meta property="og:description" content="Smooth, precise, and gentle hair removal. Premium waxes for sensitive skin — from brows and face to full body.">
+  <meta property="og:type" content="website">
+  <meta name="twitter:card" content="summary_large_image">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400;1,600&family=Josefin+Sans:wght@100;300;400&family=Lato:wght@300;400&display=swap" rel="stylesheet">
+
+  <style>
+    /* ============================================================
+       CSS CUSTOM PROPERTIES
+    ============================================================ */
+    :root {
+      --color-oyster:      #F5F0E8;
+      --color-oyster-dark: #EDE6D6;
+      --color-charcoal:    #2C2C2C;
+      --color-walnut:      #5C3D2E;
+      --color-terracotta:  #C4673A;
+      --color-gold:        #B89A5A;
+      --color-cream-pure:  #FAF7F2;
+      --color-mist:        rgba(245, 240, 232, 0.92);
+
+      --font-display: 'Cormorant Garamond', Georgia, serif;
+      --font-label:   'Josefin Sans', sans-serif;
+      --font-body:    'Lato', system-ui, sans-serif;
+
+      --ease-expo:    cubic-bezier(0.16, 1, 0.3, 1);
+      --ease-quart:   cubic-bezier(0.76, 0, 0.24, 1);
+    }
+
+    /* ============================================================
+       RESET & BASE
+    ============================================================ */
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    html {
+      scroll-behavior: smooth;
+      font-size: 16px;
+    }
+
+    body {
+      background: var(--color-oyster);
+      color: var(--color-charcoal);
+      font-family: var(--font-body);
+      font-weight: 300;
+      line-height: 1.85;
+      overflow-x: hidden;
+    }
+
+    img { display: block; max-width: 100%; }
+    a { text-decoration: none; color: inherit; }
+    ul { list-style: none; }
+
+    /* ============================================================
+       SCROLL PROGRESS
+    ============================================================ */
+    .scroll-progress {
+      position: fixed;
+      top: 0; left: 0;
+      width: 100%;
+      height: 2px;
+      background: var(--color-terracotta);
+      transform: scaleX(0);
+      transform-origin: left;
+      z-index: 1001;
+      will-change: transform;
+      transition: transform 0.05s linear;
+    }
+
+    /* ============================================================
+       NAVIGATION
+    ============================================================ */
+    .nav {
+      position: fixed;
+      top: 0; left: 0; right: 0;
+      z-index: 1000;
+      padding: 1rem 5%;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      background: var(--color-mist);
+      backdrop-filter: blur(14px);
+      -webkit-backdrop-filter: blur(14px);
+      box-shadow: 0 1px 0 rgba(184, 154, 90, 0.2);
+      transition:
+        padding 0.5s var(--ease-expo),
+        transform 0.45s var(--ease-expo);
+    }
+
+    .nav.hidden {
+      transform: translateY(-100%);
+    }
+
+    .nav__logo {
+      height: 40px;
+      mix-blend-mode: multiply;
+    }
+
+    .nav__links {
+      display: flex;
+      align-items: center;
+      gap: 3rem;
+    }
+
+    .nav__links a {
+      font-family: var(--font-label);
+      font-size: 0.65rem;
+      font-weight: 300;
+      letter-spacing: 0.28em;
+      text-transform: uppercase;
+      color: var(--color-charcoal);
+      position: relative;
+      transition: color 0.4s;
+    }
+
+    .nav__links a::after {
+      content: '';
+      position: absolute;
+      bottom: -3px; left: 0; right: 0;
+      height: 1px;
+      background: var(--color-terracotta);
+      transform: scaleX(0);
+      transform-origin: right;
+      transition: transform 0.4s var(--ease-expo);
+    }
+
+    .nav__links a:hover::after {
+      transform: scaleX(1);
+      transform-origin: left;
+    }
+
+    .nav__cta {
+      font-family: var(--font-label);
+      font-size: 0.62rem;
+      font-weight: 300;
+      letter-spacing: 0.28em;
+      text-transform: uppercase;
+      color: var(--color-charcoal);
+      border: 1px solid rgba(44, 44, 44, 0.3);
+      padding: 0.65rem 1.6rem;
+      position: relative;
+      overflow: hidden;
+      transition: color 0.4s ease, border-color 0.4s;
+    }
+
+    .nav__cta::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: var(--color-terracotta);
+      transform: scaleX(0);
+      transform-origin: left;
+      transition: transform 0.4s var(--ease-expo);
+      z-index: 0;
+    }
+
+    .nav__cta:hover::before { transform: scaleX(1); }
+    .nav__cta span { position: relative; z-index: 1; }
+    .nav__cta:hover span { color: var(--color-cream-pure); }
+
+    .nav__hamburger {
+      display: none;
+      flex-direction: column;
+      gap: 5px;
+      cursor: pointer;
+      padding: 4px;
+      background: none;
+      border: none;
+      z-index: 1001;
+    }
+
+    .nav__hamburger span {
+      display: block;
+      width: 24px;
+      height: 1px;
+      background: var(--color-charcoal);
+      transition: transform 0.3s var(--ease-expo), opacity 0.3s, background 0.3s;
+    }
+
+    .nav__hamburger.open span:nth-child(1) {
+      transform: translateY(6px) rotate(45deg);
+    }
+
+    .nav__hamburger.open span:nth-child(2) {
+      opacity: 0;
+    }
+
+    .nav__hamburger.open span:nth-child(3) {
+      transform: translateY(-6px) rotate(-45deg);
+    }
+
+    /* Mobile Menu Panel */
+    .mobile-menu {
+      position: fixed;
+      top: 0; right: 0;
+      width: 100%;
+      height: 100vh;
+      background: var(--color-walnut);
+      z-index: 999;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      gap: 2.5rem;
+      transform: translateX(100%);
+      transition: transform 0.5s var(--ease-expo);
+    }
+
+    .mobile-menu.open {
+      transform: translateX(0);
+    }
+
+    .mobile-menu a {
+      font-family: var(--font-label);
+      font-size: 0.8rem;
+      font-weight: 300;
+      letter-spacing: 0.35em;
+      text-transform: uppercase;
+      color: var(--color-cream-pure);
+      opacity: 0;
+      transform: translateY(20px);
+      transition: opacity 0.4s ease, transform 0.4s var(--ease-expo), color 0.3s;
+    }
+
+    .mobile-menu.open a {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    .mobile-menu.open a:nth-child(1) { transition-delay: 0.15s; }
+    .mobile-menu.open a:nth-child(2) { transition-delay: 0.2s; }
+    .mobile-menu.open a:nth-child(3) { transition-delay: 0.25s; }
+    .mobile-menu.open a:nth-child(4) { transition-delay: 0.3s; }
+    .mobile-menu.open a:nth-child(5) { transition-delay: 0.35s; }
+
+    .mobile-menu a:hover {
+      color: var(--color-terracotta);
+    }
+
+    /* ============================================================
+       SHARED UTILITIES
+    ============================================================ */
+    .eyebrow {
+      font-family: var(--font-label);
+      font-size: 0.65rem;
+      font-weight: 300;
+      letter-spacing: 0.42em;
+      text-transform: uppercase;
+      color: var(--color-terracotta);
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+      margin-bottom: 1.5rem;
+    }
+
+    .eyebrow::before {
+      content: '';
+      display: block;
+      width: 0;
+      height: 1px;
+      background: var(--color-gold);
+      flex-shrink: 0;
+      transition: width 1s var(--ease-expo);
+    }
+
+    .eyebrow.in-view::before {
+      width: 40px;
+    }
+
+    .section-headline {
+      font-family: var(--font-display);
+      font-weight: 300;
+      font-size: clamp(2.2rem, 4vw, 3.4rem);
+      line-height: 1.12;
+      color: var(--color-charcoal);
+    }
+
+    .section-headline em {
+      font-style: italic;
+      font-weight: 300;
+    }
+
+    .btn {
+      display: inline-block;
+      font-family: var(--font-label);
+      font-size: 0.63rem;
+      font-weight: 300;
+      letter-spacing: 0.32em;
+      text-transform: uppercase;
+      padding: 1rem 2.5rem;
+      border: 1px solid currentColor;
+      position: relative;
+      overflow: hidden;
+      transition: color 0.4s ease;
+      cursor: pointer;
+    }
+
+    .btn::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: currentColor;
+      transform: scaleX(0);
+      transform-origin: left;
+      transition: transform 0.45s var(--ease-expo);
+      z-index: 0;
+    }
+
+    .btn:hover::before { transform: scaleX(1); }
+    .btn > span { position: relative; z-index: 1; transition: color 0.4s ease; }
+    .btn--dark { color: var(--color-charcoal); }
+    .btn--dark:hover > span { color: var(--color-cream-pure); }
+    .btn--light { color: var(--color-oyster); }
+    .btn--light:hover > span { color: var(--color-charcoal); }
+    .btn--light::before { background: var(--color-oyster); }
+    .btn--terracotta { color: var(--color-terracotta); }
+    .btn--terracotta:hover > span { color: var(--color-cream-pure); }
+
+    .reveal-up {
+      opacity: 0;
+      transform: translateY(40px);
+      transition: opacity 0.9s ease, transform 1s var(--ease-expo);
+    }
+
+    .reveal-up.in-view {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    .reveal-left {
+      opacity: 0;
+      transform: translateX(-50px);
+      transition: opacity 0.9s ease, transform 1.1s var(--ease-expo);
+    }
+
+    .reveal-left.in-view {
+      opacity: 1;
+      transform: translateX(0);
+    }
+
+    .reveal-right {
+      opacity: 0;
+      transform: translateX(60px);
+      transition: opacity 0.9s ease, transform 1.1s var(--ease-expo);
+    }
+
+    .reveal-right.in-view {
+      opacity: 1;
+      transform: translateX(0);
+    }
+
+    /* ============================================================
+       IMAGE PLACEHOLDER — shows filename until image is added
+    ============================================================ */
+    .img-placeholder {
+      position: relative;
+      width: 100%;
+      height: 100%;
+      background: linear-gradient(135deg, var(--color-walnut) 0%, #3d2518 100%);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      overflow: hidden;
+    }
+
+    .img-placeholder__label {
+      font-family: var(--font-label);
+      font-size: 0.55rem;
+      letter-spacing: 0.25em;
+      text-transform: uppercase;
+      color: rgba(245, 240, 232, 0.35);
+      text-align: center;
+      padding: 1rem;
+      line-height: 1.8;
+      z-index: 1;
+    }
+
+    .img-placeholder img {
+      position: absolute;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      z-index: 2;
+    }
+
+    .img-placeholder img.img-hidden {
+      display: none;
+    }
+
+    /* ============================================================
+       HERO SECTION
+    ============================================================ */
+    .wx-hero {
+      padding: 8rem 8% 5rem;
+      background: var(--color-charcoal);
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 4rem;
+      align-items: center;
+      min-height: 85vh;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .wx-hero__images {
+      position: relative;
+      height: 520px;
+    }
+
+    .wx-hero__img-main {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 65%;
+      height: 100%;
+      border-radius: 2px;
+      opacity: 0;
+      transform: translateX(-40px);
+      transition: opacity 1s ease 0.3s, transform 1.2s var(--ease-expo) 0.3s;
+    }
+
+    .wx-hero__img-accent {
+      position: absolute;
+      bottom: 0;
+      right: 5%;
+      width: 48%;
+      height: 60%;
+      border-radius: 2px;
+      box-shadow: -12px -12px 0 var(--color-charcoal);
+      opacity: 0;
+      transform: translateX(-30px) translateY(20px);
+      transition: opacity 1s ease 0.6s, transform 1.2s var(--ease-expo) 0.6s;
+    }
+
+    .wx-hero.in-view .wx-hero__img-main,
+    .wx-hero.in-view .wx-hero__img-accent {
+      opacity: 1;
+      transform: translateX(0) translateY(0);
+    }
+
+    .wx-hero__content {
+      color: var(--color-cream-pure);
+      opacity: 0;
+      transform: translateY(30px);
+      transition: opacity 1s ease 0.4s, transform 1.1s var(--ease-expo) 0.4s;
+    }
+
+    .wx-hero.in-view .wx-hero__content {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    .wx-hero__title {
+      font-family: var(--font-display);
+      font-weight: 300;
+      font-size: clamp(3rem, 6vw, 5rem);
+      line-height: 1.05;
+      color: var(--color-cream-pure);
+      margin-bottom: 0.5rem;
+    }
+
+    .wx-hero__subtitle {
+      font-family: var(--font-display);
+      font-style: italic;
+      font-weight: 300;
+      font-size: clamp(1.1rem, 2vw, 1.5rem);
+      color: var(--color-gold);
+      margin-bottom: 1.75rem;
+    }
+
+    .wx-hero__text {
+      font-size: 0.97rem;
+      color: rgba(245, 240, 232, 0.72);
+      max-width: 440px;
+      margin-bottom: 2.5rem;
+      line-height: 1.85;
+    }
+
+    .wx-hero .eyebrow {
+      color: var(--color-gold);
+    }
+
+    .wx-hero .eyebrow::before {
+      background: rgba(245, 240, 232, 0.3);
+    }
+
+    /* ============================================================
+       MARQUEE STRIP
+    ============================================================ */
+    .marquee-strip {
+      overflow: hidden;
+      background: var(--color-walnut);
+      padding: 1.1rem 0;
+      border-top: 1px solid rgba(184, 154, 90, 0.25);
+      border-bottom: 1px solid rgba(184, 154, 90, 0.25);
+    }
+
+    .marquee-strip--dark {
+      background: var(--color-charcoal);
+    }
+
+    .marquee-strip--lg .marquee-strip__track span {
+      font-size: 0.85rem;
+      letter-spacing: 0.5em;
+      padding: 0 4rem;
+    }
+
+    .marquee-strip__track {
+      display: flex;
+      width: max-content;
+      animation: marquee 36s linear infinite;
+    }
+
+    .marquee-strip__track:hover {
+      animation-play-state: paused;
+    }
+
+    .marquee-strip__track span {
+      font-family: var(--font-label);
+      font-size: 0.62rem;
+      font-weight: 100;
+      letter-spacing: 0.38em;
+      text-transform: uppercase;
+      color: var(--color-gold);
+      white-space: nowrap;
+      padding: 0 3rem;
+    }
+
+    .marquee-strip__track span.dot {
+      color: var(--color-terracotta);
+      padding: 0;
+      letter-spacing: 0;
+    }
+
+    @keyframes marquee {
+      from { transform: translateX(0); }
+      to   { transform: translateX(-50%); }
+    }
+
+    /* ============================================================
+       FEATURE SPLIT SECTIONS
+    ============================================================ */
+    .feature-split {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      min-height: 55vh;
+    }
+
+    .feature-split--reverse {
+      direction: rtl;
+    }
+
+    .feature-split--reverse > * {
+      direction: ltr;
+    }
+
+    .feature-split__media {
+      position: relative;
+      overflow: hidden;
+    }
+
+    .feature-split__media img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+      transform: scale(1.06);
+      transition: transform 2s var(--ease-expo);
+    }
+
+    .feature-split__media.in-view img {
+      transform: scale(1);
+    }
+
+    .feature-split__media-placeholder {
+      width: 100%;
+      height: 100%;
+      min-height: 400px;
+      background: linear-gradient(135deg, var(--color-walnut) 0%, #3d2518 100%);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .feature-split__media-placeholder span {
+      font-family: var(--font-label);
+      font-size: 0.6rem;
+      letter-spacing: 0.3em;
+      text-transform: uppercase;
+      color: rgba(245, 240, 232, 0.3);
+    }
+
+    .feature-split__content {
+      padding: 5rem 4.5rem;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      opacity: 0;
+      transform: translateX(40px);
+      transition: opacity 1s ease, transform 1.2s var(--ease-expo);
+    }
+
+    .feature-split--reverse .feature-split__content {
+      transform: translateX(-40px);
+    }
+
+    .feature-split__content.in-view {
+      opacity: 1;
+      transform: translateX(0);
+    }
+
+    .feature-split__content--walnut {
+      background: var(--color-walnut);
+      color: var(--color-oyster);
+    }
+
+    .feature-split__content--walnut .eyebrow {
+      color: var(--color-gold);
+    }
+
+    .feature-split__content--walnut .section-headline {
+      color: var(--color-oyster);
+    }
+
+    .feature-split__content--walnut p {
+      color: rgba(245, 240, 232, 0.72);
+    }
+
+    .feature-split__content--oyster {
+      background: var(--color-oyster);
+    }
+
+    .feature-split__content .section-headline {
+      margin-bottom: 1.5rem;
+    }
+
+    .feature-split__content p {
+      font-size: 0.95rem;
+      line-height: 1.9;
+      margin-bottom: 1.25rem;
+      color: rgba(44, 44, 44, 0.72);
+    }
+
+    .feature-split__content--walnut p {
+      color: rgba(245, 240, 232, 0.72);
+    }
+
+    .ingredient-list {
+      margin: 1rem 0 2rem;
+    }
+
+    .ingredient-list li {
+      font-family: var(--font-label);
+      font-size: 0.6rem;
+      letter-spacing: 0.22em;
+      text-transform: uppercase;
+      color: var(--color-walnut);
+      padding: 0.55rem 0;
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+    }
+
+    .ingredient-list--light li {
+      color: rgba(245, 240, 232, 0.85);
+    }
+
+    .ingredient-list li::before {
+      content: '';
+      display: block;
+      width: 4px;
+      height: 4px;
+      background: var(--color-terracotta);
+      border-radius: 50%;
+      flex-shrink: 0;
+    }
+
+    .ingredient-list--light li::before {
+      background: var(--color-gold);
+    }
+
+    /* ============================================================
+       BUILD YOUR WAX COMBO — Interactive Calculator
+    ============================================================ */
+    .wx-combo-section {
+      padding: 7rem 8% 9rem;
+      background: var(--color-oyster-dark);
+    }
+
+    .wx-combo-section__header {
+      text-align: center;
+      margin-bottom: 3rem;
+    }
+
+    .wx-combo-section__header .eyebrow {
+      justify-content: center;
+    }
+
+    .wx-combo-section__header .section-headline {
+      margin-bottom: 0.75rem;
+    }
+
+    .wx-combo-section__header p {
+      color: rgba(44, 44, 44, 0.6);
+      font-size: 0.95rem;
+    }
+
+    .wx-combo {
+      max-width: 800px;
+      margin: 0 auto;
+      background: var(--color-cream-pure);
+      padding: 3rem;
+      position: relative;
+      overflow: hidden;
+      box-shadow: 0 8px 40px rgba(44, 44, 44, 0.06);
+    }
+
+    .wx-combo__group {
+      margin-bottom: 2rem;
+    }
+
+    .wx-combo__group:last-of-type {
+      margin-bottom: 0;
+    }
+
+    .wx-combo__group-label {
+      font-family: var(--font-label);
+      font-size: 0.6rem;
+      font-weight: 300;
+      letter-spacing: 0.3em;
+      text-transform: uppercase;
+      color: var(--color-gold);
+      margin-bottom: 0.75rem;
+      padding-bottom: 0.5rem;
+      border-bottom: 1px solid rgba(184, 154, 90, 0.25);
+    }
+
+    .wx-combo__item {
+      display: flex;
+      align-items: center;
+      gap: 1.25rem;
+      padding: 1rem 0;
+      border-bottom: 1px solid rgba(184, 154, 90, 0.12);
+      cursor: pointer;
+      transition: background 0.3s ease, padding-left 0.3s var(--ease-expo);
+      user-select: none;
+    }
+
+    .wx-combo__item:last-child {
+      border-bottom: none;
+    }
+
+    .wx-combo__item:hover {
+      background: rgba(184, 154, 90, 0.04);
+    }
+
+    .wx-combo__item.selected {
+      padding-left: 1rem;
+      border-left: 3px solid var(--color-terracotta);
+      background: rgba(196, 103, 58, 0.04);
+    }
+
+    .wx-combo__toggle {
+      width: 36px;
+      height: 20px;
+      border-radius: 10px;
+      background: rgba(184, 154, 90, 0.2);
+      border: none;
+      position: relative;
+      cursor: pointer;
+      flex-shrink: 0;
+      transition: background 0.3s ease;
+      padding: 0;
+    }
+
+    .wx-combo__toggle::after {
+      content: '';
+      position: absolute;
+      top: 2px;
+      left: 2px;
+      width: 16px;
+      height: 16px;
+      border-radius: 50%;
+      background: var(--color-cream-pure);
+      box-shadow: 0 1px 3px rgba(0,0,0,0.15);
+      transition: transform 0.3s var(--ease-expo), background 0.3s;
+    }
+
+    .wx-combo__item.selected .wx-combo__toggle {
+      background: var(--color-terracotta);
+    }
+
+    .wx-combo__item.selected .wx-combo__toggle::after {
+      transform: translateX(16px);
+    }
+
+    .wx-combo__item-info {
+      flex: 1;
+      min-width: 0;
+    }
+
+    .wx-combo__item-name {
+      font-family: var(--font-display);
+      font-size: 1.15rem;
+      font-weight: 400;
+      color: var(--color-charcoal);
+      line-height: 1.3;
+    }
+
+    .wx-combo__item-desc {
+      font-size: 0.82rem;
+      color: rgba(44, 44, 44, 0.55);
+      line-height: 1.5;
+    }
+
+    .wx-combo__item-meta {
+      display: flex;
+      align-items: baseline;
+      gap: 1rem;
+      flex-shrink: 0;
+    }
+
+    .wx-combo__item-price {
+      font-family: var(--font-label);
+      font-size: 0.7rem;
+      font-weight: 300;
+      letter-spacing: 0.1em;
+      color: var(--color-terracotta);
+    }
+
+    .wx-combo__item-duration {
+      font-family: var(--font-label);
+      font-size: 0.6rem;
+      font-weight: 300;
+      letter-spacing: 0.1em;
+      color: rgba(44, 44, 44, 0.4);
+    }
+
+    .wx-combo__summary {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      margin-top: 2rem;
+      padding-top: 1.5rem;
+      border-top: 1px solid rgba(184, 154, 90, 0.2);
+      gap: 1.5rem;
+    }
+
+    .wx-combo__summary-stats {
+      display: flex;
+      gap: 2.5rem;
+    }
+
+    .wx-combo__summary-stat {
+      display: flex;
+      flex-direction: column;
+    }
+
+    .wx-combo__summary-label {
+      font-family: var(--font-label);
+      font-size: 0.52rem;
+      letter-spacing: 0.25em;
+      text-transform: uppercase;
+      color: rgba(44, 44, 44, 0.4);
+    }
+
+    .wx-combo__summary-value {
+      font-family: var(--font-display);
+      font-size: 1.5rem;
+      font-weight: 300;
+      color: var(--color-charcoal);
+    }
+
+    .wx-combo__summary-actions {
+      display: flex;
+      align-items: center;
+      gap: 1.5rem;
+    }
+
+    .wx-combo__reset {
+      font-family: var(--font-label);
+      font-size: 0.55rem;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--color-gold);
+      background: none;
+      border: none;
+      cursor: pointer;
+      transition: color 0.3s;
+      padding: 0.5rem 0;
+    }
+
+    .wx-combo__reset:hover {
+      color: var(--color-terracotta);
+    }
+
+    .wx-combo__summary .btn.disabled {
+      opacity: 0.35;
+      pointer-events: none;
+    }
+
+    /* ============================================================
+       TREATMENT TIERS — TABS
+    ============================================================ */
+    .tiers {
+      padding: 9rem 8%;
+      background: var(--color-oyster);
+    }
+
+    .tiers__header {
+      text-align: center;
+      max-width: 640px;
+      margin: 0 auto 3.5rem;
+    }
+
+    .tiers__header .eyebrow {
+      justify-content: center;
+    }
+
+    .tiers__header .section-headline {
+      margin-bottom: 1rem;
+    }
+
+    .tiers__header p {
+      color: rgba(44, 44, 44, 0.65);
+      font-size: 0.95rem;
+    }
+
+    .tiers__tabs {
+      display: flex;
+      justify-content: center;
+      gap: 0;
+      position: relative;
+      margin-bottom: 3.5rem;
+      border-bottom: 1px solid rgba(184, 154, 90, 0.3);
+    }
+
+    .tiers__tab {
+      font-family: var(--font-label);
+      font-size: 0.65rem;
+      font-weight: 300;
+      letter-spacing: 0.3em;
+      text-transform: uppercase;
+      color: rgba(44, 44, 44, 0.5);
+      padding: 1rem 2.5rem;
+      cursor: pointer;
+      background: none;
+      border: none;
+      position: relative;
+      transition: color 0.4s ease;
+    }
+
+    .tiers__tab:hover {
+      color: var(--color-charcoal);
+    }
+
+    .tiers__tab.active {
+      color: var(--color-terracotta);
+    }
+
+    .tiers__indicator {
+      position: absolute;
+      bottom: -1px;
+      height: 2px;
+      background: var(--color-terracotta);
+      transition: left 0.45s var(--ease-expo), width 0.45s var(--ease-expo);
+    }
+
+    .tiers__panels {
+      position: relative;
+      min-height: 320px;
+    }
+
+    .tiers__panel {
+      display: grid;
+      grid-template-columns: 1.1fr 1fr;
+      gap: 4rem;
+      align-items: start;
+      opacity: 0;
+      transform: translateY(16px);
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      pointer-events: none;
+      transition: opacity 0.5s ease, transform 0.6s var(--ease-expo);
+    }
+
+    .tiers__panel.active {
+      opacity: 1;
+      transform: translateY(0);
+      position: relative;
+      pointer-events: auto;
+    }
+
+    .tiers__panel-content {
+      padding: 2rem 0;
+    }
+
+    .tiers__panel-title {
+      font-family: var(--font-display);
+      font-size: 1.8rem;
+      font-weight: 300;
+      margin-bottom: 1rem;
+      line-height: 1.2;
+    }
+
+    .tiers__panel-desc {
+      font-size: 0.95rem;
+      color: rgba(44, 44, 44, 0.72);
+      margin-bottom: 2rem;
+      line-height: 1.85;
+    }
+
+    /* Service list within tier panels */
+    .wx-service-list {
+      margin-bottom: 1.5rem;
+    }
+
+    .wx-service-item {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 1rem 0;
+      border-bottom: 1px solid rgba(184, 154, 90, 0.2);
+      gap: 1rem;
+    }
+
+    .wx-service-item:last-child {
+      border-bottom: none;
+    }
+
+    .wx-service-item__info {
+      flex: 1;
+      min-width: 0;
+    }
+
+    .wx-service-item__name {
+      font-family: var(--font-display);
+      font-size: 1.15rem;
+      font-weight: 400;
+      color: var(--color-charcoal);
+      line-height: 1.3;
+    }
+
+    .wx-service-item__desc {
+      font-size: 0.85rem;
+      color: rgba(44, 44, 44, 0.55);
+      line-height: 1.5;
+    }
+
+    .wx-service-item__meta {
+      display: flex;
+      align-items: baseline;
+      gap: 1rem;
+      flex-shrink: 0;
+    }
+
+    .wx-service-item__price {
+      font-family: var(--font-display);
+      font-size: 1.3rem;
+      font-weight: 300;
+      color: var(--color-terracotta);
+    }
+
+    .wx-service-item__duration {
+      font-family: var(--font-label);
+      font-size: 0.55rem;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: rgba(44, 44, 44, 0.45);
+    }
+
+    .tiers__panel-image {
+      position: relative;
+      overflow: hidden;
+      border-radius: 2px;
+      min-height: 420px;
+    }
+
+    .tiers__panel-image img {
+      width: 100%;
+      height: 420px;
+      object-fit: cover;
+      object-position: top;
+      display: block;
+    }
+
+    .tiers__panel-image .tiers__image-placeholder {
+      width: 100%;
+      height: 420px;
+      background: linear-gradient(135deg, var(--color-walnut) 0%, #3d2518 100%);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .tiers__image-placeholder span {
+      font-family: var(--font-label);
+      font-size: 0.6rem;
+      letter-spacing: 0.3em;
+      text-transform: uppercase;
+      color: rgba(245, 240, 232, 0.3);
+    }
+
+    .tiers__note {
+      text-align: center;
+      font-family: var(--font-label);
+      font-size: 0.58rem;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: rgba(44, 44, 44, 0.45);
+      margin-top: 2.5rem;
+    }
+
+    /* ============================================================
+       FAQ ACCORDION
+    ============================================================ */
+    .faq {
+      padding: 9rem 8%;
+      background: var(--color-oyster);
+      display: grid;
+      grid-template-columns: 1fr 1.6fr;
+      gap: 6rem;
+      align-items: start;
+    }
+
+    .faq__left .section-headline {
+      margin-bottom: 1rem;
+    }
+
+    .faq__tagline {
+      font-family: var(--font-display);
+      font-style: italic;
+      font-size: 1.15rem;
+      font-weight: 300;
+      color: var(--color-walnut);
+    }
+
+    .faq__list {
+      display: flex;
+      flex-direction: column;
+    }
+
+    .faq__item {
+      border-bottom: 1px solid rgba(184, 154, 90, 0.3);
+    }
+
+    .faq__question {
+      width: 100%;
+      padding: 1.5rem 0;
+      background: none;
+      border: none;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 2rem;
+      text-align: left;
+    }
+
+    .faq__question-text {
+      font-family: var(--font-body);
+      font-size: 0.97rem;
+      font-weight: 400;
+      color: var(--color-charcoal);
+      line-height: 1.5;
+    }
+
+    .faq__chevron {
+      width: 14px;
+      height: 14px;
+      stroke: var(--color-gold);
+      fill: none;
+      stroke-width: 1.5;
+      flex-shrink: 0;
+      transition: transform 0.4s var(--ease-expo);
+    }
+
+    .faq__item.open .faq__chevron {
+      transform: rotate(180deg);
+    }
+
+    .faq__answer {
+      max-height: 0;
+      overflow: hidden;
+      transition: max-height 0.5s var(--ease-expo), padding 0.5s var(--ease-expo);
+    }
+
+    .faq__item.open .faq__answer {
+      max-height: 300px;
+    }
+
+    .faq__answer-inner {
+      padding-bottom: 1.5rem;
+      font-size: 0.93rem;
+      color: rgba(44, 44, 44, 0.68);
+      line-height: 1.85;
+    }
+
+    /* ============================================================
+       CTA / BOOKING
+    ============================================================ */
+    .cta-section {
+      position: relative;
+      min-height: 55vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      overflow: hidden;
+      text-align: center;
+    }
+
+    .cta__bg {
+      position: absolute;
+      inset: -12%;
+      background: var(--color-walnut);
+      filter: blur(3px) brightness(0.55) saturate(0.85);
+      will-change: transform;
+    }
+
+    .cta__overlay {
+      position: absolute;
+      inset: 0;
+      background: rgba(44, 44, 44, 0.4);
+    }
+
+    .cta__content {
+      position: relative;
+      z-index: 2;
+      color: var(--color-oyster);
+      max-width: 640px;
+      padding: 0 2rem;
+      opacity: 0;
+      transform: translateY(30px);
+      transition: opacity 1s ease, transform 1.1s var(--ease-expo);
+    }
+
+    .cta__content.in-view {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    .cta__content .eyebrow {
+      justify-content: center;
+      color: rgba(245, 240, 232, 0.7);
+    }
+
+    .cta__content .eyebrow::before {
+      background: rgba(245, 240, 232, 0.4);
+    }
+
+    .cta__content h2 {
+      font-family: var(--font-display);
+      font-weight: 300;
+      font-size: clamp(2rem, 4.5vw, 3.5rem);
+      line-height: 1.1;
+      color: var(--color-cream-pure);
+      margin-bottom: 1.25rem;
+    }
+
+    .cta__content p {
+      font-size: 0.95rem;
+      color: rgba(245, 240, 232, 0.72);
+      margin-bottom: 2.5rem;
+      letter-spacing: 0.02em;
+    }
+
+    /* ============================================================
+       FOOTER
+    ============================================================ */
+    .footer {
+      background: var(--color-charcoal);
+      padding: 5rem 8% 2.5rem;
+    }
+
+    .footer__top {
+      display: grid;
+      grid-template-columns: 2fr 1.5fr 1.5fr;
+      gap: 4rem;
+      padding-bottom: 3.5rem;
+      border-bottom: 1px solid rgba(184, 154, 90, 0.2);
+      margin-bottom: 2.5rem;
+    }
+
+    .footer__logo {
+      height: 44px;
+      margin-bottom: 1.25rem;
+      filter: brightness(0) invert(1);
+      opacity: 0.8;
+    }
+
+    .footer__tagline {
+      font-family: var(--font-display);
+      font-style: italic;
+      font-size: 1.05rem;
+      font-weight: 300;
+      color: rgba(245, 240, 232, 0.55);
+      line-height: 1.6;
+      max-width: 280px;
+      margin-bottom: 1.5rem;
+    }
+
+    .footer__social {
+      display: flex;
+      gap: 1.25rem;
+    }
+
+    .footer__social a {
+      font-family: var(--font-label);
+      font-size: 0.58rem;
+      letter-spacing: 0.28em;
+      text-transform: uppercase;
+      color: rgba(245, 240, 232, 0.45);
+      transition: color 0.3s;
+    }
+
+    .footer__social a:hover { color: var(--color-gold); }
+
+    .footer__col-title {
+      font-family: var(--font-label);
+      font-size: 0.6rem;
+      letter-spacing: 0.36em;
+      text-transform: uppercase;
+      color: var(--color-gold);
+      margin-bottom: 1.5rem;
+    }
+
+    .footer__links {
+      display: flex;
+      flex-direction: column;
+      gap: 0.75rem;
+    }
+
+    .footer__links a {
+      font-family: var(--font-body);
+      font-size: 0.88rem;
+      font-weight: 300;
+      color: rgba(245, 240, 232, 0.55);
+      transition: color 0.3s;
+    }
+
+    .footer__links a:hover { color: var(--color-cream-pure); }
+
+    .footer__contact-item {
+      display: flex;
+      flex-direction: column;
+      gap: 0.25rem;
+      margin-bottom: 1rem;
+    }
+
+    .footer__contact-label {
+      font-family: var(--font-label);
+      font-size: 0.58rem;
+      letter-spacing: 0.28em;
+      text-transform: uppercase;
+      color: var(--color-terracotta);
+    }
+
+    .footer__contact-value {
+      font-family: var(--font-body);
+      font-size: 0.88rem;
+      font-weight: 300;
+      color: rgba(245, 240, 232, 0.6);
+    }
+
+    .footer__bottom {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 1rem;
+    }
+
+    .footer__copy {
+      font-family: var(--font-label);
+      font-size: 0.58rem;
+      letter-spacing: 0.22em;
+      text-transform: uppercase;
+      color: rgba(245, 240, 232, 0.3);
+    }
+
+    .footer__legal {
+      display: flex;
+      gap: 2rem;
+    }
+
+    .footer__legal a {
+      font-family: var(--font-label);
+      font-size: 0.58rem;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: rgba(245, 240, 232, 0.3);
+      transition: color 0.3s;
+    }
+
+    .footer__legal a:hover { color: rgba(245, 240, 232, 0.7); }
+
+    /* ============================================================
+       RESPONSIVE
+    ============================================================ */
+    @media (max-width: 1100px) {
+      .wx-hero {
+        grid-template-columns: 1fr;
+        gap: 3rem;
+        padding: 7rem 6% 5rem;
+      }
+
+      .wx-hero__images {
+        height: 380px;
+        order: -1;
+      }
+
+      .tiers__panel {
+        grid-template-columns: 1fr;
+        gap: 2rem;
+      }
+
+      .tiers__panel-image img,
+      .tiers__panel-image .tiers__image-placeholder {
+        height: 300px;
+      }
+
+      .feature-split {
+        grid-template-columns: 1fr;
+      }
+
+      .feature-split--reverse {
+        direction: ltr;
+      }
+
+      .feature-split__media {
+        min-height: 50vw;
+      }
+
+      .faq {
+        grid-template-columns: 1fr;
+        gap: 3rem;
+        padding: 7rem 6%;
+      }
+
+      .footer__top {
+        grid-template-columns: 1fr 1fr;
+        gap: 3rem;
+      }
+
+      .footer__top > *:first-child {
+        grid-column: span 2;
+      }
+    }
+
+    @media (max-width: 768px) {
+      .nav__links,
+      .nav__cta {
+        display: none;
+      }
+
+      .nav__hamburger {
+        display: flex;
+      }
+
+      .nav {
+        padding: 1.25rem 5%;
+      }
+
+      .wx-hero {
+        padding: 6.5rem 5% 4rem;
+      }
+
+      .wx-hero__images {
+        height: 300px;
+      }
+
+      .wx-hero__img-main {
+        width: 60%;
+      }
+
+      .wx-hero__img-accent {
+        width: 50%;
+        right: 0;
+      }
+
+      .tiers,
+      .wx-combo-section,
+      .faq {
+        padding-left: 5%;
+        padding-right: 5%;
+      }
+
+      .tiers__tab {
+        padding: 0.75rem 1.25rem;
+        font-size: 0.58rem;
+        letter-spacing: 0.2em;
+      }
+
+      .feature-split__content {
+        padding: 3.5rem 5%;
+      }
+
+      .wx-combo {
+        padding: 2rem 1.5rem;
+      }
+
+      .wx-combo__summary {
+        flex-direction: column;
+        align-items: stretch;
+        gap: 1.25rem;
+      }
+
+      .wx-combo__summary-actions {
+        justify-content: space-between;
+      }
+
+      .wx-combo__item-meta {
+        flex-direction: column;
+        gap: 0.15rem;
+        align-items: flex-end;
+      }
+
+      .footer__top {
+        grid-template-columns: 1fr;
+      }
+
+      .footer__top > *:first-child {
+        grid-column: span 1;
+      }
+
+      .footer {
+        padding: 4rem 5% 2rem;
+      }
+    }
+
+    @media (max-width: 480px) {
+      .wx-hero__images {
+        height: 240px;
+      }
+
+      .tiers__tabs {
+        flex-wrap: wrap;
+        justify-content: center;
+      }
+
+      .tiers__indicator {
+        display: none;
+      }
+
+      .tiers__tab.active {
+        border-bottom: 2px solid var(--color-terracotta);
+      }
+
+      .wx-combo__item {
+        flex-wrap: wrap;
+      }
+
+      .wx-combo__item-meta {
+        flex-direction: row;
+        width: 100%;
+        padding-left: calc(36px + 1.25rem);
+        gap: 1rem;
+      }
+
+      .wx-service-item {
+        flex-wrap: wrap;
+      }
+
+      .wx-service-item__meta {
+        width: 100%;
+        gap: 1rem;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- Scroll Progress Bar -->
+  <div class="scroll-progress" id="scrollProgress"></div>
+
+  <!-- ============================================================
+       NAVIGATION
+  ============================================================ -->
+  <nav class="nav" id="nav">
+    <a href="index.html" class="nav__logo-link">
+      <img class="nav__logo" src="assets/images/logos/Logo.png" alt="Maxara Aesthetics">
+    </a>
+    <ul class="nav__links">
+      <li><a href="index.html#about">Philosophy</a></li>
+      <li><a href="index.html#services">Services</a></li>
+      <li><a href="index.html#meet">About</a></li>
+      <li><a href="index.html#gallery">Results</a></li>
+    </ul>
+    <a href="https://maxaraaesthetics.glossgenius.com/services?_gl=1*szgjwc*_gcl_au*MTQwNjQwOTgyNi4xNzY5MTA4NjQw*_ga*ODI5Mjk3MzIuMTc2OTEwODY0MA..*_ga_2DF817SLF4*czE3NzUxMzY0ODEkbzE2JGcwJHQxNzc1MTM2NDgxJGo2MCRsMCRoMjA2MTA2ODA5Mw.." target="_blank" class="nav__cta"><span>Book Now</span></a>
+    <button class="nav__hamburger" aria-label="Menu" aria-expanded="false" aria-controls="mobileMenu">
+      <span></span>
+      <span></span>
+      <span></span>
+    </button>
+  </nav>
+
+  <!-- Mobile Menu Panel -->
+  <div class="mobile-menu" id="mobileMenu">
+    <a href="index.html#about">Philosophy</a>
+    <a href="index.html#services">Services</a>
+    <a href="index.html#meet">About</a>
+    <a href="index.html#gallery">Results</a>
+    <a href="https://maxaraaesthetics.glossgenius.com/services?_gl=1*szgjwc*_gcl_au*MTQwNjQwOTgyNi4xNzY5MTA4NjQw*_ga*ODI5Mjk3MzIuMTc2OTEwODY0MA..*_ga_2DF817SLF4*czE3NzUxMzY0ODEkbzE2JGcwJHQxNzc1MTM2NDgxJGo2MCRsMCRoMjA2MTA2ODA5Mw.." target="_blank">Book Now</a>
+  </div>
+
+  <!-- ============================================================
+       HERO
+  ============================================================ -->
+  <section class="wx-hero" id="wxHero">
+    <div class="wx-hero__images">
+      <div class="wx-hero__img-main img-placeholder">
+        <span class="img-placeholder__label">wax-portrait.jpg</span>
+        <img src="assets/images/waxing/wax-portrait.jpg" alt="Professional waxing treatment at Maxara Aesthetics" onerror="this.classList.add('img-hidden')">
+      </div>
+      <div class="wx-hero__img-accent img-placeholder">
+        <span class="img-placeholder__label">wax-detail.jpg</span>
+        <img src="assets/images/waxing/wax-detail.jpg" alt="Smooth skin after professional waxing" onerror="this.classList.add('img-hidden')">
+      </div>
+    </div>
+    <div class="wx-hero__content">
+      <p class="eyebrow">Luxury Hair Removal</p>
+      <h1 class="wx-hero__title">Waxing Services</h1>
+      <p class="wx-hero__subtitle">in Griffin, GA</p>
+      <p class="wx-hero__text">Smooth, precise, and gentle. Our expert waxing services use premium hard and soft waxes formulated for sensitive skin, delivering flawless results from brows to body with care and comfort.</p>
+      <a href="#booking" class="btn btn--light"><span>Book Now</span></a>
+    </div>
+  </section>
+
+  <!-- ============================================================
+       MARQUEE — Smooth Precise Gentle
+  ============================================================ -->
+  <div class="marquee-strip marquee-strip--dark">
+    <div class="marquee-strip__track" aria-hidden="true">
+      <span>Smooth</span><span class="dot">&nbsp;&nbsp;&middot;&nbsp;&nbsp;</span>
+      <span>Precise</span><span class="dot">&nbsp;&nbsp;&middot;&nbsp;&nbsp;</span>
+      <span>Gentle</span><span class="dot">&nbsp;&nbsp;&middot;&nbsp;&nbsp;</span>
+      <span>Smooth</span><span class="dot">&nbsp;&nbsp;&middot;&nbsp;&nbsp;</span>
+      <span>Precise</span><span class="dot">&nbsp;&nbsp;&middot;&nbsp;&nbsp;</span>
+      <span>Gentle</span><span class="dot">&nbsp;&nbsp;&middot;&nbsp;&nbsp;</span>
+      <span>Smooth</span><span class="dot">&nbsp;&nbsp;&middot;&nbsp;&nbsp;</span>
+      <span>Precise</span><span class="dot">&nbsp;&nbsp;&middot;&nbsp;&nbsp;</span>
+      <span>Gentle</span><span class="dot">&nbsp;&nbsp;&middot;&nbsp;&nbsp;</span>
+      <span>Smooth</span><span class="dot">&nbsp;&nbsp;&middot;&nbsp;&nbsp;</span>
+      <span>Precise</span><span class="dot">&nbsp;&nbsp;&middot;&nbsp;&nbsp;</span>
+      <span>Gentle</span><span class="dot">&nbsp;&nbsp;&middot;&nbsp;&nbsp;</span>
+    </div>
+  </div>
+
+  <!-- ============================================================
+       THE METHOD — Feature Split
+  ============================================================ -->
+  <section class="feature-split">
+    <div class="feature-split__media img-placeholder" id="methodMedia">
+      <span class="img-placeholder__label">wax-method.jpg</span>
+      <img src="assets/images/waxing/wax-method.jpg" alt="Premium wax application technique" onerror="this.classList.add('img-hidden')">
+    </div>
+    <div class="feature-split__content feature-split__content--walnut" id="methodContent">
+      <p class="eyebrow" id="methodEyebrow">The Method</p>
+      <h2 class="section-headline">Premium Waxes,<br><em>Expert Hands</em></h2>
+      <p>We use a dual-wax approach tailored to each area of the body. Hard wax for sensitive and delicate areas, soft wax for efficient coverage on larger surfaces. Every session begins with thorough skin prep and ends with a calming, soothing finish.</p>
+      <ul class="ingredient-list ingredient-list--light">
+        <li>Hard Wax &mdash; Gentle grip, sensitive-area safe</li>
+        <li>Soft Wax &mdash; Efficient coverage for larger areas</li>
+        <li>Pre-Wax Oil &mdash; Skin protection and comfort</li>
+        <li>Post-Wax Serum &mdash; Calming and redness reduction</li>
+      </ul>
+    </div>
+  </section>
+
+  <!-- ============================================================
+       BUILD YOUR WAX COMBO — Interactive Calculator
+  ============================================================ -->
+  <section class="wx-combo-section" id="combo">
+    <div class="wx-combo-section__header reveal-up">
+      <p class="eyebrow" id="comboEyebrow" style="justify-content:center;">Plan Your Visit</p>
+      <h2 class="section-headline">Build Your<br><em>Wax Combo</em></h2>
+      <p>Select multiple services to see your total time and price. Perfect for planning your appointment.</p>
+    </div>
+
+    <div class="wx-combo reveal-up" id="comboWidget">
+
+      <!-- Face Group -->
+      <div class="wx-combo__group">
+        <p class="wx-combo__group-label">Face</p>
+        <div class="wx-combo__item" data-price="15" data-duration="15">
+          <button class="wx-combo__toggle" aria-label="Toggle Brow Wax"></button>
+          <div class="wx-combo__item-info">
+            <p class="wx-combo__item-name">Brow Wax</p>
+            <p class="wx-combo__item-desc">Brow waxing only</p>
+          </div>
+          <div class="wx-combo__item-meta">
+            <span class="wx-combo__item-price">$15</span>
+            <span class="wx-combo__item-duration">15 min</span>
+          </div>
+        </div>
+        <div class="wx-combo__item" data-price="15" data-duration="15">
+          <button class="wx-combo__toggle" aria-label="Toggle Lip Wax"></button>
+          <div class="wx-combo__item-info">
+            <p class="wx-combo__item-name">Lip</p>
+            <p class="wx-combo__item-desc">Upper lip wax and bottom if needed</p>
+          </div>
+          <div class="wx-combo__item-meta">
+            <span class="wx-combo__item-price">$15</span>
+            <span class="wx-combo__item-duration">15 min</span>
+          </div>
+        </div>
+        <div class="wx-combo__item" data-price="15" data-duration="15">
+          <button class="wx-combo__toggle" aria-label="Toggle Chin Wax"></button>
+          <div class="wx-combo__item-info">
+            <p class="wx-combo__item-name">Chin</p>
+            <p class="wx-combo__item-desc">Chin wax with added plucking if needed</p>
+          </div>
+          <div class="wx-combo__item-meta">
+            <span class="wx-combo__item-price">$15</span>
+            <span class="wx-combo__item-duration">15 min</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Body Group -->
+      <div class="wx-combo__group">
+        <p class="wx-combo__group-label">Body</p>
+        <div class="wx-combo__item" data-price="20" data-duration="15">
+          <button class="wx-combo__toggle" aria-label="Toggle Underarms Wax"></button>
+          <div class="wx-combo__item-info">
+            <p class="wx-combo__item-name">Underarms</p>
+            <p class="wx-combo__item-desc">Underarm wax &mdash; both underarms</p>
+          </div>
+          <div class="wx-combo__item-meta">
+            <span class="wx-combo__item-price">$20</span>
+            <span class="wx-combo__item-duration">15 min</span>
+          </div>
+        </div>
+        <div class="wx-combo__item" data-price="30" data-duration="30">
+          <button class="wx-combo__toggle" aria-label="Toggle Half Leg/Arm Wax"></button>
+          <div class="wx-combo__item-info">
+            <p class="wx-combo__item-name">Half Leg/Arm</p>
+            <p class="wx-combo__item-desc">Top or bottom portion of legs or arms</p>
+          </div>
+          <div class="wx-combo__item-meta">
+            <span class="wx-combo__item-price">$30</span>
+            <span class="wx-combo__item-duration">30 min</span>
+          </div>
+        </div>
+        <div class="wx-combo__item" data-price="50" data-duration="45">
+          <button class="wx-combo__toggle" aria-label="Toggle Full Leg/Arm Wax"></button>
+          <div class="wx-combo__item-info">
+            <p class="wx-combo__item-name">Full Leg/Arm</p>
+            <p class="wx-combo__item-desc">From tippy toes/fingers to top of the leg/arms as needed</p>
+          </div>
+          <div class="wx-combo__item-meta">
+            <span class="wx-combo__item-price">$50</span>
+            <span class="wx-combo__item-duration">45 min</span>
+          </div>
+        </div>
+        <div class="wx-combo__item" data-price="30" data-duration="15">
+          <button class="wx-combo__toggle" aria-label="Toggle Stomach Wax"></button>
+          <div class="wx-combo__item-info">
+            <p class="wx-combo__item-name">Stomach</p>
+            <p class="wx-combo__item-desc">Full abdomen area to belt line</p>
+          </div>
+          <div class="wx-combo__item-meta">
+            <span class="wx-combo__item-price">$30</span>
+            <span class="wx-combo__item-duration">15 min</span>
+          </div>
+        </div>
+        <div class="wx-combo__item" data-price="30" data-duration="15">
+          <button class="wx-combo__toggle" aria-label="Toggle Chest Wax"></button>
+          <div class="wx-combo__item-info">
+            <p class="wx-combo__item-name">Chest</p>
+            <p class="wx-combo__item-desc">From collar bones to top of abdomen</p>
+          </div>
+          <div class="wx-combo__item-meta">
+            <span class="wx-combo__item-price">$30</span>
+            <span class="wx-combo__item-duration">15 min</span>
+          </div>
+        </div>
+        <div class="wx-combo__item" data-price="30" data-duration="25">
+          <button class="wx-combo__toggle" aria-label="Toggle Half Back Wax"></button>
+          <div class="wx-combo__item-info">
+            <p class="wx-combo__item-name">Half Back</p>
+            <p class="wx-combo__item-desc">Either top portion or lower portion of back</p>
+          </div>
+          <div class="wx-combo__item-meta">
+            <span class="wx-combo__item-price">$30</span>
+            <span class="wx-combo__item-duration">25 min</span>
+          </div>
+        </div>
+        <div class="wx-combo__item" data-price="50" data-duration="30">
+          <button class="wx-combo__toggle" aria-label="Toggle Full Back Wax"></button>
+          <div class="wx-combo__item-info">
+            <p class="wx-combo__item-name">Full Back</p>
+            <p class="wx-combo__item-desc">Top of back down to belt line</p>
+          </div>
+          <div class="wx-combo__item-meta">
+            <span class="wx-combo__item-price">$50</span>
+            <span class="wx-combo__item-duration">30 min</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Intimate Group -->
+      <div class="wx-combo__group">
+        <p class="wx-combo__group-label">Intimate</p>
+        <div class="wx-combo__item" data-price="50" data-duration="30">
+          <button class="wx-combo__toggle" aria-label="Toggle Brazilian Wax"></button>
+          <div class="wx-combo__item-info">
+            <p class="wx-combo__item-name">Brazilian</p>
+            <p class="wx-combo__item-desc">Complete front and back side (if wanted)</p>
+          </div>
+          <div class="wx-combo__item-meta">
+            <span class="wx-combo__item-price">$50</span>
+            <span class="wx-combo__item-duration">30 min</span>
+          </div>
+        </div>
+        <div class="wx-combo__item" data-price="30" data-duration="15">
+          <button class="wx-combo__toggle" aria-label="Toggle Bikini Wax"></button>
+          <div class="wx-combo__item-info">
+            <p class="wx-combo__item-name">Bikini</p>
+            <p class="wx-combo__item-desc">Sides and very top only</p>
+          </div>
+          <div class="wx-combo__item-meta">
+            <span class="wx-combo__item-price">$30</span>
+            <span class="wx-combo__item-duration">15 min</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Summary Bar -->
+      <div class="wx-combo__summary">
+        <div class="wx-combo__summary-stats">
+          <div class="wx-combo__summary-stat">
+            <span class="wx-combo__summary-label">Services</span>
+            <span class="wx-combo__summary-value" id="comboCount">0</span>
+          </div>
+          <div class="wx-combo__summary-stat">
+            <span class="wx-combo__summary-label">Total Time</span>
+            <span class="wx-combo__summary-value" id="comboTime">0 min</span>
+          </div>
+          <div class="wx-combo__summary-stat">
+            <span class="wx-combo__summary-label">Total Price</span>
+            <span class="wx-combo__summary-value" id="comboPrice">$0</span>
+          </div>
+        </div>
+        <div class="wx-combo__summary-actions">
+          <button class="wx-combo__reset" id="comboReset">Reset</button>
+          <a href="https://maxaraaesthetics.glossgenius.com/services?_gl=1*szgjwc*_gcl_au*MTQwNjQwOTgyNi4xNzY5MTA4NjQw*_ga*ODI5Mjk3MzIuMTc2OTEwODY0MA..*_ga_2DF817SLF4*czE3NzUxMzY0ODEkbzE2JGcwJHQxNzc1MTM2NDgxJGo2MCRsMCRoMjA2MTA2ODA5Mw.." target="_blank" class="btn btn--terracotta disabled" id="comboCta"><span>Book This Combo</span></a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================================================
+       TREATMENT TIERS — Tabbed Service Catalog
+  ============================================================ -->
+  <section class="tiers" id="tiers">
+    <div class="tiers__header reveal-up">
+      <p class="eyebrow" id="tiersEyebrow">Our Services</p>
+      <h2 class="section-headline">Choose Your<br><em>Waxing Area</em></h2>
+      <p>From quick touch-ups to full-body sessions, each service is performed with precision and care using premium waxes formulated for sensitive skin.</p>
+    </div>
+
+    <div class="tiers__tabs" role="tablist" id="tiersTabs">
+      <button class="tiers__tab active" role="tab" aria-selected="true" data-tab="face">Face</button>
+      <button class="tiers__tab" role="tab" aria-selected="false" data-tab="body">Body</button>
+      <button class="tiers__tab" role="tab" aria-selected="false" data-tab="intimate">Intimate</button>
+      <div class="tiers__indicator" id="tiersIndicator"></div>
+    </div>
+
+    <div class="tiers__panels" id="tiersPanels">
+      <!-- Face Panel -->
+      <div class="tiers__panel active" data-panel="face">
+        <div class="tiers__panel-content">
+          <h3 class="tiers__panel-title">Face Waxing</h3>
+          <p class="tiers__panel-desc">Quick, precise facial waxing for brows, lip, and chin. We use gentle hard wax specifically designed for sensitive facial skin, ensuring clean lines and minimal irritation.</p>
+          <div class="wx-service-list">
+            <div class="wx-service-item">
+              <div class="wx-service-item__info">
+                <p class="wx-service-item__name">Brow Wax</p>
+                <p class="wx-service-item__desc">Brow waxing only</p>
+              </div>
+              <div class="wx-service-item__meta">
+                <span class="wx-service-item__price">$15</span>
+                <span class="wx-service-item__duration">15 min</span>
+              </div>
+            </div>
+            <div class="wx-service-item">
+              <div class="wx-service-item__info">
+                <p class="wx-service-item__name">Lip</p>
+                <p class="wx-service-item__desc">Upper lip wax and bottom if needed</p>
+              </div>
+              <div class="wx-service-item__meta">
+                <span class="wx-service-item__price">$15</span>
+                <span class="wx-service-item__duration">15 min</span>
+              </div>
+            </div>
+            <div class="wx-service-item">
+              <div class="wx-service-item__info">
+                <p class="wx-service-item__name">Chin</p>
+                <p class="wx-service-item__desc">Chin wax with added plucking if needed</p>
+              </div>
+              <div class="wx-service-item__meta">
+                <span class="wx-service-item__price">$15</span>
+                <span class="wx-service-item__duration">15 min</span>
+              </div>
+            </div>
+          </div>
+          <a href="https://maxaraaesthetics.glossgenius.com/services?_gl=1*szgjwc*_gcl_au*MTQwNjQwOTgyNi4xNzY5MTA4NjQw*_ga*ODI5Mjk3MzIuMTc2OTEwODY0MA..*_ga_2DF817SLF4*czE3NzUxMzY0ODEkbzE2JGcwJHQxNzc1MTM2NDgxJGo2MCRsMCRoMjA2MTA2ODA5Mw.." target="_blank" class="btn btn--terracotta"><span>Book Face Waxing</span></a>
+        </div>
+        <div class="tiers__panel-image">
+          <div class="tiers__image-placeholder"><span>Image Coming Soon</span></div>
+        </div>
+      </div>
+
+      <!-- Body Panel -->
+      <div class="tiers__panel" data-panel="body">
+        <div class="tiers__panel-content">
+          <h3 class="tiers__panel-title">Body Waxing</h3>
+          <p class="tiers__panel-desc">Comprehensive body waxing from arms and legs to back and chest. We combine hard and soft wax techniques for efficient, comfortable hair removal across larger areas.</p>
+          <div class="wx-service-list">
+            <div class="wx-service-item">
+              <div class="wx-service-item__info">
+                <p class="wx-service-item__name">Underarms</p>
+                <p class="wx-service-item__desc">Both underarms</p>
+              </div>
+              <div class="wx-service-item__meta">
+                <span class="wx-service-item__price">$20</span>
+                <span class="wx-service-item__duration">15 min</span>
+              </div>
+            </div>
+            <div class="wx-service-item">
+              <div class="wx-service-item__info">
+                <p class="wx-service-item__name">Half Leg/Arm</p>
+                <p class="wx-service-item__desc">Top or bottom portion of legs or arms</p>
+              </div>
+              <div class="wx-service-item__meta">
+                <span class="wx-service-item__price">$30</span>
+                <span class="wx-service-item__duration">30 min</span>
+              </div>
+            </div>
+            <div class="wx-service-item">
+              <div class="wx-service-item__info">
+                <p class="wx-service-item__name">Full Leg/Arm</p>
+                <p class="wx-service-item__desc">From tippy toes/fingers to top of the leg/arms</p>
+              </div>
+              <div class="wx-service-item__meta">
+                <span class="wx-service-item__price">$50</span>
+                <span class="wx-service-item__duration">45 min</span>
+              </div>
+            </div>
+            <div class="wx-service-item">
+              <div class="wx-service-item__info">
+                <p class="wx-service-item__name">Stomach</p>
+                <p class="wx-service-item__desc">Full abdomen area to belt line</p>
+              </div>
+              <div class="wx-service-item__meta">
+                <span class="wx-service-item__price">$30</span>
+                <span class="wx-service-item__duration">15 min</span>
+              </div>
+            </div>
+            <div class="wx-service-item">
+              <div class="wx-service-item__info">
+                <p class="wx-service-item__name">Chest</p>
+                <p class="wx-service-item__desc">From collar bones to top of abdomen</p>
+              </div>
+              <div class="wx-service-item__meta">
+                <span class="wx-service-item__price">$30</span>
+                <span class="wx-service-item__duration">15 min</span>
+              </div>
+            </div>
+            <div class="wx-service-item">
+              <div class="wx-service-item__info">
+                <p class="wx-service-item__name">Half Back</p>
+                <p class="wx-service-item__desc">Either top or lower portion of back</p>
+              </div>
+              <div class="wx-service-item__meta">
+                <span class="wx-service-item__price">$30</span>
+                <span class="wx-service-item__duration">25 min</span>
+              </div>
+            </div>
+            <div class="wx-service-item">
+              <div class="wx-service-item__info">
+                <p class="wx-service-item__name">Full Back</p>
+                <p class="wx-service-item__desc">Top of back down to belt line</p>
+              </div>
+              <div class="wx-service-item__meta">
+                <span class="wx-service-item__price">$50</span>
+                <span class="wx-service-item__duration">30 min</span>
+              </div>
+            </div>
+          </div>
+          <a href="https://maxaraaesthetics.glossgenius.com/services?_gl=1*szgjwc*_gcl_au*MTQwNjQwOTgyNi4xNzY5MTA4NjQw*_ga*ODI5Mjk3MzIuMTc2OTEwODY0MA..*_ga_2DF817SLF4*czE3NzUxMzY0ODEkbzE2JGcwJHQxNzc1MTM2NDgxJGo2MCRsMCRoMjA2MTA2ODA5Mw.." target="_blank" class="btn btn--terracotta"><span>Book Body Waxing</span></a>
+        </div>
+        <div class="tiers__panel-image">
+          <div class="tiers__image-placeholder"><span>Image Coming Soon</span></div>
+        </div>
+      </div>
+
+      <!-- Intimate Panel -->
+      <div class="tiers__panel" data-panel="intimate">
+        <div class="tiers__panel-content">
+          <h3 class="tiers__panel-title">Intimate Waxing</h3>
+          <p class="tiers__panel-desc">Professional intimate waxing in a comfortable, private setting. We use only premium hard wax for these sensitive areas, ensuring a thorough yet gentle experience with your comfort as our top priority.</p>
+          <div class="wx-service-list">
+            <div class="wx-service-item">
+              <div class="wx-service-item__info">
+                <p class="wx-service-item__name">Brazilian</p>
+                <p class="wx-service-item__desc">Complete front and back side (if wanted)</p>
+              </div>
+              <div class="wx-service-item__meta">
+                <span class="wx-service-item__price">$50</span>
+                <span class="wx-service-item__duration">30 min</span>
+              </div>
+            </div>
+            <div class="wx-service-item">
+              <div class="wx-service-item__info">
+                <p class="wx-service-item__name">Bikini</p>
+                <p class="wx-service-item__desc">Sides and very top only</p>
+              </div>
+              <div class="wx-service-item__meta">
+                <span class="wx-service-item__price">$30</span>
+                <span class="wx-service-item__duration">15 min</span>
+              </div>
+            </div>
+          </div>
+          <a href="https://maxaraaesthetics.glossgenius.com/services?_gl=1*szgjwc*_gcl_au*MTQwNjQwOTgyNi4xNzY5MTA4NjQw*_ga*ODI5Mjk3MzIuMTc2OTEwODY0MA..*_ga_2DF817SLF4*czE3NzUxMzY0ODEkbzE2JGcwJHQxNzc1MTM2NDgxJGo2MCRsMCRoMjA2MTA2ODA5Mw.." target="_blank" class="btn btn--terracotta"><span>Book Intimate Waxing</span></a>
+        </div>
+        <div class="tiers__panel-image">
+          <div class="tiers__image-placeholder"><span>Image Coming Soon</span></div>
+        </div>
+      </div>
+    </div>
+
+    <p class="tiers__note">Prices and timing may vary. Combo discounts available for multiple services.</p>
+  </section>
+
+  <!-- ============================================================
+       WHY PROFESSIONAL WAXING — Reversed Feature Split
+  ============================================================ -->
+  <section class="feature-split feature-split--reverse">
+    <div class="feature-split__media img-placeholder" id="benefitsMedia">
+      <span class="img-placeholder__label">wax-benefits.jpg</span>
+      <img src="assets/images/waxing/wax-benefits.jpg" alt="Benefits of professional waxing" onerror="this.classList.add('img-hidden')">
+    </div>
+    <div class="feature-split__content feature-split__content--oyster" id="benefitsContent">
+      <p class="eyebrow" id="benefitsEyebrow">The Benefits</p>
+      <h2 class="section-headline">Why Professional<br><em>Waxing</em></h2>
+      <p>Professional waxing delivers results that razors and at-home kits simply cannot match. With proper technique and premium products, you get smoother skin that lasts weeks, not days &mdash; with less irritation and finer regrowth over time.</p>
+      <ul class="ingredient-list">
+        <li>Smoother results lasting 3&ndash;6 weeks</li>
+        <li>Reduced ingrown hairs over time</li>
+        <li>Finer, softer regrowth with regular sessions</li>
+        <li>Professional hygiene standards</li>
+      </ul>
+    </div>
+  </section>
+
+  <!-- ============================================================
+       PROMOTIONAL MARQUEE
+  ============================================================ -->
+  <div class="marquee-strip marquee-strip--dark marquee-strip--lg">
+    <div class="marquee-strip__track" aria-hidden="true">
+      <span>Premium Waxes for Sensitive Skin</span><span class="dot">&nbsp;&nbsp;&middot;&nbsp;&nbsp;</span>
+      <span>Premium Waxes for Sensitive Skin</span><span class="dot">&nbsp;&nbsp;&middot;&nbsp;&nbsp;</span>
+      <span>Premium Waxes for Sensitive Skin</span><span class="dot">&nbsp;&nbsp;&middot;&nbsp;&nbsp;</span>
+      <span>Premium Waxes for Sensitive Skin</span><span class="dot">&nbsp;&nbsp;&middot;&nbsp;&nbsp;</span>
+    </div>
+  </div>
+
+  <!-- ============================================================
+       FAQ ACCORDION
+  ============================================================ -->
+  <section class="faq" id="faq">
+    <div class="faq__left">
+      <p class="eyebrow" id="faqEyebrow">FAQ</p>
+      <h2 class="section-headline reveal-up">Know Before<br><em>You Wax</em></h2>
+      <p class="faq__tagline reveal-up" style="transition-delay:0.15s;">Everything you need to feel confident before your first session.</p>
+    </div>
+
+    <div class="faq__list" id="faqList">
+      <div class="faq__item">
+        <button class="faq__question" aria-expanded="false">
+          <span class="faq__question-text">What type of wax do you use?</span>
+          <svg class="faq__chevron" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M6 9l6 6 6-6"/></svg>
+        </button>
+        <div class="faq__answer">
+          <p class="faq__answer-inner">We use premium hard wax for sensitive and delicate areas like the face and intimate zones, and high-quality soft wax for larger body areas like legs and back. Both are formulated for sensitive skin, minimizing irritation while ensuring thorough hair removal.</p>
+        </div>
+      </div>
+
+      <div class="faq__item">
+        <button class="faq__question" aria-expanded="false">
+          <span class="faq__question-text">How long does hair need to be for waxing?</span>
+          <svg class="faq__chevron" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M6 9l6 6 6-6"/></svg>
+        </button>
+        <div class="faq__answer">
+          <p class="faq__answer-inner">Hair should be at least a quarter-inch long &mdash; roughly the length of a grain of rice. This is typically about 2&ndash;3 weeks of growth after shaving. If your hair is too short, the wax may not be able to grip it effectively.</p>
+        </div>
+      </div>
+
+      <div class="faq__item">
+        <button class="faq__question" aria-expanded="false">
+          <span class="faq__question-text">Does waxing hurt?</span>
+          <svg class="faq__chevron" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M6 9l6 6 6-6"/></svg>
+        </button>
+        <div class="faq__answer">
+          <p class="faq__answer-inner">There is some discomfort, especially during your first session, but it is brief and very manageable. Most clients find that it gets easier with each visit as hair grows back finer and thinner. We use techniques and premium waxes specifically designed to minimize discomfort.</p>
+        </div>
+      </div>
+
+      <div class="faq__item">
+        <button class="faq__question" aria-expanded="false">
+          <span class="faq__question-text">How long do results last?</span>
+          <svg class="faq__chevron" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M6 9l6 6 6-6"/></svg>
+        </button>
+        <div class="faq__answer">
+          <p class="faq__answer-inner">Most clients enjoy smooth skin for 3&ndash;6 weeks, depending on individual hair growth cycles. With regular waxing, hair typically grows back finer and sparser, extending the time between appointments. We recommend booking every 4&ndash;6 weeks for best results.</p>
+        </div>
+      </div>
+
+      <div class="faq__item">
+        <button class="faq__question" aria-expanded="false">
+          <span class="faq__question-text">Can I wax if I have sensitive skin?</span>
+          <svg class="faq__chevron" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M6 9l6 6 6-6"/></svg>
+        </button>
+        <div class="faq__answer">
+          <p class="faq__answer-inner">Absolutely. Our waxes are specifically formulated for sensitive skin. We also apply pre-wax oil to create a protective barrier and use post-wax serum to calm the skin immediately after treatment. If you have specific skin concerns, let us know and we will tailor the treatment accordingly.</p>
+        </div>
+      </div>
+
+      <div class="faq__item">
+        <button class="faq__question" aria-expanded="false">
+          <span class="faq__question-text">How should I prepare for my appointment?</span>
+          <svg class="faq__chevron" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M6 9l6 6 6-6"/></svg>
+        </button>
+        <div class="faq__answer">
+          <p class="faq__answer-inner">Gently exfoliate the area 24 hours before your appointment to remove dead skin cells. Avoid sun exposure, tanning, and retinol products for at least 48 hours before your session. On the day of your appointment, skip lotions and oils on the area being waxed. Wear loose, comfortable clothing for body waxing.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================================================
+       CTA / BOOKING
+  ============================================================ -->
+  <section class="cta-section" id="booking">
+    <div class="cta__bg" id="ctaBg">
+      <img src="assets/images/waxing/wax-portrait.jpg" alt="" style="width:100%;height:100%;object-fit:cover;" onerror="this.style.display='none'">
+    </div>
+    <div class="cta__overlay"></div>
+    <div class="cta__content" id="ctaContent">
+      <p class="eyebrow">Reserve Your Appointment</p>
+      <h2>Smooth Skin<br><em>Awaits.</em></h2>
+      <p>Ready for effortlessly smooth skin? Book your waxing appointment today and experience the difference professional care makes.</p>
+      <a href="https://maxaraaesthetics.glossgenius.com/services?_gl=1*szgjwc*_gcl_au*MTQwNjQwOTgyNi4xNzY5MTA4NjQw*_ga*ODI5Mjk3MzIuMTc2OTEwODY0MA..*_ga_2DF817SLF4*czE3NzUxMzY0ODEkbzE2JGcwJHQxNzc1MTM2NDgxJGo2MCRsMCRoMjA2MTA2ODA5Mw.." target="_blank" class="btn btn--light"><span>Book Your Waxing</span></a>
+    </div>
+  </section>
+
+  <!-- ============================================================
+       FOOTER
+  ============================================================ -->
+  <footer class="footer">
+    <div class="footer__top">
+      <div>
+        <img class="footer__logo" src="assets/images/logos/Logo.png" alt="Maxara Aesthetics">
+        <p class="footer__tagline">"Elevated aesthetics rooted in the art of listening to your skin."</p>
+        <div class="footer__social">
+          <a href="#">Instagram</a>
+          <a href="#">TikTok</a>
+          <a href="#">Pinterest</a>
+        </div>
+      </div>
+      <div>
+        <p class="footer__col-title">Navigate</p>
+        <ul class="footer__links">
+          <li><a href="index.html#about">Our Philosophy</a></li>
+          <li><a href="index.html#services">Services</a></li>
+          <li><a href="index.html#meet">Meet Amanda</a></li>
+          <li><a href="index.html#gallery">Results</a></li>
+          <li><a href="#booking">Book an Appointment</a></li>
+        </ul>
+      </div>
+      <div>
+        <p class="footer__col-title">Contact</p>
+        <div class="footer__contact-item">
+          <span class="footer__contact-label">Location</span>
+          <span class="footer__contact-value">504 S 8th St<br>Griffin, GA 30224</span>
+        </div>
+        <div class="footer__contact-item">
+          <span class="footer__contact-label">Hours</span>
+          <span class="footer__contact-value">Monday - Friday<br>9:00 AM - 5:00 PM</span>
+        </div>
+        <div class="footer__contact-item">
+          <span class="footer__contact-label">Inquiries</span>
+          <span class="footer__contact-value">info@maxaraaesthetics.com</span>
+        </div>
+      </div>
+    </div>
+    <div class="footer__bottom">
+      <p class="footer__copy">&copy; 2025 Maxara Aesthetics. All rights reserved.</p>
+      <div class="footer__legal">
+        <a href="#">Privacy Policy</a>
+        <a href="#">Terms of Service</a>
+      </div>
+    </div>
+  </footer>
+
+  <!-- ============================================================
+       JAVASCRIPT
+  ============================================================ -->
+  <script>
+    // ================================================================
+    // 1. SCROLL PROGRESS BAR
+    // ================================================================
+    (function initScrollProgress() {
+      const bar = document.getElementById('scrollProgress');
+      window.addEventListener('scroll', () => {
+        const max = document.body.scrollHeight - window.innerHeight;
+        bar.style.transform = `scaleX(${window.scrollY / max})`;
+      }, { passive: true });
+    })();
+
+    // ================================================================
+    // 2. NAVIGATION — Smart Hide
+    // ================================================================
+    (function initNav() {
+      const nav = document.getElementById('nav');
+      let lastScrollY = 0;
+      let ticking = false;
+
+      window.addEventListener('scroll', () => {
+        if (!ticking) {
+          requestAnimationFrame(() => {
+            const scrollY = window.scrollY;
+            if (scrollY > lastScrollY && scrollY > 400) {
+              nav.classList.add('hidden');
+            } else {
+              nav.classList.remove('hidden');
+            }
+            lastScrollY = scrollY;
+            ticking = false;
+          });
+          ticking = true;
+        }
+      });
+    })();
+
+    // ================================================================
+    // 3. MOBILE MENU TOGGLE
+    // ================================================================
+    (function initMobileMenu() {
+      const hamburger = document.querySelector('.nav__hamburger');
+      const mobileMenu = document.getElementById('mobileMenu');
+      if (!hamburger || !mobileMenu) return;
+
+      hamburger.addEventListener('click', () => {
+        const isOpen = mobileMenu.classList.toggle('open');
+        hamburger.classList.toggle('open');
+        hamburger.setAttribute('aria-expanded', isOpen);
+        document.body.style.overflow = isOpen ? 'hidden' : '';
+      });
+
+      mobileMenu.querySelectorAll('a').forEach(link => {
+        link.addEventListener('click', () => {
+          mobileMenu.classList.remove('open');
+          hamburger.classList.remove('open');
+          hamburger.setAttribute('aria-expanded', 'false');
+          document.body.style.overflow = '';
+        });
+      });
+    })();
+
+    // ================================================================
+    // 4. PARALLAX — CTA Background
+    // ================================================================
+    (function initParallax() {
+      const ctaBg = document.getElementById('ctaBg');
+      let ticking = false;
+
+      window.addEventListener('scroll', () => {
+        if (!ticking) {
+          requestAnimationFrame(() => {
+            if (ctaBg) {
+              const rect = ctaBg.closest('.cta-section').getBoundingClientRect();
+              ctaBg.style.transform = `translateY(${-rect.top * 0.22}px)`;
+            }
+            ticking = false;
+          });
+          ticking = true;
+        }
+      }, { passive: true });
+    })();
+
+    // ================================================================
+    // 5. INTERSECTION OBSERVER — Scroll-Triggered Animations
+    // ================================================================
+    (function initScrollAnimations() {
+      // Stagger combo items
+      document.querySelectorAll('.wx-combo__item').forEach((el, i) => {
+        el.style.transitionDelay = `${i * 0.05}s`;
+      });
+
+      // Stagger FAQ items
+      document.querySelectorAll('.faq__item').forEach((el, i) => {
+        el.style.transitionDelay = `${i * 0.07}s`;
+      });
+
+      const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add('in-view');
+            observer.unobserve(entry.target);
+          }
+        });
+      }, {
+        threshold: 0.12,
+        rootMargin: '0px 0px -40px 0px'
+      });
+
+      const selectors = [
+        '#wxHero',
+        '#methodMedia', '#methodContent', '#methodEyebrow',
+        '#benefitsMedia', '#benefitsContent', '#benefitsEyebrow',
+        '#tiersEyebrow',
+        '#comboEyebrow',
+        '#faqEyebrow',
+        '#ctaContent',
+        '.reveal-up',
+        '.eyebrow'
+      ];
+
+      document.querySelectorAll(selectors.join(', ')).forEach(el => {
+        observer.observe(el);
+      });
+    })();
+
+    // ================================================================
+    // 6. TREATMENT TIER TABS
+    // ================================================================
+    (function initTabs() {
+      const tabsContainer = document.getElementById('tiersTabs');
+      const panels = document.getElementById('tiersPanels');
+      const indicator = document.getElementById('tiersIndicator');
+      const tabs = tabsContainer.querySelectorAll('.tiers__tab');
+
+      function moveIndicator(tab) {
+        indicator.style.left = tab.offsetLeft + 'px';
+        indicator.style.width = tab.offsetWidth + 'px';
+      }
+
+      function activateTab(tabEl) {
+        const target = tabEl.getAttribute('data-tab');
+
+        tabs.forEach(t => {
+          t.classList.remove('active');
+          t.setAttribute('aria-selected', 'false');
+        });
+        tabEl.classList.add('active');
+        tabEl.setAttribute('aria-selected', 'true');
+
+        panels.querySelectorAll('.tiers__panel').forEach(p => {
+          p.classList.remove('active');
+        });
+        panels.querySelector(`[data-panel="${target}"]`).classList.add('active');
+
+        moveIndicator(tabEl);
+      }
+
+      tabs.forEach(tab => {
+        tab.addEventListener('click', () => activateTab(tab));
+      });
+
+      // Keyboard navigation
+      tabsContainer.addEventListener('keydown', (e) => {
+        const tabArray = Array.from(tabs);
+        const currentIndex = tabArray.indexOf(document.activeElement);
+        let newIndex;
+
+        if (e.key === 'ArrowRight') {
+          newIndex = (currentIndex + 1) % tabArray.length;
+        } else if (e.key === 'ArrowLeft') {
+          newIndex = (currentIndex - 1 + tabArray.length) % tabArray.length;
+        } else {
+          return;
+        }
+
+        e.preventDefault();
+        tabArray[newIndex].focus();
+        activateTab(tabArray[newIndex]);
+      });
+
+      // Initialize indicator position
+      const activeTab = tabsContainer.querySelector('.tiers__tab.active');
+      if (activeTab) {
+        moveIndicator(activeTab);
+        window.addEventListener('resize', () => moveIndicator(tabsContainer.querySelector('.tiers__tab.active')));
+      }
+    })();
+
+    // ================================================================
+    // 7. BUILD YOUR WAX COMBO — Interactive Calculator
+    // ================================================================
+    (function initCombo() {
+      const items = document.querySelectorAll('.wx-combo__item');
+      const countEl = document.getElementById('comboCount');
+      const timeEl = document.getElementById('comboTime');
+      const priceEl = document.getElementById('comboPrice');
+      const ctaEl = document.getElementById('comboCta');
+      const resetBtn = document.getElementById('comboReset');
+
+      function updateSummary() {
+        const selected = document.querySelectorAll('.wx-combo__item.selected');
+        let totalPrice = 0;
+        let totalTime = 0;
+
+        selected.forEach(item => {
+          totalPrice += parseInt(item.getAttribute('data-price'), 10);
+          totalTime += parseInt(item.getAttribute('data-duration'), 10);
+        });
+
+        countEl.textContent = selected.length;
+        timeEl.textContent = totalTime > 0 ? totalTime + ' min' : '0 min';
+        priceEl.textContent = '$' + totalPrice;
+
+        if (selected.length > 0) {
+          ctaEl.classList.remove('disabled');
+        } else {
+          ctaEl.classList.add('disabled');
+        }
+      }
+
+      items.forEach(item => {
+        item.addEventListener('click', () => {
+          item.classList.toggle('selected');
+          updateSummary();
+        });
+      });
+
+      resetBtn.addEventListener('click', () => {
+        items.forEach(item => item.classList.remove('selected'));
+        updateSummary();
+      });
+
+      // Initialize
+      updateSummary();
+    })();
+
+    // ================================================================
+    // 8. FAQ ACCORDION
+    // ================================================================
+    (function initFaq() {
+      const items = document.querySelectorAll('.faq__item');
+
+      items.forEach(item => {
+        const btn = item.querySelector('.faq__question');
+
+        btn.addEventListener('click', () => {
+          const isOpen = item.classList.contains('open');
+
+          // Close all
+          items.forEach(i => {
+            i.classList.remove('open');
+            i.querySelector('.faq__question').setAttribute('aria-expanded', 'false');
+          });
+
+          // Open clicked (if it was closed)
+          if (!isOpen) {
+            item.classList.add('open');
+            btn.setAttribute('aria-expanded', 'true');
+          }
+        });
+      });
+    })();
+  </script>
+</body>
+</html>
