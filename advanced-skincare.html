@@ -1,0 +1,2395 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Advanced Skincare — Maxara Aesthetics</title>
+  <meta name="description" content="Advanced skincare treatments in Griffin, GA. Ultherapy skin tightening, skin tag removal, scar revision, and Jet Plasma. Non-invasive precision solutions at Maxara Aesthetics.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400;1,600&family=Josefin+Sans:wght@100;300;400&family=Lato:wght@300;400&display=swap" rel="stylesheet">
+
+  <style>
+    /* ============================================================
+       CSS CUSTOM PROPERTIES
+    ============================================================ */
+    :root {
+      --color-oyster:      #F5F0E8;
+      --color-oyster-dark: #EDE6D6;
+      --color-charcoal:    #2C2C2C;
+      --color-walnut:      #5C3D2E;
+      --color-terracotta:  #C4673A;
+      --color-gold:        #B89A5A;
+      --color-cream-pure:  #FAF7F2;
+      --color-mist:        rgba(245, 240, 232, 0.92);
+
+      --font-display: 'Cormorant Garamond', Georgia, serif;
+      --font-label:   'Josefin Sans', sans-serif;
+      --font-body:    'Lato', system-ui, sans-serif;
+
+      --ease-expo:    cubic-bezier(0.16, 1, 0.3, 1);
+      --ease-quart:   cubic-bezier(0.76, 0, 0.24, 1);
+    }
+
+    /* ============================================================
+       RESET & BASE
+    ============================================================ */
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    html {
+      scroll-behavior: smooth;
+      font-size: 16px;
+    }
+
+    body {
+      background: var(--color-oyster);
+      color: var(--color-charcoal);
+      font-family: var(--font-body);
+      font-weight: 300;
+      line-height: 1.85;
+      overflow-x: hidden;
+    }
+
+    img { display: block; max-width: 100%; }
+    a { text-decoration: none; color: inherit; }
+    ul { list-style: none; }
+
+    /* ============================================================
+       SCROLL PROGRESS
+    ============================================================ */
+    .scroll-progress {
+      position: fixed;
+      top: 0; left: 0;
+      width: 100%;
+      height: 2px;
+      background: var(--color-terracotta);
+      transform: scaleX(0);
+      transform-origin: left;
+      z-index: 1001;
+      will-change: transform;
+      transition: transform 0.05s linear;
+    }
+
+    /* ============================================================
+       NAVIGATION
+    ============================================================ */
+    .nav {
+      position: fixed;
+      top: 0; left: 0; right: 0;
+      z-index: 1000;
+      padding: 1rem 5%;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      background: var(--color-mist);
+      backdrop-filter: blur(14px);
+      -webkit-backdrop-filter: blur(14px);
+      box-shadow: 0 1px 0 rgba(184, 154, 90, 0.2);
+      transition:
+        padding 0.5s var(--ease-expo),
+        transform 0.45s var(--ease-expo);
+    }
+
+    .nav.hidden {
+      transform: translateY(-100%);
+    }
+
+    .nav__logo {
+      height: 40px;
+      mix-blend-mode: multiply;
+    }
+
+    .nav__links {
+      display: flex;
+      align-items: center;
+      gap: 3rem;
+    }
+
+    .nav__links a {
+      font-family: var(--font-label);
+      font-size: 0.65rem;
+      font-weight: 300;
+      letter-spacing: 0.28em;
+      text-transform: uppercase;
+      color: var(--color-charcoal);
+      position: relative;
+      transition: color 0.4s;
+    }
+
+    .nav__links a::after {
+      content: '';
+      position: absolute;
+      bottom: -3px; left: 0; right: 0;
+      height: 1px;
+      background: var(--color-terracotta);
+      transform: scaleX(0);
+      transform-origin: right;
+      transition: transform 0.4s var(--ease-expo);
+    }
+
+    .nav__links a:hover::after {
+      transform: scaleX(1);
+      transform-origin: left;
+    }
+
+    .nav__cta {
+      font-family: var(--font-label);
+      font-size: 0.62rem;
+      font-weight: 300;
+      letter-spacing: 0.28em;
+      text-transform: uppercase;
+      color: var(--color-charcoal);
+      border: 1px solid rgba(44, 44, 44, 0.3);
+      padding: 0.65rem 1.6rem;
+      position: relative;
+      overflow: hidden;
+      transition: color 0.4s ease, border-color 0.4s;
+    }
+
+    .nav__cta::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: var(--color-terracotta);
+      transform: scaleX(0);
+      transform-origin: left;
+      transition: transform 0.4s var(--ease-expo);
+      z-index: 0;
+    }
+
+    .nav__cta:hover::before { transform: scaleX(1); }
+    .nav__cta span { position: relative; z-index: 1; }
+    .nav__cta:hover span { color: var(--color-cream-pure); }
+
+    .nav__hamburger {
+      display: none;
+      flex-direction: column;
+      gap: 5px;
+      cursor: pointer;
+      padding: 4px;
+      background: none;
+      border: none;
+      z-index: 1001;
+    }
+
+    .nav__hamburger span {
+      display: block;
+      width: 24px;
+      height: 1px;
+      background: var(--color-charcoal);
+      transition: transform 0.3s var(--ease-expo), opacity 0.3s, background 0.3s;
+    }
+
+    .nav__hamburger.open span:nth-child(1) {
+      transform: translateY(6px) rotate(45deg);
+    }
+
+    .nav__hamburger.open span:nth-child(2) {
+      opacity: 0;
+    }
+
+    .nav__hamburger.open span:nth-child(3) {
+      transform: translateY(-6px) rotate(-45deg);
+    }
+
+    /* Mobile Menu Panel */
+    .mobile-menu {
+      position: fixed;
+      top: 0; right: 0;
+      width: 100%;
+      height: 100vh;
+      background: var(--color-walnut);
+      z-index: 999;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      gap: 2.5rem;
+      transform: translateX(100%);
+      transition: transform 0.5s var(--ease-expo);
+    }
+
+    .mobile-menu.open {
+      transform: translateX(0);
+    }
+
+    .mobile-menu a {
+      font-family: var(--font-label);
+      font-size: 0.8rem;
+      font-weight: 300;
+      letter-spacing: 0.35em;
+      text-transform: uppercase;
+      color: var(--color-cream-pure);
+      opacity: 0;
+      transform: translateY(20px);
+      transition: opacity 0.4s ease, transform 0.4s var(--ease-expo), color 0.3s;
+    }
+
+    .mobile-menu.open a {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    .mobile-menu.open a:nth-child(1) { transition-delay: 0.15s; }
+    .mobile-menu.open a:nth-child(2) { transition-delay: 0.2s; }
+    .mobile-menu.open a:nth-child(3) { transition-delay: 0.25s; }
+    .mobile-menu.open a:nth-child(4) { transition-delay: 0.3s; }
+    .mobile-menu.open a:nth-child(5) { transition-delay: 0.35s; }
+
+    .mobile-menu a:hover {
+      color: var(--color-terracotta);
+    }
+
+    /* ============================================================
+       SHARED UTILITIES
+    ============================================================ */
+    .eyebrow {
+      font-family: var(--font-label);
+      font-size: 0.65rem;
+      font-weight: 300;
+      letter-spacing: 0.42em;
+      text-transform: uppercase;
+      color: var(--color-terracotta);
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+      margin-bottom: 1.5rem;
+    }
+
+    .eyebrow::before {
+      content: '';
+      display: block;
+      width: 0;
+      height: 1px;
+      background: var(--color-gold);
+      flex-shrink: 0;
+      transition: width 1s var(--ease-expo);
+    }
+
+    .eyebrow.in-view::before {
+      width: 40px;
+    }
+
+    .section-headline {
+      font-family: var(--font-display);
+      font-weight: 300;
+      font-size: clamp(2.2rem, 4vw, 3.4rem);
+      line-height: 1.12;
+      color: var(--color-charcoal);
+    }
+
+    .section-headline em {
+      font-style: italic;
+      font-weight: 300;
+    }
+
+    .btn {
+      display: inline-block;
+      font-family: var(--font-label);
+      font-size: 0.63rem;
+      font-weight: 300;
+      letter-spacing: 0.32em;
+      text-transform: uppercase;
+      padding: 1rem 2.5rem;
+      border: 1px solid currentColor;
+      position: relative;
+      overflow: hidden;
+      transition: color 0.4s ease;
+      cursor: pointer;
+    }
+
+    .btn::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: currentColor;
+      transform: scaleX(0);
+      transform-origin: left;
+      transition: transform 0.45s var(--ease-expo);
+      z-index: 0;
+    }
+
+    .btn:hover::before { transform: scaleX(1); }
+    .btn > span { position: relative; z-index: 1; transition: color 0.4s ease; }
+    .btn--dark { color: var(--color-charcoal); }
+    .btn--dark:hover > span { color: var(--color-cream-pure); }
+    .btn--light { color: var(--color-oyster); }
+    .btn--light:hover > span { color: var(--color-charcoal); }
+    .btn--light::before { background: var(--color-oyster); }
+    .btn--terracotta { color: var(--color-terracotta); }
+    .btn--terracotta:hover > span { color: var(--color-cream-pure); }
+
+    .reveal-up {
+      opacity: 0;
+      transform: translateY(40px);
+      transition: opacity 0.9s ease, transform 1s var(--ease-expo);
+    }
+
+    .reveal-up.in-view {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    .reveal-left {
+      opacity: 0;
+      transform: translateX(-50px);
+      transition: opacity 0.9s ease, transform 1.1s var(--ease-expo);
+    }
+
+    .reveal-left.in-view {
+      opacity: 1;
+      transform: translateX(0);
+    }
+
+    .reveal-right {
+      opacity: 0;
+      transform: translateX(60px);
+      transition: opacity 0.9s ease, transform 1.1s var(--ease-expo);
+    }
+
+    .reveal-right.in-view {
+      opacity: 1;
+      transform: translateX(0);
+    }
+
+    /* ============================================================
+       IMAGE PLACEHOLDER
+    ============================================================ */
+    .img-placeholder {
+      position: relative;
+      width: 100%;
+      height: 100%;
+      background: linear-gradient(135deg, var(--color-walnut) 0%, #3d2518 100%);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      overflow: hidden;
+    }
+
+    .img-placeholder__label {
+      font-family: var(--font-label);
+      font-size: 0.55rem;
+      letter-spacing: 0.25em;
+      text-transform: uppercase;
+      color: rgba(245, 240, 232, 0.35);
+      text-align: center;
+      padding: 1rem;
+      line-height: 1.8;
+      z-index: 1;
+    }
+
+    .img-placeholder img {
+      position: absolute;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      z-index: 2;
+    }
+
+    .img-placeholder img.img-hidden {
+      display: none;
+    }
+
+    /* ============================================================
+       HERO SECTION
+    ============================================================ */
+    .as-hero {
+      padding: 8rem 8% 5rem;
+      background: var(--color-charcoal);
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 4rem;
+      align-items: center;
+      min-height: 85vh;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .as-hero__images {
+      position: relative;
+      height: 520px;
+    }
+
+    .as-hero__img-main {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 65%;
+      height: 100%;
+      border-radius: 2px;
+      opacity: 0;
+      transform: translateX(-40px);
+      transition: opacity 1s ease 0.3s, transform 1.2s var(--ease-expo) 0.3s;
+    }
+
+    .as-hero__img-accent {
+      position: absolute;
+      bottom: 0;
+      right: 5%;
+      width: 48%;
+      height: 60%;
+      border-radius: 2px;
+      box-shadow: -12px -12px 0 var(--color-charcoal);
+      opacity: 0;
+      transform: translateX(-30px) translateY(20px);
+      transition: opacity 1s ease 0.6s, transform 1.2s var(--ease-expo) 0.6s;
+    }
+
+    .as-hero.in-view .as-hero__img-main,
+    .as-hero.in-view .as-hero__img-accent {
+      opacity: 1;
+      transform: translateX(0) translateY(0);
+    }
+
+    .as-hero__content {
+      color: var(--color-cream-pure);
+      opacity: 0;
+      transform: translateY(30px);
+      transition: opacity 1s ease 0.4s, transform 1.1s var(--ease-expo) 0.4s;
+    }
+
+    .as-hero.in-view .as-hero__content {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    .as-hero__title {
+      font-family: var(--font-display);
+      font-weight: 300;
+      font-size: clamp(3rem, 6vw, 5rem);
+      line-height: 1.05;
+      color: var(--color-cream-pure);
+      margin-bottom: 0.5rem;
+    }
+
+    .as-hero__subtitle {
+      font-family: var(--font-display);
+      font-style: italic;
+      font-weight: 300;
+      font-size: clamp(1.1rem, 2vw, 1.5rem);
+      color: var(--color-gold);
+      margin-bottom: 1.75rem;
+    }
+
+    .as-hero__text {
+      font-size: 0.97rem;
+      color: rgba(245, 240, 232, 0.72);
+      max-width: 440px;
+      margin-bottom: 2.5rem;
+      line-height: 1.85;
+    }
+
+    .as-hero .eyebrow {
+      color: var(--color-gold);
+    }
+
+    .as-hero .eyebrow::before {
+      background: rgba(245, 240, 232, 0.3);
+    }
+
+    /* ============================================================
+       MARQUEE STRIP
+    ============================================================ */
+    .marquee-strip {
+      overflow: hidden;
+      background: var(--color-walnut);
+      padding: 1.1rem 0;
+      border-top: 1px solid rgba(184, 154, 90, 0.25);
+      border-bottom: 1px solid rgba(184, 154, 90, 0.25);
+    }
+
+    .marquee-strip--dark {
+      background: var(--color-charcoal);
+    }
+
+    .marquee-strip--lg .marquee-strip__track span {
+      font-size: 0.85rem;
+      letter-spacing: 0.5em;
+      padding: 0 4rem;
+    }
+
+    .marquee-strip__track {
+      display: flex;
+      width: max-content;
+      animation: marquee 36s linear infinite;
+    }
+
+    .marquee-strip__track:hover {
+      animation-play-state: paused;
+    }
+
+    .marquee-strip__track span {
+      font-family: var(--font-label);
+      font-size: 0.62rem;
+      font-weight: 100;
+      letter-spacing: 0.38em;
+      text-transform: uppercase;
+      color: var(--color-gold);
+      white-space: nowrap;
+      padding: 0 3rem;
+    }
+
+    .marquee-strip__track span.dot {
+      color: var(--color-terracotta);
+      padding: 0;
+      letter-spacing: 0;
+    }
+
+    @keyframes marquee {
+      from { transform: translateX(0); }
+      to   { transform: translateX(-50%); }
+    }
+
+    /* ============================================================
+       FEATURE SPLIT SECTIONS
+    ============================================================ */
+    .feature-split {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      min-height: 55vh;
+    }
+
+    .feature-split--reverse {
+      direction: rtl;
+    }
+
+    .feature-split--reverse > * {
+      direction: ltr;
+    }
+
+    .feature-split__media {
+      position: relative;
+      overflow: hidden;
+    }
+
+    .feature-split__media img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+      transform: scale(1.06);
+      transition: transform 2s var(--ease-expo);
+    }
+
+    .feature-split__media.in-view img {
+      transform: scale(1);
+    }
+
+    .feature-split__media-placeholder {
+      width: 100%;
+      height: 100%;
+      min-height: 400px;
+      background: linear-gradient(135deg, var(--color-walnut) 0%, #3d2518 100%);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .feature-split__media-placeholder span {
+      font-family: var(--font-label);
+      font-size: 0.6rem;
+      letter-spacing: 0.3em;
+      text-transform: uppercase;
+      color: rgba(245, 240, 232, 0.3);
+    }
+
+    .feature-split__content {
+      padding: 5rem 4.5rem;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      opacity: 0;
+      transform: translateX(40px);
+      transition: opacity 1s ease, transform 1.2s var(--ease-expo);
+    }
+
+    .feature-split--reverse .feature-split__content {
+      transform: translateX(-40px);
+    }
+
+    .feature-split__content.in-view {
+      opacity: 1;
+      transform: translateX(0);
+    }
+
+    .feature-split__content--walnut {
+      background: var(--color-walnut);
+      color: var(--color-oyster);
+    }
+
+    .feature-split__content--walnut .eyebrow {
+      color: var(--color-gold);
+    }
+
+    .feature-split__content--walnut .section-headline {
+      color: var(--color-oyster);
+    }
+
+    .feature-split__content--walnut p {
+      color: rgba(245, 240, 232, 0.72);
+    }
+
+    .feature-split__content--oyster {
+      background: var(--color-oyster);
+    }
+
+    .feature-split__content .section-headline {
+      margin-bottom: 1.5rem;
+    }
+
+    .feature-split__content p {
+      font-size: 0.95rem;
+      line-height: 1.9;
+      margin-bottom: 1.25rem;
+      color: rgba(44, 44, 44, 0.72);
+    }
+
+    .feature-split__content--walnut p {
+      color: rgba(245, 240, 232, 0.72);
+    }
+
+    /* ============================================================
+       SKIN CONCERNS GRID
+    ============================================================ */
+    .concerns {
+      padding: 9rem 8%;
+      background: var(--color-oyster-dark);
+    }
+
+    .concerns__header {
+      text-align: center;
+      max-width: 640px;
+      margin: 0 auto 3.5rem;
+    }
+
+    .concerns__header .eyebrow {
+      justify-content: center;
+    }
+
+    .concerns__header .section-headline {
+      margin-bottom: 1rem;
+    }
+
+    .concerns__header p {
+      color: rgba(44, 44, 44, 0.65);
+      font-size: 0.95rem;
+    }
+
+    .concerns__grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 2rem;
+      max-width: 1100px;
+      margin: 0 auto;
+    }
+
+    .concerns__card {
+      background: var(--color-cream-pure);
+      padding: 2.5rem;
+      position: relative;
+      box-shadow: 0 4px 24px rgba(44, 44, 44, 0.05);
+      transition: transform 0.5s var(--ease-expo), box-shadow 0.5s var(--ease-expo);
+      overflow: hidden;
+      opacity: 0;
+      transform: translateY(30px);
+    }
+
+    .concerns__card.in-view {
+      opacity: 1;
+      transform: translateY(0);
+      transition: opacity 0.9s ease, transform 1s var(--ease-expo),
+                  box-shadow 0.5s var(--ease-expo);
+    }
+
+    .concerns__card::before {
+      content: '';
+      position: absolute;
+      top: 0; left: 0; right: 0;
+      height: 2px;
+      background: var(--color-gold);
+      transform: scaleX(0);
+      transform-origin: left;
+      transition: transform 0.5s var(--ease-expo);
+    }
+
+    .concerns__card:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 8px 32px rgba(44, 44, 44, 0.08);
+    }
+
+    .concerns__card:hover::before {
+      transform: scaleX(1);
+    }
+
+    .concerns__icon {
+      width: 40px;
+      height: 40px;
+      margin-bottom: 1.25rem;
+    }
+
+    .concerns__icon svg {
+      width: 100%;
+      height: 100%;
+      stroke: var(--color-terracotta);
+      fill: none;
+      stroke-width: 1.5;
+      stroke-linecap: round;
+      stroke-linejoin: round;
+    }
+
+    .concerns__title {
+      font-family: var(--font-display);
+      font-size: 1.2rem;
+      font-weight: 400;
+      color: var(--color-walnut);
+      margin-bottom: 0.5rem;
+    }
+
+    .concerns__desc {
+      font-size: 0.9rem;
+      color: rgba(44, 44, 44, 0.68);
+      line-height: 1.7;
+    }
+
+    /* ============================================================
+       TREATMENT TIERS — TABS
+    ============================================================ */
+    .tiers {
+      padding: 9rem 8%;
+      background: var(--color-oyster);
+    }
+
+    .tiers__header {
+      text-align: center;
+      max-width: 640px;
+      margin: 0 auto 3.5rem;
+    }
+
+    .tiers__header .eyebrow {
+      justify-content: center;
+    }
+
+    .tiers__header .section-headline {
+      margin-bottom: 1rem;
+    }
+
+    .tiers__header p {
+      color: rgba(44, 44, 44, 0.65);
+      font-size: 0.95rem;
+    }
+
+    .tiers__tabs {
+      display: flex;
+      justify-content: center;
+      gap: 0;
+      position: relative;
+      margin-bottom: 3.5rem;
+      border-bottom: 1px solid rgba(184, 154, 90, 0.3);
+    }
+
+    .tiers__tab {
+      font-family: var(--font-label);
+      font-size: 0.65rem;
+      font-weight: 300;
+      letter-spacing: 0.3em;
+      text-transform: uppercase;
+      color: rgba(44, 44, 44, 0.5);
+      padding: 1rem 2rem;
+      cursor: pointer;
+      background: none;
+      border: none;
+      position: relative;
+      transition: color 0.4s ease;
+    }
+
+    .tiers__tab:hover {
+      color: var(--color-charcoal);
+    }
+
+    .tiers__tab.active {
+      color: var(--color-terracotta);
+    }
+
+    .tiers__indicator {
+      position: absolute;
+      bottom: -1px;
+      height: 2px;
+      background: var(--color-terracotta);
+      transition: left 0.45s var(--ease-expo), width 0.45s var(--ease-expo);
+    }
+
+    .tiers__panels {
+      position: relative;
+      min-height: 320px;
+    }
+
+    .tiers__panel {
+      display: grid;
+      grid-template-columns: 1.1fr 1fr;
+      gap: 4rem;
+      align-items: center;
+      opacity: 0;
+      transform: translateY(16px);
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      pointer-events: none;
+      transition: opacity 0.5s ease, transform 0.6s var(--ease-expo);
+    }
+
+    .tiers__panel.active {
+      opacity: 1;
+      transform: translateY(0);
+      position: relative;
+      pointer-events: auto;
+    }
+
+    .tiers__panel-content {
+      padding: 2rem 0;
+    }
+
+    .tiers__tier-name {
+      font-family: var(--font-display);
+      font-size: 2.4rem;
+      font-weight: 300;
+      margin-bottom: 0.25rem;
+    }
+
+    .tiers__tier-tagline {
+      font-family: var(--font-label);
+      font-size: 0.6rem;
+      letter-spacing: 0.28em;
+      text-transform: uppercase;
+      color: var(--color-terracotta);
+      margin-bottom: 1.5rem;
+    }
+
+    .tiers__tier-desc {
+      font-size: 0.95rem;
+      color: rgba(44, 44, 44, 0.72);
+      margin-bottom: 2rem;
+      line-height: 1.85;
+    }
+
+    .tiers__tier-features {
+      margin-bottom: 2.5rem;
+    }
+
+    .tiers__tier-features li {
+      font-family: var(--font-label);
+      font-size: 0.62rem;
+      letter-spacing: 0.22em;
+      text-transform: uppercase;
+      color: var(--color-walnut);
+      padding: 0.7rem 0;
+      border-bottom: 1px solid rgba(184, 154, 90, 0.2);
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+    }
+
+    .tiers__tier-features li::before {
+      content: '';
+      display: block;
+      width: 16px;
+      height: 1px;
+      background: var(--color-terracotta);
+      flex-shrink: 0;
+    }
+
+    .tiers__panel-image {
+      position: relative;
+      overflow: hidden;
+      border-radius: 2px;
+      min-height: 420px;
+    }
+
+    .tiers__panel-image img {
+      width: 100%;
+      height: 420px;
+      object-fit: cover;
+      object-position: top;
+      display: block;
+    }
+
+    .tiers__panel-image .tiers__image-placeholder {
+      width: 100%;
+      height: 420px;
+      background: linear-gradient(135deg, var(--color-walnut) 0%, #3d2518 100%);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .tiers__image-placeholder span {
+      font-family: var(--font-label);
+      font-size: 0.6rem;
+      letter-spacing: 0.3em;
+      text-transform: uppercase;
+      color: rgba(245, 240, 232, 0.3);
+    }
+
+    .tiers__note {
+      text-align: center;
+      font-family: var(--font-label);
+      font-size: 0.58rem;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: rgba(44, 44, 44, 0.45);
+      margin-top: 2.5rem;
+    }
+
+    /* ============================================================
+       TREATMENT FINDER QUIZ
+    ============================================================ */
+    .quiz-section {
+      padding: 7rem 8% 9rem;
+      background: var(--color-oyster-dark);
+    }
+
+    .quiz-section__header {
+      text-align: center;
+      margin-bottom: 3rem;
+    }
+
+    .quiz-section__header .eyebrow {
+      justify-content: center;
+    }
+
+    .quiz-section__header .section-headline {
+      margin-bottom: 0.75rem;
+    }
+
+    .quiz-section__header p {
+      color: rgba(44, 44, 44, 0.6);
+      font-size: 0.95rem;
+    }
+
+    .quiz {
+      max-width: 640px;
+      margin: 0 auto;
+      background: var(--color-cream-pure);
+      padding: 3rem;
+      position: relative;
+      overflow: hidden;
+      box-shadow: 0 8px 40px rgba(44, 44, 44, 0.06);
+    }
+
+    .quiz__progress {
+      display: flex;
+      justify-content: center;
+      gap: 0.75rem;
+      margin-bottom: 2.5rem;
+    }
+
+    .quiz__dot {
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+      background: rgba(184, 154, 90, 0.25);
+      transition: background 0.4s ease, transform 0.4s var(--ease-expo);
+    }
+
+    .quiz__dot.active {
+      background: var(--color-terracotta);
+      transform: scale(1.3);
+    }
+
+    .quiz__dot.completed {
+      background: var(--color-gold);
+    }
+
+    .quiz__steps {
+      position: relative;
+      overflow: hidden;
+    }
+
+    .quiz__step {
+      display: none;
+    }
+
+    .quiz__step.active {
+      display: block;
+      animation: quizFadeIn 0.45s var(--ease-expo);
+    }
+
+    @keyframes quizFadeIn {
+      from { opacity: 0; transform: translateX(20px); }
+      to   { opacity: 1; transform: translateX(0); }
+    }
+
+    .quiz__question-text {
+      font-family: var(--font-display);
+      font-size: 1.5rem;
+      font-weight: 300;
+      text-align: center;
+      margin-bottom: 2rem;
+      line-height: 1.3;
+    }
+
+    .quiz__options {
+      display: flex;
+      flex-direction: column;
+      gap: 0.75rem;
+    }
+
+    .quiz__option {
+      padding: 1rem 1.5rem;
+      border: 1px solid rgba(184, 154, 90, 0.3);
+      background: transparent;
+      cursor: pointer;
+      font-family: var(--font-label);
+      font-size: 0.62rem;
+      font-weight: 300;
+      letter-spacing: 0.22em;
+      text-transform: uppercase;
+      color: var(--color-charcoal);
+      text-align: left;
+      transition: background 0.3s ease, border-color 0.3s ease, color 0.3s ease;
+    }
+
+    .quiz__option:hover {
+      border-color: var(--color-terracotta);
+      background: rgba(196, 103, 58, 0.05);
+    }
+
+    .quiz__option.selected {
+      background: var(--color-terracotta);
+      border-color: var(--color-terracotta);
+      color: var(--color-cream-pure);
+    }
+
+    .quiz__result {
+      display: none;
+      text-align: center;
+      animation: quizFadeIn 0.5s var(--ease-expo);
+    }
+
+    .quiz__result.active {
+      display: block;
+    }
+
+    .quiz__result-label {
+      font-family: var(--font-label);
+      font-size: 0.6rem;
+      letter-spacing: 0.35em;
+      text-transform: uppercase;
+      color: var(--color-terracotta);
+      margin-bottom: 0.75rem;
+    }
+
+    .quiz__result-name {
+      font-family: var(--font-display);
+      font-size: 2.2rem;
+      font-weight: 300;
+      margin-bottom: 1rem;
+    }
+
+    .quiz__result-desc {
+      font-size: 0.93rem;
+      color: rgba(44, 44, 44, 0.7);
+      margin-bottom: 2rem;
+      line-height: 1.8;
+    }
+
+    .quiz__retake {
+      display: inline-block;
+      margin-top: 1.25rem;
+      font-family: var(--font-label);
+      font-size: 0.58rem;
+      letter-spacing: 0.25em;
+      text-transform: uppercase;
+      color: var(--color-gold);
+      cursor: pointer;
+      background: none;
+      border: none;
+      border-bottom: 1px solid var(--color-gold);
+      padding-bottom: 2px;
+      transition: color 0.3s;
+    }
+
+    .quiz__retake:hover {
+      color: var(--color-terracotta);
+      border-color: var(--color-terracotta);
+    }
+
+    /* ============================================================
+       FAQ ACCORDION
+    ============================================================ */
+    .faq {
+      padding: 9rem 8%;
+      background: var(--color-oyster);
+      display: grid;
+      grid-template-columns: 1fr 1.6fr;
+      gap: 6rem;
+      align-items: start;
+    }
+
+    .faq__left .section-headline {
+      margin-bottom: 1rem;
+    }
+
+    .faq__tagline {
+      font-family: var(--font-display);
+      font-style: italic;
+      font-size: 1.15rem;
+      font-weight: 300;
+      color: var(--color-walnut);
+    }
+
+    .faq__list {
+      display: flex;
+      flex-direction: column;
+    }
+
+    .faq__item {
+      border-bottom: 1px solid rgba(184, 154, 90, 0.3);
+    }
+
+    .faq__question {
+      width: 100%;
+      padding: 1.5rem 0;
+      background: none;
+      border: none;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 2rem;
+      text-align: left;
+    }
+
+    .faq__question-label {
+      font-family: var(--font-body);
+      font-size: 0.97rem;
+      font-weight: 400;
+      color: var(--color-charcoal);
+      line-height: 1.5;
+    }
+
+    .faq__chevron {
+      width: 14px;
+      height: 14px;
+      stroke: var(--color-gold);
+      fill: none;
+      stroke-width: 1.5;
+      flex-shrink: 0;
+      transition: transform 0.4s var(--ease-expo);
+    }
+
+    .faq__item.open .faq__chevron {
+      transform: rotate(180deg);
+    }
+
+    .faq__answer {
+      max-height: 0;
+      overflow: hidden;
+      transition: max-height 0.5s var(--ease-expo), padding 0.5s var(--ease-expo);
+    }
+
+    .faq__item.open .faq__answer {
+      max-height: 300px;
+    }
+
+    .faq__answer-inner {
+      padding-bottom: 1.5rem;
+      font-size: 0.93rem;
+      color: rgba(44, 44, 44, 0.68);
+      line-height: 1.85;
+    }
+
+    /* ============================================================
+       CTA / BOOKING
+    ============================================================ */
+    .cta-section {
+      position: relative;
+      min-height: 55vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      overflow: hidden;
+      text-align: center;
+    }
+
+    .cta__bg {
+      position: absolute;
+      inset: -12%;
+      background: var(--color-walnut);
+      filter: blur(3px) brightness(0.55) saturate(0.85);
+      will-change: transform;
+    }
+
+    .cta__overlay {
+      position: absolute;
+      inset: 0;
+      background: rgba(44, 44, 44, 0.4);
+    }
+
+    .cta__content {
+      position: relative;
+      z-index: 2;
+      color: var(--color-oyster);
+      max-width: 640px;
+      padding: 0 2rem;
+      opacity: 0;
+      transform: translateY(30px);
+      transition: opacity 1s ease, transform 1.1s var(--ease-expo);
+    }
+
+    .cta__content.in-view {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    .cta__content .eyebrow {
+      justify-content: center;
+      color: rgba(245, 240, 232, 0.7);
+    }
+
+    .cta__content .eyebrow::before {
+      background: rgba(245, 240, 232, 0.4);
+    }
+
+    .cta__content h2 {
+      font-family: var(--font-display);
+      font-weight: 300;
+      font-size: clamp(2rem, 4.5vw, 3.5rem);
+      line-height: 1.1;
+      color: var(--color-cream-pure);
+      margin-bottom: 1.25rem;
+    }
+
+    .cta__content p {
+      font-size: 0.95rem;
+      color: rgba(245, 240, 232, 0.72);
+      margin-bottom: 2.5rem;
+      letter-spacing: 0.02em;
+    }
+
+    /* ============================================================
+       FOOTER
+    ============================================================ */
+    .footer {
+      background: var(--color-charcoal);
+      padding: 5rem 8% 2.5rem;
+    }
+
+    .footer__top {
+      display: grid;
+      grid-template-columns: 2fr 1.5fr 1.5fr;
+      gap: 4rem;
+      padding-bottom: 3.5rem;
+      border-bottom: 1px solid rgba(184, 154, 90, 0.2);
+      margin-bottom: 2.5rem;
+    }
+
+    .footer__logo {
+      height: 44px;
+      margin-bottom: 1.25rem;
+      filter: brightness(0) invert(1);
+      opacity: 0.8;
+    }
+
+    .footer__tagline {
+      font-family: var(--font-display);
+      font-style: italic;
+      font-size: 1.05rem;
+      font-weight: 300;
+      color: rgba(245, 240, 232, 0.55);
+      line-height: 1.6;
+      max-width: 280px;
+      margin-bottom: 1.5rem;
+    }
+
+    .footer__social {
+      display: flex;
+      gap: 1.25rem;
+    }
+
+    .footer__social a {
+      font-family: var(--font-label);
+      font-size: 0.58rem;
+      letter-spacing: 0.28em;
+      text-transform: uppercase;
+      color: rgba(245, 240, 232, 0.45);
+      transition: color 0.3s;
+    }
+
+    .footer__social a:hover { color: var(--color-gold); }
+
+    .footer__col-title {
+      font-family: var(--font-label);
+      font-size: 0.6rem;
+      letter-spacing: 0.36em;
+      text-transform: uppercase;
+      color: var(--color-gold);
+      margin-bottom: 1.5rem;
+    }
+
+    .footer__links {
+      display: flex;
+      flex-direction: column;
+      gap: 0.75rem;
+    }
+
+    .footer__links a {
+      font-family: var(--font-body);
+      font-size: 0.88rem;
+      font-weight: 300;
+      color: rgba(245, 240, 232, 0.55);
+      transition: color 0.3s;
+    }
+
+    .footer__links a:hover { color: var(--color-cream-pure); }
+
+    .footer__contact-item {
+      display: flex;
+      flex-direction: column;
+      gap: 0.25rem;
+      margin-bottom: 1rem;
+    }
+
+    .footer__contact-label {
+      font-family: var(--font-label);
+      font-size: 0.58rem;
+      letter-spacing: 0.28em;
+      text-transform: uppercase;
+      color: var(--color-terracotta);
+    }
+
+    .footer__contact-value {
+      font-family: var(--font-body);
+      font-size: 0.88rem;
+      font-weight: 300;
+      color: rgba(245, 240, 232, 0.6);
+    }
+
+    .footer__bottom {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 1rem;
+    }
+
+    .footer__copy {
+      font-family: var(--font-label);
+      font-size: 0.58rem;
+      letter-spacing: 0.22em;
+      text-transform: uppercase;
+      color: rgba(245, 240, 232, 0.3);
+    }
+
+    .footer__legal {
+      display: flex;
+      gap: 2rem;
+    }
+
+    .footer__legal a {
+      font-family: var(--font-label);
+      font-size: 0.58rem;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: rgba(245, 240, 232, 0.3);
+      transition: color 0.3s;
+    }
+
+    .footer__legal a:hover { color: rgba(245, 240, 232, 0.7); }
+
+    /* ============================================================
+       RESPONSIVE
+    ============================================================ */
+    @media (max-width: 1100px) {
+      .as-hero {
+        grid-template-columns: 1fr;
+        gap: 3rem;
+        padding: 7rem 6% 5rem;
+      }
+
+      .as-hero__images {
+        height: 380px;
+        order: -1;
+      }
+
+      .concerns__grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+
+      .tiers__panel {
+        grid-template-columns: 1fr;
+        gap: 2rem;
+      }
+
+      .tiers__panel-image img,
+      .tiers__panel-image .tiers__image-placeholder {
+        height: 300px;
+      }
+
+      .feature-split {
+        grid-template-columns: 1fr;
+      }
+
+      .feature-split--reverse {
+        direction: ltr;
+      }
+
+      .feature-split__media {
+        min-height: 50vw;
+      }
+
+      .faq {
+        grid-template-columns: 1fr;
+        gap: 3rem;
+        padding: 7rem 6%;
+      }
+
+      .footer__top {
+        grid-template-columns: 1fr 1fr;
+        gap: 3rem;
+      }
+
+      .footer__top > *:first-child {
+        grid-column: span 2;
+      }
+    }
+
+    @media (max-width: 768px) {
+      .nav__links,
+      .nav__cta {
+        display: none;
+      }
+
+      .nav__hamburger {
+        display: flex;
+      }
+
+      .nav {
+        padding: 1.25rem 5%;
+      }
+
+      .as-hero {
+        padding: 6.5rem 5% 4rem;
+      }
+
+      .as-hero__images {
+        height: 300px;
+      }
+
+      .as-hero__img-main {
+        width: 60%;
+      }
+
+      .as-hero__img-accent {
+        width: 50%;
+        right: 0;
+      }
+
+      .concerns {
+        padding: 6rem 5%;
+      }
+
+      .concerns__grid {
+        grid-template-columns: 1fr;
+      }
+
+      .tiers,
+      .quiz-section,
+      .faq {
+        padding-left: 5%;
+        padding-right: 5%;
+      }
+
+      .tiers__tab {
+        padding: 0.75rem 1rem;
+        font-size: 0.55rem;
+        letter-spacing: 0.18em;
+      }
+
+      .feature-split__content {
+        padding: 3.5rem 5%;
+      }
+
+      .quiz {
+        padding: 2rem 1.5rem;
+      }
+
+      .footer__top {
+        grid-template-columns: 1fr;
+      }
+
+      .footer__top > *:first-child {
+        grid-column: span 1;
+      }
+
+      .footer {
+        padding: 4rem 5% 2rem;
+      }
+    }
+
+    @media (max-width: 480px) {
+      .as-hero__images {
+        height: 240px;
+      }
+
+      .tiers__tabs {
+        flex-wrap: wrap;
+        justify-content: center;
+      }
+
+      .tiers__indicator {
+        display: none;
+      }
+
+      .tiers__tab.active {
+        border-bottom: 2px solid var(--color-terracotta);
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- Scroll Progress Bar -->
+  <div class="scroll-progress" id="scrollProgress"></div>
+
+  <!-- ============================================================
+       NAVIGATION
+  ============================================================ -->
+  <nav class="nav" id="nav">
+    <a href="index.html" class="nav__logo-link">
+      <img class="nav__logo" src="assets/images/logos/Logo.png" alt="Maxara Aesthetics">
+    </a>
+    <ul class="nav__links">
+      <li><a href="index.html#about">Philosophy</a></li>
+      <li><a href="index.html#services">Services</a></li>
+      <li><a href="index.html#meet">About</a></li>
+      <li><a href="index.html#gallery">Results</a></li>
+    </ul>
+    <a href="https://maxaraaesthetics.glossgenius.com/services?_gl=1*szgjwc*_gcl_au*MTQwNjQwOTgyNi4xNzY5MTA4NjQw*_ga*ODI5Mjk3MzIuMTc2OTEwODY0MA..*_ga_2DF817SLF4*czE3NzUxMzY0ODEkbzE2JGcwJHQxNzc1MTM2NDgxJGo2MCRsMCRoMjA2MTA2ODA5Mw.." target="_blank" class="nav__cta"><span>Book Now</span></a>
+    <button class="nav__hamburger" aria-label="Menu" aria-expanded="false" aria-controls="mobileMenu">
+      <span></span>
+      <span></span>
+      <span></span>
+    </button>
+  </nav>
+
+  <!-- Mobile Menu Panel -->
+  <div class="mobile-menu" id="mobileMenu">
+    <a href="index.html#about">Philosophy</a>
+    <a href="index.html#services">Services</a>
+    <a href="index.html#meet">About</a>
+    <a href="index.html#gallery">Results</a>
+    <a href="https://maxaraaesthetics.glossgenius.com/services?_gl=1*szgjwc*_gcl_au*MTQwNjQwOTgyNi4xNzY5MTA4NjQw*_ga*ODI5Mjk3MzIuMTc2OTEwODY0MA..*_ga_2DF817SLF4*czE3NzUxMzY0ODEkbzE2JGcwJHQxNzc1MTM2NDgxJGo2MCRsMCRoMjA2MTA2ODA5Mw.." target="_blank">Book Now</a>
+  </div>
+
+  <!-- ============================================================
+       HERO
+  ============================================================ -->
+  <section class="as-hero" id="asHero">
+    <div class="as-hero__images">
+      <div class="as-hero__img-main img-placeholder">
+        <span class="img-placeholder__label">advanced-skincare-portrait.jpg</span>
+      </div>
+      <div class="as-hero__img-accent img-placeholder">
+        <span class="img-placeholder__label">advanced-skincare-detail.jpg</span>
+      </div>
+    </div>
+    <div class="as-hero__content">
+      <p class="eyebrow">Precision Skin Solutions</p>
+      <h1 class="as-hero__title">Advanced Skincare</h1>
+      <p class="as-hero__subtitle">in Griffin, GA</p>
+      <p class="as-hero__text">Targeted treatments that go beyond the surface. From ultrasound skin tightening to plasma-powered renewal, each service is designed to address specific concerns with precision and care.</p>
+      <a href="#booking" class="btn btn--light"><span>Book Now</span></a>
+    </div>
+  </section>
+
+  <!-- ============================================================
+       MARQUEE — Tighten Renew Refine Restore
+  ============================================================ -->
+  <div class="marquee-strip marquee-strip--dark">
+    <div class="marquee-strip__track" aria-hidden="true">
+      <span>Tighten</span><span class="dot">&nbsp;&nbsp;&middot;&nbsp;&nbsp;</span>
+      <span>Renew</span><span class="dot">&nbsp;&nbsp;&middot;&nbsp;&nbsp;</span>
+      <span>Refine</span><span class="dot">&nbsp;&nbsp;&middot;&nbsp;&nbsp;</span>
+      <span>Restore</span><span class="dot">&nbsp;&nbsp;&middot;&nbsp;&nbsp;</span>
+      <span>Tighten</span><span class="dot">&nbsp;&nbsp;&middot;&nbsp;&nbsp;</span>
+      <span>Renew</span><span class="dot">&nbsp;&nbsp;&middot;&nbsp;&nbsp;</span>
+      <span>Refine</span><span class="dot">&nbsp;&nbsp;&middot;&nbsp;&nbsp;</span>
+      <span>Restore</span><span class="dot">&nbsp;&nbsp;&middot;&nbsp;&nbsp;</span>
+      <span>Tighten</span><span class="dot">&nbsp;&nbsp;&middot;&nbsp;&nbsp;</span>
+      <span>Renew</span><span class="dot">&nbsp;&nbsp;&middot;&nbsp;&nbsp;</span>
+      <span>Refine</span><span class="dot">&nbsp;&nbsp;&middot;&nbsp;&nbsp;</span>
+      <span>Restore</span><span class="dot">&nbsp;&nbsp;&middot;&nbsp;&nbsp;</span>
+      <span>Tighten</span><span class="dot">&nbsp;&nbsp;&middot;&nbsp;&nbsp;</span>
+      <span>Renew</span><span class="dot">&nbsp;&nbsp;&middot;&nbsp;&nbsp;</span>
+      <span>Refine</span><span class="dot">&nbsp;&nbsp;&middot;&nbsp;&nbsp;</span>
+      <span>Restore</span><span class="dot">&nbsp;&nbsp;&middot;&nbsp;&nbsp;</span>
+    </div>
+  </div>
+
+  <!-- ============================================================
+       WHAT IS ADVANCED SKINCARE — Feature Split
+  ============================================================ -->
+  <section class="feature-split">
+    <div class="feature-split__media img-placeholder" id="introMedia">
+      <span class="img-placeholder__label">advanced-skincare-intro.jpg</span>
+    </div>
+    <div class="feature-split__content feature-split__content--walnut" id="introContent">
+      <p class="eyebrow" id="introEyebrow">Beyond the Surface</p>
+      <h2 class="section-headline">What is Advanced<br><em>Skincare?</em></h2>
+      <p>Our advanced skincare menu brings together non-invasive technologies and precision techniques that target concerns traditional facials can't reach &mdash; from skin laxity and scarring to stubborn tags and textural irregularities.</p>
+      <p>Each treatment is selected for its safety profile, effectiveness, and ability to deliver visible results with minimal downtime. Your provider will guide you to the right option based on your unique goals.</p>
+    </div>
+  </section>
+
+  <!-- ============================================================
+       SKIN CONCERNS — What We Treat
+  ============================================================ -->
+  <section class="concerns" id="concerns">
+    <div class="concerns__header reveal-up">
+      <p class="eyebrow" id="concernsEyebrow">Targeted Results</p>
+      <h2 class="section-headline">What We<br><em>Treat</em></h2>
+      <p>Our advanced treatments address a range of specific skin concerns, delivering visible improvement where it matters most.</p>
+    </div>
+
+    <div class="concerns__grid">
+      <div class="concerns__card">
+        <div class="concerns__icon">
+          <svg viewBox="0 0 40 40"><path d="M20 6 C12 6 6 12 6 20 C6 28 12 34 20 34"/><path d="M20 6 C28 6 34 12 34 20 C34 28 28 34 20 34" stroke-dasharray="3 3"/><path d="M14 20 L18 24 L26 16"/></svg>
+        </div>
+        <h3 class="concerns__title">Skin Laxity</h3>
+        <p class="concerns__desc">Sagging or looseness in the face, neck, jawline, and body that benefits from non-invasive tightening and lifting.</p>
+      </div>
+
+      <div class="concerns__card">
+        <div class="concerns__icon">
+          <svg viewBox="0 0 40 40"><path d="M6 14 Q13 10 20 14 Q27 18 34 14"/><path d="M6 22 Q13 18 20 22 Q27 26 34 22"/><path d="M6 30 Q13 26 20 30 Q27 34 34 30"/></svg>
+        </div>
+        <h3 class="concerns__title">Fine Lines &amp; Wrinkles</h3>
+        <p class="concerns__desc">Visible aging signs around the eyes, mouth, and forehead that respond to collagen stimulation and skin renewal.</p>
+      </div>
+
+      <div class="concerns__card">
+        <div class="concerns__icon">
+          <svg viewBox="0 0 40 40"><path d="M10 10 L14 14 M26 10 L22 14 M10 30 L14 26 M26 30 L22 26"/><circle cx="18" cy="20" r="6"/><path d="M24 18 Q28 16 30 20 Q28 24 24 22"/></svg>
+        </div>
+        <h3 class="concerns__title">Scarring</h3>
+        <p class="concerns__desc">Acne scars, surgical scars, and textural irregularities that can be softened through controlled plasma energy treatments.</p>
+      </div>
+
+      <div class="concerns__card">
+        <div class="concerns__icon">
+          <svg viewBox="0 0 40 40"><circle cx="20" cy="16" r="4"/><line x1="20" y1="20" x2="20" y2="30"/><line x1="16" y1="34" x2="24" y2="34"/><path d="M14 12 L12 8 M26 12 L28 8"/></svg>
+        </div>
+        <h3 class="concerns__title">Skin Tags</h3>
+        <p class="concerns__desc">Small benign growths that are cosmetically bothersome, removed quickly and precisely with plasma pen technology.</p>
+      </div>
+
+      <div class="concerns__card">
+        <div class="concerns__icon">
+          <svg viewBox="0 0 40 40"><rect x="8" y="8" width="24" height="24" rx="4"/><circle cx="15" cy="16" r="2"/><circle cx="25" cy="16" r="1.5"/><circle cx="20" cy="24" r="2.5"/><circle cx="14" cy="28" r="1"/><circle cx="27" cy="22" r="1.5"/></svg>
+        </div>
+        <h3 class="concerns__title">Uneven Texture</h3>
+        <p class="concerns__desc">Rough, bumpy, or pockmarked skin surface that can be smoothed and refined through targeted plasma treatments.</p>
+      </div>
+
+      <div class="concerns__card">
+        <div class="concerns__icon">
+          <svg viewBox="0 0 40 40"><circle cx="20" cy="20" r="14"/><circle cx="20" cy="20" r="8"/><circle cx="20" cy="20" r="2"/><line x1="20" y1="6" x2="20" y2="12"/><line x1="20" y1="28" x2="20" y2="34"/><line x1="6" y1="20" x2="12" y2="20"/><line x1="28" y1="20" x2="34" y2="20"/></svg>
+        </div>
+        <h3 class="concerns__title">Enlarged Pores</h3>
+        <p class="concerns__desc">Visible pores and dull, tired-looking skin that benefits from collagen-boosting treatments for a tighter, brighter appearance.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================================================
+       TREATMENT TIERS — Interactive Tabs
+  ============================================================ -->
+  <section class="tiers" id="tiers">
+    <div class="tiers__header reveal-up">
+      <p class="eyebrow" id="tiersEyebrow">Our Treatments</p>
+      <h2 class="section-headline">Choose Your<br><em>Treatment</em></h2>
+      <p>Each advanced skincare treatment is designed for a specific concern. Explore your options and book with confidence.</p>
+    </div>
+
+    <div class="tiers__tabs" role="tablist" id="tiersTabs">
+      <button class="tiers__tab active" role="tab" aria-selected="true" data-tab="ultherapy">Ultherapy</button>
+      <button class="tiers__tab" role="tab" aria-selected="false" data-tab="skin-tags">Skin Tags</button>
+      <button class="tiers__tab" role="tab" aria-selected="false" data-tab="scar-revision">Scar Revision</button>
+      <button class="tiers__tab" role="tab" aria-selected="false" data-tab="jet-plasma">Jet Plasma</button>
+      <div class="tiers__indicator" id="tiersIndicator"></div>
+    </div>
+
+    <div class="tiers__panels" id="tiersPanels">
+      <!-- Ultherapy -->
+      <div class="tiers__panel active" data-panel="ultherapy">
+        <div class="tiers__panel-content">
+          <h3 class="tiers__tier-name">Ultherapy Skin Tightening</h3>
+          <p class="tiers__tier-tagline">$0+ &nbsp;&middot;&nbsp; 15+ Minutes &nbsp;&middot;&nbsp; 6 Options</p>
+          <p class="tiers__tier-desc">Non-invasive skin tightening using focused ultrasound. Targets deeper tissue layers to lift and firm the brow, jawline, chin, neck, and chest &mdash; without needles or downtime. Most clients notice gradual improvement over 8&ndash;12 weeks as collagen rebuilds.</p>
+          <ul class="tiers__tier-features">
+            <li>Focused ultrasound technology</li>
+            <li>Targets brow, jawline, chin, neck &amp; chest</li>
+            <li>No needles or downtime</li>
+            <li>Gradual lifting over 8&ndash;12 weeks</li>
+            <li>Best for mild to moderate laxity</li>
+            <li>Consultation required</li>
+          </ul>
+          <a href="https://maxaraaesthetics.glossgenius.com/services?_gl=1*szgjwc*_gcl_au*MTQwNjQwOTgyNi4xNzY5MTA4NjQw*_ga*ODI5Mjk3MzIuMTc2OTEwODY0MA..*_ga_2DF817SLF4*czE3NzUxMzY0ODEkbzE2JGcwJHQxNzc1MTM2NDgxJGo2MCRsMCRoMjA2MTA2ODA5Mw.." target="_blank" class="btn btn--terracotta"><span>Book Ultherapy</span></a>
+        </div>
+        <div class="tiers__panel-image">
+          <div class="tiers__image-placeholder"><span>Image Coming Soon</span></div>
+        </div>
+      </div>
+
+      <!-- Skin Tag Removal -->
+      <div class="tiers__panel" data-panel="skin-tags">
+        <div class="tiers__panel-content">
+          <h3 class="tiers__tier-name">Skin Tag Removal</h3>
+          <p class="tiers__tier-tagline">$75+ &nbsp;&middot;&nbsp; 30+ Minutes &nbsp;&middot;&nbsp; 2 Options</p>
+          <p class="tiers__tier-desc">Quick, precise removal using the Plamere&trade; Plasma Pen. A brief assessment is followed by targeted treatment. A tiny dry scab forms and sheds naturally within 7&ndash;10 days. Return to normal activities right away.</p>
+          <ul class="tiers__tier-features">
+            <li>Plamere&trade; Plasma Pen technology</li>
+            <li>Brief assessment before treatment</li>
+            <li>Normal activities immediately after</li>
+            <li>Scab sheds naturally in 7&ndash;10 days</li>
+            <li>For benign-appearing skin tags only</li>
+            <li>Suspicious tags declined &amp; referred out</li>
+          </ul>
+          <a href="https://maxaraaesthetics.glossgenius.com/services?_gl=1*szgjwc*_gcl_au*MTQwNjQwOTgyNi4xNzY5MTA4NjQw*_ga*ODI5Mjk3MzIuMTc2OTEwODY0MA..*_ga_2DF817SLF4*czE3NzUxMzY0ODEkbzE2JGcwJHQxNzc1MTM2NDgxJGo2MCRsMCRoMjA2MTA2ODA5Mw.." target="_blank" class="btn btn--terracotta"><span>Book Skin Tag Removal</span></a>
+        </div>
+        <div class="tiers__panel-image">
+          <div class="tiers__image-placeholder"><span>Image Coming Soon</span></div>
+        </div>
+      </div>
+
+      <!-- Scar Revision -->
+      <div class="tiers__panel" data-panel="scar-revision">
+        <div class="tiers__panel-content">
+          <h3 class="tiers__tier-name">Scar Revision</h3>
+          <p class="tiers__tier-tagline">$200+ &nbsp;&middot;&nbsp; 45 Minutes</p>
+          <p class="tiers__tier-desc">Controlled plasma energy targets the scar&rsquo;s surface, supporting your skin&rsquo;s natural renewal and softening texture over time. Small crusts or scabbing may form temporarily. Results often take a series of sessions, with pricing based on scar type and length.</p>
+          <ul class="tiers__tier-features">
+            <li>Plamere&trade; Plasma Pen technology</li>
+            <li>Supports natural skin renewal</li>
+            <li>Softens texture over multiple sessions</li>
+            <li>Small crusts resolve naturally</li>
+            <li>Price varies by scar type &amp; length</li>
+            <li>Not recommended for keloid-prone skin</li>
+          </ul>
+          <a href="https://maxaraaesthetics.glossgenius.com/services?_gl=1*szgjwc*_gcl_au*MTQwNjQwOTgyNi4xNzY5MTA4NjQw*_ga*ODI5Mjk3MzIuMTc2OTEwODY0MA..*_ga_2DF817SLF4*czE3NzUxMzY0ODEkbzE2JGcwJHQxNzc1MTM2NDgxJGo2MCRsMCRoMjA2MTA2ODA5Mw.." target="_blank" class="btn btn--terracotta"><span>Book Scar Revision</span></a>
+        </div>
+        <div class="tiers__panel-image">
+          <div class="tiers__image-placeholder"><span>Image Coming Soon</span></div>
+        </div>
+      </div>
+
+      <!-- Jet Plasma -->
+      <div class="tiers__panel" data-panel="jet-plasma">
+        <div class="tiers__panel-content">
+          <h3 class="tiers__tier-name">Jet Plasma</h3>
+          <p class="tiers__tier-tagline">$200 &nbsp;&middot;&nbsp; 45 Minutes</p>
+          <p class="tiers__tier-desc">Non-surgical treatment that channels ionized cold plasma into the dermis to instantly tighten and brighten skin while jump-starting collagen production. Smooths wrinkles, scars, acne, and enlarged pores &mdash; with no pain, no numbing, and no downtime.</p>
+          <ul class="tiers__tier-features">
+            <li>Ionized cold plasma technology</li>
+            <li>Safe around eyes including upper eyelid</li>
+            <li>No pain, no numbing, no downtime</li>
+            <li>Treats face, neck, chest, stomach &amp; more</li>
+            <li>Targets wrinkles, scars, acne &amp; pores</li>
+            <li>Effective on stretchmarks &amp; loose skin</li>
+          </ul>
+          <a href="https://maxaraaesthetics.glossgenius.com/services?_gl=1*szgjwc*_gcl_au*MTQwNjQwOTgyNi4xNzY5MTA4NjQw*_ga*ODI5Mjk3MzIuMTc2OTEwODY0MA..*_ga_2DF817SLF4*czE3NzUxMzY0ODEkbzE2JGcwJHQxNzc1MTM2NDgxJGo2MCRsMCRoMjA2MTA2ODA5Mw.." target="_blank" class="btn btn--terracotta"><span>Book Jet Plasma</span></a>
+        </div>
+        <div class="tiers__panel-image">
+          <div class="tiers__image-placeholder"><span>Image Coming Soon</span></div>
+        </div>
+      </div>
+    </div>
+
+    <p class="tiers__note">Consultation may be required for some treatments. Exact pricing depends on treatment area.</p>
+  </section>
+
+  <!-- ============================================================
+       TREATMENT FINDER — Interactive Quiz
+  ============================================================ -->
+  <section class="quiz-section" id="quiz">
+    <div class="quiz-section__header reveal-up">
+      <p class="eyebrow" style="justify-content:center;" id="quizEyebrow">60-Second Skin Match</p>
+      <h2 class="section-headline">Treatment<br><em>Finder</em></h2>
+      <p>Answer three quick questions and we'll suggest the best treatment for your concern.</p>
+    </div>
+
+    <div class="quiz reveal-up" id="quizWidget">
+      <div class="quiz__progress" id="quizProgress">
+        <div class="quiz__dot active" data-step="0"></div>
+        <div class="quiz__dot" data-step="1"></div>
+        <div class="quiz__dot" data-step="2"></div>
+      </div>
+
+      <div class="quiz__steps" id="quizSteps">
+        <!-- Step 1 -->
+        <div class="quiz__step active" data-step="0">
+          <p class="quiz__question-text">What&rsquo;s your primary concern?</p>
+          <div class="quiz__options">
+            <button class="quiz__option" data-value="ultherapy">Sagging or loose skin</button>
+            <button class="quiz__option" data-value="skin-tags">Unwanted skin tags</button>
+            <button class="quiz__option" data-value="scar-revision">Visible scarring</button>
+            <button class="quiz__option" data-value="jet-plasma">Fine lines, wrinkles, or texture</button>
+            <button class="quiz__option" data-value="jet-plasma-2">Enlarged pores or dullness</button>
+          </div>
+        </div>
+
+        <!-- Step 2 -->
+        <div class="quiz__step" data-step="1">
+          <p class="quiz__question-text">Where is your concern area?</p>
+          <div class="quiz__options">
+            <button class="quiz__option" data-value="ultherapy">Face (brow, jawline, chin)</button>
+            <button class="quiz__option" data-value="ultherapy-2">Neck or chest</button>
+            <button class="quiz__option" data-value="jet-plasma">Around the eyes</button>
+            <button class="quiz__option" data-value="jet-plasma-2">Body (stomach, arms, legs)</button>
+            <button class="quiz__option" data-value="scar-revision">Specific spot or small area</button>
+          </div>
+        </div>
+
+        <!-- Step 3 -->
+        <div class="quiz__step" data-step="2">
+          <p class="quiz__question-text">What matters most to you?</p>
+          <div class="quiz__options">
+            <button class="quiz__option" data-value="jet-plasma">Zero downtime</button>
+            <button class="quiz__option" data-value="skin-tags">Lowest starting price</button>
+            <button class="quiz__option" data-value="ultherapy">Long-term lifting &amp; firming</button>
+            <button class="quiz__option" data-value="jet-plasma-2">Versatility &mdash; treat multiple areas</button>
+          </div>
+        </div>
+      </div>
+
+      <!-- Result -->
+      <div class="quiz__result" id="quizResult">
+        <p class="quiz__result-label">We Recommend</p>
+        <h3 class="quiz__result-name" id="quizResultName"></h3>
+        <p class="quiz__result-desc" id="quizResultDesc"></p>
+        <a href="https://maxaraaesthetics.glossgenius.com/services?_gl=1*szgjwc*_gcl_au*MTQwNjQwOTgyNi4xNzY5MTA4NjQw*_ga*ODI5Mjk3MzIuMTc2OTEwODY0MA..*_ga_2DF817SLF4*czE3NzUxMzY0ODEkbzE2JGcwJHQxNzc1MTM2NDgxJGo2MCRsMCRoMjA2MTA2ODA5Mw.." target="_blank" class="btn btn--terracotta" id="quizResultBtn"><span>Book Your Treatment</span></a>
+        <br>
+        <button class="quiz__retake" id="quizRetake">Retake Quiz</button>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================================================
+       PLAMERE PLASMA PEN — Reversed Feature Split
+  ============================================================ -->
+  <section class="feature-split feature-split--reverse">
+    <div class="feature-split__media img-placeholder" id="plasmaMedia">
+      <span class="img-placeholder__label">plamere-plasma-pen.jpg</span>
+    </div>
+    <div class="feature-split__content feature-split__content--oyster" id="plasmaContent">
+      <p class="eyebrow" id="plasmaEyebrow">The Technology</p>
+      <h2 class="section-headline">Plamere&trade;<br><em>Plasma Pen</em></h2>
+      <p>Two of our advanced treatments &mdash; Skin Tag Removal and Scar Revision &mdash; are powered by the Plamere Plasma Pen. This device delivers controlled plasma energy to precisely target tissue without cutting, stitching, or scarring.</p>
+      <p>The result is a gentler approach to concerns that once required more invasive procedures.</p>
+    </div>
+  </section>
+
+  <!-- ============================================================
+       PROMOTIONAL MARQUEE
+  ============================================================ -->
+  <div class="marquee-strip marquee-strip--dark marquee-strip--lg">
+    <div class="marquee-strip__track" aria-hidden="true">
+      <span>Consultation Available for All Treatments</span><span class="dot">&nbsp;&nbsp;&middot;&nbsp;&nbsp;</span>
+      <span>Consultation Available for All Treatments</span><span class="dot">&nbsp;&nbsp;&middot;&nbsp;&nbsp;</span>
+      <span>Consultation Available for All Treatments</span><span class="dot">&nbsp;&nbsp;&middot;&nbsp;&nbsp;</span>
+      <span>Consultation Available for All Treatments</span><span class="dot">&nbsp;&nbsp;&middot;&nbsp;&nbsp;</span>
+    </div>
+  </div>
+
+  <!-- ============================================================
+       FAQ ACCORDION
+  ============================================================ -->
+  <section class="faq" id="faq">
+    <div class="faq__left">
+      <p class="eyebrow" id="faqEyebrow">FAQ</p>
+      <h2 class="section-headline reveal-up">Know Before<br><em>You Book</em></h2>
+      <p class="faq__tagline reveal-up" style="transition-delay:0.15s;">Everything you need to feel confident before your first advanced skincare treatment.</p>
+    </div>
+
+    <div class="faq__list" id="faqList">
+      <div class="faq__item">
+        <button class="faq__question" aria-expanded="false">
+          <span class="faq__question-label">What is Ultherapy and how does it work?</span>
+          <svg class="faq__chevron" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M6 9l6 6 6-6"/></svg>
+        </button>
+        <div class="faq__answer">
+          <p class="faq__answer-inner">Ultherapy uses focused ultrasound energy to target deeper tissue layers, stimulating your body&rsquo;s natural collagen production. Over 8&ndash;12 weeks, skin gradually lifts and firms. You may feel warmth or tingling during treatment, with mild redness possible afterward.</p>
+        </div>
+      </div>
+
+      <div class="faq__item">
+        <button class="faq__question" aria-expanded="false">
+          <span class="faq__question-label">Is Jet Plasma painful?</span>
+          <svg class="faq__chevron" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M6 9l6 6 6-6"/></svg>
+        </button>
+        <div class="faq__answer">
+          <p class="faq__answer-inner">No. Jet Plasma is completely painless and requires no numbing. Most clients describe the sensation as a warm breeze. There is no downtime, and you can return to your regular routine immediately.</p>
+        </div>
+      </div>
+
+      <div class="faq__item">
+        <button class="faq__question" aria-expanded="false">
+          <span class="faq__question-label">How do I know if a skin tag can be treated?</span>
+          <svg class="faq__chevron" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M6 9l6 6 6-6"/></svg>
+        </button>
+        <div class="faq__answer">
+          <p class="faq__answer-inner">We assess every skin tag before treatment. We only treat benign-appearing tags. Any tag that appears suspicious, is changing, or is bleeding will be declined and referred to a dermatologist for evaluation.</p>
+        </div>
+      </div>
+
+      <div class="faq__item">
+        <button class="faq__question" aria-expanded="false">
+          <span class="faq__question-label">How many scar revision sessions will I need?</span>
+          <svg class="faq__chevron" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M6 9l6 6 6-6"/></svg>
+        </button>
+        <div class="faq__answer">
+          <p class="faq__answer-inner">Results vary depending on the scar&rsquo;s size, depth, and age. Many clients see noticeable improvement after one session, but a series is often recommended for optimal results. Your provider will create a plan tailored to your scar.</p>
+        </div>
+      </div>
+
+      <div class="faq__item">
+        <button class="faq__question" aria-expanded="false">
+          <span class="faq__question-label">Is there any downtime with these treatments?</span>
+          <svg class="faq__chevron" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M6 9l6 6 6-6"/></svg>
+        </button>
+        <div class="faq__answer">
+          <p class="faq__answer-inner">Ultherapy and Jet Plasma have no downtime. Skin Tag Removal and Scar Revision may produce small scabs or crusts that shed naturally within 7&ndash;10 days. Normal activities can typically resume right away.</p>
+        </div>
+      </div>
+
+      <div class="faq__item">
+        <button class="faq__question" aria-expanded="false">
+          <span class="faq__question-label">Can I combine treatments?</span>
+          <svg class="faq__chevron" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M6 9l6 6 6-6"/></svg>
+        </button>
+        <div class="faq__answer">
+          <p class="faq__answer-inner">In many cases, yes. For example, Jet Plasma pairs well with other treatments for enhanced results. Your provider will guide timing and combinations based on your skin and goals.</p>
+        </div>
+      </div>
+
+      <div class="faq__item">
+        <button class="faq__question" aria-expanded="false">
+          <span class="faq__question-label">Who is not a candidate for these treatments?</span>
+          <svg class="faq__chevron" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M6 9l6 6 6-6"/></svg>
+        </button>
+        <div class="faq__answer">
+          <p class="faq__answer-inner">Scar Revision is not recommended for individuals prone to keloid scarring. Ultherapy requires a consultation to assess candidacy. Pregnant or nursing clients should consult their physician first. We review your history before every treatment.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================================================
+       CTA / BOOKING
+  ============================================================ -->
+  <section class="cta-section" id="booking">
+    <div class="cta__bg" id="ctaBg"></div>
+    <div class="cta__overlay"></div>
+    <div class="cta__content" id="ctaContent">
+      <p class="eyebrow">Reserve Your Treatment</p>
+      <h2>Your Transformation<br><em>Awaits.</em></h2>
+      <p>Ready to address the concerns that matter most? Book your advanced skincare treatment today and experience precision care designed for real results.</p>
+      <a href="https://maxaraaesthetics.glossgenius.com/services?_gl=1*szgjwc*_gcl_au*MTQwNjQwOTgyNi4xNzY5MTA4NjQw*_ga*ODI5Mjk3MzIuMTc2OTEwODY0MA..*_ga_2DF817SLF4*czE3NzUxMzY0ODEkbzE2JGcwJHQxNzc1MTM2NDgxJGo2MCRsMCRoMjA2MTA2ODA5Mw.." target="_blank" class="btn btn--light"><span>Book Your Treatment</span></a>
+    </div>
+  </section>
+
+  <!-- ============================================================
+       FOOTER
+  ============================================================ -->
+  <footer class="footer">
+    <div class="footer__top">
+      <div>
+        <img class="footer__logo" src="assets/images/logos/Logo.png" alt="Maxara Aesthetics">
+        <p class="footer__tagline">"Elevated aesthetics rooted in the art of listening to your skin."</p>
+        <div class="footer__social">
+          <a href="#">Instagram</a>
+          <a href="#">TikTok</a>
+          <a href="#">Pinterest</a>
+        </div>
+      </div>
+      <div>
+        <p class="footer__col-title">Navigate</p>
+        <ul class="footer__links">
+          <li><a href="index.html#about">Our Philosophy</a></li>
+          <li><a href="index.html#services">Services</a></li>
+          <li><a href="index.html#meet">Meet Amanda</a></li>
+          <li><a href="index.html#gallery">Results</a></li>
+          <li><a href="#booking">Book an Appointment</a></li>
+        </ul>
+      </div>
+      <div>
+        <p class="footer__col-title">Contact</p>
+        <div class="footer__contact-item">
+          <span class="footer__contact-label">Location</span>
+          <span class="footer__contact-value">504 S 8th St<br>Griffin, GA 30224</span>
+        </div>
+        <div class="footer__contact-item">
+          <span class="footer__contact-label">Hours</span>
+          <span class="footer__contact-value">Monday - Friday<br>9:00 AM - 5:00 PM</span>
+        </div>
+        <div class="footer__contact-item">
+          <span class="footer__contact-label">Inquiries</span>
+          <span class="footer__contact-value">info@maxaraaesthetics.com</span>
+        </div>
+      </div>
+    </div>
+    <div class="footer__bottom">
+      <p class="footer__copy">&copy; 2025 Maxara Aesthetics. All rights reserved.</p>
+      <div class="footer__legal">
+        <a href="#">Privacy Policy</a>
+        <a href="#">Terms of Service</a>
+      </div>
+    </div>
+  </footer>
+
+  <!-- ============================================================
+       JAVASCRIPT
+  ============================================================ -->
+  <script>
+    // ================================================================
+    // 1. SCROLL PROGRESS BAR
+    // ================================================================
+    (function initScrollProgress() {
+      const bar = document.getElementById('scrollProgress');
+      window.addEventListener('scroll', () => {
+        const max = document.body.scrollHeight - window.innerHeight;
+        bar.style.transform = `scaleX(${window.scrollY / max})`;
+      }, { passive: true });
+    })();
+
+    // ================================================================
+    // 2. NAVIGATION — Smart Hide
+    // ================================================================
+    (function initNav() {
+      const nav = document.getElementById('nav');
+      let lastScrollY = 0;
+      let ticking = false;
+
+      window.addEventListener('scroll', () => {
+        if (!ticking) {
+          requestAnimationFrame(() => {
+            const scrollY = window.scrollY;
+            if (scrollY > lastScrollY && scrollY > 400) {
+              nav.classList.add('hidden');
+            } else {
+              nav.classList.remove('hidden');
+            }
+            lastScrollY = scrollY;
+            ticking = false;
+          });
+          ticking = true;
+        }
+      });
+    })();
+
+    // ================================================================
+    // 3. MOBILE MENU TOGGLE
+    // ================================================================
+    (function initMobileMenu() {
+      const hamburger = document.querySelector('.nav__hamburger');
+      const mobileMenu = document.getElementById('mobileMenu');
+      if (!hamburger || !mobileMenu) return;
+
+      hamburger.addEventListener('click', () => {
+        const isOpen = mobileMenu.classList.toggle('open');
+        hamburger.classList.toggle('open');
+        hamburger.setAttribute('aria-expanded', isOpen);
+        document.body.style.overflow = isOpen ? 'hidden' : '';
+      });
+
+      mobileMenu.querySelectorAll('a').forEach(link => {
+        link.addEventListener('click', () => {
+          mobileMenu.classList.remove('open');
+          hamburger.classList.remove('open');
+          hamburger.setAttribute('aria-expanded', 'false');
+          document.body.style.overflow = '';
+        });
+      });
+    })();
+
+    // ================================================================
+    // 4. PARALLAX — CTA Background
+    // ================================================================
+    (function initParallax() {
+      const ctaBg = document.getElementById('ctaBg');
+      let ticking = false;
+
+      window.addEventListener('scroll', () => {
+        if (!ticking) {
+          requestAnimationFrame(() => {
+            if (ctaBg) {
+              const rect = ctaBg.closest('.cta-section').getBoundingClientRect();
+              ctaBg.style.transform = `translateY(${-rect.top * 0.22}px)`;
+            }
+            ticking = false;
+          });
+          ticking = true;
+        }
+      }, { passive: true });
+    })();
+
+    // ================================================================
+    // 5. INTERSECTION OBSERVER — Scroll-Triggered Animations
+    // ================================================================
+    (function initScrollAnimations() {
+      // Stagger concern cards
+      document.querySelectorAll('.concerns__card').forEach((el, i) => {
+        el.style.transitionDelay = `${i * 0.08}s`;
+      });
+
+      // Stagger FAQ items
+      document.querySelectorAll('.faq__item').forEach((el, i) => {
+        el.style.transitionDelay = `${i * 0.07}s`;
+      });
+
+      const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add('in-view');
+            observer.unobserve(entry.target);
+          }
+        });
+      }, {
+        threshold: 0.12,
+        rootMargin: '0px 0px -40px 0px'
+      });
+
+      const selectors = [
+        '#asHero',
+        '#introMedia', '#introContent', '#introEyebrow',
+        '#plasmaMedia', '#plasmaContent', '#plasmaEyebrow',
+        '.concerns__card',
+        '#tiersEyebrow',
+        '#quizEyebrow',
+        '#faqEyebrow',
+        '#ctaContent',
+        '.reveal-up',
+        '.eyebrow'
+      ];
+
+      document.querySelectorAll(selectors.join(', ')).forEach(el => {
+        observer.observe(el);
+      });
+    })();
+
+    // ================================================================
+    // 6. TREATMENT TIER TABS
+    // ================================================================
+    (function initTabs() {
+      const tabsContainer = document.getElementById('tiersTabs');
+      const panels = document.getElementById('tiersPanels');
+      const indicator = document.getElementById('tiersIndicator');
+      const tabs = tabsContainer.querySelectorAll('.tiers__tab');
+
+      function moveIndicator(tab) {
+        indicator.style.left = tab.offsetLeft + 'px';
+        indicator.style.width = tab.offsetWidth + 'px';
+      }
+
+      function activateTab(tabEl) {
+        const target = tabEl.getAttribute('data-tab');
+
+        tabs.forEach(t => {
+          t.classList.remove('active');
+          t.setAttribute('aria-selected', 'false');
+        });
+        tabEl.classList.add('active');
+        tabEl.setAttribute('aria-selected', 'true');
+
+        panels.querySelectorAll('.tiers__panel').forEach(p => {
+          p.classList.remove('active');
+        });
+        panels.querySelector(`[data-panel="${target}"]`).classList.add('active');
+
+        moveIndicator(tabEl);
+      }
+
+      tabs.forEach(tab => {
+        tab.addEventListener('click', () => activateTab(tab));
+      });
+
+      // Keyboard navigation
+      tabsContainer.addEventListener('keydown', (e) => {
+        const tabArray = Array.from(tabs);
+        const currentIndex = tabArray.indexOf(document.activeElement);
+        let newIndex;
+
+        if (e.key === 'ArrowRight') {
+          newIndex = (currentIndex + 1) % tabArray.length;
+        } else if (e.key === 'ArrowLeft') {
+          newIndex = (currentIndex - 1 + tabArray.length) % tabArray.length;
+        } else {
+          return;
+        }
+
+        e.preventDefault();
+        tabArray[newIndex].focus();
+        activateTab(tabArray[newIndex]);
+      });
+
+      // Initialize indicator position
+      const activeTab = tabsContainer.querySelector('.tiers__tab.active');
+      if (activeTab) {
+        moveIndicator(activeTab);
+        window.addEventListener('resize', () => moveIndicator(tabsContainer.querySelector('.tiers__tab.active')));
+      }
+    })();
+
+    // ================================================================
+    // 7. TREATMENT FINDER QUIZ
+    // ================================================================
+    (function initQuiz() {
+      const steps = document.querySelectorAll('.quiz__step');
+      const dots = document.querySelectorAll('.quiz__dot');
+      const result = document.getElementById('quizResult');
+      const stepsContainer = document.getElementById('quizSteps');
+      const resultName = document.getElementById('quizResultName');
+      const resultDesc = document.getElementById('quizResultDesc');
+      const resultBtn = document.getElementById('quizResultBtn');
+      const retakeBtn = document.getElementById('quizRetake');
+
+      let currentStep = 0;
+      const answers = {};
+
+      const treatments = {
+        'ultherapy': {
+          name: 'Ultherapy Skin Tightening',
+          desc: 'Focused ultrasound technology to lift and firm sagging skin over 8\u201312 weeks. Best for the brow, jawline, chin, neck, and chest. No needles, no downtime. Your provider will confirm candidacy during consultation.',
+          btn: 'Book Ultherapy'
+        },
+        'skin-tags': {
+          name: 'Skin Tag Removal',
+          desc: 'Quick, precise removal using the Plamere\u2122 Plasma Pen. A tiny scab forms and sheds naturally in 7\u201310 days. Return to normal activities right away. Starting at just $75.',
+          btn: 'Book Skin Tag Removal'
+        },
+        'scar-revision': {
+          name: 'Scar Revision',
+          desc: 'Controlled plasma energy targets the scar surface to support natural renewal and soften texture over time. Results build over a series of sessions. Your provider will assess your scar and create a tailored plan.',
+          btn: 'Book Scar Revision'
+        },
+        'jet-plasma': {
+          name: 'Jet Plasma',
+          desc: 'Ionized cold plasma tightens, brightens, and smooths skin with zero pain and zero downtime. Safe for the face, neck, chest, stomach \u2014 even around the eyes. The most versatile treatment in our advanced menu.',
+          btn: 'Book Jet Plasma'
+        }
+      };
+
+      function normalizeValue(val) {
+        // Map suffixed values (e.g., "jet-plasma-2", "ultherapy-2") to base treatment
+        return val.replace(/-\d+$/, '');
+      }
+
+      function showStep(index) {
+        steps.forEach(s => s.classList.remove('active'));
+        dots.forEach((d, i) => {
+          d.classList.remove('active');
+          d.classList.toggle('completed', i < index);
+          if (i === index) d.classList.add('active');
+        });
+        if (steps[index]) steps[index].classList.add('active');
+        currentStep = index;
+      }
+
+      function calculateResult() {
+        const counts = {};
+        Object.values(answers).forEach(val => {
+          const normalized = normalizeValue(val);
+          counts[normalized] = (counts[normalized] || 0) + 1;
+        });
+
+        let maxCount = 0;
+        let winner = 'jet-plasma'; // Default: most versatile
+        for (const [key, count] of Object.entries(counts)) {
+          if (count > maxCount) {
+            maxCount = count;
+            winner = key;
+          }
+        }
+        return winner;
+      }
+
+      function showResult() {
+        const winner = calculateResult();
+        const treatment = treatments[winner];
+        resultName.textContent = treatment.name;
+        resultDesc.textContent = treatment.desc;
+        resultBtn.querySelector('span').textContent = treatment.btn;
+
+        stepsContainer.style.display = 'none';
+        document.querySelector('.quiz__progress').style.display = 'none';
+        result.classList.add('active');
+      }
+
+      // Option click handler
+      document.querySelectorAll('.quiz__option').forEach(option => {
+        option.addEventListener('click', () => {
+          const step = option.closest('.quiz__step');
+          const stepIndex = parseInt(step.getAttribute('data-step'), 10);
+
+          // Visual feedback
+          step.querySelectorAll('.quiz__option').forEach(o => o.classList.remove('selected'));
+          option.classList.add('selected');
+
+          // Store answer
+          answers[stepIndex] = option.getAttribute('data-value');
+
+          // Auto-advance after brief pause
+          setTimeout(() => {
+            if (stepIndex < steps.length - 1) {
+              showStep(stepIndex + 1);
+            } else {
+              showResult();
+            }
+          }, 350);
+        });
+      });
+
+      // Retake
+      retakeBtn.addEventListener('click', () => {
+        Object.keys(answers).forEach(k => delete answers[k]);
+        document.querySelectorAll('.quiz__option').forEach(o => o.classList.remove('selected'));
+        result.classList.remove('active');
+        stepsContainer.style.display = '';
+        document.querySelector('.quiz__progress').style.display = '';
+        showStep(0);
+      });
+    })();
+
+    // ================================================================
+    // 8. FAQ ACCORDION
+    // ================================================================
+    (function initFaq() {
+      const items = document.querySelectorAll('.faq__item');
+
+      items.forEach(item => {
+        const btn = item.querySelector('.faq__question');
+
+        btn.addEventListener('click', () => {
+          const isOpen = item.classList.contains('open');
+
+          // Close all
+          items.forEach(i => {
+            i.classList.remove('open');
+            i.querySelector('.faq__question').setAttribute('aria-expanded', 'false');
+          });
+
+          // Open clicked (if it was closed)
+          if (!isOpen) {
+            item.classList.add('open');
+            btn.setAttribute('aria-expanded', 'true');
+          }
+        });
+      });
+    })();
+  </script>
+</body>
+</html>
