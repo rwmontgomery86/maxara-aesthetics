@@ -1,0 +1,729 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Refund Policy — Maxará Aesthetics</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400;1,600&family=Josefin+Sans:wght@100;300;400&family=Lato:wght@300;400&display=swap" rel="stylesheet">
+
+  <style>
+    /* ============================================================
+       CSS CUSTOM PROPERTIES
+    ============================================================ */
+    :root {
+      --color-oyster:      #F5F0E8;
+      --color-oyster-dark: #EDE6D6;
+      --color-charcoal:    #2C2C2C;
+      --color-walnut:      #5C3D2E;
+      --color-terracotta:  #C4673A;
+      --color-gold:        #B89A5A;
+      --color-cream-pure:  #FAF7F2;
+      --color-mist:        rgba(245, 240, 232, 0.92);
+
+      --font-display: 'Cormorant Garamond', Georgia, serif;
+      --font-label:   'Josefin Sans', sans-serif;
+      --font-body:    'Lato', system-ui, sans-serif;
+
+      --ease-expo:    cubic-bezier(0.16, 1, 0.3, 1);
+      --ease-quart:   cubic-bezier(0.76, 0, 0.24, 1);
+    }
+
+    /* ============================================================
+       RESET & BASE
+    ============================================================ */
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    html {
+      scroll-behavior: smooth;
+      font-size: 16px;
+    }
+
+    body {
+      background: var(--color-oyster);
+      color: var(--color-charcoal);
+      font-family: var(--font-body);
+      font-weight: 300;
+      line-height: 1.85;
+      overflow-x: hidden;
+    }
+
+    img { display: block; max-width: 100%; }
+    a { text-decoration: none; color: inherit; }
+    ul { list-style: none; }
+
+    /* ============================================================
+       SCROLL PROGRESS
+    ============================================================ */
+    .scroll-progress {
+      position: fixed;
+      top: 0; left: 0;
+      width: 100%;
+      height: 2px;
+      background: var(--color-terracotta);
+      transform: scaleX(0);
+      transform-origin: left;
+      z-index: 1001;
+      will-change: transform;
+      transition: transform 0.05s linear;
+    }
+
+    /* ============================================================
+       NAVIGATION
+    ============================================================ */
+    .nav {
+      position: fixed;
+      top: 0; left: 0; right: 0;
+      z-index: 1000;
+      padding: 1rem 5%;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      background: var(--color-mist);
+      backdrop-filter: blur(14px);
+      -webkit-backdrop-filter: blur(14px);
+      box-shadow: 0 1px 0 rgba(184, 154, 90, 0.2);
+      transition:
+        padding 0.5s var(--ease-expo),
+        transform 0.45s var(--ease-expo);
+    }
+
+    .nav.hidden {
+      transform: translateY(-100%);
+    }
+
+    .nav__logo {
+      height: 40px;
+      mix-blend-mode: multiply;
+    }
+
+    .nav__links {
+      display: flex;
+      align-items: center;
+      gap: 3rem;
+    }
+
+    .nav__links a {
+      font-family: var(--font-label);
+      font-size: 0.65rem;
+      font-weight: 300;
+      letter-spacing: 0.28em;
+      text-transform: uppercase;
+      color: var(--color-charcoal);
+      position: relative;
+      transition: color 0.4s;
+    }
+
+    .nav__links a::after {
+      content: '';
+      position: absolute;
+      bottom: -3px; left: 0; right: 0;
+      height: 1px;
+      background: var(--color-terracotta);
+      transform: scaleX(0);
+      transform-origin: right;
+      transition: transform 0.4s var(--ease-expo);
+    }
+
+    .nav__links a:hover::after {
+      transform: scaleX(1);
+      transform-origin: left;
+    }
+
+    .nav__cta {
+      font-family: var(--font-label);
+      font-size: 0.62rem;
+      font-weight: 300;
+      letter-spacing: 0.28em;
+      text-transform: uppercase;
+      color: var(--color-charcoal);
+      border: 1px solid rgba(44, 44, 44, 0.3);
+      padding: 0.65rem 1.6rem;
+      position: relative;
+      overflow: hidden;
+      transition: color 0.4s ease, border-color 0.4s;
+    }
+
+    .nav__cta::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: var(--color-terracotta);
+      transform: scaleX(0);
+      transform-origin: left;
+      transition: transform 0.4s var(--ease-expo);
+      z-index: 0;
+    }
+
+    .nav__cta:hover::before { transform: scaleX(1); }
+    .nav__cta span { position: relative; z-index: 1; }
+    .nav__cta:hover span { color: var(--color-cream-pure); }
+
+    .nav__hamburger {
+      display: none;
+      flex-direction: column;
+      gap: 5px;
+      cursor: pointer;
+      padding: 4px;
+    }
+
+    .nav__hamburger span {
+      display: block;
+      width: 24px;
+      height: 1px;
+      background: var(--color-charcoal);
+      transition: background 0.3s;
+    }
+
+    /* ============================================================
+       PAGE HEADER
+    ============================================================ */
+    .policy-header {
+      padding: 9rem 8% 4rem;
+      text-align: center;
+    }
+
+    .policy-header__eyebrow {
+      font-family: var(--font-label);
+      font-size: 0.65rem;
+      font-weight: 300;
+      letter-spacing: 0.42em;
+      text-transform: uppercase;
+      color: var(--color-terracotta);
+      margin-bottom: 1.5rem;
+    }
+
+    .policy-header__title {
+      font-family: var(--font-display);
+      font-weight: 300;
+      font-size: clamp(2.4rem, 5vw, 3.8rem);
+      line-height: 1.12;
+      color: var(--color-charcoal);
+    }
+
+    .policy-header__date {
+      font-family: var(--font-body);
+      font-size: 0.88rem;
+      font-weight: 300;
+      color: rgba(44, 44, 44, 0.5);
+      margin-top: 1.25rem;
+    }
+
+    .policy-header__rule {
+      width: 60px;
+      height: 1px;
+      background: var(--color-gold);
+      margin: 2.5rem auto 0;
+    }
+
+    /* ============================================================
+       POLICY CONTENT
+    ============================================================ */
+    .policy-content {
+      max-width: 780px;
+      margin: 0 auto;
+      padding: 0 8% 6rem;
+    }
+
+    .policy-content__intro {
+      font-family: var(--font-body);
+      font-size: 0.95rem;
+      font-weight: 300;
+      line-height: 1.9;
+      color: var(--color-charcoal);
+      margin-bottom: 3rem;
+    }
+
+    .policy-content h2 {
+      font-family: var(--font-display);
+      font-weight: 400;
+      font-size: clamp(1.4rem, 2.5vw, 1.75rem);
+      line-height: 1.3;
+      color: var(--color-charcoal);
+      margin-top: 3rem;
+      margin-bottom: 1rem;
+      padding-bottom: 0.5rem;
+      border-bottom: 1px solid rgba(184, 154, 90, 0.2);
+    }
+
+    .policy-content h3 {
+      font-family: var(--font-display);
+      font-weight: 400;
+      font-size: 1.15rem;
+      color: var(--color-walnut);
+      margin-top: 2rem;
+      margin-bottom: 0.75rem;
+    }
+
+    .policy-content p {
+      font-family: var(--font-body);
+      font-size: 0.92rem;
+      font-weight: 300;
+      line-height: 1.9;
+      color: rgba(44, 44, 44, 0.85);
+      margin-bottom: 1rem;
+    }
+
+    .policy-content ul,
+    .policy-content ol {
+      margin-bottom: 1.25rem;
+      padding-left: 1.5rem;
+    }
+
+    .policy-content ul {
+      list-style: none;
+      padding-left: 0;
+    }
+
+    .policy-content ul li {
+      font-family: var(--font-body);
+      font-size: 0.92rem;
+      font-weight: 300;
+      line-height: 1.9;
+      color: rgba(44, 44, 44, 0.85);
+      padding-left: 1.25rem;
+      position: relative;
+      margin-bottom: 0.5rem;
+    }
+
+    .policy-content ul li::before {
+      content: '';
+      position: absolute;
+      left: 0;
+      top: 0.75rem;
+      width: 5px;
+      height: 1px;
+      background: var(--color-terracotta);
+    }
+
+    .policy-content ol {
+      list-style: decimal;
+      padding-left: 1.5rem;
+    }
+
+    .policy-content ol li {
+      font-family: var(--font-body);
+      font-size: 0.92rem;
+      font-weight: 300;
+      line-height: 1.9;
+      color: rgba(44, 44, 44, 0.85);
+      margin-bottom: 0.5rem;
+      padding-left: 0.25rem;
+    }
+
+    .policy-content strong {
+      font-weight: 400;
+      color: var(--color-charcoal);
+    }
+
+    .policy-content a {
+      color: var(--color-terracotta);
+      border-bottom: 1px solid rgba(196, 103, 58, 0.3);
+      transition: border-color 0.3s;
+    }
+
+    .policy-content a:hover {
+      border-color: var(--color-terracotta);
+    }
+
+    .policy-content__contact-block {
+      background: var(--color-oyster-dark);
+      padding: 2rem 2.5rem;
+      margin-top: 2rem;
+    }
+
+    .policy-content__contact-block p {
+      margin-bottom: 0.25rem;
+    }
+
+    .policy-content__copyright {
+      font-family: var(--font-label);
+      font-size: 0.62rem;
+      letter-spacing: 0.22em;
+      text-transform: uppercase;
+      color: rgba(44, 44, 44, 0.35);
+      margin-top: 3rem;
+      text-align: center;
+    }
+
+    /* ============================================================
+       FOOTER
+    ============================================================ */
+    .footer {
+      background: var(--color-charcoal);
+      padding: 5rem 8% 2.5rem;
+    }
+
+    .footer__top {
+      display: grid;
+      grid-template-columns: 2fr 1.5fr 1.5fr;
+      gap: 4rem;
+      padding-bottom: 3.5rem;
+      border-bottom: 1px solid rgba(184, 154, 90, 0.2);
+      margin-bottom: 2.5rem;
+    }
+
+    .footer__logo {
+      height: 44px;
+      margin-bottom: 1.25rem;
+      filter: brightness(0) invert(1);
+      opacity: 0.8;
+    }
+
+    .footer__tagline {
+      font-family: var(--font-display);
+      font-style: italic;
+      font-size: 1.05rem;
+      font-weight: 300;
+      color: rgba(245, 240, 232, 0.55);
+      line-height: 1.6;
+      max-width: 280px;
+      margin-bottom: 1.5rem;
+    }
+
+    .footer__social {
+      display: flex;
+      gap: 1.25rem;
+    }
+
+    .footer__social a {
+      font-family: var(--font-label);
+      font-size: 0.58rem;
+      letter-spacing: 0.28em;
+      text-transform: uppercase;
+      color: rgba(245, 240, 232, 0.45);
+      transition: color 0.3s;
+    }
+
+    .footer__social a:hover { color: var(--color-gold); }
+
+    .footer__col-title {
+      font-family: var(--font-label);
+      font-size: 0.6rem;
+      letter-spacing: 0.36em;
+      text-transform: uppercase;
+      color: var(--color-gold);
+      margin-bottom: 1.5rem;
+    }
+
+    .footer__links {
+      display: flex;
+      flex-direction: column;
+      gap: 0.75rem;
+    }
+
+    .footer__links a {
+      font-family: var(--font-body);
+      font-size: 0.88rem;
+      font-weight: 300;
+      color: rgba(245, 240, 232, 0.55);
+      transition: color 0.3s;
+    }
+
+    .footer__links a:hover { color: var(--color-cream-pure); }
+
+    .footer__contact-item {
+      display: flex;
+      flex-direction: column;
+      gap: 0.25rem;
+      margin-bottom: 1rem;
+    }
+
+    .footer__contact-label {
+      font-family: var(--font-label);
+      font-size: 0.58rem;
+      letter-spacing: 0.28em;
+      text-transform: uppercase;
+      color: var(--color-terracotta);
+    }
+
+    .footer__contact-value {
+      font-family: var(--font-body);
+      font-size: 0.88rem;
+      font-weight: 300;
+      color: rgba(245, 240, 232, 0.6);
+    }
+
+    .footer__bottom {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 1rem;
+    }
+
+    .footer__copy {
+      font-family: var(--font-label);
+      font-size: 0.58rem;
+      letter-spacing: 0.22em;
+      text-transform: uppercase;
+      color: rgba(245, 240, 232, 0.3);
+    }
+
+    .footer__legal {
+      display: flex;
+      gap: 2rem;
+    }
+
+    .footer__legal a {
+      font-family: var(--font-label);
+      font-size: 0.58rem;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: rgba(245, 240, 232, 0.3);
+      transition: color 0.3s;
+    }
+
+    .footer__legal a:hover { color: rgba(245, 240, 232, 0.7); }
+
+    /* ============================================================
+       RESPONSIVE
+    ============================================================ */
+    @media (max-width: 1100px) {
+      .footer__top {
+        grid-template-columns: 1fr 1fr;
+        gap: 3rem;
+      }
+
+      .footer__top > *:first-child {
+        grid-column: span 2;
+      }
+    }
+
+    @media (max-width: 768px) {
+      .nav__links,
+      .nav__cta {
+        display: none;
+      }
+
+      .nav__hamburger {
+        display: flex;
+      }
+
+      .nav {
+        padding: 1.25rem 5%;
+      }
+
+      .policy-header {
+        padding: 7rem 5% 3rem;
+      }
+
+      .policy-content {
+        padding: 0 5% 5rem;
+      }
+
+      .policy-content__contact-block {
+        padding: 1.5rem;
+      }
+
+      .footer__top {
+        grid-template-columns: 1fr;
+      }
+
+      .footer__top > *:first-child {
+        grid-column: span 1;
+      }
+
+      .footer {
+        padding: 4rem 5% 2rem;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- Scroll Progress Bar -->
+  <div class="scroll-progress" id="scrollProgress"></div>
+
+  <!-- ============================================================
+       NAVIGATION
+  ============================================================ -->
+  <nav class="nav" id="nav">
+    <a href="index.html" class="nav__logo-link">
+      <img class="nav__logo" src="assets/images/logos/Logo.png" alt="Maxará Aesthetics">
+    </a>
+    <ul class="nav__links">
+      <li><a href="index.html#about">Philosophy</a></li>
+      <li><a href="index.html#services">Services</a></li>
+      <li><a href="index.html#meet">About</a></li>
+      <li><a href="index.html#gallery">Results</a></li>
+    </ul>
+    <a href="https://maxaraaesthetics.glossgenius.com/services" target="_blank" class="nav__cta"><span>Book Now</span></a>
+    <div class="nav__hamburger" aria-label="Menu">
+      <span></span>
+      <span></span>
+      <span></span>
+    </div>
+  </nav>
+
+  <!-- ============================================================
+       PAGE HEADER
+  ============================================================ -->
+  <header class="policy-header">
+    <p class="policy-header__eyebrow">Legal</p>
+    <h1 class="policy-header__title">Refund Policy</h1>
+    <p class="policy-header__date">Effective: 20 July 2025</p>
+    <div class="policy-header__rule"></div>
+  </header>
+
+  <!-- ============================================================
+       POLICY CONTENT
+  ============================================================ -->
+  <main class="policy-content">
+    <p class="policy-content__intro">This Policy delineates how Maxará Aesthetics ("Maxará," "we," "us," or "our"), a division of Second Sight Aesthetics LLC, administers requests for service adjustments, store‑credit issuance, and merchandise returns. By booking an appointment, purchasing a treatment package, or acquiring retail products—either through https://www.maxaraaesthetics.com or in‑studio—you assent to the provisions articulated below.</p>
+
+    <!-- Section 1 -->
+    <h2>1 &nbsp; Service Satisfaction Adjustments</h2>
+    <ul>
+      <li><strong>No Cash/Card Refunds</strong> — Completed services are ineligible for monetary reimbursement.</li>
+      <li><strong>Complementary Remediation</strong> — If you are dissatisfied with the clinical outcome, notify us within five (5) calendar days. Management will adjudicate each case individually and may extend either (a) a complimentary touch‑up or (b) store credit equal to the value of remedial care.</li>
+    </ul>
+
+    <!-- Section 2 -->
+    <h2>2 &nbsp; Prepaid Packages &amp; Series</h2>
+    <p>Clients who discontinue a prepaid series may request prorated store credit for any unused sessions, calculated at the per‑service rate. No cash refunds will be issued for partially redeemed packages.</p>
+
+    <!-- Section 3 -->
+    <h2>3 &nbsp; Retail Merchandise Returns</h2>
+    <ul>
+      <li><strong>Return Window</strong> — Unopened, unused products in their original packaging are returnable within five (5) calendar days of purchase.</li>
+      <li><strong>Return Prerequisites</strong> — An original receipt and pristine, resalable condition are mandatory.</li>
+      <li><strong>Final‑Sale Items</strong> — Products that have been opened, lack original packaging, or are presented after the 5‑day period are non‑returnable.</li>
+      <li><strong>Refund Modality</strong> — Upon approval, refunds are credited to the original payment instrument within seven (7) business days; subsequent bank‑processing times may vary.</li>
+    </ul>
+
+    <!-- Section 4 -->
+    <h2>4 &nbsp; Gift Cards</h2>
+    <p>Gift cards are non‑refundable, non‑redeemable for cash, and may only be transferred to another party with the cardholder's explicit consent.</p>
+
+    <!-- Section 5 -->
+    <h2>5 &nbsp; Deposits for High‑Value Services</h2>
+    <ul>
+      <li><strong>Mandatory Deposit</strong> — Select premium treatments require a deposit at the time of booking.</li>
+      <li><strong>Refund Eligibility</strong> — Deposits are refundable when cancellations are submitted ≥ 24 hours before the scheduled appointment.</li>
+      <li><strong>Forfeiture Clause</strong> — Cancellations occurring &lt; 24 hours before the appointment render the deposit non‑refundable.</li>
+    </ul>
+
+    <!-- Section 6 -->
+    <h2>6 &nbsp; Documentation &amp; Condition Requirements</h2>
+    <p>All refund or credit inquiries must include:</p>
+    <ul>
+      <li>Original purchase receipt or digital proof of transaction.</li>
+      <li>The physical product in its original, unaltered packaging (if applicable).</li>
+    </ul>
+
+    <!-- Section 7 -->
+    <h2>7 &nbsp; Processing Timeline</h2>
+    <p>Following approval, we will execute the refund or credit within seven (7) business days. Your financial institution may impose additional settlement timeframes beyond our control.</p>
+
+    <!-- Section 8 -->
+    <h2>8 &nbsp; Management Discretion</h2>
+    <p>Maxará retains discretionary authority to diverge from this Policy in extraordinary circumstances (e.g., documented hypersensitivity reaction, courier‑induced damage). Such deviations are case‑specific and shall not establish precedential effect.</p>
+
+    <!-- Section 9 -->
+    <h2>9 &nbsp; Initiating a Refund / Return Request</h2>
+    <p>Email <a href="mailto:support@maxaraaesthetics.com">support@maxaraaesthetics.com</a> or phone <a href="tel:+17707967418">(770) 796‑7418</a>. Provide:</p>
+    <ul>
+      <li>Full legal name and preferred contact information;</li>
+      <li>Transaction or appointment identifiers;</li>
+      <li>A concise description of the issue accompanied by photographic evidence when relevant.</li>
+    </ul>
+  </main>
+
+  <!-- ============================================================
+       FOOTER
+  ============================================================ -->
+  <footer class="footer">
+    <div class="footer__top">
+      <div>
+        <img class="footer__logo" src="assets/images/logos/Logo.png" alt="Maxará Aesthetics">
+        <p class="footer__tagline">"Elevated aesthetics rooted in the art of listening to your skin."</p>
+        <div class="footer__social">
+          <a href="https://www.instagram.com/maxaraaesthetics/" target="_blank">Instagram</a>
+          <a href="https://www.facebook.com/maxaraaesthetics/" target="_blank">Facebook</a>
+        </div>
+      </div>
+      <div>
+        <p class="footer__col-title">Navigate</p>
+        <ul class="footer__links">
+          <li><a href="index.html#about">Our Philosophy</a></li>
+          <li><a href="index.html#services">Services</a></li>
+          <li><a href="index.html#meet">Meet Amanda</a></li>
+          <li><a href="index.html#gallery">Results</a></li>
+          <li><a href="https://maxaraaesthetics.glossgenius.com/services" target="_blank">Book an Appointment</a></li>
+        </ul>
+      </div>
+      <div>
+        <p class="footer__col-title">Contact</p>
+        <div class="footer__contact-item">
+          <span class="footer__contact-label">Location</span>
+          <span class="footer__contact-value">504 S 8th St<br>Griffin, GA 30224</span>
+        </div>
+        <div class="footer__contact-item">
+          <span class="footer__contact-label">Hours</span>
+          <span class="footer__contact-value">Monday – Friday<br>9:00 AM – 5:00 PM</span>
+        </div>
+        <div class="footer__contact-item">
+          <span class="footer__contact-label">Phone</span>
+          <span class="footer__contact-value">(770) 796-7418</span>
+        </div>
+        <div class="footer__contact-item">
+          <span class="footer__contact-label">Inquiries</span>
+          <span class="footer__contact-value">info@maxaraaesthetics.com</span>
+        </div>
+      </div>
+    </div>
+    <div class="footer__bottom">
+      <p class="footer__copy">&copy; 2025 Maxará Aesthetics. All rights reserved.</p>
+      <div class="footer__legal">
+        <a href="privacy-policy.html">Privacy Policy</a>
+        <a href="terms-and-conditions.html">Terms of Service</a>
+        <a href="refund-policy.html">Refund Policy</a>
+      </div>
+    </div>
+  </footer>
+
+  <!-- ============================================================
+       JAVASCRIPT
+  ============================================================ -->
+  <script>
+    // ================================================================
+    // 1. SCROLL PROGRESS BAR
+    // ================================================================
+    (function initScrollProgress() {
+      const bar = document.getElementById('scrollProgress');
+      window.addEventListener('scroll', () => {
+        const max = document.body.scrollHeight - window.innerHeight;
+        bar.style.transform = `scaleX(${window.scrollY / max})`;
+      }, { passive: true });
+    })();
+
+    // ================================================================
+    // 2. NAVIGATION — Smart Hide
+    // ================================================================
+    (function initNav() {
+      const nav = document.getElementById('nav');
+      let lastScrollY = 0;
+      let ticking = false;
+
+      window.addEventListener('scroll', () => {
+        if (!ticking) {
+          requestAnimationFrame(() => {
+            const scrollY = window.scrollY;
+            if (scrollY > lastScrollY && scrollY > 400) {
+              nav.classList.add('hidden');
+            } else {
+              nav.classList.remove('hidden');
+            }
+            lastScrollY = scrollY;
+            ticking = false;
+          });
+          ticking = true;
+        }
+      });
+    })();
+  </script>
+</body>
+</html>
