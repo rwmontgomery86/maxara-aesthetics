@@ -5,12 +5,14 @@ Luxury medical aesthetics website for Maxará Aesthetics in Griffin, GA.
 ## Tech Stack
 
 Pure static site — **no framework, no build tools, no package manager**.
-- HTML5, embedded CSS3, embedded vanilla JavaScript
+- HTML5, CSS3, vanilla JavaScript
 - Google Fonts (Cormorant Garamond, Josefin Sans, Lato)
-- No external CSS/JS files — all styles and scripts live inside each HTML file
+- Shared stylesheet `styles.css` (1075 lines) — base reset, variables, nav, footer, loader, scroll bar, shared component styles
+- Page-specific styles and scripts are embedded in each HTML file via `<style>` and `<script>` tags
 
-## Pages (7 files)
+## Pages (13 files)
 
+### Service Pages
 | File | Purpose |
 |------|---------|
 | `index.html` | Homepage — hero, services grid, testimonials, team, gallery |
@@ -21,17 +23,32 @@ Pure static site — **no framework, no build tools, no package manager**.
 | `waxing.html` | Waxing service page |
 | `advanced-skincare.html` | Advanced Skincare treatments hub |
 
-## Shared Components (duplicated across all pages)
+### Supporting Pages
+| File | Purpose |
+|------|---------|
+| `our-team.html` | Team bios — Amanda Cortes, Courtney Nelson, Dr. Lori Martin |
+| `gift-cards.html` | Gift card purchasing info |
+| `payment-plans.html` | Cherry financing / payment plan info |
+| `privacy-policy.html` | Privacy policy (legal) |
+| `refund-policy.html` | Refund policy (legal) |
+| `terms-and-conditions.html` | Terms and conditions (legal) |
 
-These are copy-pasted into every HTML file. **When editing any of these, update all 7 files:**
+## Shared Components
+
+### External shared stylesheet (`styles.css`)
+Contains CSS custom properties, reset, base typography, and styles for components shared across all pages:
 - **Nav** — fixed bar with frosted glass, smart-hide on scroll, mobile hamburger menu
 - **Footer** — 3-column layout with contact, navigation, social links
 - **Page loader** — full-screen overlay with pulsing logo
 - **Scroll progress bar** — terracotta bar at top of viewport
+- **Buttons, reveal animations, eyebrow labels**
+
+### Duplicated HTML
+The nav, footer, loader, and scroll bar HTML markup is copy-pasted into every HTML file. **When editing any of these, update all 13 files.**
 
 ## Design System
 
-### Colors (CSS custom properties on `:root`)
+### Colors (CSS custom properties on `:root` in `styles.css`)
 ```
 --color-oyster:      #F5F0E8   (primary background)
 --color-oyster-dark: #EDE6D6   (alternating section bg)
@@ -65,20 +82,22 @@ All scroll animations use `IntersectionObserver` with 12% threshold:
 ## Assets
 
 Images in `assets/images/` organized by page:
-`logos/`, `home-page/`, `hydrafacial/`, `chemical-peels/`, `laser-hair-removal/`, `microneedling/`, `waxing/`, `advanced-skincare/`, `jet-plasma/`, `generic/`, `miscelaneous/`
+`logos/`, `home-page/`, `hydrafacial/`, `chemical-peels/`, `laser-hair-removal/`, `microneedling/`, `waxing/`, `advanced-skincare/`, `jet-plasma/`, `generic/`, `miscelaneous/`, `our-team/`, `gift-cards/`
 
 Icons are inline SVGs — no icon library.
 
 ## External Integrations
 
 - **Booking:** GlossGenius — all "Book Now" buttons link to `https://maxaraaesthetics.glossgenius.com/`
+- **Financing:** Cherry — payment plan applications
 - **Social:** Instagram and Facebook (`@maxaraaesthetics`)
 - **Contact:** 504 S 8th St, Griffin, GA 30224 | (770) 796-7418 | info@maxaraaesthetics.com
 
 ## Key Conventions
 
-- Keep CSS and JS embedded in each HTML file (no external stylesheets)
+- Shared styles go in `styles.css`; page-specific styles stay embedded in the HTML file
 - Follow the existing color/typography variables — never hardcode hex values
 - Use the established animation classes (`reveal-up`, etc.) for new sections
 - Service pages follow a consistent layout: hero → intro → features → pricing → FAQ → CTA → footer
 - All images use descriptive alt text
+- When editing nav, footer, loader, or scroll bar markup — update all 13 HTML files
