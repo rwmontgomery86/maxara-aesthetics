@@ -167,97 +167,11 @@
       overflow: hidden;
     }
 
-    .gc-card__preview--egift {
-      background: linear-gradient(135deg, var(--color-walnut) 0%, var(--color-charcoal) 100%);
-    }
-
-    .gc-card__preview--traditional {
-      background: var(--color-oyster-dark);
-      border-bottom: 1px solid rgba(184, 154, 90, 0.15);
-    }
-
-    .gc-card__preview-inner {
-      width: 72%;
-      height: 65%;
-      border: 1px solid rgba(184, 154, 90, 0.35);
-      border-radius: 8px;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      justify-content: center;
-      position: relative;
-    }
-
-    .gc-card__preview--egift .gc-card__preview-inner {
-      background: rgba(255, 255, 255, 0.06);
-      border-color: rgba(184, 154, 90, 0.4);
-    }
-
-    .gc-card__preview--traditional .gc-card__preview-inner {
-      background: var(--color-cream-pure);
-      border-color: var(--color-gold);
-    }
-
-    .gc-card__preview-logo {
-      width: 60px;
-      height: auto;
-      opacity: 0.85;
-      margin-bottom: 0.5rem;
-    }
-
-    .gc-card__preview-label {
-      font-family: var(--font-label);
-      font-weight: 300;
-      font-size: 0.55rem;
-      letter-spacing: 0.2em;
-      text-transform: uppercase;
-    }
-
-    .gc-card__preview--egift .gc-card__preview-label {
-      color: rgba(245, 240, 232, 0.6);
-    }
-
-    .gc-card__preview--traditional .gc-card__preview-label {
-      color: rgba(92, 61, 46, 0.5);
-    }
-
-    .gc-card__preview-amount {
-      font-family: var(--font-display);
-      font-weight: 300;
-      font-size: 1.4rem;
-      margin-top: 0.25rem;
-    }
-
-    .gc-card__preview--egift .gc-card__preview-amount {
-      color: var(--color-gold);
-    }
-
-    .gc-card__preview--traditional .gc-card__preview-amount {
-      color: var(--color-walnut);
-    }
-
-    /* Gold corner accents */
-    .gc-card__preview-inner::before,
-    .gc-card__preview-inner::after {
-      content: '';
-      position: absolute;
-      width: 20px;
-      height: 20px;
-      border-color: var(--color-gold);
-      border-style: solid;
-      opacity: 0.4;
-    }
-
-    .gc-card__preview-inner::before {
-      top: 8px;
-      left: 8px;
-      border-width: 1px 0 0 1px;
-    }
-
-    .gc-card__preview-inner::after {
-      bottom: 8px;
-      right: 8px;
-      border-width: 0 1px 1px 0;
+    .gc-card__preview-img {
+      width: 100%;
+      height: 100%;
+      object-fit: contain;
+      padding: 1.25rem;
     }
 
     /* Card body content */
@@ -669,12 +583,8 @@
     <div class="gc-options__grid">
       <!-- eGift Card -->
       <div class="gc-card">
-        <div class="gc-card__preview gc-card__preview--egift">
-          <div class="gc-card__preview-inner">
-            <img class="gc-card__preview-logo" src="assets/images/logos/Logo.png" alt="" style="filter: brightness(10);">
-            <span class="gc-card__preview-label">Maxará Aesthetics</span>
-            <span class="gc-card__preview-amount">eGift Card</span>
-          </div>
+        <div class="gc-card__preview">
+          <img class="gc-card__preview-img" src="assets/images/gift-cards/gift-card-image.jpeg" alt="Maxará Aesthetics gift card">
         </div>
         <div class="gc-card__body">
           <svg class="gc-card__icon" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/></svg>
@@ -693,12 +603,8 @@
 
       <!-- Traditional Gift Card -->
       <div class="gc-card">
-        <div class="gc-card__preview gc-card__preview--traditional">
-          <div class="gc-card__preview-inner">
-            <img class="gc-card__preview-logo" src="assets/images/logos/Logo.png" alt="">
-            <span class="gc-card__preview-label">Maxará Aesthetics</span>
-            <span class="gc-card__preview-amount">Gift Card</span>
-          </div>
+        <div class="gc-card__preview">
+          <img class="gc-card__preview-img" src="assets/images/gift-cards/gift-card-image.jpeg" alt="Maxará Aesthetics gift card">
         </div>
         <div class="gc-card__body">
           <svg class="gc-card__icon" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M12 8v13m0-13V6a2 2 0 112 2h-2zm0 0V5.5A2.5 2.5 0 109.5 8H12zm-7 4h14M5 12a2 2 0 110-4h14a2 2 0 110 4M5 12v7a2 2 0 002 2h10a2 2 0 002-2v-7"/></svg>
