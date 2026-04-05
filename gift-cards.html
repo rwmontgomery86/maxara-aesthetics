@@ -1,0 +1,1105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Gift Cards — Maxará Aesthetics</title>
+  <meta name="description" content="Give the gift of luxury skincare. Purchase eGift cards or traditional gift cards from $10 to $500 at Maxará Aesthetics in Griffin, GA.">
+  <link rel="icon" type="image/png" href="assets/images/logos/Logo.png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400;1,600&family=Josefin+Sans:wght@100;300;400&family=Lato:wght@300;400&family=Montserrat&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+  <style>
+/* ============================================================
+       HERO SECTION
+    ============================================================ */
+    .gc-hero {
+      padding: 8rem 8% 5rem;
+      background: var(--color-charcoal);
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 4rem;
+      align-items: center;
+      min-height: 85vh;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .gc-hero__images {
+      position: relative;
+      height: 520px;
+    }
+
+    .gc-hero__img-main {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 65%;
+      height: 100%;
+      border-radius: 2px;
+      opacity: 0;
+      transform: translateX(-40px);
+      transition: opacity 1s ease 0.3s, transform 1.2s var(--ease-expo) 0.3s;
+    }
+
+    .gc-hero__img-accent {
+      position: absolute;
+      bottom: 0;
+      right: 5%;
+      width: 48%;
+      height: 60%;
+      border-radius: 2px;
+      box-shadow: -12px -12px 0 var(--color-charcoal);
+      opacity: 0;
+      transform: translateX(-30px) translateY(20px);
+      transition: opacity 1s ease 0.6s, transform 1.2s var(--ease-expo) 0.6s;
+    }
+
+    .gc-hero.in-view .gc-hero__img-main,
+    .gc-hero.in-view .gc-hero__img-accent {
+      opacity: 1;
+      transform: translateX(0) translateY(0);
+    }
+
+    .gc-hero__content {
+      color: var(--color-cream-pure);
+      opacity: 0;
+      transform: translateY(30px);
+      transition: opacity 1s ease 0.4s, transform 1.1s var(--ease-expo) 0.4s;
+    }
+
+    .gc-hero.in-view .gc-hero__content {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    .gc-hero__title {
+      font-family: var(--font-display);
+      font-weight: 300;
+      font-size: clamp(3rem, 6vw, 5rem);
+      line-height: 1.05;
+      color: var(--color-cream-pure);
+      margin-bottom: 0.5rem;
+    }
+
+    .gc-hero__subtitle {
+      font-family: var(--font-display);
+      font-style: italic;
+      font-weight: 300;
+      font-size: clamp(1.1rem, 2vw, 1.5rem);
+      color: var(--color-gold);
+      margin-bottom: 1.75rem;
+    }
+
+    .gc-hero__text {
+      font-size: 0.97rem;
+      color: rgba(245, 240, 232, 0.72);
+      max-width: 440px;
+      margin-bottom: 2.5rem;
+      line-height: 1.85;
+    }
+
+    .gc-hero .eyebrow {
+      color: var(--color-gold);
+    }
+
+    .gc-hero .eyebrow::before {
+      background: rgba(245, 240, 232, 0.3);
+    }
+
+
+/* ============================================================
+       GIFT CARD OPTIONS
+    ============================================================ */
+    .gc-options {
+      padding: 7rem 8%;
+      background: var(--color-oyster);
+    }
+
+    .gc-options__header {
+      text-align: center;
+      max-width: 640px;
+      margin: 0 auto 4rem;
+    }
+
+    .gc-options__header .eyebrow {
+      justify-content: center;
+    }
+
+    .gc-options__header p {
+      font-size: 0.95rem;
+      color: rgba(44, 44, 44, 0.68);
+      margin-top: 1rem;
+      line-height: 1.85;
+    }
+
+    .gc-options__grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 3rem;
+      max-width: 1100px;
+      margin: 0 auto;
+    }
+
+    .gc-card {
+      background: var(--color-cream-pure);
+      border: 1px solid rgba(184, 154, 90, 0.15);
+      padding: 0;
+      overflow: hidden;
+      opacity: 0;
+      transform: translateY(30px);
+      transition: opacity 0.8s ease, transform 1s var(--ease-expo);
+    }
+
+    .gc-card.in-view {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    /* Decorative card preview */
+    .gc-card__preview {
+      position: relative;
+      height: 220px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      overflow: hidden;
+    }
+
+    .gc-card__preview--egift {
+      background: linear-gradient(135deg, var(--color-walnut) 0%, var(--color-charcoal) 100%);
+    }
+
+    .gc-card__preview--traditional {
+      background: var(--color-oyster-dark);
+      border-bottom: 1px solid rgba(184, 154, 90, 0.15);
+    }
+
+    .gc-card__preview-inner {
+      width: 72%;
+      height: 65%;
+      border: 1px solid rgba(184, 154, 90, 0.35);
+      border-radius: 8px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      position: relative;
+    }
+
+    .gc-card__preview--egift .gc-card__preview-inner {
+      background: rgba(255, 255, 255, 0.06);
+      border-color: rgba(184, 154, 90, 0.4);
+    }
+
+    .gc-card__preview--traditional .gc-card__preview-inner {
+      background: var(--color-cream-pure);
+      border-color: var(--color-gold);
+    }
+
+    .gc-card__preview-logo {
+      width: 60px;
+      height: auto;
+      opacity: 0.85;
+      margin-bottom: 0.5rem;
+    }
+
+    .gc-card__preview-label {
+      font-family: var(--font-label);
+      font-weight: 300;
+      font-size: 0.55rem;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+    }
+
+    .gc-card__preview--egift .gc-card__preview-label {
+      color: rgba(245, 240, 232, 0.6);
+    }
+
+    .gc-card__preview--traditional .gc-card__preview-label {
+      color: rgba(92, 61, 46, 0.5);
+    }
+
+    .gc-card__preview-amount {
+      font-family: var(--font-display);
+      font-weight: 300;
+      font-size: 1.4rem;
+      margin-top: 0.25rem;
+    }
+
+    .gc-card__preview--egift .gc-card__preview-amount {
+      color: var(--color-gold);
+    }
+
+    .gc-card__preview--traditional .gc-card__preview-amount {
+      color: var(--color-walnut);
+    }
+
+    /* Gold corner accents */
+    .gc-card__preview-inner::before,
+    .gc-card__preview-inner::after {
+      content: '';
+      position: absolute;
+      width: 20px;
+      height: 20px;
+      border-color: var(--color-gold);
+      border-style: solid;
+      opacity: 0.4;
+    }
+
+    .gc-card__preview-inner::before {
+      top: 8px;
+      left: 8px;
+      border-width: 1px 0 0 1px;
+    }
+
+    .gc-card__preview-inner::after {
+      bottom: 8px;
+      right: 8px;
+      border-width: 0 1px 1px 0;
+    }
+
+    /* Card body content */
+    .gc-card__body {
+      padding: 2.5rem 2rem;
+    }
+
+    .gc-card__icon {
+      width: 32px;
+      height: 32px;
+      stroke: var(--color-terracotta);
+      fill: none;
+      stroke-width: 1.5;
+      margin-bottom: 1.25rem;
+    }
+
+    .gc-card__title {
+      font-family: var(--font-display);
+      font-weight: 400;
+      font-size: 1.65rem;
+      color: var(--color-charcoal);
+      margin-bottom: 0.35rem;
+    }
+
+    .gc-card__price {
+      font-family: var(--font-label);
+      font-weight: 300;
+      font-size: 0.8rem;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      color: var(--color-terracotta);
+      margin-bottom: 1.25rem;
+    }
+
+    .gc-card__text {
+      font-size: 0.92rem;
+      color: rgba(44, 44, 44, 0.65);
+      line-height: 1.8;
+      margin-bottom: 1.5rem;
+    }
+
+    .gc-card__features {
+      list-style: none;
+      padding: 0;
+      margin: 0 0 2rem;
+    }
+
+    .gc-card__features li {
+      font-size: 0.88rem;
+      color: rgba(44, 44, 44, 0.7);
+      padding: 0.5rem 0;
+      padding-left: 1.5rem;
+      position: relative;
+      line-height: 1.6;
+    }
+
+    .gc-card__features li::before {
+      content: '';
+      position: absolute;
+      left: 0;
+      top: 0.85rem;
+      width: 6px;
+      height: 6px;
+      border-radius: 50%;
+      background: var(--color-gold);
+    }
+
+    .gc-card .btn {
+      width: 100%;
+      text-align: center;
+      justify-content: center;
+    }
+
+
+/* ============================================================
+       HOW IT WORKS — Steps
+    ============================================================ */
+    .gc-steps {
+      padding: 7rem 8%;
+      background: var(--color-oyster-dark);
+    }
+
+    .gc-steps__header {
+      text-align: center;
+      max-width: 640px;
+      margin: 0 auto 4rem;
+    }
+
+    .gc-steps__header .eyebrow {
+      justify-content: center;
+    }
+
+    .gc-steps__grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 2rem;
+      max-width: 1100px;
+      margin: 0 auto;
+      position: relative;
+    }
+
+    /* Connecting line */
+    .gc-steps__grid::before {
+      content: '';
+      position: absolute;
+      top: 28px;
+      left: 12%;
+      right: 12%;
+      height: 1px;
+      background: rgba(184, 154, 90, 0.3);
+    }
+
+    .gc-step {
+      text-align: center;
+      position: relative;
+      opacity: 0;
+      transform: translateY(25px);
+      transition: opacity 0.8s ease, transform 1s var(--ease-expo);
+    }
+
+    .gc-step.in-view {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    .gc-step__number {
+      width: 56px;
+      height: 56px;
+      border-radius: 50%;
+      border: 1px solid var(--color-gold);
+      background: var(--color-oyster-dark);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin: 0 auto 1.5rem;
+      font-family: var(--font-display);
+      font-weight: 300;
+      font-size: 1.2rem;
+      color: var(--color-walnut);
+      position: relative;
+      z-index: 1;
+    }
+
+    .gc-step__title {
+      font-family: var(--font-display);
+      font-weight: 400;
+      font-size: 1.2rem;
+      color: var(--color-charcoal);
+      margin-bottom: 0.65rem;
+    }
+
+    .gc-step__text {
+      font-size: 0.88rem;
+      color: rgba(44, 44, 44, 0.6);
+      line-height: 1.75;
+      max-width: 220px;
+      margin: 0 auto;
+    }
+
+
+/* ============================================================
+       OCCASIONS GRID
+    ============================================================ */
+    .gc-occasions {
+      padding: 7rem 8%;
+      background: var(--color-oyster);
+    }
+
+    .gc-occasions__header {
+      text-align: center;
+      max-width: 640px;
+      margin: 0 auto 4rem;
+    }
+
+    .gc-occasions__header .eyebrow {
+      justify-content: center;
+    }
+
+    .gc-occasions__grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 2rem;
+      max-width: 1100px;
+      margin: 0 auto;
+    }
+
+    .gc-occasion {
+      background: var(--color-cream-pure);
+      padding: 2.5rem 2rem;
+      border: 1px solid rgba(184, 154, 90, 0.15);
+      text-align: center;
+      opacity: 0;
+      transform: translateY(30px);
+      transition: opacity 0.8s ease, transform 1s var(--ease-expo);
+    }
+
+    .gc-occasion.in-view {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    .gc-occasion__icon {
+      width: 36px;
+      height: 36px;
+      stroke: var(--color-terracotta);
+      fill: none;
+      stroke-width: 1.5;
+      margin: 0 auto 1.25rem;
+    }
+
+    .gc-occasion__title {
+      font-family: var(--font-display);
+      font-weight: 400;
+      font-size: 1.35rem;
+      color: var(--color-charcoal);
+      margin-bottom: 0.75rem;
+    }
+
+    .gc-occasion__text {
+      font-size: 0.9rem;
+      color: rgba(44, 44, 44, 0.65);
+      line-height: 1.75;
+    }
+
+
+/* ============================================================
+       FAQ SECTION (page-specific overrides)
+    ============================================================ */
+    .gc-faq {
+      background: var(--color-oyster-dark);
+    }
+
+
+/* ============================================================
+       RESPONSIVE
+    ============================================================ */
+    @media (max-width: 1100px) {
+      .gc-hero {
+        grid-template-columns: 1fr;
+        min-height: auto;
+        padding-top: 7rem;
+      }
+
+      .gc-hero__images {
+        height: 380px;
+        order: -1;
+      }
+
+      .gc-options__grid {
+        grid-template-columns: 1fr;
+        max-width: 520px;
+      }
+
+      .gc-steps__grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 3rem 2rem;
+      }
+
+      .gc-steps__grid::before {
+        display: none;
+      }
+
+      .gc-occasions__grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+    }
+
+    @media (max-width: 768px) {
+      .gc-hero {
+        padding: 6.5rem 6% 3rem;
+        gap: 2.5rem;
+      }
+
+      .gc-hero__images {
+        height: 300px;
+      }
+
+      .gc-options,
+      .gc-steps,
+      .gc-occasions {
+        padding: 5rem 6%;
+      }
+
+      .gc-steps__grid {
+        grid-template-columns: 1fr 1fr;
+      }
+
+      .gc-occasions__grid {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    @media (max-width: 480px) {
+      .gc-hero__title {
+        font-size: 2.5rem;
+      }
+
+      .gc-hero__images {
+        height: 240px;
+      }
+
+      .gc-steps__grid {
+        grid-template-columns: 1fr;
+        gap: 2.5rem;
+      }
+
+      .gc-card__preview {
+        height: 180px;
+      }
+
+      .gc-card__body {
+        padding: 2rem 1.5rem;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- Scroll Progress Bar -->
+  <div class="scroll-progress" id="scrollProgress"></div>
+
+  <!-- ============================================================
+       NAVIGATION
+  ============================================================ -->
+  <nav class="nav" id="nav">
+    <a href="index.html" class="nav__logo-link">
+      <img class="nav__logo" src="assets/images/logos/Logo.png" alt="Maxará Aesthetics">
+    </a>
+    <ul class="nav__links">
+      <li><a href="index.html#about">Philosophy</a></li>
+      <li><a href="index.html#services">Services</a></li>
+      <li><a href="our-team.html">Team</a></li>
+      <li><a href="index.html#gallery">Results</a></li>
+      <li><a href="payment-plans.html">Payment Plans</a></li>
+      <li><a href="gift-cards.html">Gift Cards</a></li>
+    </ul>
+    <a href="https://maxaraaesthetics.glossgenius.com/services?_gl=1*szgjwc*_gcl_au*MTQwNjQwOTgyNi4xNzY5MTA4NjQw*_ga*ODI5Mjk3MzIuMTc2OTEwODY0MA..*_ga_2DF817SLF4*czE3NzUxMzY0ODEkbzE2JGcwJHQxNzc1MTM2NDgxJGo2MCRsMCRoMjA2MTA2ODA5Mw.." target="_blank" class="nav__cta"><span>Book Now</span></a>
+    <button class="nav__hamburger" aria-label="Menu" aria-expanded="false" aria-controls="mobileMenu">
+      <span></span>
+      <span></span>
+      <span></span>
+    </button>
+  </nav>
+
+  <!-- Mobile Menu Panel -->
+  <div class="mobile-menu" id="mobileMenu">
+    <a href="index.html#about">Philosophy</a>
+    <a href="index.html#services">Services</a>
+    <a href="our-team.html">Team</a>
+    <a href="index.html#gallery">Results</a>
+    <a href="gift-cards.html">Gift Cards</a>
+    <a href="https://maxaraaesthetics.glossgenius.com/services?_gl=1*szgjwc*_gcl_au*MTQwNjQwOTgyNi4xNzY5MTA4NjQw*_ga*ODI5Mjk3MzIuMTc2OTEwODY0MA..*_ga_2DF817SLF4*czE3NzUxMzY0ODEkbzE2JGcwJHQxNzc1MTM2NDgxJGo2MCRsMCRoMjA2MTA2ODA5Mw.." target="_blank">Book Now</a>
+  </div>
+
+  <!-- ============================================================
+       HERO
+  ============================================================ -->
+  <section class="gc-hero" id="gcHero">
+    <div class="gc-hero__images">
+      <div class="gc-hero__img-main img-placeholder">
+        <span class="img-placeholder__label">interior-6.jpg</span>
+        <img src="assets/images/home-page/interior-6.jpg" alt="Maxará Aesthetics interior" onerror="this.classList.add('img-hidden')">
+      </div>
+      <div class="gc-hero__img-accent img-placeholder">
+        <span class="img-placeholder__label">interior-7.jpg</span>
+        <img src="assets/images/home-page/interior-7.jpg" alt="Maxará Aesthetics treatment room" onerror="this.classList.add('img-hidden')">
+      </div>
+    </div>
+    <div class="gc-hero__content">
+      <p class="eyebrow">The Gift of Radiance</p>
+      <h1 class="gc-hero__title">Gift Cards</h1>
+      <p class="gc-hero__subtitle">for every occasion</p>
+      <p class="gc-hero__text">Give someone the gift of luxury skincare. Whether it's a birthday, holiday, or just because — a Maxará gift card lets them choose the treatment that's perfect for their skin.</p>
+      <a href="#options" class="btn btn--light"><span>View Options</span></a>
+    </div>
+  </section>
+
+  <!-- ============================================================
+       MARQUEE — Thoughtful Luxurious Personal
+  ============================================================ -->
+  <div class="marquee-strip marquee-strip--dark">
+    <div class="marquee-strip__track" aria-hidden="true">
+      <span>Thoughtful</span><span class="dot">&nbsp;&nbsp;&middot;&nbsp;&nbsp;</span>
+      <span>Luxurious</span><span class="dot">&nbsp;&nbsp;&middot;&nbsp;&nbsp;</span>
+      <span>Personal</span><span class="dot">&nbsp;&nbsp;&middot;&nbsp;&nbsp;</span>
+      <span>Thoughtful</span><span class="dot">&nbsp;&nbsp;&middot;&nbsp;&nbsp;</span>
+      <span>Luxurious</span><span class="dot">&nbsp;&nbsp;&middot;&nbsp;&nbsp;</span>
+      <span>Personal</span><span class="dot">&nbsp;&nbsp;&middot;&nbsp;&nbsp;</span>
+      <span>Thoughtful</span><span class="dot">&nbsp;&nbsp;&middot;&nbsp;&nbsp;</span>
+      <span>Luxurious</span><span class="dot">&nbsp;&nbsp;&middot;&nbsp;&nbsp;</span>
+      <span>Personal</span><span class="dot">&nbsp;&nbsp;&middot;&nbsp;&nbsp;</span>
+      <span>Thoughtful</span><span class="dot">&nbsp;&nbsp;&middot;&nbsp;&nbsp;</span>
+      <span>Luxurious</span><span class="dot">&nbsp;&nbsp;&middot;&nbsp;&nbsp;</span>
+      <span>Personal</span><span class="dot">&nbsp;&nbsp;&middot;&nbsp;&nbsp;</span>
+    </div>
+  </div>
+
+  <!-- ============================================================
+       GIFT CARD OPTIONS
+  ============================================================ -->
+  <section class="gc-options" id="options">
+    <div class="gc-options__header">
+      <p class="eyebrow" id="optionsEyebrow">Choose Your Gift</p>
+      <h2 class="section-headline reveal-up">Two Ways to<br><em>Give Radiance</em></h2>
+      <p>Select the option that fits your gifting style. Both cards are available in any amount from $10 to $500 and can be redeemed for any treatment at Maxará Aesthetics.</p>
+    </div>
+
+    <div class="gc-options__grid">
+      <!-- eGift Card -->
+      <div class="gc-card">
+        <div class="gc-card__preview gc-card__preview--egift">
+          <div class="gc-card__preview-inner">
+            <img class="gc-card__preview-logo" src="assets/images/logos/Logo.png" alt="" style="filter: brightness(10);">
+            <span class="gc-card__preview-label">Maxará Aesthetics</span>
+            <span class="gc-card__preview-amount">eGift Card</span>
+          </div>
+        </div>
+        <div class="gc-card__body">
+          <svg class="gc-card__icon" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/></svg>
+          <h3 class="gc-card__title">eGift Card</h3>
+          <p class="gc-card__price">$10 – $500</p>
+          <p class="gc-card__text">Delivered straight to their inbox in minutes. The perfect last-minute gift that never feels last-minute.</p>
+          <ul class="gc-card__features">
+            <li>Instant digital delivery via email</li>
+            <li>Choose any custom amount</li>
+            <li>Add a personal message</li>
+            <li>Schedule delivery for a future date</li>
+          </ul>
+          <a href="https://maxaraaesthetics.webgiftcardsales.com" target="_blank" rel="noopener noreferrer" class="btn"><span>Purchase eGift Card</span></a>
+        </div>
+      </div>
+
+      <!-- Traditional Gift Card -->
+      <div class="gc-card">
+        <div class="gc-card__preview gc-card__preview--traditional">
+          <div class="gc-card__preview-inner">
+            <img class="gc-card__preview-logo" src="assets/images/logos/Logo.png" alt="">
+            <span class="gc-card__preview-label">Maxará Aesthetics</span>
+            <span class="gc-card__preview-amount">Gift Card</span>
+          </div>
+        </div>
+        <div class="gc-card__body">
+          <svg class="gc-card__icon" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M12 8v13m0-13V6a2 2 0 112 2h-2zm0 0V5.5A2.5 2.5 0 109.5 8H12zm-7 4h14M5 12a2 2 0 110-4h14a2 2 0 110 4M5 12v7a2 2 0 002 2h10a2 2 0 002-2v-7"/></svg>
+          <h3 class="gc-card__title">Traditional Gift Card</h3>
+          <p class="gc-card__price">$10 – $500</p>
+          <p class="gc-card__text">A beautiful physical card mailed directly to you or the recipient. Something tangible they can hold and look forward to.</p>
+          <ul class="gc-card__features">
+            <li>Elegant physical card mailed to you</li>
+            <li>Ship to yourself or the recipient</li>
+            <li>Choose any custom amount</li>
+            <li>Flexible shipping options</li>
+          </ul>
+          <a href="https://maxaraaesthetics.webgiftcardsales.com" target="_blank" rel="noopener noreferrer" class="btn"><span>Purchase Gift Card</span></a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================================================
+       HOW IT WORKS — Steps
+  ============================================================ -->
+  <section class="gc-steps" id="howItWorks">
+    <div class="gc-steps__header">
+      <p class="eyebrow" id="stepsEyebrow">Simple &amp; Thoughtful</p>
+      <h2 class="section-headline reveal-up">How It<br><em>Works</em></h2>
+    </div>
+
+    <div class="gc-steps__grid">
+      <div class="gc-step">
+        <div class="gc-step__number">1</div>
+        <h3 class="gc-step__title">Choose</h3>
+        <p class="gc-step__text">Select an eGift card for instant delivery or a traditional card mailed to your door.</p>
+      </div>
+
+      <div class="gc-step">
+        <div class="gc-step__number">2</div>
+        <h3 class="gc-step__title">Customize</h3>
+        <p class="gc-step__text">Pick any amount from $10 to $500 and add a personal message for the recipient.</p>
+      </div>
+
+      <div class="gc-step">
+        <div class="gc-step__number">3</div>
+        <h3 class="gc-step__title">Send</h3>
+        <p class="gc-step__text">eGift cards arrive by email in minutes. Physical cards ship with flexible delivery options.</p>
+      </div>
+
+      <div class="gc-step">
+        <div class="gc-step__number">4</div>
+        <h3 class="gc-step__title">Redeem</h3>
+        <p class="gc-step__text">The recipient books any treatment at Maxará and applies their gift card at checkout.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================================================
+       OCCASIONS GRID
+  ============================================================ -->
+  <section class="gc-occasions" id="occasions">
+    <div class="gc-occasions__header">
+      <p class="eyebrow" id="occasionsEyebrow">Perfect For</p>
+      <h2 class="section-headline reveal-up">Every<br><em>Occasion</em></h2>
+    </div>
+
+    <div class="gc-occasions__grid">
+      <div class="gc-occasion">
+        <svg class="gc-occasion__icon" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M21 15.546c-.523 0-1.046.151-1.5.454a2.704 2.704 0 01-3 0 2.704 2.704 0 00-3 0 2.704 2.704 0 01-3 0 2.704 2.704 0 00-3 0 2.704 2.704 0 01-3 0A2.704 2.704 0 003 15.546M12 4v7m0 0l-2-2m2 2l2-2M3 20h18M6 16h12a2 2 0 002-2v-2a2 2 0 00-2-2H6a2 2 0 00-2 2v2a2 2 0 002 2z"/></svg>
+        <h3 class="gc-occasion__title">Birthdays</h3>
+        <p class="gc-occasion__text">Give them a glow-up they'll never forget. The perfect birthday treat.</p>
+      </div>
+
+      <div class="gc-occasion">
+        <svg class="gc-occasion__icon" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M5 3v4M3 5h4M6 17v4m-2-2h4m5-16l2.286 6.857L21 12l-5.714 2.143L13 21l-2.286-6.857L5 12l5.714-2.143L13 3z"/></svg>
+        <h3 class="gc-occasion__title">Holidays</h3>
+        <p class="gc-occasion__text">A thoughtful gift for the holidays that shows you truly care about their well-being.</p>
+      </div>
+
+      <div class="gc-occasion">
+        <svg class="gc-occasion__icon" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z"/></svg>
+        <h3 class="gc-occasion__title">Mother's Day</h3>
+        <p class="gc-occasion__text">Let her know she deserves to be pampered. The ultimate gift for mom.</p>
+      </div>
+
+      <div class="gc-occasion">
+        <svg class="gc-occasion__icon" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M14 10h4.764a2 2 0 011.789 2.894l-3.5 7A2 2 0 0115.263 21h-4.017c-.163 0-.326-.02-.485-.06L7 20m7-10V5a2 2 0 00-2-2h-.095c-.5 0-.905.405-.905.905 0 .714-.211 1.412-.608 2.006L7 11v9m7-10h-2M7 20H5a2 2 0 01-2-2v-6a2 2 0 012-2h2.5"/></svg>
+        <h3 class="gc-occasion__title">Thank You</h3>
+        <p class="gc-occasion__text">Show your appreciation with a gift that says you value them — inside and out.</p>
+      </div>
+
+      <div class="gc-occasion">
+        <svg class="gc-occasion__icon" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M12 4.354a4 4 0 110 5.292M15 21H3v-1a6 6 0 0112 0v1zm0 0h6v-1a6 6 0 00-9-5.197M13 7a4 4 0 11-8 0 4 4 0 018 0z"/></svg>
+        <h3 class="gc-occasion__title">Bridal Party</h3>
+        <p class="gc-occasion__text">Get the whole group glowing before the big day. A gift your bridal party will love.</p>
+      </div>
+
+      <div class="gc-occasion">
+        <svg class="gc-occasion__icon" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12h-1M4 12H3m3.343-5.657l-.707-.707m2.828 9.9a5 5 0 117.072 0l-.548.547A3.374 3.374 0 0014 18.469V19a2 2 0 11-4 0v-.531c0-.895-.356-1.754-.988-2.386l-.548-.547z"/></svg>
+        <h3 class="gc-occasion__title">Self-Care</h3>
+        <p class="gc-occasion__text">Sometimes the best gift is the one you give yourself. You deserve it.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================================================
+       FAQ
+  ============================================================ -->
+  <section class="faq gc-faq" id="faq">
+    <div class="faq__left">
+      <p class="eyebrow" id="faqEyebrow">FAQ</p>
+      <h2 class="section-headline reveal-up">Gift Card<br><em>Questions</em></h2>
+      <p class="faq__tagline reveal-up" style="transition-delay:0.15s;">Everything you need to know about Maxará gift cards.</p>
+    </div>
+
+    <div class="faq__list" id="faqList">
+      <div class="faq__item">
+        <button class="faq__question" aria-expanded="false">
+          <span class="faq__question-text">Do gift cards expire?</span>
+          <svg class="faq__chevron" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M6 9l6 6 6-6"/></svg>
+        </button>
+        <div class="faq__answer">
+          <p class="faq__answer-inner">No. Maxará Aesthetics gift cards do not expire and can be redeemed at any time for any treatment we offer.</p>
+        </div>
+      </div>
+
+      <div class="faq__item">
+        <button class="faq__question" aria-expanded="false">
+          <span class="faq__question-text">Can I use a gift card for any treatment?</span>
+          <svg class="faq__chevron" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M6 9l6 6 6-6"/></svg>
+        </button>
+        <div class="faq__answer">
+          <p class="faq__answer-inner">Yes. Gift cards can be applied to any service at Maxará Aesthetics — HydraFacials, chemical peels, laser hair removal, microneedling, waxing, and all advanced skincare treatments.</p>
+        </div>
+      </div>
+
+      <div class="faq__item">
+        <button class="faq__question" aria-expanded="false">
+          <span class="faq__question-text">How quickly are eGift cards delivered?</span>
+          <svg class="faq__chevron" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M6 9l6 6 6-6"/></svg>
+        </button>
+        <div class="faq__answer">
+          <p class="faq__answer-inner">eGift cards are delivered by email within minutes of purchase. You can also schedule delivery for a specific date if you'd like it to arrive on a special occasion.</p>
+        </div>
+      </div>
+
+      <div class="faq__item">
+        <button class="faq__question" aria-expanded="false">
+          <span class="faq__question-text">Can I check my gift card balance?</span>
+          <svg class="faq__chevron" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M6 9l6 6 6-6"/></svg>
+        </button>
+        <div class="faq__answer">
+          <p class="faq__answer-inner">Yes. You can check your balance anytime on our <a href="https://maxaraaesthetics.webgiftcardsales.com" target="_blank" rel="noopener noreferrer" style="color: var(--color-terracotta);">gift card portal</a> or by calling us at (770) 796-7418.</p>
+        </div>
+      </div>
+
+      <div class="faq__item">
+        <button class="faq__question" aria-expanded="false">
+          <span class="faq__question-text">Are gift cards refundable?</span>
+          <svg class="faq__chevron" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M6 9l6 6 6-6"/></svg>
+        </button>
+        <div class="faq__answer">
+          <p class="faq__answer-inner">Gift cards are non-refundable and non-redeemable for cash. They may be transferred to another party with the cardholder's explicit consent.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================================================
+       CTA / BOOKING
+  ============================================================ -->
+  <section class="cta-section" id="booking">
+    <div class="cta__bg" id="ctaBg">
+      <img src="assets/images/home-page/interior-1.png" alt="" style="width:100%;height:100%;object-fit:cover;" onerror="this.style.display='none'">
+    </div>
+    <div class="cta__overlay"></div>
+    <div class="cta__content" id="ctaContent">
+      <p class="eyebrow">Give the Gift</p>
+      <h2>Someone Deserves<br><em>to Shine.</em></h2>
+      <p>Whether it's a loved one, a friend, or yourself — a Maxará gift card is the gift of confidence, care, and radiant skin.</p>
+      <a href="https://maxaraaesthetics.webgiftcardsales.com" target="_blank" rel="noopener noreferrer" class="btn btn--light"><span>Purchase a Gift Card</span></a>
+    </div>
+  </section>
+
+  <!-- ============================================================
+       FOOTER
+  ============================================================ -->
+  <footer class="footer">
+    <div class="footer__top">
+      <div>
+        <img class="footer__logo" src="assets/images/logos/Logo.png" alt="Maxará Aesthetics">
+        <p class="footer__tagline">"Elevated aesthetics rooted in the art of listening to your skin."</p>
+        <div class="footer__social">
+          <a href="https://www.instagram.com/maxaraaesthetics/">Instagram</a>
+          <a href="https://www.facebook.com/maxaraaesthetics/">Facebook</a>
+        </div>
+      </div>
+      <div>
+        <p class="footer__col-title">Navigate</p>
+        <ul class="footer__links">
+          <li><a href="index.html#about">Our Philosophy</a></li>
+          <li><a href="index.html#services">Services</a></li>
+          <li><a href="our-team.html">Our Team</a></li>
+          <li><a href="index.html#gallery">Results</a></li>
+          <li><a href="payment-plans.html">Payment Plans</a></li>
+          <li><a href="gift-cards.html">Gift Cards</a></li>
+          <li><a href="https://maxaraaesthetics.glossgenius.com/services?_gl=1*szgjwc*_gcl_au*MTQwNjQwOTgyNi4xNzY5MTA4NjQw*_ga*ODI5Mjk3MzIuMTc2OTEwODY0MA..*_ga_2DF817SLF4*czE3NzUxMzY0ODEkbzE2JGcwJHQxNzc1MTM2NDgxJGo2MCRsMCRoMjA2MTA2ODA5Mw.." target="_blank">Book an Appointment</a></li>
+        </ul>
+      </div>
+      <div>
+        <p class="footer__col-title">Contact</p>
+        <div class="footer__contact-item">
+          <span class="footer__contact-label">Location</span>
+          <span class="footer__contact-value">504 S 8th St<br>Griffin, GA 30224</span>
+        </div>
+        <div class="footer__contact-item">
+          <span class="footer__contact-label">Hours</span>
+          <span class="footer__contact-value">Monday – Friday<br>9:00 AM – 5:00 PM</span>
+        </div>
+        <div class="footer__contact-item">
+          <span class="footer__contact-label">Phone</span>
+          <span class="footer__contact-value">(770) 796-7418</span>
+        </div>
+        <div class="footer__contact-item">
+          <span class="footer__contact-label">Inquiries</span>
+          <span class="footer__contact-value">info@maxaraaesthetics.com</span>
+        </div>
+      </div>
+    </div>
+    <div class="footer__bottom">
+      <p class="footer__copy">&copy; 2025 Maxará Aesthetics. All rights reserved.</p>
+      <div class="footer__legal">
+        <a href="privacy-policy.html">Privacy Policy</a>
+        <a href="terms-and-conditions.html">Terms of Service</a>
+        <a href="refund-policy.html">Refund Policy</a>
+      </div>
+    </div>
+  </footer>
+
+  <!-- ============================================================
+       JAVASCRIPT
+  ============================================================ -->
+  <script>
+    // ================================================================
+    // 1. SCROLL PROGRESS BAR
+    // ================================================================
+    (function initScrollProgress() {
+      const bar = document.getElementById('scrollProgress');
+      window.addEventListener('scroll', () => {
+        const max = document.body.scrollHeight - window.innerHeight;
+        bar.style.transform = `scaleX(${window.scrollY / max})`;
+      }, { passive: true });
+    })();
+
+    // ================================================================
+    // 2. NAVIGATION — Smart Hide
+    // ================================================================
+    (function initNav() {
+      const nav = document.getElementById('nav');
+      let lastScrollY = 0;
+      let ticking = false;
+
+      window.addEventListener('scroll', () => {
+        if (!ticking) {
+          requestAnimationFrame(() => {
+            const scrollY = window.scrollY;
+            if (scrollY > lastScrollY && scrollY > 400) {
+              nav.classList.add('hidden');
+            } else {
+              nav.classList.remove('hidden');
+            }
+            lastScrollY = scrollY;
+            ticking = false;
+          });
+          ticking = true;
+        }
+      });
+    })();
+
+    // ================================================================
+    // 3. MOBILE MENU TOGGLE
+    // ================================================================
+    (function initMobileMenu() {
+      const hamburger = document.querySelector('.nav__hamburger');
+      const mobileMenu = document.getElementById('mobileMenu');
+      if (!hamburger || !mobileMenu) return;
+
+      hamburger.addEventListener('click', () => {
+        const isOpen = mobileMenu.classList.toggle('open');
+        hamburger.classList.toggle('open');
+        hamburger.setAttribute('aria-expanded', isOpen);
+        document.body.style.overflow = isOpen ? 'hidden' : '';
+      });
+
+      mobileMenu.querySelectorAll('a').forEach(link => {
+        link.addEventListener('click', () => {
+          mobileMenu.classList.remove('open');
+          hamburger.classList.remove('open');
+          hamburger.setAttribute('aria-expanded', 'false');
+          document.body.style.overflow = '';
+        });
+      });
+    })();
+
+    // ================================================================
+    // 4. PARALLAX — CTA Background
+    // ================================================================
+    (function initParallax() {
+      const ctaBg = document.getElementById('ctaBg');
+      let ticking = false;
+
+      window.addEventListener('scroll', () => {
+        if (!ticking) {
+          requestAnimationFrame(() => {
+            if (ctaBg) {
+              const rect = ctaBg.closest('.cta-section').getBoundingClientRect();
+              ctaBg.style.transform = `translateY(${-rect.top * 0.22}px)`;
+            }
+            ticking = false;
+          });
+          ticking = true;
+        }
+      }, { passive: true });
+    })();
+
+    // ================================================================
+    // 5. INTERSECTION OBSERVER — Scroll-Triggered Animations
+    // ================================================================
+    (function initScrollAnimations() {
+      // Stagger gift cards
+      document.querySelectorAll('.gc-card').forEach((el, i) => {
+        el.style.transitionDelay = `${i * 0.15}s`;
+      });
+
+      // Stagger steps
+      document.querySelectorAll('.gc-step').forEach((el, i) => {
+        el.style.transitionDelay = `${i * 0.1}s`;
+      });
+
+      // Stagger occasions
+      document.querySelectorAll('.gc-occasion').forEach((el, i) => {
+        el.style.transitionDelay = `${i * 0.08}s`;
+      });
+
+      // Stagger FAQ items
+      document.querySelectorAll('.faq__item').forEach((el, i) => {
+        el.style.transitionDelay = `${i * 0.07}s`;
+      });
+
+      const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add('in-view');
+            observer.unobserve(entry.target);
+          }
+        });
+      }, {
+        threshold: 0.12,
+        rootMargin: '0px 0px -40px 0px'
+      });
+
+      const selectors = [
+        '#gcHero',
+        '.gc-card',
+        '.gc-step',
+        '.gc-occasion',
+        '#optionsEyebrow', '#stepsEyebrow', '#occasionsEyebrow',
+        '#faqEyebrow',
+        '#ctaContent',
+        '.reveal-up',
+        '.eyebrow'
+      ];
+
+      document.querySelectorAll(selectors.join(', ')).forEach(el => {
+        observer.observe(el);
+      });
+    })();
+
+    // ================================================================
+    // 6. FAQ ACCORDION
+    // ================================================================
+    (function initFaq() {
+      const items = document.querySelectorAll('.faq__item');
+
+      items.forEach(item => {
+        const btn = item.querySelector('.faq__question');
+
+        btn.addEventListener('click', () => {
+          const isOpen = item.classList.contains('open');
+
+          // Close all
+          items.forEach(i => {
+            i.classList.remove('open');
+            i.querySelector('.faq__question').setAttribute('aria-expanded', 'false');
+          });
+
+          // Open clicked (if it was closed)
+          if (!isOpen) {
+            item.classList.add('open');
+            btn.setAttribute('aria-expanded', 'true');
+          }
+        });
+      });
+    })();
+  </script>
+</body>
+</html>
