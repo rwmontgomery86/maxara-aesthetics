@@ -1005,6 +1005,7 @@ ul { list-style: none; }
 @media (max-width: 1100px) {
   .feature-split {
     grid-template-columns: 1fr;
+    min-height: auto;
   }
 
   .feature-split--reverse {
@@ -1012,7 +1013,12 @@ ul { list-style: none; }
   }
 
   .feature-split__media {
-    min-height: 50vw;
+    aspect-ratio: 4 / 3;
+    min-height: 0;
+  }
+
+  .feature-split__media-placeholder {
+    min-height: 0;
   }
 
   .faq {
@@ -1049,6 +1055,15 @@ ul { list-style: none; }
     padding: 3.5rem 5%;
   }
 
+  .feature-split__media {
+    aspect-ratio: 3 / 2;
+  }
+
+  .faq {
+    padding: 5rem 5%;
+    gap: 2rem;
+  }
+
   .policy-header {
     padding: 7rem 5% 3rem;
   }
@@ -1071,5 +1086,20 @@ ul { list-style: none; }
 
   .footer {
     padding: 4rem 5% 2rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .feature-split__content {
+    padding: 2.5rem 5%;
+  }
+
+  .feature-split__media {
+    aspect-ratio: 4 / 3;
+  }
+
+  .faq {
+    padding: 4rem 5%;
+    gap: 1.5rem;
   }
 }
