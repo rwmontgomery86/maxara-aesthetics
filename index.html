@@ -1015,6 +1015,252 @@
       margin-bottom: 2.5rem;
       letter-spacing: 0.02em;
     }
+
+
+/* ============================================================
+       MOBILE RESPONSIVE — TABLET (1024px)
+    ============================================================ */
+    @media (max-width: 1024px) {
+      .services__grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+    }
+
+
+/* ============================================================
+       MOBILE RESPONSIVE — TABLET / SMALL TABLET (768px)
+    ============================================================ */
+    @media (max-width: 768px) {
+      /* Hero */
+      .hero {
+        height: 80vh;
+        min-height: 560px;
+      }
+      .hero__bg {
+        inset: 0;
+        background-position: center center;
+      }
+      .hero__content {
+        padding: 0 1.5rem;
+      }
+      .hero__headline {
+        font-size: clamp(2.6rem, 11vw, 4.2rem);
+      }
+      .hero__subline {
+        margin-bottom: 2rem;
+      }
+      .hero__scroll-hint {
+        bottom: 1.75rem;
+      }
+
+      /* About / Philosophy */
+      .about {
+        grid-template-columns: 1fr;
+        gap: 3rem;
+        padding: 5rem 6%;
+      }
+      .about__media-frame {
+        transform: translateX(0);
+      }
+      .about__media-frame img {
+        height: auto;
+        aspect-ratio: 4 / 5;
+      }
+      .about__media-frame::before {
+        inset: -14px 14px 14px -14px;
+      }
+      .about__media-frame.in-view::before {
+        inset: -18px 18px 18px -18px;
+      }
+      .about__media-tag {
+        right: 1rem;
+        bottom: 1rem;
+        padding: 1rem 1.25rem;
+      }
+      .about__media-tag .num {
+        font-size: 1.8rem;
+      }
+
+      /* Services */
+      .services {
+        padding: 5rem 6%;
+      }
+      .services__header {
+        margin-bottom: 2.5rem;
+      }
+      .service-card {
+        padding: 2.25rem 1.75rem;
+      }
+      .service-card__number {
+        font-size: 2.2rem;
+        margin-bottom: 1rem;
+      }
+
+      /* Signature Feature */
+      .feature {
+        grid-template-columns: 1fr;
+        min-height: 0;
+      }
+      .feature__media {
+        aspect-ratio: 4 / 5;
+      }
+      .feature__content {
+        padding: 4rem 6%;
+        transform: translateX(0);
+      }
+
+      /* Meet Amanda */
+      .meet {
+        grid-template-columns: 1fr;
+        min-height: 0;
+      }
+      .meet__portrait {
+        clip-path: none;
+        aspect-ratio: 3 / 4;
+      }
+      .meet__portrait img {
+        min-height: 0;
+        height: 100%;
+        aspect-ratio: auto;
+      }
+      .meet__bio {
+        padding: 4rem 6%;
+      }
+
+      /* Stats — 2x2 grid */
+      .stats {
+        grid-template-columns: repeat(2, 1fr);
+        padding: 3.5rem 6%;
+        gap: 2.5rem 1.5rem;
+      }
+
+      /* Gallery — 2-col natural aspect */
+      .gallery {
+        padding: 5rem 6%;
+      }
+      .gallery__header {
+        margin-bottom: 2.5rem;
+      }
+      .gallery__grid {
+        grid-template-columns: repeat(2, 1fr);
+        grid-auto-rows: auto;
+        gap: 6px;
+      }
+      .gallery__item:nth-child(1),
+      .gallery__item:nth-child(4) {
+        grid-row: auto;
+      }
+      .gallery__item img {
+        height: auto;
+        aspect-ratio: 3 / 4;
+      }
+      .gallery__placeholder {
+        min-height: 0;
+        aspect-ratio: 3 / 4;
+      }
+
+      /* Testimonials */
+      .testimonials {
+        padding: 5rem 0 5rem 6%;
+      }
+      .testimonials__header {
+        margin-bottom: 2.5rem;
+        padding-right: 6%;
+      }
+      .testimonials__track {
+        padding-right: 6%;
+      }
+      .testimonial-card {
+        padding: 2rem 1.75rem;
+      }
+      .testimonial-card blockquote {
+        font-size: 1.05rem;
+      }
+
+      /* CTA / Booking */
+      .cta-section {
+        min-height: 55vh;
+      }
+      .cta__bg {
+        inset: 0;
+        background-position: center center;
+      }
+      .cta__content {
+        padding: 0 1.5rem;
+      }
+    }
+
+
+/* ============================================================
+       MOBILE RESPONSIVE — SMALL PHONE (480px)
+    ============================================================ */
+    @media (max-width: 480px) {
+      /* Hero */
+      .hero {
+        height: 75vh;
+        min-height: 520px;
+      }
+      .hero__headline {
+        font-size: clamp(2.2rem, 12vw, 3.4rem);
+      }
+
+      /* About */
+      .about {
+        padding: 4rem 5%;
+        gap: 2.25rem;
+      }
+      .about__media-frame img {
+        aspect-ratio: 3 / 4;
+      }
+
+      /* Services — single column */
+      .services__grid {
+        grid-template-columns: 1fr;
+      }
+      .service-card {
+        padding: 2rem 1.5rem;
+      }
+
+      /* Feature */
+      .feature__content {
+        padding: 3rem 5%;
+      }
+
+      /* Meet Amanda */
+      .meet__bio {
+        padding: 3rem 5%;
+      }
+
+      /* Stats — keep 2x2, tighter */
+      .stats {
+        padding: 3rem 5%;
+        gap: 2rem 1rem;
+      }
+
+      /* Gallery — tighter gap */
+      .gallery {
+        padding: 4rem 5%;
+      }
+      .gallery__grid {
+        gap: 4px;
+      }
+
+      /* Testimonials */
+      .testimonials {
+        padding: 4rem 0 4rem 5%;
+      }
+      .testimonials__header {
+        padding-right: 5%;
+      }
+      .testimonials__track {
+        padding-right: 5%;
+      }
+
+      /* CTA */
+      .cta-section {
+        min-height: 50vh;
+      }
+    }
   </style>
 </head>
 
