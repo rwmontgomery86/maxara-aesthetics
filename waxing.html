@@ -40,6 +40,7 @@
       left: 0;
       width: 65%;
       height: 100%;
+      object-fit: cover;
       border-radius: 2px;
       opacity: 0;
       transform: translateX(-40px);
@@ -52,6 +53,8 @@
       right: 5%;
       width: 48%;
       height: 60%;
+      object-fit: cover;
+      object-position: top;
       border-radius: 2px;
       box-shadow: -12px -12px 0 var(--color-charcoal);
       opacity: 0;
@@ -545,6 +548,233 @@
       text-transform: uppercase;
       color: rgba(44, 44, 44, 0.45);
       margin-top: 2.5rem;
+    }
+
+/* ============================================================
+       RESPONSIVE — MOBILE
+    ============================================================ */
+    @media (max-width: 1024px) {
+      .wx-hero {
+        grid-template-columns: 1fr;
+        gap: 3rem;
+        padding: 8rem 6% 5rem;
+        min-height: auto;
+      }
+
+      .wx-hero__images {
+        height: auto;
+        aspect-ratio: 4 / 3;
+        max-width: 560px;
+        width: 100%;
+        margin: 0 auto;
+      }
+
+      .wx-hero__content {
+        max-width: 560px;
+        margin: 0 auto;
+      }
+
+      .wx-combo-section {
+        padding: 6rem 6% 7rem;
+      }
+
+      .wx-combo {
+        padding: 2.5rem;
+      }
+
+      .tiers {
+        padding: 7rem 6%;
+      }
+
+      .tiers__panel {
+        grid-template-columns: 1fr;
+        gap: 2.5rem;
+      }
+
+      .tiers__panel-content {
+        padding: 0;
+      }
+
+      .tiers__panel-image {
+        min-height: 0;
+        aspect-ratio: 4 / 3;
+      }
+
+      .tiers__panel-image img,
+      .tiers__panel-image .tiers__image-placeholder {
+        height: auto;
+        aspect-ratio: 4 / 3;
+      }
+    }
+
+    @media (max-width: 768px) {
+      .wx-hero {
+        padding: 7rem 5% 4rem;
+        gap: 2.5rem;
+      }
+
+      .wx-hero__images {
+        aspect-ratio: 4 / 3;
+        max-width: 100%;
+      }
+
+      .wx-hero__img-main {
+        width: 70%;
+      }
+
+      .wx-hero__img-accent {
+        width: 52%;
+        height: 62%;
+        right: 0;
+      }
+
+      .wx-hero__title {
+        font-size: clamp(2.4rem, 9vw, 3.4rem);
+      }
+
+      .wx-combo-section {
+        padding: 5rem 5% 6rem;
+      }
+
+      .wx-combo {
+        padding: 2rem 1.25rem;
+      }
+
+      .wx-combo__item {
+        gap: 0.85rem;
+        padding: 0.85rem 0;
+      }
+
+      .wx-combo__item.selected {
+        padding-left: 0.75rem;
+      }
+
+      .wx-combo__item-name {
+        font-size: 1rem;
+      }
+
+      .wx-combo__item-desc {
+        font-size: 0.75rem;
+      }
+
+      .wx-combo__item-meta {
+        flex-direction: column;
+        align-items: flex-end;
+        gap: 0.2rem;
+      }
+
+      .wx-combo__summary {
+        flex-direction: column;
+        align-items: stretch;
+        gap: 1.25rem;
+      }
+
+      .wx-combo__summary-stats {
+        gap: 2rem;
+        justify-content: space-around;
+      }
+
+      .wx-combo__summary-actions {
+        justify-content: space-between;
+      }
+
+      .tiers {
+        padding: 5rem 5%;
+      }
+
+      .tiers__tabs {
+        flex-wrap: wrap;
+        gap: 0.25rem;
+        justify-content: center;
+      }
+
+      .tiers__tab {
+        padding: 0.85rem 1.4rem;
+        font-size: 0.6rem;
+      }
+
+      .tiers__panel-title {
+        font-size: 1.6rem;
+      }
+
+      .wx-service-item {
+        padding: 0.85rem 0;
+        gap: 0.85rem;
+      }
+
+      .wx-service-item__name {
+        font-size: 1rem;
+      }
+
+      .wx-service-item__desc {
+        font-size: 0.78rem;
+      }
+
+      .wx-service-item__meta {
+        flex-direction: column;
+        align-items: flex-end;
+        gap: 0.2rem;
+      }
+
+      .wx-service-item__price {
+        font-size: 1.15rem;
+      }
+
+      .tiers__panel-image,
+      .tiers__panel-image img,
+      .tiers__panel-image .tiers__image-placeholder {
+        aspect-ratio: 3 / 2;
+      }
+    }
+
+    @media (max-width: 480px) {
+      .wx-hero {
+        padding: 6rem 5% 3rem;
+        gap: 2rem;
+      }
+
+      .wx-hero__title {
+        font-size: clamp(2.2rem, 10vw, 2.8rem);
+      }
+
+      .wx-hero__text {
+        font-size: 0.92rem;
+        margin-bottom: 2rem;
+      }
+
+      .wx-combo-section {
+        padding: 4rem 5% 5rem;
+      }
+
+      .wx-combo {
+        padding: 1.75rem 1rem;
+      }
+
+      .wx-combo__summary-stats {
+        gap: 1.25rem;
+      }
+
+      .wx-combo__summary-value {
+        font-size: 1.3rem;
+      }
+
+      .tiers {
+        padding: 4rem 5%;
+      }
+
+      .tiers__panel {
+        gap: 2rem;
+      }
+
+      .tiers__panel-title {
+        font-size: 1.4rem;
+      }
+
+      .tiers__panel-image,
+      .tiers__panel-image img,
+      .tiers__panel-image .tiers__image-placeholder {
+        aspect-ratio: 4 / 3;
+      }
     }
   </style>
 </head>
