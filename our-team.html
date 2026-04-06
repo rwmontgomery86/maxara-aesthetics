@@ -188,6 +188,7 @@
       width: 100%;
       height: 100%;
       object-fit: cover;
+      object-position: center 30%;
       display: block;
       transform: scale(1.08);
       transition: transform 2s var(--ease-expo);
@@ -297,6 +298,99 @@
       background: var(--color-gold);
       border-radius: 50%;
       flex-shrink: 0;
+    }
+
+/* ============================================================
+       RESPONSIVE — TABLET (≤1100px)
+    ============================================================ */
+    @media (max-width: 1100px) {
+      .ot-hero {
+        padding: 7rem 6% 4.5rem;
+        gap: 3rem;
+      }
+
+      .ot-hero__images {
+        height: 440px;
+      }
+
+      .ot-member__content {
+        padding: 4rem 3rem;
+      }
+    }
+
+/* ============================================================
+       RESPONSIVE — MOBILE (≤768px)
+    ============================================================ */
+    @media (max-width: 768px) {
+      /* Hero — stack vertically */
+      .ot-hero {
+        grid-template-columns: 1fr;
+        padding: 6rem 5% 3.5rem;
+        min-height: auto;
+        gap: 2.5rem;
+      }
+
+      .ot-hero__images {
+        position: relative;
+        height: auto;
+        aspect-ratio: 4 / 3;
+        width: 100%;
+      }
+
+      .ot-hero__img-main {
+        position: relative;
+        top: auto;
+        left: auto;
+        width: 100%;
+        height: 100%;
+      }
+
+      .ot-hero__img-accent {
+        display: none;
+      }
+
+      .ot-hero__title {
+        line-height: 1.1;
+      }
+
+      .ot-hero__text {
+        max-width: none;
+      }
+
+      /* Philosophy strip */
+      .ot-philosophy {
+        padding: 3.5rem 5%;
+      }
+
+      /* Member sections — stack image on top, text below */
+      .ot-member {
+        grid-template-columns: 1fr;
+        min-height: auto;
+      }
+
+      .ot-member--reverse {
+        direction: ltr;
+      }
+
+      .ot-member__media {
+        min-height: auto;
+        width: 100%;
+        aspect-ratio: 4 / 3;
+      }
+
+      .ot-member__content {
+        padding: 3.5rem 5%;
+        transform: translateY(20px);
+      }
+
+      .ot-member--reverse .ot-member__content {
+        transform: translateY(20px);
+      }
+
+      .ot-member__content.in-view,
+      .ot-member--reverse .ot-member__content.in-view {
+        transform: translateY(0);
+      }
     }
   </style>
 </head>
