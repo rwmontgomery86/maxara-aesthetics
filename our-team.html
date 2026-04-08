@@ -1,6 +1,14 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+  <!-- Google tag (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-2DF817SLF4"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-2DF817SLF4');
+  </script>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Our Team — Maxara Aesthetics</title>
@@ -22,58 +30,48 @@
        HERO SECTION
     ============================================================ */
     .ot-hero {
-      padding: 8rem 8% 5rem;
-      background: var(--color-charcoal);
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 4rem;
-      align-items: center;
-      min-height: 85vh;
       position: relative;
+      min-height: 85vh;
+      display: flex;
+      align-items: center;
+      padding: 8rem 8% 5rem;
       overflow: hidden;
     }
 
-    .ot-hero__images {
-      position: relative;
-      height: 520px;
+    .ot-hero__bg {
+      position: absolute;
+      inset: 0;
+      z-index: 0;
     }
 
-    .ot-hero__img-main {
-      position: absolute;
-      top: 0;
-      left: 0;
-      width: 65%;
+    .ot-hero__bg img {
+      width: 100%;
       height: 100%;
-      border-radius: 2px;
-      opacity: 0;
-      transform: translateX(-40px);
-      transition: opacity 1s ease 0.3s, transform 1.2s var(--ease-expo) 0.3s;
+      object-fit: cover;
+      object-position: center;
+      display: block;
     }
 
-    .ot-hero__img-accent {
+    .ot-hero__overlay {
       position: absolute;
-      bottom: 0;
-      right: 5%;
-      width: 48%;
-      height: 60%;
-      border-radius: 2px;
-      box-shadow: -12px -12px 0 var(--color-charcoal);
-      opacity: 0;
-      transform: translateX(-30px) translateY(20px);
-      transition: opacity 1s ease 0.6s, transform 1.2s var(--ease-expo) 0.6s;
-    }
-
-    .ot-hero.in-view .ot-hero__img-main,
-    .ot-hero.in-view .ot-hero__img-accent {
-      opacity: 1;
-      transform: translateX(0) translateY(0);
+      inset: 0;
+      z-index: 1;
+      background: linear-gradient(
+        to right,
+        rgba(44, 44, 44, 0.78) 0%,
+        rgba(44, 44, 44, 0.5) 55%,
+        rgba(44, 44, 44, 0.2) 100%
+      );
     }
 
     .ot-hero__content {
+      position: relative;
+      z-index: 2;
       color: var(--color-cream-pure);
+      max-width: 560px;
       opacity: 0;
       transform: translateY(30px);
-      transition: opacity 1s ease 0.4s, transform 1.1s var(--ease-expo) 0.4s;
+      transition: opacity 1s ease 0.3s, transform 1.1s var(--ease-expo) 0.3s;
     }
 
     .ot-hero.in-view .ot-hero__content {
@@ -306,11 +304,6 @@
     @media (max-width: 1100px) {
       .ot-hero {
         padding: 7rem 6% 4.5rem;
-        gap: 3rem;
-      }
-
-      .ot-hero__images {
-        height: 440px;
       }
 
       .ot-member__content {
@@ -322,31 +315,18 @@
        RESPONSIVE — MOBILE (≤768px)
     ============================================================ */
     @media (max-width: 768px) {
-      /* Hero — stack vertically */
+      /* Hero */
       .ot-hero {
-        grid-template-columns: 1fr;
+        min-height: 70vh;
         padding: 6rem 5% 3.5rem;
-        min-height: auto;
-        gap: 2.5rem;
       }
 
-      .ot-hero__images {
-        position: relative;
-        height: auto;
-        aspect-ratio: 4 / 3;
-        width: 100%;
+      .ot-hero__overlay {
+        background: rgba(44, 44, 44, 0.58);
       }
 
-      .ot-hero__img-main {
-        position: relative;
-        top: auto;
-        left: auto;
-        width: 100%;
-        height: 100%;
-      }
-
-      .ot-hero__img-accent {
-        display: none;
+      .ot-hero__content {
+        max-width: none;
       }
 
       .ot-hero__title {
@@ -399,7 +379,7 @@
     @media (max-width: 480px) {
       .ot-hero {
         padding: 5.5rem 5% 3rem;
-        gap: 2rem;
+        min-height: 60vh;
       }
 
       .ot-philosophy {
@@ -451,16 +431,10 @@
        HERO
   ============================================================ -->
   <section class="ot-hero" id="otHero">
-    <div class="ot-hero__images">
-      <div class="ot-hero__img-main img-placeholder">
-        <span class="img-placeholder__label">team-hero-main.jpg</span>
-        <img src="assets/images/our-team/team-hero-main.jpg" alt="The Maxará Aesthetics team" onerror="this.classList.add('img-hidden')">
-      </div>
-      <div class="ot-hero__img-accent img-placeholder">
-        <span class="img-placeholder__label">team-hero-accent.jpg</span>
-        <img src="assets/images/our-team/team-hero-accent.jpg" alt="Maxará Aesthetics studio" onerror="this.classList.add('img-hidden')">
-      </div>
+    <div class="ot-hero__bg">
+      <img src="assets/images/our-team/team-group.jpg" alt="The Maxará Aesthetics team" loading="eager">
     </div>
+    <div class="ot-hero__overlay"></div>
     <div class="ot-hero__content">
       <p class="eyebrow">Our Team</p>
       <h1 class="ot-hero__title">The Faces Behind<br>Maxará</h1>
