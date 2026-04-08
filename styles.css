@@ -20,7 +20,6 @@
   --font-body:    'Lato', system-ui, sans-serif;
 
   --ease-expo:    cubic-bezier(0.16, 1, 0.3, 1);
-  --ease-quart:   cubic-bezier(0.76, 0, 0.24, 1);
 }
 
 /* ============================================================
@@ -523,10 +522,6 @@ ul { list-style: none; }
 
 .feature-split__content--walnut .section-headline {
   color: var(--color-oyster);
-}
-
-.feature-split__content--walnut p {
-  color: rgba(245, 240, 232, 0.72);
 }
 
 .feature-split__content--oyster {
@@ -1101,5 +1096,13 @@ ul { list-style: none; }
   .faq {
     padding: 4rem 5%;
     gap: 1.5rem;
+  }
+
+  .policy-header {
+    padding: 6rem 5% 2.5rem;
+  }
+
+  .policy-content {
+    padding: 0 5% 4rem;
   }
 }

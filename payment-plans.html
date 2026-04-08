@@ -8,7 +8,7 @@
   <link rel="icon" type="image/png" href="assets/images/logos/Logo.png">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400;1,600&family=Josefin+Sans:wght@100;300;400&family=Lato:wght@300;400&family=Montserrat&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400;1,600&family=Josefin+Sans:wght@100;300;400&family=Lato:wght@300;400&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="styles.css">
   <style>
 /* ============================================================
@@ -245,6 +245,73 @@
       color: rgba(44, 44, 44, 0.65);
       line-height: 1.75;
     }
+
+/* ============================================================
+       RESPONSIVE — TABLET (≤768px)
+    ============================================================ */
+    @media (max-width: 768px) {
+      .pp-hero {
+        grid-template-columns: 1fr;
+        padding: 6rem 5% 3.5rem;
+        min-height: auto;
+        gap: 2.5rem;
+      }
+
+      .pp-hero__images {
+        height: auto;
+        aspect-ratio: 4 / 3;
+        width: 100%;
+      }
+
+      .pp-hero__img-main {
+        position: relative;
+        top: auto;
+        left: auto;
+        width: 100%;
+        height: 100%;
+      }
+
+      .pp-hero__img-accent {
+        display: none;
+      }
+
+      .pp-hero__text {
+        max-width: none;
+      }
+
+      .benefits__grid {
+        grid-template-columns: 1fr 1fr;
+      }
+
+      .cherry-section {
+        padding: 5rem 5%;
+      }
+
+      .benefits {
+        padding: 5rem 5%;
+      }
+    }
+
+/* ============================================================
+       RESPONSIVE — MOBILE (≤480px)
+    ============================================================ */
+    @media (max-width: 480px) {
+      .pp-hero {
+        padding: 5.5rem 5% 3rem;
+      }
+
+      .benefits__grid {
+        grid-template-columns: 1fr;
+      }
+
+      .cherry-section {
+        padding: 4rem 5%;
+      }
+
+      .benefits {
+        padding: 4rem 5%;
+      }
+    }
   </style>
 </head>
 
@@ -331,7 +398,7 @@
   <section class="feature-split">
     <div class="feature-split__media img-placeholder" id="introMedia">
       <span class="img-placeholder__label">interior-4.png</span>
-      <img src="assets/images/home-page/interior-4.png" alt="Maxará Aesthetics interior" onerror="this.classList.add('img-hidden')">
+      <img loading="lazy" src="assets/images/home-page/interior-4.png" alt="Maxará Aesthetics interior" onerror="this.classList.add('img-hidden')">
     </div>
     <div class="feature-split__content feature-split__content--walnut" id="introContent">
       <p class="eyebrow" id="introEyebrow">Cherry Financing</p>
@@ -500,7 +567,7 @@
   ============================================================ -->
   <section class="cta-section" id="booking">
     <div class="cta__bg" id="ctaBg">
-      <img src="assets/images/home-page/interior-1.png" alt="" style="width:100%;height:100%;object-fit:cover;" onerror="this.style.display='none'">
+      <img loading="lazy" src="assets/images/home-page/interior-1.png" alt="" style="width:100%;height:100%;object-fit:cover;" onerror="this.style.display='none'">
     </div>
     <div class="cta__overlay"></div>
     <div class="cta__content" id="ctaContent">
@@ -517,11 +584,11 @@
   <footer class="footer">
     <div class="footer__top">
       <div>
-        <img class="footer__logo" src="assets/images/logos/Logo.png" alt="Maxará Aesthetics">
+        <img class="footer__logo" loading="lazy" src="assets/images/logos/Logo.png" alt="Maxará Aesthetics">
         <p class="footer__tagline">"Elevated aesthetics rooted in the art of listening to your skin."</p>
         <div class="footer__social">
-          <a href="https://www.instagram.com/maxaraaesthetics/">Instagram</a>
-          <a href="https://www.facebook.com/maxaraaesthetics/">Facebook</a>
+          <a href="https://www.instagram.com/maxaraaesthetics/" target="_blank" rel="noopener noreferrer">Instagram</a>
+          <a href="https://www.facebook.com/maxaraaesthetics/" target="_blank" rel="noopener noreferrer">Facebook</a>
         </div>
       </div>
       <div>

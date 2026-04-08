@@ -392,6 +392,24 @@
         transform: translateY(0);
       }
     }
+
+/* ============================================================
+       RESPONSIVE — SMALL MOBILE (≤480px)
+    ============================================================ */
+    @media (max-width: 480px) {
+      .ot-hero {
+        padding: 5.5rem 5% 3rem;
+        gap: 2rem;
+      }
+
+      .ot-philosophy {
+        padding: 3rem 5%;
+      }
+
+      .ot-member__content {
+        padding: 3rem 5%;
+      }
+    }
   </style>
 </head>
 
@@ -466,7 +484,7 @@
   <section class="ot-member" id="amandaSection">
     <div class="ot-member__media img-placeholder" id="amandaMedia">
       <span class="img-placeholder__label">amanda-portrait.jpg</span>
-      <img src="assets/images/our-team/amanda-portrait.jpg" alt="Amanda Cortes, Licensed Esthetician & Founder" onerror="this.classList.add('img-hidden')">
+      <img loading="lazy" src="assets/images/our-team/amanda-portrait.jpg" alt="Amanda Cortes, Licensed Esthetician & Founder" onerror="this.classList.add('img-hidden')">
     </div>
     <div class="ot-member__content ot-member__content--walnut" id="amandaContent">
       <p class="eyebrow" id="amandaEyebrow">Licensed Esthetician</p>
@@ -486,7 +504,7 @@
   <section class="ot-member ot-member--reverse" id="courtneySection">
     <div class="ot-member__media img-placeholder" id="courtneyMedia">
       <span class="img-placeholder__label">courtney-portrait.jpg</span>
-      <img src="assets/images/our-team/courtney-portrait.jpg" alt="Courtney Nelson, Client Coordinator" onerror="this.classList.add('img-hidden')">
+      <img loading="lazy" src="assets/images/our-team/courtney-portrait.jpg" alt="Courtney Nelson, Client Coordinator" onerror="this.classList.add('img-hidden')">
     </div>
     <div class="ot-member__content ot-member__content--oyster" id="courtneyContent">
       <p class="eyebrow" id="courtneyEyebrow">Client Coordinator</p>
@@ -505,7 +523,7 @@
   <section class="ot-member" id="loriSection">
     <div class="ot-member__media img-placeholder" id="loriMedia">
       <span class="img-placeholder__label">lori-portrait.jpg</span>
-      <img src="assets/images/our-team/lori-portrait.jpg" alt="Lori Martin M.D., Medical Director" onerror="this.classList.add('img-hidden')">
+      <img loading="lazy" src="assets/images/our-team/lori-portrait.jpg" alt="Lori Martin M.D., Medical Director" onerror="this.classList.add('img-hidden')">
     </div>
     <div class="ot-member__content ot-member__content--walnut" id="loriContent">
       <p class="eyebrow" id="loriEyebrow">Medical Director</p>
@@ -528,7 +546,7 @@
   ============================================================ -->
   <section class="cta-section" id="booking">
     <div class="cta__bg" id="ctaBg">
-      <img src="assets/images/home-page/interior-1.png" alt="" style="width:100%;height:100%;object-fit:cover;" onerror="this.style.display='none'">
+      <img loading="lazy" src="assets/images/home-page/interior-1.png" alt="" style="width:100%;height:100%;object-fit:cover;" onerror="this.style.display='none'">
     </div>
     <div class="cta__overlay"></div>
     <div class="cta__content" id="ctaContent">
@@ -545,7 +563,7 @@
   <footer class="footer">
     <div class="footer__top">
       <div>
-        <img class="footer__logo" src="assets/images/logos/Logo.png" alt="Maxar�� Aesthetics">
+        <img class="footer__logo" loading="lazy" src="assets/images/logos/Logo.png" alt="Maxar�� Aesthetics">
         <p class="footer__tagline">"Elevated aesthetics rooted in the art of listening to your skin."</p>
         <div class="footer__social">
           <a href="https://www.instagram.com/maxaraaesthetics/" target="_blank">Instagram</a>
