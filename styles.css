@@ -420,7 +420,7 @@ ul { list-style: none; }
 .marquee-strip__track span {
   font-family: var(--font-label);
   font-size: 0.62rem;
-  font-weight: 100;
+  font-weight: 300;
   letter-spacing: 0.38em;
   text-transform: uppercase;
   color: var(--color-gold);
