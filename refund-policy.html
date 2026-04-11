@@ -149,7 +149,7 @@
         <p class="footer__col-title">Contact</p>
         <div class="footer__contact-item">
           <span class="footer__contact-label">Location</span>
-          <a href="https://maps.google.com/?q=504+S+8th+St,+Griffin,+GA+30224" target="_blank" rel="noopener noreferrer" class="footer__contact-value">504 S 8th St<br>Griffin, GA 30224</a>
+          <a href="https://maps.app.goo.gl/JYSCTDD1RM7QDhTo9" target="_blank" rel="noopener noreferrer" class="footer__contact-value">504 S 8th St<br>Griffin, GA 30224</a>
         </div>
         <div class="footer__contact-item">
           <span class="footer__contact-label">Hours</span>
@@ -240,5 +240,12 @@
       });
     })();
   </script>
+<script>
+if(/iPhone|iPad|iPod/.test(navigator.userAgent)){
+  document.querySelectorAll('a[href*="maps.app.goo.gl"]').forEach(function(a){
+    a.href='https://maps.apple/p/fu-FELXHXMaLhC';
+  });
+}
+</script>
 </body>
 </html>
