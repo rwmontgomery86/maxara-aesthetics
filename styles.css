@@ -962,6 +962,16 @@ ul { list-style: none; }
   color: rgba(245, 240, 232, 0.6);
 }
 
+a.footer__contact-value {
+  text-decoration: none;
+  color: rgba(245, 240, 232, 0.6);
+  transition: color 0.3s ease;
+}
+
+a.footer__contact-value:hover {
+  color: var(--color-terracotta);
+}
+
 .footer__bottom {
   display: flex;
   align-items: center;
