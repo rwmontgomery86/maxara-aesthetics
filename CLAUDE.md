@@ -106,6 +106,8 @@ Icons are inline SVGs — no icon library.
 
 New pages and features are developed in **git worktrees** under `.claude/worktrees/<name>` on a feature branch (typically `claude/<name>`). The parent repo at `/Users/rwmontgomery/Desktop/New Website2` always has `main` checked out.
 
+When working in a worktree, after completing a visual change to any HTML file, proactively offer to open the modified file in the browser for testing using `open <worktree-path>/<file>`. The user cannot browse to worktree files from the parent repo path, so always use the full worktree path.
+
 When the user approves finished work and says **"ship it"** (or `/ship`), the flow is:
 
 1. Commit any pending changes on the feature branch with a descriptive message and the standard `Co-Authored-By` trailer. Stage specific files — never `git add -A`.
