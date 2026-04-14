@@ -1,0 +1,9 @@
+{
+  "redirects": [
+    {
+      "source": "/hydrafacial",
+      "destination": "/hydrafacial.html",
+      "permanent": true
+    }
+  ]
+}
