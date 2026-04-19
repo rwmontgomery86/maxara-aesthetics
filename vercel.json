@@ -1,9 +1,18 @@
 {
   "redirects": [
-    {
-      "source": "/hydrafacial",
-      "destination": "/hydrafacial.html",
-      "permanent": true
-    }
+    { "source": "/hydrafacial", "destination": "/hydrafacial.html", "permanent": true },
+    { "source": "/chemical-peels", "destination": "/chemical-peels.html", "permanent": true },
+    { "source": "/laser-hair-removal", "destination": "/laser-hair-removal.html", "permanent": true },
+    { "source": "/microneedling", "destination": "/microneedling.html", "permanent": true },
+    { "source": "/waxing", "destination": "/waxing.html", "permanent": true },
+    { "source": "/advanced-skincare", "destination": "/advanced-skincare.html", "permanent": true },
+    { "source": "/our-team", "destination": "/our-team.html", "permanent": true },
+    { "source": "/team", "destination": "/our-team.html", "permanent": true },
+    { "source": "/payment-plans", "destination": "/payment-plans.html", "permanent": true },
+    { "source": "/gift-cards", "destination": "/gift-cards.html", "permanent": true },
+    { "source": "/privacy-policy", "destination": "/privacy-policy.html", "permanent": true },
+    { "source": "/terms-conditions", "destination": "/terms-and-conditions.html", "permanent": true },
+    { "source": "/terms-and-conditions", "destination": "/terms-and-conditions.html", "permanent": true },
+    { "source": "/refund-policy", "destination": "/refund-policy.html", "permanent": true }
   ]
 }
