@@ -1116,3 +1116,247 @@ a.footer__contact-value:hover {
     padding: 0 5% 4rem;
   }
 }
+
+/* ============================================================
+   MOTHER'S DAY POPUP
+   Two-column floral layout — image panel + offers.
+============================================================ */
+.md-popup {
+  position: fixed;
+  inset: 0;
+  z-index: 9000;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 1.5rem;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.5s var(--ease-expo);
+}
+
+.md-popup[hidden] { display: none; }
+
+.md-popup.is-open {
+  opacity: 1;
+  pointer-events: auto;
+}
+
+.md-popup__backdrop {
+  position: absolute;
+  inset: 0;
+  background: rgba(44, 44, 44, 0.55);
+  backdrop-filter: blur(4px);
+  -webkit-backdrop-filter: blur(4px);
+}
+
+.md-popup__dialog {
+  position: relative;
+  width: min(820px, 100%);
+  max-height: calc(100vh - 3rem);
+  overflow-y: auto;
+  background: var(--color-cream-pure);
+  color: var(--color-charcoal);
+  box-shadow: 0 30px 80px -20px rgba(44, 44, 44, 0.45);
+  display: grid;
+  grid-template-columns: 0.85fr 1fr;
+  transform: translateY(20px) scale(0.98);
+  transition: transform 0.6s var(--ease-expo);
+  overflow: hidden;
+}
+
+.md-popup.is-open .md-popup__dialog {
+  transform: translateY(0) scale(1);
+}
+
+/* Image panel — swap the URL below for the peony photo when ready.
+   Falls back to a warm gradient if the image fails to load. */
+.md-popup__media {
+  position: relative;
+  min-height: 320px;
+  background:
+    linear-gradient(160deg, #d8b9a3 0%, #b07a5b 60%, #5c3d2e 100%);
+  background-image: url('assets/images/popups/peony.jpg');
+  background-size: cover;
+  background-position: center;
+}
+
+.md-popup__content {
+  position: relative;
+  padding: 3rem 2.5rem 2.25rem;
+}
+
+/* Gold ornamental corner flourishes */
+.md-popup__content::before,
+.md-popup__content::after {
+  content: "";
+  position: absolute;
+  width: 28px;
+  height: 28px;
+  border: 1px solid var(--color-gold);
+  opacity: 0.7;
+}
+.md-popup__content::before {
+  top: 1rem;
+  right: 1rem;
+  border-left: none;
+  border-bottom: none;
+}
+.md-popup__content::after {
+  bottom: 1rem;
+  right: 1rem;
+  border-left: none;
+  border-top: none;
+}
+
+.md-popup__close {
+  position: absolute;
+  top: 0.85rem;
+  right: 1rem;
+  width: 2.25rem;
+  height: 2.25rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: transparent;
+  border: none;
+  font-size: 1.6rem;
+  line-height: 1;
+  color: var(--color-charcoal);
+  opacity: 0.55;
+  cursor: pointer;
+  transition: opacity 0.2s ease;
+  z-index: 3;
+}
+.md-popup__close:hover { opacity: 1; }
+
+.md-popup__eyebrow {
+  font-family: var(--font-label);
+  font-weight: 300;
+  font-size: 0.7rem;
+  letter-spacing: 0.32em;
+  text-transform: uppercase;
+  color: var(--color-gold);
+  margin-bottom: 1.25rem;
+}
+
+.md-popup__title {
+  font-family: var(--font-display);
+  font-weight: 300;
+  font-style: italic;
+  font-size: clamp(1.55rem, 2.6vw, 1.95rem);
+  line-height: 1.2;
+  margin-bottom: 1.5rem;
+}
+.md-popup__title em {
+  color: var(--color-terracotta);
+}
+
+.md-popup__offers {
+  list-style: none;
+  margin: 0 0 1.5rem;
+  padding: 0;
+}
+
+.md-popup__offer {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  gap: 1rem;
+  padding: 0.85rem 0;
+  border-top: 1px solid rgba(184, 154, 90, 0.35);
+}
+.md-popup__offer:last-child {
+  border-bottom: 1px solid rgba(184, 154, 90, 0.35);
+}
+
+.md-popup__offer-name {
+  font-family: var(--font-label);
+  font-weight: 400;
+  font-size: 0.78rem;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+}
+.md-popup__offer-detail {
+  display: block;
+  font-family: var(--font-body);
+  font-size: 0.7rem;
+  letter-spacing: 0.06em;
+  text-transform: none;
+  opacity: 0.7;
+  margin-top: 0.2rem;
+}
+.md-popup__offer-price {
+  font-family: var(--font-display);
+  font-weight: 400;
+  font-size: 1.4rem;
+  color: var(--color-terracotta);
+  white-space: nowrap;
+}
+
+.md-popup__gift {
+  margin: 1.5rem 0 1.75rem;
+  padding: 1.1rem 1.25rem;
+  text-align: center;
+  border: 1px solid var(--color-gold);
+  background: rgba(184, 154, 90, 0.08);
+}
+.md-popup__gift-label {
+  font-family: var(--font-label);
+  font-weight: 300;
+  font-size: 0.68rem;
+  letter-spacing: 0.28em;
+  text-transform: uppercase;
+  color: var(--color-gold);
+  display: block;
+  margin-bottom: 0.45rem;
+}
+.md-popup__gift-text {
+  font-family: var(--font-display);
+  font-weight: 400;
+  font-size: 1.05rem;
+  line-height: 1.4;
+}
+.md-popup__gift-text strong {
+  color: var(--color-terracotta);
+  font-weight: 600;
+}
+
+.md-popup__cta {
+  display: block;
+  width: 100%;
+  text-align: center;
+  margin-bottom: 0.85rem;
+}
+
+.md-popup__later {
+  display: block;
+  margin: 0 auto;
+  background: transparent;
+  border: none;
+  font-family: var(--font-label);
+  font-weight: 300;
+  font-size: 0.65rem;
+  letter-spacing: 0.24em;
+  text-transform: uppercase;
+  color: inherit;
+  opacity: 0.55;
+  cursor: pointer;
+  padding: 0.5rem 0.75rem;
+  transition: opacity 0.2s ease;
+}
+.md-popup__later:hover { opacity: 1; }
+
+@media (max-width: 720px) {
+  .md-popup__dialog {
+    grid-template-columns: 1fr;
+  }
+  .md-popup__media {
+    min-height: 160px;
+    aspect-ratio: 16 / 9;
+  }
+  .md-popup__content {
+    padding: 2.25rem 1.5rem 2rem;
+  }
+  .md-popup__title { font-size: 1.55rem; }
+  .md-popup__offer-price { font-size: 1.25rem; }
+}

@@ -3209,5 +3209,50 @@ if(/iPhone|iPad|iPod/.test(navigator.userAgent)){
   });
 }
 </script>
+<!-- ============================================================
+     MOTHER'S DAY POPUP — variants toggled via ?variant=1|2|3
+     Live variant set in assets/js/popup.js (LIVE_VARIANT)
+============================================================ -->
+<div class="md-popup" role="dialog" aria-modal="true" aria-labelledby="md-popup-title" hidden>
+  <div class="md-popup__backdrop" data-md-dismiss></div>
+  <div class="md-popup__dialog">
+    <button class="md-popup__close" type="button" aria-label="Close" data-md-dismiss>&times;</button>
+    <div class="md-popup__media" aria-hidden="true"></div>
+    <div class="md-popup__content">
+      <p class="md-popup__eyebrow">Mother&rsquo;s Day Specials</p>
+      <h2 id="md-popup-title" class="md-popup__title">Because she deserves to feel <em>her best</em>.</h2>
+      <ul class="md-popup__offers">
+        <li class="md-popup__offer">
+          <div>
+            <span class="md-popup__offer-name">HydraFacial<sup>&reg;</sup></span>
+            <span class="md-popup__offer-detail">Signature glow treatment</span>
+          </div>
+          <span class="md-popup__offer-price">$99</span>
+        </li>
+        <li class="md-popup__offer">
+          <div>
+            <span class="md-popup__offer-name">HydraFacial Deluxe</span>
+            <span class="md-popup__offer-detail">Targeted boost &amp; LED therapy</span>
+          </div>
+          <span class="md-popup__offer-price">$149</span>
+        </li>
+        <li class="md-popup__offer">
+          <div>
+            <span class="md-popup__offer-name">Laser Hair Removal</span>
+            <span class="md-popup__offer-detail">Buy 3 sessions &middot; medium area</span>
+          </div>
+          <span class="md-popup__offer-price">$300</span>
+        </li>
+      </ul>
+      <div class="md-popup__gift">
+        <span class="md-popup__gift-label">Gift Card Bonus</span>
+        <p class="md-popup__gift-text">Purchase a $100 gift card, <strong>receive $120</strong>.</p>
+      </div>
+      <a class="md-popup__cta btn btn--terracotta" href="https://maxaraaesthetics.glossgenius.com/" target="_blank" rel="noopener"><span>Book the Special</span></a>
+      <button class="md-popup__later" type="button" data-md-dismiss>Maybe later</button>
+    </div>
+  </div>
+</div>
+<script src="assets/js/popup.js" defer></script>
 </body>
 </html>
