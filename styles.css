@@ -1320,6 +1320,19 @@ a.footer__contact-value:hover {
   color: var(--color-terracotta);
   font-weight: 600;
 }
+.md-popup__gift-link {
+  color: inherit;
+  font-weight: 600;
+  text-decoration: underline;
+  text-underline-offset: 0.18em;
+  text-decoration-thickness: 1px;
+  white-space: nowrap;
+  transition: color 0.2s ease;
+}
+.md-popup__gift-link:hover,
+.md-popup__gift-link:focus-visible {
+  color: var(--color-terracotta);
+}
 
 .md-popup__cta {
   display: block;
