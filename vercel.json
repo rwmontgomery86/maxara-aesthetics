@@ -13,6 +13,12 @@
     { "source": "/privacy-policy", "destination": "/privacy-policy.html", "permanent": true },
     { "source": "/terms-conditions", "destination": "/terms-and-conditions.html", "permanent": true },
     { "source": "/terms-and-conditions", "destination": "/terms-and-conditions.html", "permanent": true },
-    { "source": "/refund-policy", "destination": "/refund-policy.html", "permanent": true }
+    { "source": "/refund-policy", "destination": "/refund-policy.html", "permanent": true },
+
+    { "source": "/service-page/injectables", "destination": "/", "permanent": true },
+    { "source": "/service-page/terra-novo-facial", "destination": "/hydrafacial.html", "permanent": true },
+    { "source": "/service-page/active-xt", "destination": "/ipl.html", "permanent": true },
+    { "source": "/service-page/cryotherapy", "destination": "/", "permanent": true },
+    { "source": "/service-page/phototherapy", "destination": "/ipl.html", "permanent": true }
   ]
 }
