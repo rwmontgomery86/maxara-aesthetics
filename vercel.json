@@ -14,6 +14,7 @@
     { "source": "/terms-conditions", "destination": "/terms-and-conditions.html", "permanent": true },
     { "source": "/terms-and-conditions", "destination": "/terms-and-conditions.html", "permanent": true },
     { "source": "/refund-policy", "destination": "/refund-policy.html", "permanent": true },
+    { "source": "/booster-quiz", "destination": "/hydrafacial.html#quiz", "permanent": true },
 
     { "source": "/service-page/injectables", "destination": "/", "permanent": true },
     { "source": "/service-page/terra-novo-facial", "destination": "/hydrafacial.html", "permanent": true },
