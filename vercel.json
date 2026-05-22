@@ -24,6 +24,12 @@
     { "source": "/service-page/cryotherapy", "destination": "/", "permanent": true },
     { "source": "/service-page/phototherapy", "destination": "/ipl.html", "permanent": true },
 
+    { "source": "/services", "destination": "/#services", "permanent": true },
+    { "source": "/treatments", "destination": "/#services", "permanent": true },
+    { "source": "/about", "destination": "/our-team.html", "permanent": true },
+    { "source": "/blank", "destination": "/", "permanent": true },
+    { "source": "/blank-1", "destination": "/", "permanent": true },
+
     {
       "source": "/:path*",
       "has": [{ "type": "host", "value": "maxaraaesthetics.com" }],
