@@ -761,9 +761,17 @@
     /* ============================================================
        PACKAGES & SAVINGS
     ============================================================ */
+    .marquee-strip--light {
+      background: var(--color-oyster);
+    }
+
+    .marquee-strip--light .marquee-strip__track span {
+      color: var(--color-walnut);
+    }
+
     .packages {
       padding: 9rem 8%;
-      background: var(--color-charcoal);
+      background: var(--color-oyster-dark);
     }
 
     .packages__header {
@@ -774,20 +782,20 @@
 
     .packages__header .eyebrow {
       justify-content: center;
-      color: var(--color-gold);
+      color: var(--color-terracotta);
     }
 
     .packages__header .eyebrow::before {
-      background: rgba(245, 240, 232, 0.3);
+      background: rgba(44, 44, 44, 0.2);
     }
 
     .packages__header .section-headline {
-      color: var(--color-cream-pure);
+      color: var(--color-charcoal);
       margin-bottom: 1rem;
     }
 
     .packages__header p {
-      color: rgba(245, 240, 232, 0.6);
+      color: rgba(44, 44, 44, 0.65);
       font-size: 0.95rem;
     }
 
@@ -1055,7 +1063,7 @@
       font-size: 0.6rem;
       letter-spacing: 0.25em;
       text-transform: uppercase;
-      color: rgba(245, 240, 232, 0.5);
+      color: rgba(44, 44, 44, 0.5);
       margin-bottom: 0.75rem;
     }
 
@@ -1071,7 +1079,7 @@
       font-size: 0.6rem;
       letter-spacing: 0.2em;
       text-transform: uppercase;
-      color: var(--color-gold);
+      color: var(--color-walnut);
       text-decoration: none;
       transition: color 0.3s ease;
     }
@@ -1081,13 +1089,13 @@
     }
 
     .packages__contact-methods span.packages__dot {
-      color: rgba(245, 240, 232, 0.25);
+      color: rgba(44, 44, 44, 0.25);
       font-size: 0.7rem;
     }
 
     .packages__contact-note {
       font-size: 0.82rem;
-      color: rgba(245, 240, 232, 0.45);
+      color: rgba(44, 44, 44, 0.5);
       margin-top: 0.75rem;
     }
 
@@ -1161,14 +1169,13 @@
         padding: 0;
       }
 
-      .tiers__panel-image img {
+      .tiers__panel-image {
         height: auto;
-        aspect-ratio: 4 / 3;
+        aspect-ratio: 6 / 5;
       }
 
-      .tiers__panel-image .tiers__image-placeholder {
-        height: auto;
-        aspect-ratio: 4 / 3;
+      .tiers__panel-image img {
+        object-fit: contain;
       }
 
       .journey-section {
@@ -1243,7 +1250,6 @@
         font-size: 2rem;
       }
 
-      .tiers__panel-image img,
       .tiers__panel-image .tiers__image-placeholder {
         aspect-ratio: 3 / 2;
       }
@@ -1323,7 +1329,6 @@
         font-size: 1.8rem;
       }
 
-      .tiers__panel-image img,
       .tiers__panel-image .tiers__image-placeholder {
         aspect-ratio: 4 / 3;
       }
@@ -1361,12 +1366,31 @@
       margin-top: 0.25rem;
     }
 
+    .lhr-hero__consult-link {
+      margin-top: 1.1rem;
+      font-size: 0.85rem;
+      color: rgba(245, 240, 232, 0.6);
+    }
+
+    .lhr-hero__consult-link a {
+      color: var(--color-gold);
+      text-decoration: none;
+      border-bottom: 1px solid rgba(184, 154, 90, 0.4);
+      padding-bottom: 1px;
+      transition: color 0.3s ease, border-color 0.3s ease;
+    }
+
+    .lhr-hero__consult-link a:hover {
+      color: var(--color-terracotta);
+      border-color: var(--color-terracotta);
+    }
+
 /* ============================================================
    CONSULTATION CALLOUT
 ============================================================ */
     .consult-callout {
       padding: 6rem 8% 5rem;
-      background: var(--color-oyster-dark);
+      background: var(--color-oyster);
       text-align: center;
     }
 
@@ -1549,83 +1573,6 @@
 /* ============================================================
    DEPOSIT INFO — How the $50 Deposit Works
 ============================================================ */
-    .deposit-info {
-      padding: 5rem 8% 5rem;
-      background: var(--color-oyster);
-    }
-
-    .deposit-info__inner {
-      max-width: 740px;
-      margin: 0 auto;
-      background: var(--color-cream-pure);
-      padding: 3rem 3rem;
-      box-shadow: 0 4px 24px rgba(44, 44, 44, 0.05);
-      border-left: 2px solid var(--color-gold);
-    }
-
-    .deposit-info__amount-row {
-      display: flex;
-      align-items: baseline;
-      gap: 0.85rem;
-      margin-bottom: 0.4rem;
-    }
-
-    .deposit-info__amount {
-      font-family: var(--font-display);
-      font-size: 2.4rem;
-      font-weight: 300;
-      color: var(--color-walnut);
-      line-height: 1;
-    }
-
-    .deposit-info__amount-label {
-      font-family: var(--font-label);
-      font-size: 0.58rem;
-      letter-spacing: 0.28em;
-      text-transform: uppercase;
-      color: var(--color-terracotta);
-    }
-
-    .deposit-info__title {
-      font-family: var(--font-display);
-      font-size: 1.8rem;
-      font-weight: 400;
-      color: var(--color-walnut);
-      margin-bottom: 1.5rem;
-      line-height: 1.2;
-    }
-
-    .deposit-info__list {
-      list-style: none;
-      padding: 0;
-      margin: 0;
-    }
-
-    .deposit-info__list li {
-      padding: 0.95rem 0;
-      border-bottom: 1px solid rgba(184, 154, 90, 0.2);
-      display: flex;
-      align-items: flex-start;
-      gap: 0.85rem;
-      font-size: 0.94rem;
-      color: rgba(44, 44, 44, 0.78);
-      line-height: 1.65;
-    }
-
-    .deposit-info__list li:last-child {
-      border-bottom: none;
-    }
-
-    .deposit-info__list li::before {
-      content: '';
-      display: block;
-      width: 18px;
-      height: 1px;
-      background: var(--color-terracotta);
-      flex-shrink: 0;
-      margin-top: 0.85rem;
-    }
-
 /* ============================================================
    WHAT HAPPENS AFTER YOU BOOK — STEPS
 ============================================================ */
@@ -1767,8 +1714,8 @@
 ============================================================ */
     .contact-help {
       padding: 6rem 8% 5.5rem;
-      background: var(--color-walnut);
-      color: var(--color-cream-pure);
+      background: var(--color-oyster-dark);
+      color: var(--color-charcoal);
       text-align: center;
     }
 
@@ -1778,23 +1725,23 @@
     }
 
     .contact-help .eyebrow {
-      color: var(--color-gold);
+      color: var(--color-terracotta);
       justify-content: center;
     }
 
     .contact-help .eyebrow::before {
-      background: rgba(245, 240, 232, 0.3);
+      background: rgba(44, 44, 44, 0.2);
     }
 
     .contact-help .section-headline {
-      color: var(--color-cream-pure);
+      color: var(--color-charcoal);
       margin-bottom: 1.25rem;
     }
 
     .contact-help__body {
       font-size: 1rem;
       line-height: 1.85;
-      color: rgba(245, 240, 232, 0.78);
+      color: rgba(44, 44, 44, 0.72);
       margin-bottom: 2.25rem;
     }
 
@@ -1835,18 +1782,6 @@
       .steps-section,
       .lhr-trust {
         padding: 4.5rem 6% 4rem;
-      }
-
-      .deposit-info {
-        padding: 3.5rem 6% 3.5rem;
-      }
-
-      .deposit-info__inner {
-        padding: 2rem 1.5rem;
-      }
-
-      .deposit-info__title {
-        font-size: 1.45rem;
       }
 
       .packages__size-buttons {
@@ -1948,7 +1883,7 @@
       { "@type": "Question", "name": "What results can I expect?", "acceptedAnswer": { "@type": "Answer", "text": "After a full course of treatments, most clients achieve up to 80% permanent hair reduction. You can expect 10 to 25% reduction after the very first session. Any remaining hair that does grow back is typically finer, lighter, and far less noticeable. Results are best on dark, coarse hair against lighter skin, but the GentleYAG delivers meaningful results across all skin tones." } },
       { "@type": "Question", "name": "Who is not a good candidate?", "acceptedAnswer": { "@type": "Answer", "text": "Very light blonde, gray, white, or red hair does not respond well to laser treatment because the laser targets melanin (pigment) in the hair. Treatment cannot be performed over tattoos, sunburned skin, or actively irritated areas. Please share any skincare products (especially retinoids) or medications at booking so we can guide you safely." } },
       { "@type": "Question", "name": "Can I shave between sessions?", "acceptedAnswer": { "@type": "Answer", "text": "Yes — shaving is fine and actually encouraged. Shave the treatment area 12 to 24 hours before each appointment. What you must avoid between sessions is waxing, plucking, or threading, because these methods remove the hair follicle that the laser needs to target. Shaving cuts hair at the surface only, leaving the follicle intact for your next session." } },
-      { "@type": "Question", "name": "Do you offer package deals?", "acceptedAnswer": { "@type": "Answer", "text": "Yes. We offer multi-session packages for all treatment tiers. Buy 5 sessions and get 1 free, or buy 10 and get 4 free — two bonus sessions to complete your course plus two complimentary touch-ups. We also offer a limited special on medium areas. Packages can't be booked online — call or text us at (770) 796-7418 to purchase, or mention the package you'd like when booking your appointment." } }
+      { "@type": "Question", "name": "Do you offer package deals?", "acceptedAnswer": { "@type": "Answer", "text": "Yes. We offer multi-session packages for all treatment tiers. Buy 5 sessions and get 1 free, or buy 10 and get 4 free — two bonus sessions to complete your course plus two complimentary touch-ups. We also offer a limited special on medium areas. You can purchase select packages online, or call or text us at (770) 796-7418 if you need help choosing." } }
     ]
   }
   </script>
@@ -2022,11 +1957,12 @@
       <p class="eyebrow">Laser Hair Removal</p>
       <h1 class="lhr-hero__title">Laser Hair Removal<br><em>in Griffin, GA</em></h1>
       <p class="lhr-hero__subtitle">Candela GentleYAG &middot; All Skin Tones</p>
-      <p class="lhr-hero__text">Smooth, confident skin with advanced Candela GentleYAG technology — designed for safe, effective long-term hair reduction across all skin tones.</p>
+      <p class="lhr-hero__text">Browse laser hair removal packages, single sessions, and clear pricing below — or call or text us to get started. Advanced Candela GentleYAG technology, safe for all skin tones.</p>
       <div class="lhr-hero__ctas">
-        <a href="https://maxaraaesthetics.glossgenius.com/shop/packages/10026-25fa2389-3b0a-4e8d-bc70-3a7e9b93a42c" target="_blank" class="btn btn--light"><span>Book Laser Consultation</span></a>
         <a href="#packages" class="btn btn--terracotta"><span>View Laser Packages</span></a>
+        <a href="tel:+17707967418" class="btn btn--light"><span>Call or Text To Start</span></a>
       </div>
+      <p class="lhr-hero__consult-link">Not sure what to choose? <a href="https://maxaraaesthetics.glossgenius.com/shop/packages/10026-25fa2389-3b0a-4e8d-bc70-3a7e9b93a42c" target="_blank">Book a laser consultation &rarr;</a></p>
       <div class="lhr-hero__stats">
         <div class="lhr-hero__stat">
           <div class="lhr-hero__stat-number">23</div>
@@ -2047,7 +1983,7 @@
   <!-- ============================================================
        MARQUEE — Smooth · Precise · Lasting
   ============================================================ -->
-  <div class="marquee-strip marquee-strip--dark">
+  <div class="marquee-strip marquee-strip--light">
     <div class="marquee-strip__track" aria-hidden="true">
       <span>Smooth</span><span class="dot">&nbsp;&nbsp;&middot;&nbsp;&nbsp;</span>
       <span>Precise</span><span class="dot">&nbsp;&nbsp;&middot;&nbsp;&nbsp;</span>
@@ -2065,46 +2001,13 @@
   </div>
 
   <!-- ============================================================
-       CONSULTATION CALLOUT — Start With a Laser Consultation
-  ============================================================ -->
-  <section class="consult-callout" id="consultation">
-    <div class="consult-callout__inner">
-      <p class="eyebrow reveal-up">Start Here</p>
-      <h2 class="section-headline reveal-up">Start With a<br><em>Laser Consultation</em></h2>
-      <p class="consult-callout__body reveal-up" style="transition-delay:0.1s;">Not sure which area, package, or treatment plan is right for you? Start with a personalized laser consultation. We'll review your goals, treatment area, skin type, hair color, timing, and package options.</p>
-      <p class="consult-callout__body reveal-up" style="transition-delay:0.14s;"><strong style="color:var(--color-walnut);font-weight:400;">Your $50 deposit reserves your appointment</strong> and is applied toward treatment or package purchase.</p>
-      <a href="https://maxaraaesthetics.glossgenius.com/shop/packages/10026-25fa2389-3b0a-4e8d-bc70-3a7e9b93a42c" target="_blank" class="btn btn--dark reveal-up" style="transition-delay:0.2s;"><span>Book Laser Consultation</span></a>
-    </div>
-  </section>
-
-  <!-- ============================================================
-       DEPOSIT INFO — How the $50 Deposit Works
-  ============================================================ -->
-  <section class="deposit-info">
-    <div class="deposit-info__inner reveal-up">
-      <div class="deposit-info__amount-row">
-        <span class="deposit-info__amount">$50</span>
-        <span class="deposit-info__amount-label">Consultation Deposit</span>
-      </div>
-      <h2 class="deposit-info__title">How the $50 Deposit Works</h2>
-      <ul class="deposit-info__list">
-        <li>Reserves your laser consultation appointment</li>
-        <li>Applied toward treatment or package purchase</li>
-        <li>Helps us confirm the right area, timing, and treatment plan</li>
-        <li>Transferable with at least 24 hours' notice</li>
-        <li>May be forfeited for no-shows or late cancellations</li>
-      </ul>
-    </div>
-  </section>
-
-  <!-- ============================================================
        PACKAGES & SAVINGS
   ============================================================ -->
   <section class="packages" id="packages">
     <div class="packages__header">
       <p class="eyebrow reveal-up" id="packagesEyebrow">Packages</p>
       <h2 class="section-headline reveal-up">Save More With<br><em>Laser Hair Removal Packages</em></h2>
-      <p class="reveal-up" style="transition-delay:0.12s;">Laser hair removal works best as a series. We recommend packages over single sessions to keep you on track. Choose the package and size that matches your treatment area &mdash; your $50 consultation deposit is applied toward whichever package you select.</p>
+      <p class="reveal-up" style="transition-delay:0.12s;">Laser hair removal works best as a series. We recommend packages over single sessions to keep you on track. Choose the package and size that matches your treatment area and purchase online below &mdash; or call or text us if you'd like help choosing.</p>
     </div>
 
     <div class="packages__grid">
@@ -2260,7 +2163,20 @@
         <span class="packages__dot">&middot;</span>
         <a href="mailto:info@maxaraaesthetics.com">Email Us</a>
       </div>
-      <p class="packages__contact-note">Your $50 consultation deposit is applied toward any package purchase.</p>
+      <p class="packages__contact-note">Not sure which package fits? We'll help you choose.</p>
+    </div>
+  </section>
+
+  <!-- ============================================================
+       CONSULTATION CALLOUT — Start With a Laser Consultation
+  ============================================================ -->
+  <section class="consult-callout" id="consultation">
+    <div class="consult-callout__inner">
+      <p class="eyebrow reveal-up">Not Sure Where to Start?</p>
+      <h2 class="section-headline reveal-up">Start With a<br><em>Laser Consultation</em></h2>
+      <p class="consult-callout__body reveal-up" style="transition-delay:0.1s;">Still deciding which area, package, or treatment plan is right for you? Book a personalized laser consultation and we'll review your goals, treatment area, skin type, hair color, timing, and package options.</p>
+      <p class="consult-callout__body reveal-up" style="transition-delay:0.14s;"><strong style="color:var(--color-walnut);font-weight:400;">Your $50 deposit reserves your appointment</strong> and is applied toward treatment or package purchase.</p>
+      <a href="https://maxaraaesthetics.glossgenius.com/shop/packages/10026-25fa2389-3b0a-4e8d-bc70-3a7e9b93a42c" target="_blank" class="btn btn--dark reveal-up" style="transition-delay:0.2s;"><span>Book Laser Consultation</span></a>
     </div>
   </section>
 
@@ -2788,7 +2704,7 @@
           <svg class="faq__chevron" viewBox="0 0 24 24"><path d="M6 9l6 6 6-6"/></svg>
         </button>
         <div class="faq__answer">
-          <div class="faq__answer-inner">Yes! We offer multi-session packages for all treatment tiers. Buy 5 sessions and get 1 free, or buy 10 and get 4 free — two bonus sessions to complete your course plus two complimentary touch-ups. We also offer a limited special on medium areas. Packages can't be booked online — call or text us at <a href="tel:+17707967418" style="color:var(--color-terracotta);">(770) 796-7418</a> to purchase, or mention the package you'd like when booking your appointment. <a href="#packages" style="color:var(--color-terracotta);">View all package deals above.</a></div>
+          <div class="faq__answer-inner">Yes! We offer multi-session packages for all treatment tiers. Buy 5 sessions and get 1 free, or buy 10 and get 4 free — two bonus sessions to complete your course plus two complimentary touch-ups. We also offer a limited special on medium areas. You can purchase select packages online above, or call or text us at <a href="tel:+17707967418" style="color:var(--color-terracotta);">(770) 796-7418</a> if you need help choosing. <a href="#packages" style="color:var(--color-terracotta);">View all package deals above.</a></div>
         </div>
       </div>
 
@@ -2843,9 +2759,9 @@
       <h2 class="section-headline reveal-up">Have Questions<br><em>Before Booking?</em></h2>
       <p class="contact-help__body reveal-up" style="transition-delay:0.1s;">Not sure which area or package to choose? Call or text us and we'll help you take the next step.</p>
       <div class="contact-help__ctas reveal-up" style="transition-delay:0.18s;">
-        <a href="tel:+17707967418" class="btn btn--light"><span>Call Maxar&aacute;</span></a>
+        <a href="tel:+17707967418" class="btn btn--dark"><span>Call Maxar&aacute;</span></a>
         <a href="sms:+17707967418" class="btn btn--terracotta"><span>Text Maxar&aacute;</span></a>
-        <a href="https://maxaraaesthetics.glossgenius.com/shop/packages/10026-25fa2389-3b0a-4e8d-bc70-3a7e9b93a42c" target="_blank" class="btn btn--light"><span>Book Laser Consultation</span></a>
+        <a href="https://maxaraaesthetics.glossgenius.com/shop/packages/10026-25fa2389-3b0a-4e8d-bc70-3a7e9b93a42c" target="_blank" class="btn btn--dark"><span>Book Laser Consultation</span></a>
       </div>
     </div>
   </section>
