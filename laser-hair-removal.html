@@ -1385,6 +1385,33 @@
       border-color: var(--color-terracotta);
     }
 
+    .cta__ctas {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 0.85rem;
+    }
+
+    .cta__content .cta__consult-link {
+      margin-top: 1.3rem;
+      margin-bottom: 0;
+      font-size: 0.85rem;
+      color: rgba(245, 240, 232, 0.6);
+    }
+
+    .cta__content .cta__consult-link a {
+      color: var(--color-gold);
+      text-decoration: none;
+      border-bottom: 1px solid rgba(184, 154, 90, 0.4);
+      padding-bottom: 1px;
+      transition: color 0.3s ease, border-color 0.3s ease;
+    }
+
+    .cta__content .cta__consult-link a:hover {
+      color: var(--color-terracotta);
+      border-color: var(--color-terracotta);
+    }
+
 /* ============================================================
    CONSULTATION CALLOUT
 ============================================================ */
@@ -1922,7 +1949,7 @@
       <li><a href="payment-plans.html">Payment Plans</a></li>
       <li><a href="gift-cards.html">Gift Cards</a></li>
     </ul>
-    <a href="https://maxaraaesthetics.glossgenius.com/shop/packages/10026-25fa2389-3b0a-4e8d-bc70-3a7e9b93a42c" target="_blank" class="nav__cta"><span>Book Laser Consultation</span></a>
+    <a href="#packages" class="nav__cta"><span>Laser Packages</span></a>
     <button class="nav__hamburger" aria-label="Menu" aria-expanded="false" aria-controls="mobileMenu">
       <span></span>
       <span></span>
@@ -1936,7 +1963,7 @@
     <a href="our-team.html">Team</a>
     <a href="payment-plans.html">Payment Plans</a>
     <a href="gift-cards.html">Gift Cards</a>
-    <a href="https://maxaraaesthetics.glossgenius.com/shop/packages/10026-25fa2389-3b0a-4e8d-bc70-3a7e9b93a42c" target="_blank">Book Laser Consultation</a>
+    <a href="#packages">Laser Packages</a>
   </div>
 
   <!-- ============================================================
@@ -2537,7 +2564,7 @@
   <section class="steps-section">
     <div class="steps-section__header">
       <p class="eyebrow reveal-up">What to Expect</p>
-      <h2 class="section-headline reveal-up">What Happens<br><em>After You Book?</em></h2>
+      <h2 class="section-headline reveal-up">What Happens<br><em>After You Start?</em></h2>
     </div>
     <ol class="steps-section__list">
       <li class="steps-section__item reveal-up">
@@ -2554,20 +2581,20 @@
       </li>
       <li class="steps-section__item reveal-up" style="transition-delay:0.12s;">
         <div>
-          <h3 class="steps-section__item-title">We explain the treatment plan</h3>
-          <p class="steps-section__item-desc">Laser hair removal usually requires a series because hair grows in cycles. Best results typically come from completing the full plan.</p>
+          <h3 class="steps-section__item-title">We help you choose the right package or treatment area</h3>
+          <p class="steps-section__item-desc">Laser hair removal works in a series because hair grows in cycles, so we'll help you pick the package or treatment area that gets you the best results — no pressure to decide on the spot.</p>
         </div>
       </li>
       <li class="steps-section__item reveal-up" style="transition-delay:0.18s;">
         <div>
-          <h3 class="steps-section__item-title">We help you choose the right package</h3>
-          <p class="steps-section__item-desc">If a package makes sense, we'll walk you through the best option before you commit — no pressure to decide on the spot.</p>
+          <h3 class="steps-section__item-title">We schedule your sessions</h3>
+          <p class="steps-section__item-desc">We'll map out your appointments and timing so your treatments stay on track with your hair's growth cycle.</p>
         </div>
       </li>
       <li class="steps-section__item reveal-up" style="transition-delay:0.24s;">
         <div>
-          <h3 class="steps-section__item-title">Your $50 deposit is applied toward treatment</h3>
-          <p class="steps-section__item-desc">The $50 reserves your appointment and is applied toward your treatment or package purchase. Transferable with at least 24 hours' notice — no-shows or late cancellations may forfeit the deposit.</p>
+          <h3 class="steps-section__item-title">If you booked a consultation, your $50 deposit applies</h3>
+          <p class="steps-section__item-desc">If you started with a consultation, the $50 deposit is applied toward your treatment or package purchase. Transferable with at least 24 hours' notice — no-shows or late cancellations may forfeit the deposit.</p>
         </div>
       </li>
     </ol>
@@ -2761,7 +2788,7 @@
       <div class="contact-help__ctas reveal-up" style="transition-delay:0.18s;">
         <a href="tel:+17707967418" class="btn btn--dark"><span>Call Maxar&aacute;</span></a>
         <a href="sms:+17707967418" class="btn btn--terracotta"><span>Text Maxar&aacute;</span></a>
-        <a href="https://maxaraaesthetics.glossgenius.com/shop/packages/10026-25fa2389-3b0a-4e8d-bc70-3a7e9b93a42c" target="_blank" class="btn btn--dark"><span>Book Laser Consultation</span></a>
+        <a href="https://maxaraaesthetics.glossgenius.com/shop/packages/10026-25fa2389-3b0a-4e8d-bc70-3a7e9b93a42c" target="_blank" class="btn btn--dark"><span>Book Consultation</span></a>
       </div>
     </div>
   </section>
@@ -2776,8 +2803,12 @@
     <div class="cta__content" id="ctaContent">
       <p class="eyebrow">Ready?</p>
       <h2>Your Smoothest Skin<br><em>Awaits</em></h2>
-      <p>Book your laser hair removal consultation and discover the treatment plan tailored to your skin, your goals, and your schedule.</p>
-      <a href="https://maxaraaesthetics.glossgenius.com/shop/packages/10026-25fa2389-3b0a-4e8d-bc70-3a7e9b93a42c" target="_blank" class="btn btn--light"><span>Book Laser Consultation</span></a>
+      <p>Explore laser packages, choose a single-session option, or call or text us and we'll help you choose the right treatment plan.</p>
+      <div class="cta__ctas">
+        <a href="#packages" class="btn btn--terracotta"><span>View Laser Packages</span></a>
+        <a href="tel:+17707967418" class="btn btn--light"><span>Call or Text To Start</span></a>
+      </div>
+      <p class="cta__consult-link">Not sure what to choose? <a href="https://maxaraaesthetics.glossgenius.com/shop/packages/10026-25fa2389-3b0a-4e8d-bc70-3a7e9b93a42c" target="_blank">Book a consultation &rarr;</a></p>
     </div>
   </section>
 
