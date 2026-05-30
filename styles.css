@@ -1126,3 +1126,296 @@ a.footer__contact-value:hover {
   }
 }
 
+/* ============================================================
+   FATHER'S DAY POPUP
+   Two-column layout — image panel + offers.
+   Temporary promo (specials end 6/30/2026) — remove after.
+============================================================ */
+.fd-popup {
+  position: fixed;
+  inset: 0;
+  z-index: 9000;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 1.5rem;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.5s var(--ease-expo);
+}
+
+.fd-popup[hidden] { display: none; }
+
+.fd-popup.is-open {
+  opacity: 1;
+  pointer-events: auto;
+}
+
+.fd-popup__backdrop {
+  position: absolute;
+  inset: 0;
+  background: rgba(44, 44, 44, 0.55);
+  backdrop-filter: blur(4px);
+  -webkit-backdrop-filter: blur(4px);
+}
+
+.fd-popup__dialog {
+  position: relative;
+  width: min(820px, 100%);
+  max-height: calc(100vh - 3rem);
+  overflow-y: auto;
+  background: var(--color-cream-pure);
+  color: var(--color-charcoal);
+  box-shadow: 0 30px 80px -20px rgba(44, 44, 44, 0.45);
+  display: grid;
+  grid-template-columns: 0.85fr 1fr;
+  transform: translateY(20px) scale(0.98);
+  transition: transform 0.6s var(--ease-expo);
+  overflow: hidden;
+}
+
+.fd-popup.is-open .fd-popup__dialog {
+  transform: translateY(0) scale(1);
+}
+
+/* Image panel — drop the Father's Day photo at the paths below.
+   Falls back to a deep walnut→charcoal gradient until it's added. */
+.fd-popup__media {
+  position: relative;
+  min-height: 320px;
+  background:
+    linear-gradient(160deg, var(--color-walnut) 0%, var(--color-charcoal) 100%);
+  background-image: url('assets/images/popups/fathers-day.jpg');
+  background-size: cover;
+  background-position: center;
+}
+
+.fd-popup__content {
+  position: relative;
+  padding: 3rem 2.5rem 2.25rem;
+}
+
+/* Gold ornamental corner flourishes */
+.fd-popup__content::before,
+.fd-popup__content::after {
+  content: "";
+  position: absolute;
+  width: 28px;
+  height: 28px;
+  border: 1px solid var(--color-gold);
+  opacity: 0.7;
+}
+.fd-popup__content::before {
+  top: 1rem;
+  right: 1rem;
+  border-left: none;
+  border-bottom: none;
+}
+.fd-popup__content::after {
+  bottom: 1rem;
+  right: 1rem;
+  border-left: none;
+  border-top: none;
+}
+
+.fd-popup__close {
+  position: absolute;
+  top: 0.85rem;
+  right: 1rem;
+  width: 2.25rem;
+  height: 2.25rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: transparent;
+  border: none;
+  font-size: 1.6rem;
+  line-height: 1;
+  color: var(--color-charcoal);
+  opacity: 0.55;
+  cursor: pointer;
+  transition: opacity 0.2s ease;
+  z-index: 3;
+}
+.fd-popup__close:hover { opacity: 1; }
+
+.fd-popup__eyebrow {
+  font-family: var(--font-label);
+  font-weight: 300;
+  font-size: 0.7rem;
+  letter-spacing: 0.32em;
+  text-transform: uppercase;
+  color: var(--color-gold);
+  margin-bottom: 1.25rem;
+}
+
+.fd-popup__title {
+  font-family: var(--font-display);
+  font-weight: 300;
+  font-style: italic;
+  font-size: clamp(1.55rem, 2.6vw, 1.95rem);
+  line-height: 1.2;
+  margin-bottom: 1.5rem;
+}
+.fd-popup__title em {
+  color: var(--color-terracotta);
+}
+
+/* Sub-header anchoring the 3 laser tiers */
+.fd-popup__group-label {
+  font-family: var(--font-label);
+  font-weight: 400;
+  font-size: 0.72rem;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--color-charcoal);
+  margin: 0 0 0.25rem;
+}
+.fd-popup__group-label em {
+  font-style: normal;
+  color: var(--color-gold);
+}
+
+.fd-popup__offers {
+  list-style: none;
+  margin: 0 0 1.25rem;
+  padding: 0;
+}
+
+.fd-popup__offer {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  gap: 1rem;
+  padding: 0.7rem 0;
+  border-top: 1px solid rgba(184, 154, 90, 0.35);
+}
+.fd-popup__offer:last-child {
+  border-bottom: 1px solid rgba(184, 154, 90, 0.35);
+}
+/* The facial row sits apart from the laser tiers */
+.fd-popup__offer--facial {
+  margin-top: 0.85rem;
+}
+
+.fd-popup__offer-name {
+  font-family: var(--font-label);
+  font-weight: 400;
+  font-size: 0.78rem;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+}
+.fd-popup__offer-detail {
+  display: block;
+  font-family: var(--font-body);
+  font-size: 0.7rem;
+  letter-spacing: 0.06em;
+  text-transform: none;
+  opacity: 0.7;
+  margin-top: 0.2rem;
+}
+.fd-popup__offer-pricing {
+  text-align: right;
+  white-space: nowrap;
+}
+.fd-popup__offer-price {
+  display: block;
+  font-family: var(--font-display);
+  font-weight: 400;
+  font-size: 1.4rem;
+  color: var(--color-terracotta);
+}
+.fd-popup__offer-save {
+  display: block;
+  font-family: var(--font-label);
+  font-weight: 300;
+  font-size: 0.6rem;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--color-gold);
+  margin-top: 0.2rem;
+}
+
+.fd-popup__note {
+  font-family: var(--font-body);
+  font-size: 0.72rem;
+  letter-spacing: 0.04em;
+  line-height: 1.5;
+  text-align: center;
+  opacity: 0.7;
+  margin: 0 0 1.5rem;
+}
+
+.fd-popup__actions {
+  display: flex;
+  gap: 0.75rem;
+  margin-bottom: 0.85rem;
+}
+.fd-popup__cta {
+  flex: 1;
+  display: block;
+  text-align: center;
+  padding-left: 1rem;
+  padding-right: 1rem;
+  white-space: nowrap;
+}
+
+.fd-popup__later {
+  display: block;
+  margin: 0 auto;
+  background: transparent;
+  border: none;
+  font-family: var(--font-label);
+  font-weight: 300;
+  font-size: 0.65rem;
+  letter-spacing: 0.24em;
+  text-transform: uppercase;
+  color: inherit;
+  opacity: 0.55;
+  cursor: pointer;
+  padding: 0.5rem 0.75rem;
+  transition: opacity 0.2s ease;
+}
+.fd-popup__later:hover { opacity: 1; }
+
+@media (max-width: 720px) {
+  .fd-popup {
+    padding: 0.75rem;
+  }
+  .fd-popup__dialog {
+    grid-template-columns: 1fr;
+    max-height: calc(100vh - 1.5rem);
+  }
+  .fd-popup__media {
+    min-height: 0;
+    aspect-ratio: auto;
+    height: 210px;
+    background-image: url('assets/images/popups/fathers-day-mobile.jpg');
+    background-position: center;
+  }
+  .fd-popup__content {
+    padding: 1.5rem 1.25rem 1.25rem;
+  }
+  .fd-popup__eyebrow {
+    font-size: 0.62rem;
+    letter-spacing: 0.28em;
+    margin-bottom: 0.75rem;
+  }
+  .fd-popup__title {
+    font-size: 1.3rem;
+    margin-bottom: 1rem;
+  }
+  .fd-popup__group-label { font-size: 0.66rem; }
+  .fd-popup__offer {
+    padding: 0.6rem 0;
+  }
+  .fd-popup__offer-name { font-size: 0.72rem; }
+  .fd-popup__offer-detail { font-size: 0.65rem; }
+  .fd-popup__offer-price { font-size: 1.15rem; }
+  .fd-popup__offer-save { font-size: 0.56rem; }
+  .fd-popup__note { font-size: 0.66rem; }
+  .fd-popup__actions { flex-direction: column; }
+  .fd-popup__cta { padding: 0.85rem 2rem; }
+  .fd-popup__later { padding: 0.4rem 0.5rem; }
+}
+

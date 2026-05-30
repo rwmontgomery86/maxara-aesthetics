@@ -2227,5 +2227,71 @@ if(/iPhone|iPad|iPod/.test(navigator.userAgent)){
   });
 }
 </script>
+
+  <!-- ============================================================
+       FATHER'S DAY POPUP — temporary promo, specials end 6/30/2026.
+       Remove this block + assets/js/popup.js + the .fd-popup CSS
+       section after the promo (see commit b4660bc for the pattern).
+  ============================================================ -->
+  <div class="fd-popup" role="dialog" aria-modal="true" aria-labelledby="fd-popup-title" hidden>
+    <div class="fd-popup__backdrop" data-fd-dismiss></div>
+    <div class="fd-popup__dialog">
+      <button class="fd-popup__close" type="button" aria-label="Close" data-fd-dismiss>&times;</button>
+      <div class="fd-popup__media" aria-hidden="true"></div>
+      <div class="fd-popup__content">
+        <p class="fd-popup__eyebrow">Father&rsquo;s Day Specials</p>
+        <h2 id="fd-popup-title" class="fd-popup__title">For the man who never makes time for <em>himself</em>.</h2>
+        <p class="fd-popup__group-label">The Gentleman&rsquo;s Laser Special &mdash; <em>Laser Hair Removal</em></p>
+        <ul class="fd-popup__offers">
+          <li class="fd-popup__offer">
+            <div>
+              <span class="fd-popup__offer-name">Small Areas</span>
+              <span class="fd-popup__offer-detail">Beard line, hairline, or ears &middot; 3 sessions</span>
+            </div>
+            <div class="fd-popup__offer-pricing">
+              <span class="fd-popup__offer-price">$180</span>
+              <span class="fd-popup__offer-save">Save $45</span>
+            </div>
+          </li>
+          <li class="fd-popup__offer">
+            <div>
+              <span class="fd-popup__offer-name">Medium Areas</span>
+              <span class="fd-popup__offer-detail">Chest, half back, or stomach &middot; 3 sessions</span>
+            </div>
+            <div class="fd-popup__offer-pricing">
+              <span class="fd-popup__offer-price">$300</span>
+              <span class="fd-popup__offer-save">Save $75</span>
+            </div>
+          </li>
+          <li class="fd-popup__offer">
+            <div>
+              <span class="fd-popup__offer-name">Large Areas</span>
+              <span class="fd-popup__offer-detail">Full back, or chest and stomach &middot; 3 sessions</span>
+            </div>
+            <div class="fd-popup__offer-pricing">
+              <span class="fd-popup__offer-price">$650</span>
+              <span class="fd-popup__offer-save">Save $100</span>
+            </div>
+          </li>
+          <li class="fd-popup__offer fd-popup__offer--facial">
+            <div>
+              <span class="fd-popup__offer-name">The Dad Reset Facial</span>
+              <span class="fd-popup__offer-detail">Classic facial + LED therapy</span>
+            </div>
+            <div class="fd-popup__offer-pricing">
+              <span class="fd-popup__offer-price">$85</span>
+            </div>
+          </li>
+        </ul>
+        <p class="fd-popup__note">Gift cards &amp; certificates available &middot; Specials end 6/30/2026.</p>
+        <div class="fd-popup__actions">
+          <a class="fd-popup__cta btn btn--terracotta" href="tel:+17707967418"><span>Call the Office</span></a>
+          <a class="fd-popup__cta btn btn--dark" href="sms:+17707967418"><span>Text Us</span></a>
+        </div>
+        <button class="fd-popup__later" type="button" data-fd-dismiss>Maybe later</button>
+      </div>
+    </div>
+  </div>
+  <script src="assets/js/popup.js" defer></script>
 </body>
 </html>
