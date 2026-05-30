@@ -717,6 +717,11 @@
       flex-shrink: 0;
     }
 
+    /* Pre-care list sits on a walnut panel — lighten the chip text for contrast */
+    .feature-split__content--walnut .aftercare-list li {
+      color: var(--color-cream-pure);
+    }
+
 /* ============================================================
        RESPONSIVE — MOBILE
     ============================================================ */
@@ -765,17 +770,18 @@
 
       .tiers__panel-image {
         min-height: 0;
+        height: auto;
+        aspect-ratio: 1 / 1;
       }
 
       .tiers__panel-image img {
         min-height: 0;
-        height: auto;
-        aspect-ratio: 4 / 3;
+        object-fit: contain;
       }
 
       .tiers__panel-image .tiers__image-placeholder {
         height: auto;
-        aspect-ratio: 4 / 3;
+        aspect-ratio: 1 / 1;
       }
 
       .journey-section {
@@ -838,11 +844,6 @@
 
       .tiers__tier-name {
         font-size: 2rem;
-      }
-
-      .tiers__panel-image img,
-      .tiers__panel-image .tiers__image-placeholder {
-        aspect-ratio: 3 / 2;
       }
 
       .journey-section {
@@ -910,11 +911,6 @@
 
       .tiers__tier-name {
         font-size: 1.8rem;
-      }
-
-      .tiers__panel-image img,
-      .tiers__panel-image .tiers__image-placeholder {
-        aspect-ratio: 4 / 3;
       }
 
       .journey-section {
@@ -1239,6 +1235,31 @@
     </div>
 
     <p class="tiers__note">All peels include a take-home aftercare kit. Exact timing may vary by skin needs.</p>
+  </section>
+
+  <!-- ============================================================
+       PRE-CARE — Feature Split
+  ============================================================ -->
+  <section class="feature-split">
+    <div class="feature-split__media img-placeholder" id="precareMedia">
+      <span class="img-placeholder__label">precare-split.jpg</span>
+      <img loading="lazy" src="assets/images/chemical-peels/treatment-side-portrait.jpg?v=2" alt="Preparing skin before a chemical peel" onerror="this.classList.add('img-hidden')">
+    </div>
+    <div class="feature-split__content feature-split__content--walnut" id="precareContent">
+      <p class="eyebrow" id="precareEyebrow">Before Your Peel</p>
+      <h2 class="section-headline">Pre-Care<br><em>Essentials</em></h2>
+      <p>A little prep makes a big difference. In the days leading up to your peel, keep your routine simple and protect your skin so it arrives calm, healthy, and ready.</p>
+      <ul class="aftercare-list">
+        <li>No retinol or vitamin-A products for 4&ndash;5 days</li>
+        <li>No acids, scrubs, at-home peels, waxing, or dermaplaning for 4&ndash;5 days</li>
+        <li>No tanning beds, spray tans, or sun for 1&ndash;2 weeks</li>
+        <li>Don&rsquo;t arrive with sunburned, broken, or irritated skin</li>
+        <li>Gentle skincare, moisturizer &amp; SPF only &mdash; 4+ days prior</li>
+        <li>Not while pregnant or nursing (wait 1&ndash;2 weeks after)</li>
+        <li>Tell us about cold sores or acne / photosensitizing meds</li>
+        <li>Come with clean skin and minimal makeup</li>
+      </ul>
+    </div>
   </section>
 
   <!-- ============================================================
@@ -1666,6 +1687,7 @@
       const selectors = [
         '#cpHero',
         '#jessnerMedia', '#jessnerContent', '#jessnerEyebrow',
+        '#precareMedia', '#precareContent', '#precareEyebrow',
         '#aftercareMedia', '#aftercareContent', '#aftercareEyebrow',
         '.concerns__card',
         '#tiersEyebrow',
