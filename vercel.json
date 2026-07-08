@@ -8,6 +8,7 @@
     { "source": "/microneedling", "destination": "/microneedling.html", "permanent": true },
     { "source": "/waxing", "destination": "/waxing.html", "permanent": true },
     { "source": "/advanced-skincare", "destination": "/advanced-skincare.html", "permanent": true },
+    { "source": "/ipl", "destination": "/ipl.html", "permanent": true },
     { "source": "/our-team", "destination": "/our-team.html", "permanent": true },
     { "source": "/team", "destination": "/our-team.html", "permanent": true },
     { "source": "/payment-plans", "destination": "/payment-plans.html", "permanent": true },

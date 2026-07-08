@@ -10,8 +10,8 @@
   <!-- End Google Tag Manager -->
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>IPL Photofacial — Maxará Aesthetics</title>
-  <meta name="description" content="IPL photofacials at Maxará Aesthetics in Griffin, GA — corrective light therapy for sun damage, pigmentation, redness, and uneven tone.">
+  <title>IPL Photofacial in Griffin, GA — Maxará Aesthetics</title>
+  <meta name="description" content="Sun damage, dark spots, redness — IPL photofacials at Maxará Aesthetics in Griffin, GA. Corrective light therapy in a gentle series of three, with results that hold for years.">
   <link rel="canonical" href="https://www.maxaraaesthetics.com/ipl.html">
   <meta name="robots" content="index, follow, max-image-preview:large">
   <link rel="icon" href="assets/images/logos/Logo.png" type="image/png">
@@ -19,16 +19,16 @@
   <!-- Open Graph -->
   <meta property="og:type" content="website">
   <meta property="og:url" content="https://www.maxaraaesthetics.com/ipl.html">
-  <meta property="og:title" content="IPL Photofacial — Maxará Aesthetics">
-  <meta property="og:description" content="IPL photofacials at Maxará Aesthetics in Griffin, GA — corrective light therapy for sun damage, pigmentation, redness, and uneven tone.">
+  <meta property="og:title" content="IPL Photofacial in Griffin, GA — Maxará Aesthetics">
+  <meta property="og:description" content="Sun damage, dark spots, redness — IPL photofacials at Maxará Aesthetics in Griffin, GA. Corrective light therapy in a gentle series of three, with results that hold for years.">
   <meta property="og:image" content="https://www.maxaraaesthetics.com/assets/images/ipl/ipl-hero-main.jpg">
   <meta property="og:site_name" content="Maxará Aesthetics">
   <meta property="og:locale" content="en_US">
 
   <!-- Twitter Card -->
   <meta name="twitter:card" content="summary_large_image">
-  <meta name="twitter:title" content="IPL Photofacial — Maxará Aesthetics">
-  <meta name="twitter:description" content="IPL photofacials at Maxará Aesthetics in Griffin, GA — corrective light therapy for sun damage, pigmentation, redness, and uneven tone.">
+  <meta name="twitter:title" content="IPL Photofacial in Griffin, GA — Maxará Aesthetics">
+  <meta name="twitter:description" content="Sun damage, dark spots, redness — IPL photofacials at Maxará Aesthetics in Griffin, GA. Corrective light therapy in a gentle series of three, with results that hold for years.">
   <meta name="twitter:image" content="https://www.maxaraaesthetics.com/assets/images/ipl/ipl-hero-main.jpg">
 
   <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -43,6 +43,7 @@
     ============================================================ */
     #about,
     #conditions,
+    #quiz,
     #pricing,
     #treatment-plan,
     #aftercare,
@@ -1388,6 +1389,630 @@
         padding: 1.5rem 1.25rem;
       }
     }
+
+    /* ============================================================
+       HERO CONCERN CHIPS
+    ============================================================ */
+    .ipl-hero__chips {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.6rem;
+      margin: -0.75rem 0 2.25rem;
+    }
+
+    .ipl-hero__chip {
+      display: inline-block;
+      padding: 0.55rem 1.1rem;
+      border: 1px solid rgba(184, 154, 90, 0.45);
+      border-radius: 999px;
+      font-family: var(--font-label);
+      font-size: 0.58rem;
+      font-weight: 300;
+      letter-spacing: 0.22em;
+      text-transform: uppercase;
+      color: rgba(245, 240, 232, 0.85);
+      text-decoration: none;
+      transition: background 0.3s ease, border-color 0.3s ease, color 0.3s ease;
+    }
+
+    .ipl-hero__chip:hover {
+      border-color: var(--color-terracotta);
+      background: rgba(196, 103, 58, 0.18);
+      color: var(--color-cream-pure);
+    }
+
+    .ipl-hero__chip:active {
+      transform: scale(0.97);
+    }
+
+    @media (max-width: 480px) {
+      .ipl-hero__chip {
+        padding: 0.5rem 0.9rem;
+        font-size: 0.54rem;
+      }
+    }
+
+    /* ============================================================
+       QUALIFYING QUIZ — Is IPL Right for You?
+    ============================================================ */
+    .ipl-quiz {
+      padding: 8rem 8%;
+      background: var(--color-charcoal);
+    }
+
+    .ipl-quiz__header {
+      text-align: center;
+      margin-bottom: 3rem;
+    }
+
+    .ipl-quiz__header .eyebrow {
+      color: var(--color-gold);
+    }
+
+    .ipl-quiz__header .eyebrow::before {
+      background: rgba(245, 240, 232, 0.3);
+    }
+
+    .ipl-quiz__header .section-headline {
+      color: var(--color-cream-pure);
+      margin-bottom: 0.75rem;
+    }
+
+    .ipl-quiz__header .section-headline em {
+      color: var(--color-cream-pure);
+    }
+
+    .ipl-quiz__header p {
+      color: rgba(245, 240, 232, 0.65);
+      font-size: 0.95rem;
+    }
+
+    .ipl-quiz__card {
+      max-width: 640px;
+      margin: 0 auto;
+      background: var(--color-cream-pure);
+      padding: 3rem;
+      position: relative;
+      overflow: hidden;
+      box-shadow: 0 8px 40px rgba(0, 0, 0, 0.25);
+    }
+
+    .ipl-quiz__progress {
+      display: flex;
+      justify-content: center;
+      gap: 0.75rem;
+      margin-bottom: 2.5rem;
+    }
+
+    .ipl-quiz__dot {
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+      background: rgba(184, 154, 90, 0.25);
+      transition: background 0.4s ease, transform 0.4s var(--ease-expo);
+    }
+
+    .ipl-quiz__dot.active {
+      background: var(--color-terracotta);
+      transform: scale(1.3);
+    }
+
+    .ipl-quiz__dot.completed {
+      background: var(--color-gold);
+    }
+
+    .ipl-quiz__steps {
+      position: relative;
+      overflow: hidden;
+    }
+
+    .ipl-quiz__step {
+      display: none;
+    }
+
+    .ipl-quiz__step.active {
+      display: block;
+      animation: iplQuizFadeIn 0.45s var(--ease-expo);
+    }
+
+    @keyframes iplQuizFadeIn {
+      from { opacity: 0; transform: translateX(20px); }
+      to   { opacity: 1; transform: translateX(0); }
+    }
+
+    .ipl-quiz__question {
+      font-family: var(--font-display);
+      font-size: 1.5rem;
+      font-weight: 300;
+      text-align: center;
+      margin-bottom: 2rem;
+      line-height: 1.3;
+      color: var(--color-charcoal);
+    }
+
+    .ipl-quiz__options {
+      display: flex;
+      flex-direction: column;
+      gap: 0.75rem;
+    }
+
+    .ipl-quiz__option {
+      padding: 1rem 1.5rem;
+      border: 1px solid rgba(184, 154, 90, 0.3);
+      background: transparent;
+      cursor: pointer;
+      font-family: var(--font-label);
+      font-size: 0.62rem;
+      font-weight: 300;
+      letter-spacing: 0.22em;
+      text-transform: uppercase;
+      color: var(--color-charcoal);
+      text-align: left;
+      transition: background 0.3s ease, border-color 0.3s ease, color 0.3s ease, transform 0.25s var(--ease-expo);
+    }
+
+    .ipl-quiz__option:hover {
+      border-color: var(--color-terracotta);
+      background: rgba(196, 103, 58, 0.05);
+      transform: translateX(4px);
+    }
+
+    .ipl-quiz__option:active {
+      transform: scale(0.985);
+    }
+
+    .ipl-quiz__option.selected {
+      background: var(--color-terracotta);
+      border-color: var(--color-terracotta);
+      color: var(--color-cream-pure);
+    }
+
+    .ipl-quiz__result {
+      display: none;
+      text-align: center;
+      animation: iplQuizFadeIn 0.5s var(--ease-expo);
+    }
+
+    .ipl-quiz__result.active {
+      display: block;
+    }
+
+    .ipl-quiz__result-label {
+      font-family: var(--font-label);
+      font-size: 0.6rem;
+      letter-spacing: 0.35em;
+      text-transform: uppercase;
+      color: var(--color-terracotta);
+      margin-bottom: 0.75rem;
+    }
+
+    .ipl-quiz__result-name {
+      font-family: var(--font-display);
+      font-size: 2.2rem;
+      font-weight: 300;
+      margin-bottom: 1rem;
+      color: var(--color-charcoal);
+    }
+
+    .ipl-quiz__result-desc {
+      font-size: 0.93rem;
+      color: rgba(44, 44, 44, 0.7);
+      margin-bottom: 1.75rem;
+      line-height: 1.8;
+    }
+
+    .ipl-quiz__result-price {
+      display: none;
+      align-items: baseline;
+      justify-content: center;
+      gap: 0.75rem;
+      flex-wrap: wrap;
+      margin-bottom: 1.75rem;
+    }
+
+    .ipl-quiz__result-price.visible {
+      display: flex;
+    }
+
+    .ipl-quiz__result-original {
+      font-family: var(--font-label);
+      font-size: 0.62rem;
+      letter-spacing: 0.18em;
+      color: rgba(44, 44, 44, 0.4);
+      text-decoration: line-through;
+    }
+
+    .ipl-quiz__result-series {
+      font-family: var(--font-display);
+      font-size: 1.9rem;
+      font-weight: 400;
+      color: var(--color-terracotta);
+    }
+
+    .ipl-quiz__result-save {
+      font-family: var(--font-label);
+      font-size: 0.56rem;
+      letter-spacing: 0.22em;
+      text-transform: uppercase;
+      color: var(--color-terracotta);
+      background: rgba(196, 103, 58, 0.1);
+      padding: 0.3rem 0.7rem;
+      border-radius: 999px;
+    }
+
+    .ipl-quiz__result-alt {
+      margin-top: 1.25rem;
+    }
+
+    .ipl-quiz__result-alt a {
+      font-family: var(--font-label);
+      font-size: 0.58rem;
+      letter-spacing: 0.25em;
+      text-transform: uppercase;
+      color: rgba(44, 44, 44, 0.55);
+      text-decoration: none;
+      border-bottom: 1px solid rgba(44, 44, 44, 0.25);
+      padding-bottom: 2px;
+      transition: color 0.3s, border-color 0.3s;
+    }
+
+    .ipl-quiz__result-alt a:hover {
+      color: var(--color-terracotta);
+      border-color: var(--color-terracotta);
+    }
+
+    .ipl-quiz__retake {
+      display: inline-block;
+      margin-top: 1.25rem;
+      font-family: var(--font-label);
+      font-size: 0.58rem;
+      letter-spacing: 0.25em;
+      text-transform: uppercase;
+      color: var(--color-gold);
+      cursor: pointer;
+      background: none;
+      border: none;
+      border-bottom: 1px solid var(--color-gold);
+      padding-bottom: 2px;
+      transition: color 0.3s;
+    }
+
+    .ipl-quiz__retake:hover {
+      color: var(--color-terracotta);
+      border-color: var(--color-terracotta);
+    }
+
+    @media (max-width: 768px) {
+      .ipl-quiz {
+        padding: 6rem 6% 7rem;
+      }
+
+      .ipl-quiz__card {
+        padding: 2rem 1.5rem;
+      }
+
+      .ipl-quiz__question {
+        font-size: 1.3rem;
+      }
+
+      .ipl-quiz__option {
+        padding: 0.95rem 1.15rem;
+        font-size: 0.58rem;
+        min-height: 48px;
+      }
+    }
+
+    /* ============================================================
+       INTERACTIVE AREA / PRICE SELECTOR
+    ============================================================ */
+    .ipl-selector {
+      max-width: 900px;
+      margin: 0 auto 4.5rem;
+      background: var(--color-cream-pure);
+      box-shadow: 0 8px 40px rgba(44, 44, 44, 0.06);
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+    }
+
+    .ipl-selector__areas {
+      display: grid;
+      grid-template-columns: 1fr;
+      border-right: 1px solid rgba(184, 154, 90, 0.2);
+    }
+
+    .ipl-selector__area {
+      position: relative;
+      padding: 1.1rem 1.75rem;
+      background: transparent;
+      border: none;
+      border-bottom: 1px solid rgba(184, 154, 90, 0.2);
+      cursor: pointer;
+      font-family: var(--font-label);
+      font-size: 0.62rem;
+      font-weight: 300;
+      letter-spacing: 0.22em;
+      text-transform: uppercase;
+      color: var(--color-charcoal);
+      text-align: left;
+      min-height: 52px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 0.75rem;
+      transition: background 0.3s ease, color 0.3s ease;
+    }
+
+    .ipl-selector__area:last-child {
+      border-bottom: none;
+    }
+
+    .ipl-selector__area:hover {
+      background: rgba(196, 103, 58, 0.06);
+    }
+
+    .ipl-selector__area:active {
+      transform: scale(0.98);
+    }
+
+    .ipl-selector__area.active {
+      background: var(--color-charcoal);
+      color: var(--color-cream-pure);
+    }
+
+    .ipl-selector__badge {
+      font-size: 0.5rem;
+      letter-spacing: 0.18em;
+      color: var(--color-terracotta);
+      background: rgba(196, 103, 58, 0.1);
+      padding: 0.25rem 0.6rem;
+      border-radius: 999px;
+      white-space: nowrap;
+    }
+
+    .ipl-selector__area.active .ipl-selector__badge {
+      color: var(--color-gold);
+      background: rgba(184, 154, 90, 0.18);
+    }
+
+    .ipl-selector__panel {
+      padding: 2.5rem;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      opacity: 1;
+      transform: translateY(0);
+      transition: opacity 0.25s ease, transform 0.25s var(--ease-expo);
+    }
+
+    .ipl-selector__panel.switching {
+      opacity: 0;
+      transform: translateY(6px);
+    }
+
+    .ipl-selector__panel-area {
+      font-family: var(--font-display);
+      font-size: 1.75rem;
+      font-weight: 300;
+      color: var(--color-charcoal);
+      margin-bottom: 1.5rem;
+      display: flex;
+      align-items: baseline;
+      gap: 1rem;
+      flex-wrap: wrap;
+    }
+
+    .ipl-selector__panel-duration {
+      font-family: var(--font-label);
+      font-size: 0.55rem;
+      letter-spacing: 0.25em;
+      text-transform: uppercase;
+      color: rgba(44, 44, 44, 0.45);
+    }
+
+    .ipl-selector__panel-prices {
+      display: flex;
+      gap: 2.5rem;
+      margin-bottom: 1rem;
+      flex-wrap: wrap;
+    }
+
+    .ipl-selector__price-label {
+      display: block;
+      font-family: var(--font-label);
+      font-size: 0.55rem;
+      letter-spacing: 0.28em;
+      text-transform: uppercase;
+      color: rgba(44, 44, 44, 0.5);
+      margin-bottom: 0.4rem;
+      font-weight: 300;
+    }
+
+    .ipl-selector__price {
+      font-family: var(--font-display);
+      font-size: 1.6rem;
+      font-weight: 300;
+      color: var(--color-charcoal);
+    }
+
+    .ipl-selector__price--series {
+      color: var(--color-terracotta);
+      font-weight: 400;
+      display: flex;
+      align-items: baseline;
+      gap: 0.6rem;
+    }
+
+    .ipl-selector__original {
+      font-family: var(--font-label);
+      font-size: 0.62rem;
+      letter-spacing: 0.18em;
+      color: rgba(44, 44, 44, 0.4);
+    }
+
+    .ipl-selector__save-chip {
+      display: inline-block;
+      margin-top: 0.5rem;
+      font-family: var(--font-label);
+      font-size: 0.56rem;
+      letter-spacing: 0.22em;
+      text-transform: uppercase;
+      color: var(--color-terracotta);
+      background: rgba(196, 103, 58, 0.1);
+      padding: 0.3rem 0.7rem;
+      border-radius: 999px;
+    }
+
+    .ipl-selector__panel-per {
+      font-size: 0.85rem;
+      color: rgba(44, 44, 44, 0.55);
+      margin-bottom: 1.75rem;
+    }
+
+    .ipl-selector__book {
+      align-self: flex-start;
+    }
+
+    .ipl-selector__footnote {
+      margin-top: 1.25rem;
+      font-size: 0.8rem;
+      font-style: italic;
+      color: rgba(44, 44, 44, 0.5);
+    }
+
+    @media (max-width: 768px) {
+      .ipl-selector {
+        grid-template-columns: 1fr;
+        margin-bottom: 3.5rem;
+      }
+
+      .ipl-selector__areas {
+        grid-template-columns: 1fr 1fr;
+        border-right: none;
+        border-bottom: 1px solid rgba(184, 154, 90, 0.2);
+      }
+
+      .ipl-selector__area {
+        padding: 0.9rem 1rem;
+        font-size: 0.56rem;
+        border-right: 1px solid rgba(184, 154, 90, 0.2);
+        flex-direction: column;
+        align-items: flex-start;
+        justify-content: center;
+        gap: 0.35rem;
+      }
+
+      .ipl-selector__area:nth-child(2n) {
+        border-right: none;
+      }
+
+      .ipl-selector__area:nth-last-child(-n+2) {
+        border-bottom: none;
+      }
+
+      .ipl-selector__panel {
+        padding: 1.75rem 1.5rem 2rem;
+      }
+
+      .ipl-selector__panel-prices {
+        gap: 1.5rem;
+      }
+
+      .ipl-selector__book {
+        align-self: stretch;
+        text-align: center;
+      }
+    }
+
+    /* ============================================================
+       TRUST BAND — stand-in while B&A photography is pending
+    ============================================================ */
+    .ipl-trust {
+      padding: 5rem 8%;
+      background: var(--color-cream-pure);
+      text-align: center;
+    }
+
+    .ipl-trust__quote-wrap {
+      max-width: 720px;
+      margin: 0 auto 3.5rem;
+    }
+
+    .ipl-trust__stars {
+      display: flex;
+      justify-content: center;
+      gap: 0.35rem;
+      margin: 1.5rem 0 1.75rem;
+    }
+
+    .ipl-trust__stars svg {
+      width: 16px;
+      height: 16px;
+      fill: var(--color-gold);
+    }
+
+    .ipl-trust__quote {
+      font-family: var(--font-display);
+      font-size: 1.45rem;
+      font-weight: 300;
+      font-style: italic;
+      line-height: 1.6;
+      color: var(--color-charcoal);
+      margin-bottom: 1.25rem;
+    }
+
+    .ipl-trust__cite {
+      font-family: var(--font-label);
+      font-size: 0.6rem;
+      letter-spacing: 0.28em;
+      text-transform: uppercase;
+      color: rgba(44, 44, 44, 0.55);
+      font-style: normal;
+    }
+
+    .ipl-trust__points {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 2.5rem;
+      max-width: 900px;
+      margin: 0 auto 3rem;
+    }
+
+    .ipl-trust__point h4 {
+      font-family: var(--font-label);
+      font-size: 0.62rem;
+      font-weight: 400;
+      letter-spacing: 0.28em;
+      text-transform: uppercase;
+      color: var(--color-terracotta);
+      margin-bottom: 0.75rem;
+    }
+
+    .ipl-trust__point p {
+      font-size: 0.88rem;
+      color: rgba(44, 44, 44, 0.65);
+      line-height: 1.7;
+    }
+
+    .ipl-trust__note {
+      font-size: 0.8rem;
+      font-style: italic;
+      color: rgba(44, 44, 44, 0.45);
+    }
+
+    @media (max-width: 768px) {
+      .ipl-trust {
+        padding: 4rem 6%;
+      }
+
+      .ipl-trust__quote {
+        font-size: 1.2rem;
+      }
+
+      .ipl-trust__points {
+        grid-template-columns: 1fr;
+        gap: 2rem;
+      }
+    }
   </style>
 
   <!-- Structured Data: Service + FAQ + Breadcrumbs -->
@@ -1414,8 +2039,11 @@
         { "@type": "Offer", "name": "Face + Neck + Chest — Single Session", "price": "575", "priceCurrency": "USD" },
         { "@type": "Offer", "name": "Face + Neck + Chest — Series of Three", "price": "1550", "priceCurrency": "USD" },
         { "@type": "Offer", "name": "Neck Only — Single Session", "price": "225", "priceCurrency": "USD" },
+        { "@type": "Offer", "name": "Neck Only — Series of Three", "price": "600", "priceCurrency": "USD" },
         { "@type": "Offer", "name": "Chest Only — Single Session", "price": "300", "priceCurrency": "USD" },
-        { "@type": "Offer", "name": "Hands — Single Session", "price": "175", "priceCurrency": "USD" }
+        { "@type": "Offer", "name": "Chest Only — Series of Three", "price": "800", "priceCurrency": "USD" },
+        { "@type": "Offer", "name": "Hands — Single Session", "price": "175", "priceCurrency": "USD" },
+        { "@type": "Offer", "name": "Hands — Series of Three", "price": "475", "priceCurrency": "USD" }
       ]
     },
     "potentialAction": {
@@ -1431,7 +2059,7 @@
     "@type": "FAQPage",
     "mainEntity": [
       { "@type": "Question", "name": "Is IPL safe for my skin tone?", "acceptedAnswer": { "@type": "Answer", "text": "IPL is best suited to lighter skin tones (Fitzpatrick I–III). Every consultation includes a skin-tone evaluation and a small test pulse on your first visit. If we don't think it's safe for your skin, we won't proceed." } },
-      { "@type": "Question", "name": "What does the treatment feel like?", "acceptedAnswer": { "@type": "Answer", "text": "Most clients describe it as a warm rubber-band snap. Pulses are brief. Cooling and topical numbing are available if you'd like." } },
+      { "@type": "Question", "name": "What does the treatment feel like?", "acceptedAnswer": { "@type": "Answer", "text": "Most clients describe it as a warm rubber-band snap. Pulses are brief. Cooling is available if you'd like." } },
       { "@type": "Question", "name": "How much downtime should I expect?", "acceptedAnswer": { "@type": "Answer", "text": "None to minimal. You may notice mild redness for a few hours, then darkening of the pigment for 7–10 days before it sheds. You can wear makeup the next day." } },
       { "@type": "Question", "name": "When will I see results?", "acceptedAnswer": { "@type": "Answer", "text": "Initial brightening shows within 7–14 days of your first session. The full effect (even tone, less pigment, less redness) develops across the series of three." } },
       { "@type": "Question", "name": "How long do results last?", "acceptedAnswer": { "@type": "Answer", "text": "Years, with disciplined sun protection. Most clients come in for one or two maintenance sessions per year." } },
@@ -1499,12 +2127,17 @@
       <img class="ipl-hero__img-accent" src="assets/images/ipl/ipl-hero-accent.jpg" alt="Luminous, even-toned skin after IPL photofacial">
     </div>
     <div class="ipl-hero__content">
-      <p class="eyebrow" id="iplHeroEyebrow">IPL Photofacial</p>
+      <p class="eyebrow" id="iplHeroEyebrow">IPL Photofacial &middot; Griffin,&nbsp;GA</p>
       <h1 class="ipl-hero__title">Clearer Skin<em>Through IPL.</em></h1>
-      <p class="ipl-hero__text">Our IPL photofacial treats sun damage, pigmentation, redness, and uneven tone. A gentle treatment with results that hold for years.</p>
+      <p class="ipl-hero__text">Brown spots, stubborn redness, uneven tone — our OptiLight IPL photofacial treats what sun and time leave behind. Gentle sessions, results that hold for years.</p>
+      <div class="ipl-hero__chips" aria-label="Common concerns IPL treats">
+        <a href="#quiz" class="ipl-hero__chip" data-concern="sun">Sun Damage &amp; Dark Spots</a>
+        <a href="#quiz" class="ipl-hero__chip" data-concern="redness">Redness &amp; Rosacea</a>
+        <a href="#quiz" class="ipl-hero__chip" data-concern="tone">Uneven Tone</a>
+      </div>
       <div class="ipl-hero__ctas">
         <a href="https://maxaraaesthetics.glossgenius.com/booking-flow" target="_blank" class="btn btn--light"><span>Book Your IPL</span></a>
-        <a href="#pricing" class="btn btn--light btn--ghost"><span>See Pricing</span></a>
+        <a href="#quiz" class="btn btn--light btn--ghost"><span>Is IPL Right for Me?</span></a>
       </div>
     </div>
   </section>
@@ -1601,6 +2234,88 @@
   </section>
 
   <!-- ============================================================
+       QUALIFYING QUIZ — Is IPL Right for You?
+  ============================================================ -->
+  <section class="ipl-quiz" id="quiz">
+    <div class="ipl-quiz__header reveal-up">
+      <p class="eyebrow" id="iplQuizEyebrow" style="justify-content:center;">A 30-Second Check</p>
+      <h2 class="section-headline">Is IPL<br><em>Right for You?</em></h2>
+      <p>Four quick questions. Honest answer — IPL isn't for everyone, and we'd rather tell you now.</p>
+    </div>
+
+    <div class="ipl-quiz__card reveal-up" id="iplQuizWidget" role="region" aria-label="Is IPL right for you quiz">
+      <div class="ipl-quiz__progress" id="iplQuizProgress" aria-hidden="true">
+        <div class="ipl-quiz__dot active" data-step="0"></div>
+        <div class="ipl-quiz__dot" data-step="1"></div>
+        <div class="ipl-quiz__dot" data-step="2"></div>
+        <div class="ipl-quiz__dot" data-step="3"></div>
+      </div>
+
+      <div class="ipl-quiz__steps" id="iplQuizSteps">
+        <!-- Step 1: Concern -->
+        <div class="ipl-quiz__step active" data-step="0">
+          <p class="ipl-quiz__question">What are we treating first?</p>
+          <div class="ipl-quiz__options" role="group" aria-label="What are we treating first?">
+            <button class="ipl-quiz__option" data-value="sun">Brown spots, sun damage, freckling</button>
+            <button class="ipl-quiz__option" data-value="redness">Redness, flushing, or rosacea</button>
+            <button class="ipl-quiz__option" data-value="tone">Dull or uneven tone</button>
+            <button class="ipl-quiz__option" data-value="melasma">Melasma — hormonal patches</button>
+          </div>
+        </div>
+
+        <!-- Step 2: Skin tone (Fitzpatrick proxy) -->
+        <div class="ipl-quiz__step" data-step="1">
+          <p class="ipl-quiz__question">In summer sun, your skin usually&hellip;</p>
+          <div class="ipl-quiz__options" role="group" aria-label="In summer sun, your skin usually…">
+            <button class="ipl-quiz__option" data-value="fair">Burns quickly, rarely tans</button>
+            <button class="ipl-quiz__option" data-value="light">Burns first, then tans</button>
+            <button class="ipl-quiz__option" data-value="medium">Tans easily, rarely burns</button>
+            <button class="ipl-quiz__option" data-value="deep">Deep complexion, almost never burns</button>
+          </div>
+        </div>
+
+        <!-- Step 3: Recent sun -->
+        <div class="ipl-quiz__step" data-step="2">
+          <p class="ipl-quiz__question">Any real sun, tanning beds, or self-tanner in the last four weeks?</p>
+          <div class="ipl-quiz__options" role="group" aria-label="Any real sun, tanning beds, or self-tanner in the last four weeks?">
+            <button class="ipl-quiz__option" data-value="no-tan">No — my skin is at its base tone</button>
+            <button class="ipl-quiz__option" data-value="recent-tan">Yes — tan, burn, or self-tanner</button>
+            <button class="ipl-quiz__option" data-value="frequent-tan">I tan regularly (beds or outdoors)</button>
+          </div>
+        </div>
+
+        <!-- Step 4: Area -->
+        <div class="ipl-quiz__step" data-step="3">
+          <p class="ipl-quiz__question">Where do you notice it most?</p>
+          <div class="ipl-quiz__options" role="group" aria-label="Where do you notice it most?">
+            <button class="ipl-quiz__option" data-value="face">Face</button>
+            <button class="ipl-quiz__option" data-value="face-neck">Face + neck</button>
+            <button class="ipl-quiz__option" data-value="face-neck-chest">Face, neck &amp; chest</button>
+            <button class="ipl-quiz__option" data-value="neck">Neck</button>
+            <button class="ipl-quiz__option" data-value="chest">Chest</button>
+            <button class="ipl-quiz__option" data-value="hands">Hands</button>
+          </div>
+        </div>
+      </div>
+
+      <!-- Result -->
+      <div class="ipl-quiz__result" id="iplQuizResult" aria-live="polite">
+        <p class="ipl-quiz__result-label" id="iplQuizResultLabel"></p>
+        <h3 class="ipl-quiz__result-name" id="iplQuizResultName"></h3>
+        <p class="ipl-quiz__result-desc" id="iplQuizResultDesc"></p>
+        <div class="ipl-quiz__result-price" id="iplQuizResultPrice">
+          <span class="ipl-quiz__result-original" id="iplQuizResultOriginal"></span>
+          <span class="ipl-quiz__result-series" id="iplQuizResultSeries"></span>
+          <span class="ipl-quiz__result-save" id="iplQuizResultSave"></span>
+        </div>
+        <a href="https://maxaraaesthetics.glossgenius.com/booking-flow" target="_blank" class="btn btn--terracotta" id="iplQuizResultCta"><span>Book a Consultation</span></a>
+        <p class="ipl-quiz__result-alt"><a href="#pricing" id="iplQuizResultSecondary">See full pricing</a></p>
+        <button class="ipl-quiz__retake" id="iplQuizRetake">Retake Quiz</button>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================================================
        PRICING
   ============================================================ -->
   <section class="ipl-pricing" id="pricing">
@@ -1613,6 +2328,35 @@
       <div class="ipl-pricing__band-right">
         <p class="ipl-pricing__band-tagline">"The series is what we recommend.<br>Each session builds on the last."</p>
         <p class="ipl-pricing__band-footnote">Reserve your series below. Each area links to its package.</p>
+      </div>
+    </div>
+
+    <!-- Interactive area/price selector -->
+    <div class="ipl-selector reveal-up" id="iplSelector">
+      <div class="ipl-selector__areas" role="group" aria-label="Choose a treatment area">
+        <button class="ipl-selector__area" data-area="face" aria-pressed="false">Face</button>
+        <button class="ipl-selector__area" data-area="face-neck" aria-pressed="false">Face + Neck</button>
+        <button class="ipl-selector__area ipl-selector__area--featured" data-area="face-neck-chest" aria-pressed="false">Face + Neck + Chest<span class="ipl-selector__badge">Most Chosen</span></button>
+        <button class="ipl-selector__area" data-area="neck" aria-pressed="false">Neck Only</button>
+        <button class="ipl-selector__area" data-area="chest" aria-pressed="false">Chest Only</button>
+        <button class="ipl-selector__area" data-area="hands" aria-pressed="false">Hands</button>
+      </div>
+      <div class="ipl-selector__panel" id="iplSelectorPanel" aria-live="polite">
+        <p class="ipl-selector__panel-area"><span id="iplSelectorArea"></span><span class="ipl-selector__panel-duration">~ 30 min per session</span></p>
+        <div class="ipl-selector__panel-prices">
+          <div class="ipl-selector__price-block">
+            <span class="ipl-selector__price-label">Single Session</span>
+            <span class="ipl-selector__price" id="iplSelectorSingle"></span>
+          </div>
+          <div class="ipl-selector__price-block ipl-selector__price-block--series">
+            <span class="ipl-selector__price-label">Series of Three</span>
+            <span class="ipl-selector__price ipl-selector__price--series"><s class="ipl-selector__original" id="iplSelectorOriginal"></s><span id="iplSelectorSeries"></span></span>
+            <span class="ipl-selector__save-chip" id="iplSelectorSave"></span>
+          </div>
+        </div>
+        <p class="ipl-selector__panel-per" id="iplSelectorPer"></p>
+        <a href="#" target="_blank" class="btn btn--terracotta ipl-selector__book" id="iplSelectorBook"><span>Reserve This Series</span></a>
+        <p class="ipl-selector__footnote">Prefer one session at a time? Full menu below.</p>
       </div>
     </div>
 
@@ -1934,6 +2678,40 @@
   </section>
   -->
 
+  <!-- ============================================================
+       TRUST — honest stand-in while B&A photography is pending
+  ============================================================ -->
+  <section class="ipl-trust">
+    <div class="ipl-trust__quote-wrap reveal-up">
+      <p class="eyebrow" id="iplTrustEyebrow" style="justify-content:center;">Why Clients Trust Us</p>
+      <div class="ipl-trust__stars" aria-label="5 star Google review">
+        <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+        <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+        <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+        <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+        <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+      </div>
+      <blockquote class="ipl-trust__quote">"She was professional, gentle, and incredibly knowledgeable about skincare. The experience was relaxing, and my skin feels refreshed, glowing, and healthier than it's ever been."</blockquote>
+      <cite class="ipl-trust__cite">&mdash; Toi J. &middot; Google Review</cite>
+    </div>
+
+    <div class="ipl-trust__points">
+      <div class="ipl-trust__point reveal-up">
+        <h4>Lumenis OptiLight</h4>
+        <p>The same IPL platform used in ophthalmology and dermatology practices.</p>
+      </div>
+      <div class="ipl-trust__point reveal-up">
+        <h4>Test Pulse First</h4>
+        <p>Every first visit starts with a tone evaluation and a small test pulse.</p>
+      </div>
+      <div class="ipl-trust__point reveal-up">
+        <h4>No Pressure</h4>
+        <p>If IPL isn't safe for your skin, we'll say so and suggest what is.</p>
+      </div>
+    </div>
+
+    <p class="ipl-trust__note reveal-up">Before-and-after gallery coming soon &mdash; we only publish real, unretouched client photos.</p>
+  </section>
 
   <!-- ============================================================
        PREP & AFTERCARE
@@ -2302,6 +3080,240 @@
           }
         });
       });
+    })();
+
+    // ================================================================
+    // 6. SHARED PACKAGE DATA — quiz + selector single source of truth
+    //    Prices must match the pricing table and JSON-LD OfferCatalog.
+    // ================================================================
+    const IPL_PACKAGES = {
+      'face':            { label: 'Face',                 single: 350, series: 950,  url: 'https://maxaraaesthetics.glossgenius.com/shop/packages/10026-73508b9c-bb62-4eaf-af1b-97cf8d0d159d' },
+      'face-neck':       { label: 'Face + Neck',          single: 450, series: 1200, url: 'https://maxaraaesthetics.glossgenius.com/shop/packages/10026-8548d053-060b-4062-9dd0-4dbe223d6845' },
+      'face-neck-chest': { label: 'Face + Neck + Chest',  single: 575, series: 1550, url: 'https://maxaraaesthetics.glossgenius.com/shop/packages/10026-f8a48d66-2edf-4549-a0ba-8da75e3e5c92' },
+      'neck':            { label: 'Neck Only',            single: 225, series: 600,  url: 'https://maxaraaesthetics.glossgenius.com/shop/packages/10026-e27449d1-cd74-4aa5-8101-070e7d76c0e6' },
+      'chest':           { label: 'Chest Only',           single: 300, series: 800,  url: 'https://maxaraaesthetics.glossgenius.com/shop/packages/10026-53f2685a-c18d-48d0-8596-e4c2dfbb32cb' },
+      'hands':           { label: 'Hands',                single: 175, series: 475,  url: 'https://maxaraaesthetics.glossgenius.com/shop/packages/10026-f958a356-9d54-4d29-9bdf-7641f131669d' }
+    };
+
+    const IPL_CONSULT_URL = 'https://maxaraaesthetics.glossgenius.com/booking-flow';
+
+    function iplFmt(n) {
+      return '$' + n.toLocaleString('en-US');
+    }
+
+    function iplTrack(event, data) {
+      window.dataLayer = window.dataLayer || [];
+      window.dataLayer.push(Object.assign({ event: event }, data || {}));
+    }
+
+    // ================================================================
+    // 7. QUALIFYING QUIZ — Is IPL Right for You?
+    // ================================================================
+    (function initIplQuiz() {
+      const widget = document.getElementById('iplQuizWidget');
+      if (!widget) return;
+
+      const steps = widget.querySelectorAll('.ipl-quiz__step');
+      const dots = widget.querySelectorAll('.ipl-quiz__dot');
+      const stepsContainer = document.getElementById('iplQuizSteps');
+      const progress = document.getElementById('iplQuizProgress');
+      const result = document.getElementById('iplQuizResult');
+      const resultLabel = document.getElementById('iplQuizResultLabel');
+      const resultName = document.getElementById('iplQuizResultName');
+      const resultDesc = document.getElementById('iplQuizResultDesc');
+      const resultPrice = document.getElementById('iplQuizResultPrice');
+      const resultOriginal = document.getElementById('iplQuizResultOriginal');
+      const resultSeries = document.getElementById('iplQuizResultSeries');
+      const resultSave = document.getElementById('iplQuizResultSave');
+      const resultCta = document.getElementById('iplQuizResultCta');
+      const resultSecondary = document.getElementById('iplQuizResultSecondary');
+      const retakeBtn = document.getElementById('iplQuizRetake');
+
+      const answers = {};
+
+      // Consult-first outcomes, checked in precedence order.
+      // IPL is Fitzpatrick I–III only and can aggravate melasma — the
+      // quiz must never route those answers to a package purchase.
+      const consultRoutes = [
+        {
+          match: () => answers[0] === 'melasma',
+          reason: 'melasma',
+          name: 'Let’s Talk First',
+          desc: 'IPL and melasma don’t mix — heat can darken hormonal pigment. A consultation lets us map a safer route for your skin.'
+        },
+        {
+          match: () => answers[1] === 'deep',
+          reason: 'skin-tone',
+          name: 'A Better Fit Exists',
+          desc: 'IPL is safest on lighter skin tones (Fitzpatrick I–III). For deeper complexions we’ll recommend something better suited — come talk with us.'
+        },
+        {
+          match: () => answers[1] === 'medium',
+          reason: 'borderline-tone',
+          name: 'You May Be a Candidate',
+          desc: 'Skin that tans easily needs an in-person tone evaluation and a test pulse before we treat. That’s part of every first visit — let’s start there.'
+        },
+        {
+          match: () => answers[2] === 'recent-tan' || answers[2] === 'frequent-tan',
+          reason: 'recent-sun',
+          name: 'Good News — Just Not Yet',
+          desc: 'IPL needs your skin at its base tone. Book a consultation now, and we’ll schedule treatment about four weeks after your last real sun.'
+        }
+      ];
+
+      function showStep(index) {
+        steps.forEach(s => s.classList.remove('active'));
+        dots.forEach((d, i) => {
+          d.classList.remove('active');
+          d.classList.toggle('completed', i < index);
+          if (i === index) d.classList.add('active');
+        });
+        if (steps[index]) steps[index].classList.add('active');
+      }
+
+      function showResult() {
+        const consult = consultRoutes.find(r => r.match());
+
+        if (consult) {
+          resultLabel.textContent = 'Our Honest Take';
+          resultName.textContent = consult.name;
+          resultDesc.textContent = consult.desc;
+          resultPrice.classList.remove('visible');
+          resultCta.href = IPL_CONSULT_URL;
+          resultCta.querySelector('span').textContent = 'Book a Consultation';
+          resultCta.dataset.outcome = 'consult';
+          resultSecondary.textContent = 'Browse pricing anyway';
+          iplTrack('ipl_quiz_complete', { quiz_outcome: 'consult', quiz_reason: consult.reason, quiz_concern: answers[0] });
+        } else {
+          const pkg = IPL_PACKAGES[answers[3]] || IPL_PACKAGES['face'];
+          resultLabel.textContent = 'Our Recommendation';
+          resultName.textContent = pkg.label + ' · Series of Three';
+          resultDesc.textContent = 'You look like a strong candidate. Based on where you notice it most, here’s our recommendation — confirmed with a tone evaluation and test pulse at your first visit.';
+          resultOriginal.textContent = iplFmt(pkg.single * 3);
+          resultSeries.textContent = iplFmt(pkg.series);
+          resultSave.textContent = 'Save ' + iplFmt(pkg.single * 3 - pkg.series);
+          resultPrice.classList.add('visible');
+          resultCta.href = pkg.url;
+          resultCta.querySelector('span').textContent = 'Reserve the Series';
+          resultCta.dataset.outcome = 'package';
+          resultSecondary.textContent = 'See full pricing';
+          iplTrack('ipl_quiz_complete', { quiz_outcome: 'package', quiz_area: answers[3], quiz_concern: answers[0] });
+        }
+
+        stepsContainer.style.display = 'none';
+        progress.style.display = 'none';
+        result.classList.add('active');
+      }
+
+      widget.querySelectorAll('.ipl-quiz__option').forEach(option => {
+        option.addEventListener('click', () => {
+          const step = option.closest('.ipl-quiz__step');
+          const stepIndex = parseInt(step.getAttribute('data-step'), 10);
+
+          step.querySelectorAll('.ipl-quiz__option').forEach(o => o.classList.remove('selected'));
+          option.classList.add('selected');
+
+          answers[stepIndex] = option.getAttribute('data-value');
+
+          setTimeout(() => {
+            if (stepIndex < steps.length - 1) {
+              showStep(stepIndex + 1);
+            } else {
+              showResult();
+            }
+          }, 350);
+        });
+      });
+
+      resultCta.addEventListener('click', () => {
+        iplTrack('ipl_quiz_book_click', { outcome: resultCta.dataset.outcome || 'unknown' });
+      });
+
+      retakeBtn.addEventListener('click', () => {
+        Object.keys(answers).forEach(k => delete answers[k]);
+        widget.querySelectorAll('.ipl-quiz__option').forEach(o => o.classList.remove('selected'));
+        result.classList.remove('active');
+        stepsContainer.style.display = '';
+        progress.style.display = '';
+        showStep(0);
+      });
+
+      // Hero concern chips pre-seed Q1 and land the visitor on Q2.
+      document.querySelectorAll('.ipl-hero__chip[data-concern]').forEach(chip => {
+        chip.addEventListener('click', () => {
+          const concern = chip.getAttribute('data-concern');
+          const option = widget.querySelector('.ipl-quiz__step[data-step="0"] .ipl-quiz__option[data-value="' + concern + '"]');
+          if (!option) return;
+
+          // Reset any prior state so the chip always starts a fresh pass
+          Object.keys(answers).forEach(k => delete answers[k]);
+          widget.querySelectorAll('.ipl-quiz__option').forEach(o => o.classList.remove('selected'));
+          result.classList.remove('active');
+          stepsContainer.style.display = '';
+          progress.style.display = '';
+
+          option.classList.add('selected');
+          answers[0] = concern;
+          showStep(1);
+        });
+      });
+    })();
+
+    // ================================================================
+    // 8. AREA / PRICE SELECTOR
+    // ================================================================
+    (function initIplSelector() {
+      const selector = document.getElementById('iplSelector');
+      if (!selector) return;
+
+      const buttons = selector.querySelectorAll('.ipl-selector__area');
+      const panel = document.getElementById('iplSelectorPanel');
+      const areaEl = document.getElementById('iplSelectorArea');
+      const singleEl = document.getElementById('iplSelectorSingle');
+      const originalEl = document.getElementById('iplSelectorOriginal');
+      const seriesEl = document.getElementById('iplSelectorSeries');
+      const saveEl = document.getElementById('iplSelectorSave');
+      const perEl = document.getElementById('iplSelectorPer');
+      const bookEl = document.getElementById('iplSelectorBook');
+
+      function render(key) {
+        const pkg = IPL_PACKAGES[key];
+        if (!pkg) return;
+
+        areaEl.textContent = pkg.label;
+        singleEl.textContent = iplFmt(pkg.single);
+        originalEl.textContent = iplFmt(pkg.single * 3);
+        seriesEl.textContent = iplFmt(pkg.series);
+        saveEl.textContent = 'Save ' + iplFmt(pkg.single * 3 - pkg.series);
+        perEl.textContent = iplFmt(Math.round(pkg.series / 3)) + ' per session across the series.';
+        bookEl.href = pkg.url;
+        bookEl.dataset.area = key;
+
+        buttons.forEach(b => {
+          const isActive = b.getAttribute('data-area') === key;
+          b.classList.toggle('active', isActive);
+          b.setAttribute('aria-pressed', isActive ? 'true' : 'false');
+        });
+      }
+
+      buttons.forEach(btn => {
+        btn.addEventListener('click', () => {
+          const key = btn.getAttribute('data-area');
+          if (btn.classList.contains('active')) return;
+
+          panel.classList.add('switching');
+          setTimeout(() => {
+            render(key);
+            panel.classList.remove('switching');
+          }, 250);
+        });
+      });
+
+      bookEl.addEventListener('click', () => {
+        iplTrack('ipl_selector_book_click', { area: bookEl.dataset.area || 'unknown' });
+      });
+
+      render('face-neck-chest');
     })();
   </script>
   <script>
