@@ -497,6 +497,28 @@
       color: rgba(245, 240, 232, 0.3);
     }
 
+    .service-card__badge {
+      position: absolute;
+      top: 3rem;
+      right: 2.5rem;
+      font-family: var(--font-label);
+      font-size: 0.55rem;
+      font-weight: 400;
+      letter-spacing: 0.28em;
+      text-transform: uppercase;
+      color: var(--color-terracotta);
+      border: 1px solid var(--color-terracotta);
+      padding: 0.4rem 0.75rem 0.3rem;
+      border-radius: 2px;
+      z-index: 1;
+      transition: color 0.4s ease, border-color 0.4s ease;
+    }
+
+    .service-card:hover .service-card__badge {
+      color: var(--color-cream-pure);
+      border-color: rgba(245, 240, 232, 0.6);
+    }
+
     .service-card h3 {
       font-family: var(--font-display);
       font-size: 1.4rem;
@@ -1585,8 +1607,21 @@
     <div class="services__grid">
       <div class="service-card">
         <div class="service-card__fill"></div>
+        <span class="service-card__badge">New</span>
         <div class="service-card__content">
           <div class="service-card__number">01</div>
+          <h3>Injectables</h3>
+          <p>Wrinkle relaxers and dermal fillers administered by our nurse practitioner — softening expression lines and restoring natural volume with a personalized, consultation-first approach.</p>
+          <a href="injectables.html" class="service-card__link">
+            Learn More
+            <svg viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" d="M17 8l4 4m0 0l-4 4m4-4H3"/></svg>
+          </a>
+        </div>
+      </div>
+      <div class="service-card">
+        <div class="service-card__fill"></div>
+        <div class="service-card__content">
+          <div class="service-card__number">02</div>
           <h3>HydraFacials</h3>
           <p>A multi-step resurfacing treatment that deeply cleanses, extracts, and infuses your skin with nourishing serums — leaving it visibly plump, clear, and radiant after just one session.</p>
           <a href="hydrafacial.html" class="service-card__link">
@@ -1598,7 +1633,7 @@
       <div class="service-card">
         <div class="service-card__fill"></div>
         <div class="service-card__content">
-          <div class="service-card__number">02</div>
+          <div class="service-card__number">03</div>
           <h3>Chemical Peels</h3>
           <p>Expertly selected acid formulations that resurface, refine, and renew — targeting uneven tone, fine lines, acne scarring, and dullness with precision and measurable results.</p>
           <a href="chemical-peels.html" class="service-card__link">
@@ -1610,7 +1645,7 @@
       <div class="service-card">
         <div class="service-card__fill"></div>
         <div class="service-card__content">
-          <div class="service-card__number">03</div>
+          <div class="service-card__number">04</div>
           <h3>Laser Hair Removal</h3>
           <p>Long-lasting smoothness through state-of-the-art laser technology — safe, effective, and tailored to your skin tone and hair type for permanent reduction with every session.</p>
           <a href="laser-hair-removal.html" class="service-card__link">
@@ -1622,7 +1657,7 @@
       <div class="service-card">
         <div class="service-card__fill"></div>
         <div class="service-card__content">
-          <div class="service-card__number">04</div>
+          <div class="service-card__number">05</div>
           <h3>IPL Photofacial</h3>
           <p>Sun spots, redness, and uneven tone — corrected with pulsed light. Three gentle sessions for skin that reads clear and even, with results that hold for years.</p>
           <a href="ipl.html" class="service-card__link">
@@ -1634,7 +1669,7 @@
       <div class="service-card">
         <div class="service-card__fill"></div>
         <div class="service-card__content">
-          <div class="service-card__number">05</div>
+          <div class="service-card__number">06</div>
           <h3>Microneedling</h3>
           <p>Controlled micro-channels stimulate your skin's natural collagen response — visibly reducing scarring, laxity, and texture while restoring a firm, smooth, and luminous complexion.</p>
           <a href="microneedling.html" class="service-card__link">
@@ -1646,7 +1681,7 @@
       <div class="service-card">
         <div class="service-card__fill"></div>
         <div class="service-card__content">
-          <div class="service-card__number">06</div>
+          <div class="service-card__number">07</div>
           <h3>Waxing</h3>
           <p>Smooth, precise, and thorough hair removal using premium waxes formulated for sensitive skin — from brows and face to full body, delivered with care and expert technique.</p>
           <a href="waxing.html" class="service-card__link">
@@ -1658,7 +1693,7 @@
       <div class="service-card">
         <div class="service-card__fill"></div>
         <div class="service-card__content">
-          <div class="service-card__number">07</div>
+          <div class="service-card__number">08</div>
           <h3>Advanced Skincare</h3>
           <p>A curated collection of specialized treatments — including Ultherapy, Jet Plasma, and more — each designed for targeted transformation. Explore our full menu of advanced offerings.</p>
           <a href="advanced-skincare.html" class="service-card__link">

@@ -1,6 +1,6 @@
 # Maxará Aesthetics
 
-> Boutique medical spa in Griffin, Georgia. HydraFacials, chemical peels, laser hair removal, microneedling, waxing, and advanced skincare under medical direction. Founded and led by licensed esthetician Amanda Cortes, with medical direction by Dr. Lori Martin, M.D.
+> Boutique medical spa in Griffin, Georgia. Injectables (wrinkle relaxers and dermal fillers), HydraFacials, chemical peels, laser hair removal, microneedling, waxing, and advanced skincare under medical direction. Founded and led by licensed esthetician Amanda Cortes, with medical direction by Dr. Lori Martin, M.D.
 
 ## Practice information
 
@@ -17,11 +17,13 @@
 ## Team
 
 - **Amanda Cortes** — Licensed Esthetician & Co-Founder. 10+ years of experience. Laser Certified. HydraFacial Specialist.
-- **Courtney Nelson** — Client Coordinator. 10+ years customer service.
+- **Lindsay Helms, FNP** — Nurse Practitioner & Injector. Board-certified Family Nurse Practitioner performing wrinkle relaxer and dermal filler treatments.
+- **Maria McWilliams** — Client Coordinator. 10 years of experience as an esthetician, 3 years as a receptionist.
 - **Dr. Lori Martin, M.D.** — Medical Director. MD from Ross University School of Medicine. Residency at Memorial Health University Medical Center, Savannah. Additional training at the Institute for Functional Medicine and the American Academy of Anti-Aging Medicine. Focus on regenerative and anti-aging medicine, functional medicine, and aesthetic medicine.
 
 ## Services
 
+- [Injectables](https://www.maxaraaesthetics.com/injectables.html): Wrinkle relaxers and dermal fillers administered by nurse practitioner Lindsay Helms, FNP. Consultation required; pricing personalized at consultation.
 - [HydraFacial](https://www.maxaraaesthetics.com/hydrafacial.html): Two tiers — Signature (30 min) and Deluxe (45 min). LED light therapy and booster serum options. No downtime.
 - [Chemical Peels](https://www.maxaraaesthetics.com/chemical-peels.html): Jessner peel formulations. Face & Neck $125 / 45 min; Chest $125 / 45 min; Body $150 / 60 min.
 - [Laser Hair Removal](https://www.maxaraaesthetics.com/laser-hair-removal.html): Candela GentleYAG Pro (1064nm Nd:YAG with Dynamic Cooling). Safe for all skin tones. Small Area from $75 / 15 min; Medium and Large Area tiers available.
