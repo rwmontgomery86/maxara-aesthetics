@@ -11,7 +11,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Gift Cards — Maxará Aesthetics</title>
-  <meta name="description" content="Give the gift of luxury skincare. Purchase eGift cards or traditional gift cards from $10 to $500 at Maxará Aesthetics in Griffin, GA.">
+  <meta name="description" content="Give the gift of luxury skincare. Send an eGift card online from $25 to $1,000, or pick up a physical gift card at Maxará Aesthetics in Griffin, GA.">
   <link rel="canonical" href="https://www.maxaraaesthetics.com/gift-cards.html">
   <meta name="robots" content="index, follow, max-image-preview:large">
   <link rel="icon" type="image/png" href="assets/images/logos/Logo.png">
@@ -20,21 +20,25 @@
   <meta property="og:type" content="website">
   <meta property="og:url" content="https://www.maxaraaesthetics.com/gift-cards.html">
   <meta property="og:title" content="Gift Cards — Maxará Aesthetics">
-  <meta property="og:description" content="Give the gift of luxury skincare. Purchase eGift cards or traditional gift cards from $10 to $500 at Maxará Aesthetics in Griffin, GA.">
-  <meta property="og:image" content="https://www.maxaraaesthetics.com/assets/images/gift-cards/gift-card-image.jpeg">
+  <meta property="og:description" content="Give the gift of luxury skincare. Send an eGift card online from $25 to $1,000, or pick up a physical gift card at Maxará Aesthetics in Griffin, GA.">
+  <meta property="og:image" content="https://www.maxaraaesthetics.com/assets/images/gift-cards/gift-card.jpg">
   <meta property="og:site_name" content="Maxará Aesthetics">
   <meta property="og:locale" content="en_US">
 
   <!-- Twitter Card -->
   <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:title" content="Gift Cards — Maxará Aesthetics">
-  <meta name="twitter:description" content="Give the gift of luxury skincare. Purchase eGift cards or traditional gift cards from $10 to $500 at Maxará Aesthetics in Griffin, GA.">
-  <meta name="twitter:image" content="https://www.maxaraaesthetics.com/assets/images/gift-cards/gift-card-image.jpeg">
+  <meta name="twitter:description" content="Give the gift of luxury skincare. Send an eGift card online from $25 to $1,000, or pick up a physical gift card at Maxará Aesthetics in Griffin, GA.">
+  <meta name="twitter:image" content="https://www.maxaraaesthetics.com/assets/images/gift-cards/gift-card.jpg">
 
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400;1,600&family=Josefin+Sans:wght@100;300;400&family=Lato:wght@300;400&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="styles.css">
+
+  <!-- Mangomint: opens gift card links in an overlay on desktop (new tab on mobile) -->
+  <script>window.Mangomint = window.Mangomint || {}; window.Mangomint.CompanyId = 894344;</script>
+  <script src="https://booking.mangomint.com/app.js" async></script>
   <style>
 /* ============================================================
        HERO SECTION
@@ -268,6 +272,38 @@
       width: 100%;
       text-align: center;
       justify-content: center;
+    }
+
+    /* Phone number in place of a button — tappable on phones, plain text on desktop */
+    .gc-card__contact {
+      border-top: 1px solid rgba(184, 154, 90, 0.3);
+      padding-top: 1.25rem;
+      text-align: center;
+    }
+
+    .gc-card__contact-label {
+      font-family: var(--font-label);
+      font-weight: 300;
+      font-size: 0.72rem;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: rgba(44, 44, 44, 0.6);
+    }
+
+    .gc-card__contact-number {
+      display: inline-block;
+      margin-top: 0.3rem;
+      font-family: var(--font-display);
+      font-weight: 400;
+      font-size: 1.65rem;
+      color: var(--color-charcoal);
+      text-decoration: none;
+    }
+
+    @media (hover: hover) and (pointer: fine) {
+      .gc-card__contact-number {
+        pointer-events: none;
+      }
     }
 
 
@@ -614,47 +650,50 @@
     <div class="gc-options__header">
       <p class="eyebrow" id="optionsEyebrow">Choose Your Gift</p>
       <h2 class="section-headline reveal-up">Two Ways to<br><em>Give Radiance</em></h2>
-      <p>Select the option that fits your gifting style. Both cards are available in any amount from $10 to $500 and can be redeemed for any treatment at Maxará Aesthetics.</p>
+      <p>Send an eGift card online in minutes, or order a physical card to pick up at the spa. Every Maxará gift card can be redeemed for any treatment we offer.</p>
     </div>
 
     <div class="gc-options__grid">
       <!-- eGift Card -->
       <div class="gc-card">
         <div class="gc-card__preview">
-          <img class="gc-card__preview-img" loading="lazy" src="assets/images/gift-cards/gift-card-image.jpeg" alt="Maxará Aesthetics gift card">
+          <img class="gc-card__preview-img" loading="lazy" src="assets/images/gift-cards/gift-card.jpg" alt="Maxará Aesthetics gift card">
         </div>
         <div class="gc-card__body">
           <svg class="gc-card__icon" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/></svg>
           <h3 class="gc-card__title">eGift Card</h3>
-          <p class="gc-card__price">$10 – $500</p>
+          <p class="gc-card__price">$25 – $1,000</p>
           <p class="gc-card__text">Delivered straight to their inbox in minutes. The perfect last-minute gift that never feels last-minute.</p>
           <ul class="gc-card__features">
-            <li>Instant digital delivery via email</li>
-            <li>Choose any custom amount</li>
+            <li>Instant delivery by email</li>
+            <li>Send it to them or to yourself</li>
             <li>Add a personal message</li>
             <li>Schedule delivery for a future date</li>
           </ul>
-          <a href="https://maxaraaesthetics.webgiftcardsales.com" target="_blank" rel="noopener noreferrer" class="btn"><span>Purchase eGift Card</span></a>
+          <a href="https://clients.mangomint.com/gift-cards/894344" target="_blank" rel="noopener noreferrer" class="btn"><span>Purchase eGift Card</span></a>
         </div>
       </div>
 
-      <!-- Traditional Gift Card -->
+      <!-- In-Spa Gift Card -->
       <div class="gc-card">
         <div class="gc-card__preview">
-          <img class="gc-card__preview-img" loading="lazy" src="assets/images/gift-cards/gift-card-image.jpeg" alt="Maxará Aesthetics gift card">
+          <img class="gc-card__preview-img" loading="lazy" src="assets/images/gift-cards/gift-card.jpg" alt="Maxará Aesthetics gift card">
         </div>
         <div class="gc-card__body">
           <svg class="gc-card__icon" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M12 8v13m0-13V6a2 2 0 112 2h-2zm0 0V5.5A2.5 2.5 0 109.5 8H12zm-7 4h14M5 12a2 2 0 110-4h14a2 2 0 110 4M5 12v7a2 2 0 002 2h10a2 2 0 002-2v-7"/></svg>
-          <h3 class="gc-card__title">Traditional Gift Card</h3>
-          <p class="gc-card__price">$10 – $500</p>
-          <p class="gc-card__text">A beautiful physical card mailed directly to you or the recipient. Something tangible they can hold and look forward to.</p>
+          <h3 class="gc-card__title">In-Spa Gift Card</h3>
+          <p class="gc-card__price">Order Ahead &middot; Pick Up at the Spa</p>
+          <p class="gc-card__text">A beautiful physical card to wrap, tuck into a birthday card, or hand over in person. Call or text us and we'll have it ready at the front desk.</p>
           <ul class="gc-card__features">
-            <li>Elegant physical card mailed to you</li>
-            <li>Ship to yourself or the recipient</li>
-            <li>Choose any custom amount</li>
-            <li>Flexible shipping options</li>
+            <li>Elegant physical card to give in person</li>
+            <li>Order with a quick call or text</li>
+            <li>Pick up Monday – Friday, 9 AM – 5 PM</li>
+            <li>Prefer email? We can send it digitally instead</li>
           </ul>
-          <a href="https://maxaraaesthetics.webgiftcardsales.com" target="_blank" rel="noopener noreferrer" class="btn"><span>Purchase Gift Card</span></a>
+          <div class="gc-card__contact">
+            <p class="gc-card__contact-label">Call or Text to Order</p>
+            <a href="tel:+17707967418" class="gc-card__contact-number">(770) 796-7418</a>
+          </div>
         </div>
       </div>
     </div>
@@ -673,19 +712,19 @@
       <div class="gc-step">
         <div class="gc-step__number">1</div>
         <h3 class="gc-step__title">Choose</h3>
-        <p class="gc-step__text">Select an eGift card for instant delivery or a traditional card mailed to your door.</p>
+        <p class="gc-step__text">Order an eGift card online, or call or text us for a physical card to pick up.</p>
       </div>
 
       <div class="gc-step">
         <div class="gc-step__number">2</div>
         <h3 class="gc-step__title">Customize</h3>
-        <p class="gc-step__text">Pick any amount from $10 to $500 and add a personal message for the recipient.</p>
+        <p class="gc-step__text">Choose your amount and add a personal message for the recipient.</p>
       </div>
 
       <div class="gc-step">
         <div class="gc-step__number">3</div>
         <h3 class="gc-step__title">Send</h3>
-        <p class="gc-step__text">eGift cards arrive by email in minutes. Physical cards ship with flexible delivery options.</p>
+        <p class="gc-step__text">eGift cards arrive by email right away or on the date you choose. Physical cards wait for you at our front desk.</p>
       </div>
 
       <div class="gc-step">
@@ -781,7 +820,17 @@
           <svg class="faq__chevron" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M6 9l6 6 6-6"/></svg>
         </button>
         <div class="faq__answer">
-          <p class="faq__answer-inner">eGift cards are delivered by email within minutes of purchase. You can also schedule delivery for a specific date if you'd like it to arrive on a special occasion.</p>
+          <p class="faq__answer-inner">eGift cards are sent by email right after purchase. You can also schedule delivery for a specific date if you'd like it to arrive on a special occasion.</p>
+        </div>
+      </div>
+
+      <div class="faq__item">
+        <button class="faq__question" aria-expanded="false">
+          <span class="faq__question-text">Can I buy a physical gift card?</span>
+          <svg class="faq__chevron" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M6 9l6 6 6-6"/></svg>
+        </button>
+        <div class="faq__answer">
+          <p class="faq__answer-inner">Yes. Text or call us at <a href="tel:+17707967418" style="color: var(--color-terracotta);">(770) 796-7418</a> to order one, then pick it up at our front desk at 504 S 8th St in Griffin, Monday – Friday, 9:00 AM – 5:00 PM. We don't mail gift cards, but if you'd prefer, we're happy to email it to you or the recipient instead.</p>
         </div>
       </div>
 
@@ -791,7 +840,7 @@
           <svg class="faq__chevron" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M6 9l6 6 6-6"/></svg>
         </button>
         <div class="faq__answer">
-          <p class="faq__answer-inner">Yes. You can check your balance anytime on our <a href="https://maxaraaesthetics.webgiftcardsales.com" target="_blank" rel="noopener noreferrer" style="color: var(--color-terracotta);">gift card portal</a> or by calling us at <a href="tel:+17707967418" style="color: var(--color-terracotta);">(770) 796-7418</a>.</p>
+          <p class="faq__answer-inner">Yes. Just call or text us at <a href="tel:+17707967418" style="color: var(--color-terracotta);">(770) 796-7418</a> or ask at the front desk, and we'll look up your balance for you.</p>
         </div>
       </div>
 
@@ -819,7 +868,7 @@
       <p class="eyebrow">Give the Gift</p>
       <h2>Someone Deserves<br><em>to Shine.</em></h2>
       <p>Whether it's a loved one, a friend, or yourself — a Maxará gift card is the gift of confidence, care, and radiant skin.</p>
-      <a href="https://maxaraaesthetics.webgiftcardsales.com" target="_blank" rel="noopener noreferrer" class="btn btn--light"><span>Purchase a Gift Card</span></a>
+      <a href="https://clients.mangomint.com/gift-cards/894344" target="_blank" rel="noopener noreferrer" class="btn btn--light"><span>Send an eGift Card</span></a>
     </div>
   </section>
 
