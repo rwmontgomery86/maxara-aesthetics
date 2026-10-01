@@ -37,5 +37,8 @@
       "destination": "https://www.maxaraaesthetics.com/:path*",
       "permanent": true
     }
+  ],
+  "rewrites": [
+    { "source": "/booking-confirmation", "destination": "/booking-confirmation.html" }
   ]
 }

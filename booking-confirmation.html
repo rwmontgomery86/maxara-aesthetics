@@ -1,0 +1,493 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <!-- Google Tag Manager -->
+  <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+  new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+  j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+  'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+  })(window,document,'script','dataLayer','GTM-MC7FWTCM');</script>
+  <!-- End Google Tag Manager -->
+
+  <!-- Booking conversion -->
+  <script>
+    // Mangomint redirects here after a successful online booking.
+    // GTM listens for 'booking_confirmed' to fire the GA4 key event and Google Ads conversion.
+    // Skips reloads and back/forward visits so one booking isn't counted twice.
+    (function () {
+      var nav = window.performance && performance.getEntriesByType &&
+                performance.getEntriesByType('navigation')[0];
+      if (nav && nav.type !== 'navigate') return;
+      window.dataLayer = window.dataLayer || [];
+      window.dataLayer.push({ event: 'booking_confirmed' });
+    })();
+  </script>
+
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Appointment Confirmed — Maxará Aesthetics</title>
+  <meta name="description" content="Your appointment at Maxará Aesthetics is confirmed. Here's what to know before your visit.">
+  <link rel="canonical" href="https://www.maxaraaesthetics.com/booking-confirmation">
+  <meta name="robots" content="noindex, nofollow">
+  <link rel="icon" type="image/png" href="assets/images/logos/Logo.png">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400;1,600&family=Josefin+Sans:wght@100;300;400&family=Lato:wght@300;400&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+  <style>
+    /* ============================================================
+       CONFIRMATION HERO
+    ============================================================ */
+    .bc-hero {
+      padding: 11rem 8% 4.5rem;
+      text-align: center;
+      max-width: 860px;
+      margin: 0 auto;
+    }
+
+    .bc-hero .eyebrow {
+      justify-content: center;
+    }
+
+    /* Mirror the gold rule on the right so the centered label stays balanced */
+    .bc-hero .eyebrow::after {
+      content: '';
+      display: block;
+      width: 0;
+      height: 1px;
+      background: var(--color-gold);
+      flex-shrink: 0;
+      transition: width 1s var(--ease-expo);
+    }
+
+    .bc-hero .eyebrow.in-view::after {
+      width: 40px;
+    }
+
+    .bc-hero__title {
+      font-family: var(--font-display);
+      font-weight: 300;
+      font-size: clamp(2.6rem, 5.5vw, 4.4rem);
+      line-height: 1.08;
+      color: var(--color-charcoal);
+      margin-bottom: 1.75rem;
+      text-wrap: balance;
+    }
+
+    .bc-hero__title em {
+      display: block;
+      font-style: italic;
+      color: var(--color-walnut);
+    }
+
+    .bc-hero__text {
+      font-size: 1.05rem;
+      max-width: 520px;
+      margin: 0 auto;
+      color: var(--color-charcoal);
+    }
+
+    .bc-hero__rule {
+      width: 60px;
+      height: 1px;
+      background: var(--color-gold);
+      margin: 2.75rem auto 0;
+    }
+
+    /* ============================================================
+       BEFORE YOUR VISIT
+    ============================================================ */
+    .bc-visit {
+      padding: 0 8% 5rem;
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+
+    .bc-visit__label {
+      font-family: var(--font-label);
+      font-size: 0.65rem;
+      font-weight: 300;
+      letter-spacing: 0.42em;
+      text-transform: uppercase;
+      color: var(--color-charcoal);
+      text-align: center;
+      margin-bottom: 2.5rem;
+    }
+
+    .bc-visit__grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1.5rem;
+    }
+
+    .bc-step {
+      background: var(--color-cream-pure);
+      border-top: 1px solid var(--color-gold);
+      padding: 2.5rem 2rem 2.25rem;
+    }
+
+    .bc-step__num {
+      font-family: var(--font-display);
+      font-style: italic;
+      font-size: 1.6rem;
+      color: var(--color-terracotta);
+      line-height: 1;
+      margin-bottom: 1.25rem;
+    }
+
+    .bc-step__title {
+      font-family: var(--font-display);
+      font-weight: 400;
+      font-size: 1.55rem;
+      line-height: 1.2;
+      margin-bottom: 0.75rem;
+    }
+
+    .bc-step__text {
+      font-size: 0.95rem;
+    }
+
+    .bc-step__link {
+      display: inline-block;
+      margin-top: 1rem;
+      font-family: var(--font-label);
+      font-size: 0.72rem;
+      font-weight: 400;
+      letter-spacing: 0.15em;
+      color: var(--color-terracotta);
+      border-bottom: 1px solid currentColor;
+      padding-bottom: 2px;
+      transition: color 0.3s ease;
+    }
+
+    .bc-step__link:hover {
+      color: var(--color-walnut);
+    }
+
+    /* Number is tappable on phones, plain text on desktop */
+    @media (hover: hover) and (pointer: fine) {
+      .bc-step__phone {
+        pointer-events: none;
+        border-bottom-color: transparent;
+      }
+    }
+
+    /* ============================================================
+       ACTIONS
+    ============================================================ */
+    .bc-actions {
+      padding: 0 8% 7rem;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 1.5rem;
+    }
+
+    .bc-actions__secondary {
+      font-family: var(--font-label);
+      font-size: 0.63rem;
+      font-weight: 300;
+      letter-spacing: 0.32em;
+      text-transform: uppercase;
+      color: var(--color-charcoal);
+      transition: color 0.3s ease;
+    }
+
+    .bc-actions__secondary:hover {
+      color: var(--color-terracotta);
+    }
+
+    /* ============================================================
+       RESPONSIVE
+    ============================================================ */
+    @media (max-width: 1100px) {
+      .bc-visit__grid {
+        gap: 1rem;
+      }
+
+      .bc-step {
+        padding: 2rem 1.5rem;
+      }
+    }
+
+    @media (max-width: 768px) {
+      .bc-hero {
+        padding: 8.5rem 5% 3.5rem;
+      }
+
+      .bc-visit {
+        padding: 0 5% 4rem;
+      }
+
+      .bc-visit__grid {
+        grid-template-columns: 1fr;
+        max-width: 520px;
+        margin: 0 auto;
+      }
+
+      .bc-actions {
+        padding: 0 5% 5rem;
+      }
+    }
+
+    @media (max-width: 480px) {
+      /* Shorter rules + tighter tracking keep the label on one line */
+      .bc-hero .eyebrow {
+        gap: 0.75rem;
+        letter-spacing: 0.32em;
+      }
+
+      .bc-hero .eyebrow.in-view::before,
+      .bc-hero .eyebrow.in-view::after {
+        width: 20px;
+      }
+
+      .bc-hero__text {
+        font-size: 1rem;
+      }
+
+      .bc-step {
+        padding: 1.75rem 1.25rem;
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <!-- Google Tag Manager (noscript) -->
+  <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-MC7FWTCM"
+  height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+  <!-- End Google Tag Manager (noscript) -->
+
+  <!-- Scroll Progress Bar -->
+  <div class="scroll-progress" id="scrollProgress"></div>
+
+  <!-- ============================================================
+       NAVIGATION
+  ============================================================ -->
+  <nav class="nav" id="nav">
+    <a href="/" class="nav__logo-link">
+      <img class="nav__logo" src="assets/images/logos/Logo.png" alt="Maxará Aesthetics">
+    </a>
+    <ul class="nav__links">
+      <li><a href="/#services">Services</a></li>
+      <li><a href="our-team.html">Team</a></li>
+      <li><a href="payment-plans.html">Payment Plans</a></li>
+      <li><a href="gift-cards.html">Gift Cards</a></li>
+    </ul>
+    <a href="https://maxaraaesthetics.glossgenius.com/booking-flow" target="_blank" class="nav__cta"><span>Book Now</span></a>
+    <button class="nav__hamburger" aria-label="Menu" aria-expanded="false" aria-controls="mobileMenu">
+      <span></span>
+      <span></span>
+      <span></span>
+    </button>
+  </nav>
+
+  <!-- Mobile Menu Panel -->
+  <div class="mobile-menu" id="mobileMenu">
+    <a href="/#services">Services</a>
+    <a href="our-team.html">Team</a>
+    <a href="gift-cards.html">Gift Cards</a>
+    <a href="https://maxaraaesthetics.glossgenius.com/booking-flow" target="_blank">Book Now</a>
+  </div>
+
+  <main>
+    <!-- ============================================================
+         CONFIRMATION
+    ============================================================ -->
+    <section class="bc-hero">
+      <p class="eyebrow">Appointment Confirmed</p>
+      <h1 class="bc-hero__title reveal-up">You&rsquo;re booked.<em>We can&rsquo;t wait to see you.</em></h1>
+      <p class="bc-hero__text reveal-up" style="transition-delay:0.15s;">Thank you for choosing Maxará Aesthetics. Your confirmation is on its way with all the details of your visit.</p>
+      <div class="bc-hero__rule reveal-up" style="transition-delay:0.25s;"></div>
+    </section>
+
+    <!-- ============================================================
+         BEFORE YOUR VISIT
+    ============================================================ -->
+    <section class="bc-visit" aria-labelledby="bcVisitLabel">
+      <h2 class="bc-visit__label reveal-up" id="bcVisitLabel">Before Your Visit</h2>
+      <div class="bc-visit__grid">
+        <div class="bc-step reveal-up">
+          <p class="bc-step__num">01</p>
+          <h3 class="bc-step__title">Check your confirmation</h3>
+          <p class="bc-step__text">Your date, time, and treatment are all in the confirmation we just sent. Add it to your calendar so nothing slips.</p>
+        </div>
+        <div class="bc-step reveal-up">
+          <p class="bc-step__num">02</p>
+          <h3 class="bc-step__title">Find us</h3>
+          <p class="bc-step__text">504 S 8th St, Griffin, GA 30224<br>Open Monday – Friday, 9:00 AM – 5:00 PM.</p>
+          <a href="https://maps.app.goo.gl/JYSCTDD1RM7QDhTo9" target="_blank" rel="noopener noreferrer" class="bc-step__link">Get Directions</a>
+        </div>
+        <div class="bc-step reveal-up">
+          <p class="bc-step__num">03</p>
+          <h3 class="bc-step__title">Need to reschedule?</h3>
+          <p class="bc-step__text">Call or text us at least 24 hours ahead and we&rsquo;ll find a time that works.</p>
+          <a href="tel:+17707967418" class="bc-step__link bc-step__phone">(770) 796-7418</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============================================================
+         ACTIONS
+    ============================================================ -->
+    <div class="bc-actions reveal-up">
+      <a href="/" class="btn btn--dark"><span>Back to Home</span></a>
+      <a href="/#services" class="bc-actions__secondary">Explore Treatments</a>
+    </div>
+  </main>
+
+  <!-- ============================================================
+       FOOTER
+  ============================================================ -->
+  <footer class="footer">
+    <div class="footer__top">
+      <div>
+        <img class="footer__logo" loading="lazy" src="assets/images/logos/Logo.png" alt="Maxará Aesthetics">
+        <p class="footer__tagline">"Elevated aesthetics rooted in the art of listening to your skin."</p>
+        <div class="footer__social">
+          <a href="https://www.instagram.com/maxaraaesthetics/" target="_blank" rel="noopener noreferrer">Instagram</a>
+          <a href="https://www.facebook.com/maxaraaesthetics/" target="_blank" rel="noopener noreferrer">Facebook</a>
+        </div>
+      </div>
+      <div>
+        <p class="footer__col-title">Navigate</p>
+        <ul class="footer__links">
+          <li><a href="/#services">Services</a></li>
+          <li><a href="our-team.html">Our Team</a></li>
+          <li><a href="payment-plans.html">Payment Plans</a></li>
+          <li><a href="gift-cards.html">Gift Cards</a></li>
+          <li><a href="https://maxaraaesthetics.glossgenius.com/booking-flow" target="_blank">Book an Appointment</a></li>
+        </ul>
+      </div>
+      <div>
+        <p class="footer__col-title">Contact</p>
+        <div class="footer__contact-item">
+          <span class="footer__contact-label">Location</span>
+          <a href="https://maps.app.goo.gl/JYSCTDD1RM7QDhTo9" target="_blank" rel="noopener noreferrer" class="footer__contact-value">504 S 8th St<br>Griffin, GA 30224</a>
+        </div>
+        <div class="footer__contact-item">
+          <span class="footer__contact-label">Hours</span>
+          <span class="footer__contact-value">Monday – Friday<br>9:00 AM – 5:00 PM</span>
+        </div>
+        <div class="footer__contact-item">
+          <span class="footer__contact-label">Phone</span>
+          <a href="tel:+17707967418" class="footer__contact-value">(770) 796-7418</a>
+        </div>
+        <div class="footer__contact-item">
+          <span class="footer__contact-label">Inquiries</span>
+          <span class="footer__contact-value">info@maxaraaesthetics.com</span>
+        </div>
+      </div>
+    </div>
+    <div class="footer__bottom">
+      <p class="footer__copy">&copy; 2026 Maxará Aesthetics. All rights reserved.</p>
+      <div class="footer__legal">
+        <a href="privacy-policy.html">Privacy Policy</a>
+        <a href="terms-and-conditions.html">Terms of Service</a>
+        <a href="refund-policy.html">Refund Policy</a>
+      </div>
+    </div>
+  </footer>
+
+  <!-- ============================================================
+       JAVASCRIPT
+  ============================================================ -->
+  <script>
+    // ================================================================
+    // 1. SCROLL PROGRESS BAR
+    // ================================================================
+    (function initScrollProgress() {
+      const bar = document.getElementById('scrollProgress');
+      window.addEventListener('scroll', () => {
+        const max = document.body.scrollHeight - window.innerHeight;
+        bar.style.transform = `scaleX(${window.scrollY / max})`;
+      }, { passive: true });
+    })();
+
+    // ================================================================
+    // 2. NAVIGATION — Smart Hide
+    // ================================================================
+    (function initNav() {
+      const nav = document.getElementById('nav');
+      let lastScrollY = 0;
+      let ticking = false;
+
+      window.addEventListener('scroll', () => {
+        if (!ticking) {
+          requestAnimationFrame(() => {
+            const scrollY = window.scrollY;
+            if (scrollY > lastScrollY && scrollY > 400) {
+              nav.classList.add('hidden');
+            } else {
+              nav.classList.remove('hidden');
+            }
+            lastScrollY = scrollY;
+            ticking = false;
+          });
+          ticking = true;
+        }
+      });
+    })();
+
+    // ================================================================
+    // 3. MOBILE MENU TOGGLE
+    // ================================================================
+    (function initMobileMenu() {
+      const hamburger = document.querySelector('.nav__hamburger');
+      const mobileMenu = document.getElementById('mobileMenu');
+      if (!hamburger || !mobileMenu) return;
+
+      hamburger.addEventListener('click', () => {
+        const isOpen = mobileMenu.classList.toggle('open');
+        hamburger.classList.toggle('open');
+        hamburger.setAttribute('aria-expanded', isOpen);
+        document.body.style.overflow = isOpen ? 'hidden' : '';
+      });
+
+      mobileMenu.querySelectorAll('a').forEach(link => {
+        link.addEventListener('click', () => {
+          mobileMenu.classList.remove('open');
+          hamburger.classList.remove('open');
+          hamburger.setAttribute('aria-expanded', 'false');
+          document.body.style.overflow = '';
+        });
+      });
+    })();
+
+    // ================================================================
+    // 4. INTERSECTION OBSERVER — Scroll-Triggered Animations
+    // ================================================================
+    (function initScrollAnimations() {
+      // Stagger the visit steps
+      document.querySelectorAll('.bc-step').forEach((el, i) => {
+        el.style.transitionDelay = `${i * 0.1}s`;
+      });
+
+      const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add('in-view');
+            observer.unobserve(entry.target);
+          }
+        });
+      }, {
+        threshold: 0.12,
+        rootMargin: '0px 0px -40px 0px'
+      });
+
+      document.querySelectorAll('.reveal-up, .eyebrow').forEach(el => {
+        observer.observe(el);
+      });
+    })();
+  </script>
+<script>
+if(/iPhone|iPad|iPod/.test(navigator.userAgent)){
+  document.querySelectorAll('a[href*="maps.app.goo.gl"]').forEach(function(a){
+    a.href='https://maps.apple/p/fu-FELXHXMaLhC';
+  });
+}
+</script>
+</body>
+</html>

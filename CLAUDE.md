@@ -10,7 +10,7 @@ Pure static site — **no framework, no build tools, no package manager**.
 - Shared stylesheet `styles.css` (1075 lines) — base reset, variables, nav, footer, loader, scroll bar, shared component styles
 - Page-specific styles and scripts are embedded in each HTML file via `<style>` and `<script>` tags
 
-## Pages (13 files)
+## Pages (15 files)
 
 ### Service Pages
 | File | Purpose |
@@ -22,6 +22,7 @@ Pure static site — **no framework, no build tools, no package manager**.
 | `microneedling.html` | Microneedling service page |
 | `waxing.html` | Waxing service page |
 | `advanced-skincare.html` | Advanced Skincare treatments hub |
+| `ipl.html` | IPL service page (Google Ads landing page) |
 
 ### Supporting Pages
 | File | Purpose |
@@ -32,6 +33,7 @@ Pure static site — **no framework, no build tools, no package manager**.
 | `privacy-policy.html` | Privacy policy (legal) |
 | `refund-policy.html` | Refund policy (legal) |
 | `terms-and-conditions.html` | Terms and conditions (legal) |
+| `booking-confirmation.html` | Hidden post-booking page (Mangomint redirect target, served at `/booking-confirmation`). Fires the `booking_confirmed` GTM event; `noindex`, not in nav or sitemap |
 
 ## Shared Components
 
@@ -44,7 +46,7 @@ Contains CSS custom properties, reset, base typography, and styles for component
 - **Buttons, reveal animations, eyebrow labels**
 
 ### Duplicated HTML
-The nav, footer, loader, and scroll bar HTML markup is copy-pasted into every HTML file. **When editing any of these, update all 13 files.**
+The nav, footer, loader, and scroll bar HTML markup is copy-pasted into every HTML file. **When editing any of these, update all 15 files.**
 
 ## Design System
 
@@ -100,7 +102,7 @@ Icons are inline SVGs — no icon library.
 - Use the established animation classes (`reveal-up`, etc.) for new sections
 - Service pages follow a consistent layout: hero → intro → features → pricing → FAQ → CTA → footer
 - All images use descriptive alt text
-- When editing nav, footer, loader, or scroll bar markup — update all 13 HTML files
+- When editing nav, footer, loader, or scroll bar markup — update all 15 HTML files
 
 ## Workflow
 
