@@ -90,7 +90,8 @@ Icons are inline SVGs — no icon library.
 
 ## External Integrations
 
-- **Booking:** GlossGenius — all "Book Now" buttons link to `https://maxaraaesthetics.glossgenius.com/`
+- **Booking:** Mangomint — "Book Now" buttons link to `https://booking.mangomint.com/894344` (full menu), or `?serviceId=<id>` for buttons that book one specific service. Every page loads Mangomint's `app.js` in `<head>`, which opens these links in an overlay on desktop (new tab on mobile). Always use the numeric company ID `894344` in the URL: `app.js` ignores `/maxaraaesthetics` links, so they open a plain new tab with no overlay
+- **Packages:** Prepaid packages (laser 6-session, laser 10 + 4, laser touch-ups, IPL Series of 3) link to `https://clients.mangomint.com/894344/packages/<id>`, which the same `app.js` opens in the overlay. Numeric company ID required here too
 - **Financing:** Cherry — payment plan applications
 - **Social:** Instagram and Facebook (`@maxaraaesthetics`)
 - **Contact:** 504 S 8th St, Griffin, GA 30224 | (770) 796-7418 | info@maxaraaesthetics.com
