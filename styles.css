@@ -1017,6 +1017,15 @@ a.footer__contact-value:hover {
    RESPONSIVE — SHARED COMPONENTS
 ============================================================ */
 @media (max-width: 1100px) {
+  .nav__links {
+    gap: 1.75rem;
+  }
+
+  .nav__links a {
+    letter-spacing: 0.2em;
+    white-space: nowrap;
+  }
+
   .feature-split {
     grid-template-columns: 1fr;
     min-height: auto;
@@ -1048,6 +1057,21 @@ a.footer__contact-value:hover {
 
   .footer__top > *:first-child {
     grid-column: span 2;
+  }
+}
+
+@media (max-width: 900px) {
+  .nav__links {
+    gap: 1.1rem;
+  }
+
+  .nav__links a {
+    letter-spacing: 0.14em;
+  }
+
+  .nav__cta {
+    padding: 0.65rem 1.1rem;
+    white-space: nowrap;
   }
 }
 
