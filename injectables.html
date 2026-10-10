@@ -188,6 +188,7 @@
       background: var(--color-cream-pure);
       padding: 2.5rem;
       position: relative;
+      text-align: center;
       box-shadow: 0 4px 24px rgba(44, 44, 44, 0.05);
       transition: transform 0.5s var(--ease-expo), box-shadow 0.5s var(--ease-expo);
       overflow: hidden;
@@ -223,19 +224,15 @@
     }
 
     .tx__icon {
-      width: 40px;
-      height: 40px;
-      margin-bottom: 1.25rem;
+      width: 80px;
+      height: 80px;
+      margin: 0 auto 1.25rem;
     }
 
-    .tx__icon svg {
+    .tx__icon img {
+      display: block;
       width: 100%;
       height: 100%;
-      stroke: var(--color-terracotta);
-      fill: none;
-      stroke-width: 1.5;
-      stroke-linecap: round;
-      stroke-linejoin: round;
     }
 
     .tx__card-title {
@@ -243,7 +240,16 @@
       font-size: 1.2rem;
       font-weight: 400;
       color: var(--color-walnut);
-      margin-bottom: 0.5rem;
+      margin-bottom: 0.75rem;
+    }
+
+    .tx__card-title::after {
+      content: '';
+      display: block;
+      width: 32px;
+      height: 1px;
+      background: var(--color-gold);
+      margin: 0.75rem auto 0;
     }
 
     .tx__card-desc {
@@ -752,25 +758,19 @@
 
     <div class="tx__grid">
       <div class="tx__card">
-        <div class="tx__icon">
-          <svg viewBox="0 0 40 40"><line x1="16" y1="10" x2="16" y2="22"/><line x1="24" y1="10" x2="24" y2="22"/><path d="M12 30 Q20 26 28 30"/></svg>
-        </div>
+        <div class="tx__icon"><img src="assets/images/injectables/icon-frown.png" alt="" width="80" height="80"></div>
         <h3 class="tx__card-title">Frown Lines</h3>
         <p class="tx__card-desc">The vertical "elevens" between the brows soften and smooth, easing the tired or stern look they can create over time.</p>
       </div>
 
       <div class="tx__card">
-        <div class="tx__icon">
-          <svg viewBox="0 0 40 40"><path d="M6 12 Q20 8 34 12"/><path d="M6 19 Q20 15 34 19"/><path d="M6 26 Q20 22 34 26"/></svg>
-        </div>
+        <div class="tx__icon"><img src="assets/images/injectables/icon-forehead.png" alt="" width="80" height="80"></div>
         <h3 class="tx__card-title">Forehead Lines</h3>
         <p class="tx__card-desc">Relaxes horizontal forehead creases while keeping your brows' natural movement.</p>
       </div>
 
       <div class="tx__card">
-        <div class="tx__icon">
-          <svg viewBox="0 0 40 40"><circle cx="15" cy="20" r="6"/><line x1="25" y1="12" x2="31" y2="9"/><line x1="26" y1="17" x2="33" y2="16"/><line x1="26" y1="23" x2="33" y2="24"/><line x1="25" y1="28" x2="31" y2="31"/></svg>
-        </div>
+        <div class="tx__icon"><img src="assets/images/injectables/icon-crows.png" alt="" width="80" height="80"></div>
         <h3 class="tx__card-title">Crow's Feet</h3>
         <p class="tx__card-desc">Softens the fine lines at the outer corners of your eyes without changing your smile.</p>
       </div>
@@ -791,25 +791,19 @@
 
     <div class="tx__grid">
       <div class="tx__card">
-        <div class="tx__icon">
-          <svg viewBox="0 0 40 40"><path d="M8 20 Q14 14 20 18 Q26 14 32 20"/><path d="M8 20 Q20 30 32 20"/></svg>
-        </div>
+        <div class="tx__icon"><img src="assets/images/injectables/icon-lips.png" alt="" width="80" height="80"></div>
         <h3 class="tx__card-title">Lips</h3>
         <p class="tx__card-desc">Anything from a light touch of hydration to fuller, balanced lips, shaped to your natural proportions.</p>
       </div>
 
       <div class="tx__card">
-        <div class="tx__icon">
-          <svg viewBox="0 0 40 40"><path d="M12 8 Q6 20 12 30 Q16 35 20 35 Q24 35 28 30 Q34 20 28 8"/><circle cx="15" cy="20" r="2"/><circle cx="25" cy="20" r="2"/></svg>
-        </div>
+        <div class="tx__icon"><img src="assets/images/injectables/icon-cheeks.png" alt="" width="80" height="80"></div>
         <h3 class="tx__card-title">Cheeks &amp; Midface</h3>
         <p class="tx__card-desc">Adding volume back to the cheeks lifts the midface and softens shadows.</p>
       </div>
 
       <div class="tx__card">
-        <div class="tx__icon">
-          <svg viewBox="0 0 40 40"><path d="M8 12 Q8 26 20 32 Q32 26 32 12"/><line x1="14" y1="32" x2="26" y2="32"/></svg>
-        </div>
+        <div class="tx__icon"><img src="assets/images/injectables/icon-chin.png" alt="" width="80" height="80"></div>
         <h3 class="tx__card-title">Chin &amp; Jawline</h3>
         <p class="tx__card-desc">Filler along the chin and jawline adds definition and balances your profile.</p>
       </div>
