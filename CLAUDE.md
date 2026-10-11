@@ -10,7 +10,7 @@ Pure static site — **no framework, no build tools, no package manager**.
 - Shared stylesheet `styles.css` (1075 lines) — base reset, variables, nav, footer, loader, scroll bar, shared component styles
 - Page-specific styles and scripts are embedded in each HTML file via `<style>` and `<script>` tags
 
-## Pages (15 files)
+## Pages (16 files)
 
 ### Service Pages
 | File | Purpose |
@@ -23,11 +23,12 @@ Pure static site — **no framework, no build tools, no package manager**.
 | `waxing.html` | Waxing service page |
 | `advanced-skincare.html` | Advanced Skincare treatments hub |
 | `ipl.html` | IPL service page (Google Ads landing page) |
+| `injectables.html` | Injectables (wrinkle relaxers, fillers, Sculptra) with nurse practitioner Lindsay Helms |
 
 ### Supporting Pages
 | File | Purpose |
 |------|---------|
-| `our-team.html` | Team bios — Amanda Cortes, Courtney Nelson, Dr. Lori Martin |
+| `our-team.html` | Team bios — Amanda Cortes, Lindsay Helms, Maria McWilliams, Dr. Lori Martin |
 | `gift-cards.html` | Gift card purchasing info |
 | `payment-plans.html` | Cherry financing / payment plan info |
 | `privacy-policy.html` | Privacy policy (legal) |
@@ -46,7 +47,7 @@ Contains CSS custom properties, reset, base typography, and styles for component
 - **Buttons, reveal animations, eyebrow labels**
 
 ### Duplicated HTML
-The nav, footer, loader, and scroll bar HTML markup is copy-pasted into every HTML file. **When editing any of these, update all 15 files.**
+The nav, footer, loader, and scroll bar HTML markup is copy-pasted into every HTML file. **When editing any of these, update all 16 files.**
 
 ## Design System
 
@@ -84,7 +85,7 @@ All scroll animations use `IntersectionObserver` with 12% threshold:
 ## Assets
 
 Images in `assets/images/` organized by page:
-`logos/`, `home-page/`, `hydrafacial/`, `chemical-peels/`, `laser-hair-removal/`, `microneedling/`, `waxing/`, `advanced-skincare/`, `jet-plasma/`, `generic/`, `miscelaneous/`, `our-team/`, `gift-cards/`
+`logos/`, `home-page/`, `hydrafacial/`, `chemical-peels/`, `laser-hair-removal/`, `microneedling/`, `waxing/`, `advanced-skincare/`, `jet-plasma/`, `generic/`, `miscelaneous/`, `our-team/`, `gift-cards/`, `injectables/`
 
 Icons are inline SVGs — no icon library.
 
@@ -103,11 +104,11 @@ Icons are inline SVGs — no icon library.
 - Use the established animation classes (`reveal-up`, etc.) for new sections
 - Service pages follow a consistent layout: hero → intro → features → pricing → FAQ → CTA → footer
 - All images use descriptive alt text
-- When editing nav, footer, loader, or scroll bar markup — update all 15 HTML files
+- When editing nav, footer, loader, or scroll bar markup — update all 16 HTML files
 
 ## Workflow
 
-New pages and features are developed in **git worktrees** under `.claude/worktrees/<name>` on a feature branch (typically `claude/<name>`). The parent repo at `/Users/rwmontgomery/Desktop/New Website2` always has `main` checked out.
+New pages and features are developed in **git worktrees** under `.claude/worktrees/<name>` on a feature branch (typically `claude/<name>`). The parent repo at `/Users/rossmontgomery/Developer/maxara-aesthetics` always has `main` checked out.
 
 When working in a worktree, after completing a visual change to any HTML file, proactively offer to open the modified file in the browser for testing using `open <worktree-path>/<file>`. The user cannot browse to worktree files from the parent repo path, so always use the full worktree path.
 

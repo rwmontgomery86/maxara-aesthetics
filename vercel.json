@@ -9,6 +9,7 @@
     { "source": "/waxing", "destination": "/waxing.html", "permanent": true },
     { "source": "/advanced-skincare", "destination": "/advanced-skincare.html", "permanent": true },
     { "source": "/ipl", "destination": "/ipl.html", "permanent": true },
+    { "source": "/injectables", "destination": "/injectables.html", "permanent": true },
     { "source": "/our-team", "destination": "/our-team.html", "permanent": true },
     { "source": "/team", "destination": "/our-team.html", "permanent": true },
     { "source": "/payment-plans", "destination": "/payment-plans.html", "permanent": true },
@@ -19,7 +20,7 @@
     { "source": "/refund-policy", "destination": "/refund-policy.html", "permanent": true },
     { "source": "/booster-quiz", "destination": "/hydrafacial.html#quiz", "permanent": true },
 
-    { "source": "/service-page/injectables", "destination": "/", "permanent": true },
+    { "source": "/service-page/injectables", "destination": "/injectables.html", "permanent": true },
     { "source": "/service-page/terra-novo-facial", "destination": "/hydrafacial.html", "permanent": true },
     { "source": "/service-page/active-xt", "destination": "/ipl.html", "permanent": true },
     { "source": "/service-page/cryotherapy", "destination": "/", "permanent": true },
