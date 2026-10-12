@@ -11,7 +11,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Injectables — Maxará Aesthetics</title>
-  <meta name="description" content="Dysport&reg; wrinkle relaxers and dermal fillers in Griffin, GA, administered by a licensed nurse practitioner. Natural-looking results begin with a personalized consultation at Maxará Aesthetics.">
+  <meta name="description" content="Dysport&reg; neurotoxins and dermal fillers in Griffin, GA, administered by a licensed nurse practitioner at Maxará Aesthetics. Book your treatment directly, or start with a consultation if you're not sure what you need.">
   <link rel="canonical" href="https://www.maxaraaesthetics.com/injectables.html">
   <meta name="robots" content="index, follow, max-image-preview:large">
   <link rel="icon" href="assets/images/logos/Logo.png" type="image/png">
@@ -20,7 +20,7 @@
   <meta property="og:type" content="website">
   <meta property="og:url" content="https://www.maxaraaesthetics.com/injectables.html">
   <meta property="og:title" content="Injectables — Maxará Aesthetics">
-  <meta property="og:description" content="Wrinkle relaxers and dermal fillers in Griffin, GA, administered by a licensed nurse practitioner at Maxará Aesthetics.">
+  <meta property="og:description" content="Neurotoxins and dermal fillers in Griffin, GA, administered by a licensed nurse practitioner at Maxará Aesthetics.">
   <meta property="og:image" content="https://www.maxaraaesthetics.com/assets/images/generic/treatment-room.jpg">
   <meta property="og:site_name" content="Maxará Aesthetics">
   <meta property="og:locale" content="en_US">
@@ -28,7 +28,7 @@
   <!-- Twitter Card -->
   <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:title" content="Injectables — Maxará Aesthetics">
-  <meta name="twitter:description" content="Wrinkle relaxers and dermal fillers in Griffin, GA, administered by a licensed nurse practitioner at Maxará Aesthetics.">
+  <meta name="twitter:description" content="Neurotoxins and dermal fillers in Griffin, GA, administered by a licensed nurse practitioner at Maxará Aesthetics.">
   <meta name="twitter:image" content="https://www.maxaraaesthetics.com/assets/images/generic/treatment-room.jpg">
 
   <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -141,7 +141,7 @@
     }
 
 /* ============================================================
-       TREATMENT SECTIONS — Wrinkle Relaxers / Dermal Fillers
+       TREATMENT SECTIONS — Neurotoxins / Dermal Fillers
        (each section is self-contained so a future split into
        two pages is a copy-paste job)
     ============================================================ */
@@ -149,7 +149,7 @@
       padding: 9rem 8%;
     }
 
-    .tx--relaxers {
+    .tx--neurotoxins {
       background: var(--color-oyster-dark);
     }
 
@@ -450,6 +450,109 @@
     }
 
 /* ============================================================
+       TIMELINE — Planning Around Injections
+    ============================================================ */
+    .timeline {
+      padding: 9rem 8%;
+      background: var(--color-oyster);
+    }
+
+    .timeline__header {
+      text-align: center;
+      max-width: 640px;
+      margin: 0 auto 4rem;
+    }
+
+    .timeline__header .eyebrow {
+      justify-content: center;
+    }
+
+    .timeline__header .section-headline {
+      margin-bottom: 1rem;
+    }
+
+    .timeline__header p {
+      color: rgba(44, 44, 44, 0.65);
+      font-size: 0.95rem;
+    }
+
+    .timeline__steps {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 2rem;
+      max-width: 1100px;
+      margin: 0 auto;
+      list-style: none;
+    }
+
+    .timeline__step {
+      position: relative;
+      text-align: center;
+    }
+
+    /* Connector from this marker to the next one */
+    .timeline__step:not(:last-child)::after {
+      content: '';
+      position: absolute;
+      top: 22px;
+      left: 50%;
+      width: calc(100% + 2rem);
+      height: 1px;
+      background: var(--color-gold);
+      opacity: 0.5;
+    }
+
+    .timeline__marker {
+      position: relative;
+      z-index: 1;
+      width: 44px;
+      height: 44px;
+      margin: 0 auto 1.5rem;
+      border: 1px solid var(--color-gold);
+      border-radius: 50%;
+      background: var(--color-oyster);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-family: var(--font-display);
+      font-size: 1.2rem;
+      color: var(--color-walnut);
+    }
+
+    .timeline__step--key .timeline__marker {
+      background: var(--color-terracotta);
+      border-color: var(--color-terracotta);
+      color: var(--color-cream-pure);
+    }
+
+    .timeline__label {
+      font-family: var(--font-label);
+      font-size: 0.6rem;
+      letter-spacing: 0.28em;
+      text-transform: uppercase;
+      color: var(--color-terracotta);
+      margin-bottom: 0.5rem;
+    }
+
+    .timeline__title {
+      font-family: var(--font-display);
+      font-size: 1.3rem;
+      font-weight: 400;
+      color: var(--color-walnut);
+      margin-bottom: 0.75rem;
+    }
+
+    .timeline__desc {
+      font-size: 0.9rem;
+      color: rgba(44, 44, 44, 0.68);
+      line-height: 1.7;
+    }
+
+    .timeline__desc + .timeline__desc {
+      margin-top: 0.75rem;
+    }
+
+/* ============================================================
        RESPONSIVE — MOBILE
     ============================================================ */
     @media (max-width: 1024px) {
@@ -484,6 +587,36 @@
 
       .pricing {
         padding: 7rem 6%;
+      }
+
+      .timeline {
+        padding: 7rem 6%;
+      }
+
+      /* Stack the timeline vertically: marker on the left, text on the right */
+      .timeline__steps {
+        grid-template-columns: 1fr;
+        gap: 2.5rem;
+        max-width: 560px;
+      }
+
+      .timeline__step {
+        display: grid;
+        grid-template-columns: 44px 1fr;
+        column-gap: 1.5rem;
+        text-align: left;
+      }
+
+      .timeline__step:not(:last-child)::after {
+        top: 44px;
+        bottom: -2.5rem;
+        left: 22px;
+        width: 1px;
+        height: auto;
+      }
+
+      .timeline__marker {
+        margin: 0;
       }
 
       .safety {
@@ -538,6 +671,10 @@
         gap: 1.5rem;
       }
 
+      .timeline {
+        padding: 5rem 5%;
+      }
+
       .safety {
         padding: 5rem 5%;
       }
@@ -579,6 +716,10 @@
         padding: 2.25rem 1.75rem;
       }
 
+      .timeline {
+        padding: 4rem 5%;
+      }
+
       .safety {
         padding: 4rem 5%;
       }
@@ -597,7 +738,7 @@
     "@id": "https://www.maxaraaesthetics.com/injectables.html#service",
     "name": "Injectables",
     "serviceType": "Medical Aesthetic Treatment",
-    "description": "Wrinkle relaxers and dermal fillers administered by a licensed nurse practitioner. Every treatment begins with a personalized consultation to confirm candidacy and design a natural-looking plan.",
+    "description": "Neurotoxins and dermal fillers administered by a licensed nurse practitioner, with natural-looking results planned around your goals. Consultations are available but not required.",
     "provider": { "@id": "https://www.maxaraaesthetics.com/#business" },
     "areaServed": { "@type": "City", "name": "Griffin, GA" },
     "url": "https://www.maxaraaesthetics.com/injectables.html",
@@ -614,14 +755,15 @@
     "@context": "https://schema.org",
     "@type": "FAQPage",
     "mainEntity": [
-      { "@type": "Question", "name": "What are wrinkle relaxers?", "acceptedAnswer": { "@type": "Answer", "text": "Wrinkle relaxers are purified neuromodulator injections (at Maxará we use Dysport®) that temporarily soften the repeated muscle movements behind expression lines such as frown lines, forehead creases, and crow's feet. The injections take just minutes, and results appear gradually over the following days." } },
+      { "@type": "Question", "name": "What are neurotoxins?", "acceptedAnswer": { "@type": "Answer", "text": "Neurotoxins are purified injections (at Maxará we use Dysport®) that temporarily soften the repeated muscle movements behind expression lines such as frown lines, forehead creases, and crow's feet. The injections take just minutes, and results appear gradually over the following days." } },
       { "@type": "Question", "name": "What are dermal fillers?", "acceptedAnswer": { "@type": "Answer", "text": "Dermal fillers are smooth hyaluronic acid gels (at Maxará we use Restylane® and Revanesse® Versa™) that restore lost volume and shape contours, most commonly in the lips, cheeks, and lower face. Results are visible right away, and the aim is to keep you looking like yourself." } },
       { "@type": "Question", "name": "What is Sculptra?", "acceptedAnswer": { "@type": "Answer", "text": "Sculptra® is a collagen stimulator rather than a traditional filler. Instead of adding volume all at once, it helps your skin gradually rebuild its own collagen over a short series of treatments spaced several weeks apart. Results develop over a few months and can last two years or more." } },
       { "@type": "Question", "name": "Will I look natural?", "acceptedAnswer": { "@type": "Answer", "text": "Yes, that's the goal. Your nurse practitioner maps your facial anatomy and starts conservatively, adding more only if you need it, so you look refreshed, not frozen or overfilled." } },
-      { "@type": "Question", "name": "Does it hurt?", "acceptedAnswer": { "@type": "Answer", "text": "Most clients describe a quick pinch. We use ultra-fine needles, and numbing options are available for filler appointments. Wrinkle relaxer appointments typically take 15 to 30 minutes." } },
-      { "@type": "Question", "name": "How long do results last?", "acceptedAnswer": { "@type": "Answer", "text": "Wrinkle relaxer results typically last 3 to 4 months, while most dermal fillers last 6 to 18 months depending on the product and treatment area, and Sculptra results can last two years or more. At your consultation we'll map out a maintenance plan that fits your goals and budget." } },
-      { "@type": "Question", "name": "Is there any downtime?", "acceptedAnswer": { "@type": "Answer", "text": "Very little. You can return to most normal activities immediately. Minor redness, swelling, or bruising at injection sites can occur and typically resolves within a few days. We'll send you home with simple aftercare guidance." } },
-      { "@type": "Question", "name": "How do I get started?", "acceptedAnswer": { "@type": "Answer", "text": "Book a consultation with our nurse practitioner. She'll listen to your goals, evaluate your facial anatomy, confirm you're a good candidate, and put together a treatment plan for you. You won't be pressured into anything." } }
+      { "@type": "Question", "name": "Does it hurt?", "acceptedAnswer": { "@type": "Answer", "text": "Most clients describe a quick pinch. We use ultra-fine needles, and numbing options are available for filler appointments. Neurotoxin appointments typically take 15 to 30 minutes." } },
+      { "@type": "Question", "name": "How long do results last?", "acceptedAnswer": { "@type": "Answer", "text": "Neurotoxin results typically last 3 to 4 months, while most dermal fillers last 6 to 18 months depending on the product and treatment area, and Sculptra results can last two years or more. Lindsay can map out a maintenance plan that fits your goals and budget." } },
+      { "@type": "Question", "name": "Is there any downtime?", "acceptedAnswer": { "@type": "Answer", "text": "Very little. You can return to most normal activities immediately. Minor redness, swelling, or bruising at injection sites can occur and typically resolves within a few days. Just hold off on facial treatments and face-down massages for 2 weeks. We'll send you home with simple aftercare guidance." } },
+      { "@type": "Question", "name": "How should I plan other treatments around injections?", "acceptedAnswer": { "@type": "Answer", "text": "Wait at least 2 weeks after any injectable before facials, HydraFacials, chemical peels, microneedling, laser, IPL, or a massage where you lie face down. If you've had a peel, IPL, or anything else your skin needs to heal from, wait until it's fully healed before your injection appointment. A HydraFacial beforehand isn't required, but Lindsay recommends one so your skin comes in hydrated." } },
+      { "@type": "Question", "name": "Do I need a consultation first?", "acceptedAnswer": { "@type": "Answer", "text": "No. If you know what you'd like, book that service directly. Lindsay goes over your goals, health history, and plan at the start of your appointment. If you're not sure what you want, book a consultation and she'll walk you through your options. You won't be pressured into anything." } }
     ]
   }
   </script>
@@ -695,11 +837,11 @@
       </div>
     </div>
     <div class="inj-hero__content">
-      <p class="eyebrow">Wrinkle Relaxers &middot; Dermal Fillers</p>
+      <p class="eyebrow">Neurotoxins &middot; Dermal Fillers</p>
       <h1 class="inj-hero__title">Injectables</h1>
       <p class="inj-hero__subtitle">in Griffin, GA</p>
-      <p class="inj-hero__text">Soften expression lines and restore natural volume with wrinkle relaxers and dermal fillers, administered by a licensed nurse practitioner. Every treatment starts with a consultation, and the goal is for you to still look like you, just more rested.</p>
-      <a href="https://booking.mangomint.com/894344" target="_blank" class="btn btn--light"><span>Book Your Consultation</span></a>
+      <p class="inj-hero__text">Soften expression lines and restore natural volume with neurotoxins and dermal fillers, administered by a licensed nurse practitioner. The goal is for you to still look like you, just more rested. Not sure what you want yet? Book a consultation and Lindsay will walk you through your options.</p>
+      <a href="https://booking.mangomint.com/894344" target="_blank" class="btn btn--light"><span>Book Your Service</span></a>
     </div>
   </section>
 
@@ -737,22 +879,22 @@
       <p>She believes the best aesthetic results are those that enhance a patient's natural features rather than change them &mdash; so Lindsay takes the time to understand each patient's goals before creating a personalized treatment plan.</p>
       <ul class="ingredient-list ingredient-list--light">
         <li>MSN, APRN, FNP-C &mdash; 5+ years in aesthetic medicine</li>
-        <li>Wrinkle Relaxers &mdash; Precision dosing, natural movement</li>
+        <li>Neurotoxins &mdash; Precision dosing, natural movement</li>
         <li>Dermal Fillers &mdash; Subtle volume &amp; contour</li>
-        <li>Consult-First &mdash; Every plan personalized</li>
+        <li>Personal Plans &mdash; Reviewed at every appointment</li>
         <li>Mondays &mdash; Now booking appointments</li>
       </ul>
     </div>
   </section>
 
   <!-- ============================================================
-       WRINKLE RELAXERS — Self-Contained Treatment Section
+       NEUROTOXINS — Self-Contained Treatment Section
   ============================================================ -->
-  <section class="tx tx--relaxers" id="wrinkle-relaxers">
+  <section class="tx tx--neurotoxins" id="neurotoxins">
     <div class="tx__header reveal-up">
-      <p class="eyebrow" id="relaxersEyebrow">Wrinkle Relaxers</p>
+      <p class="eyebrow" id="neurotoxinsEyebrow">Neurotoxins</p>
       <h2 class="section-headline">Soften The Lines<br><em>Expression Leaves</em></h2>
-      <p>We use Dysport&reg;, a purified neuromodulator that temporarily relaxes the small muscles that cause repeated expression lines. The lines smooth out, and your face still moves naturally.</p>
+      <p>We use Dysport&reg;, a purified neurotoxin that temporarily relaxes the small muscles that cause repeated expression lines. The lines smooth out, and your face still moves naturally.</p>
     </div>
 
     <div class="tx__grid">
@@ -808,7 +950,7 @@
       </div>
     </div>
 
-    <p class="tx__note">Treatment areas personalized at your consultation &middot; Results typically last 6&ndash;18 months</p>
+    <p class="tx__note">Treatment areas personalized at your appointment &middot; Results typically last 6&ndash;18 months</p>
   </section>
 
   <!-- ============================================================
@@ -818,17 +960,17 @@
     <div class="pricing__header reveal-up">
       <p class="eyebrow" id="pricingEyebrow">Investment</p>
       <h2 class="section-headline">Simple,<br><em>Honest Pricing</em></h2>
-      <p>We confirm your plan and exact price at your consultation, based on your goals and anatomy.</p>
+      <p>Lindsay confirms your plan and exact price at your appointment, before anything starts.</p>
     </div>
 
     <div class="pricing__grid">
       <div class="pricing__card">
-        <h3 class="pricing__card-name">Wrinkle Relaxers</h3>
+        <h3 class="pricing__card-name">Neurotoxins</h3>
         <p class="pricing__card-tagline">Frown Lines &middot; Forehead &middot; Crow's Feet</p>
         <p class="pricing__from">Dysport&reg;</p>
         <p class="pricing__amount">$12 <span>/ unit</span></p>
         <p class="pricing__card-desc">Dosing depends on your anatomy and goals. Most first-time treatment areas need a modest number of units, and we'll agree on yours before we start.</p>
-        <a href="https://booking.mangomint.com/894344" target="_blank" class="btn btn--terracotta"><span>Book Your Consultation</span></a>
+        <a href="https://booking.mangomint.com/894344" target="_blank" class="btn btn--terracotta"><span>Book Your Service</span></a>
       </div>
 
       <div class="pricing__card">
@@ -837,7 +979,7 @@
         <p class="pricing__from">Restylane&reg; &middot; Versa&trade;</p>
         <p class="pricing__amount">$599 <span>/ syringe</span></p>
         <p class="pricing__card-desc">From a subtle refresh to soft, balanced volume. Many first-time lip treatments use a single syringe, shaped to your natural proportions.</p>
-        <a href="https://booking.mangomint.com/894344" target="_blank" class="btn btn--terracotta"><span>Book Your Consultation</span></a>
+        <a href="https://booking.mangomint.com/894344" target="_blank" class="btn btn--terracotta"><span>Book Your Service</span></a>
       </div>
 
       <div class="pricing__card">
@@ -845,8 +987,8 @@
         <p class="pricing__card-tagline">Cheeks &middot; Chin &middot; Jawline</p>
         <p class="pricing__from">Restylane&reg; &middot; Versa&trade;</p>
         <p class="pricing__amount">$699 <span>/ syringe</span></p>
-        <p class="pricing__card-desc">Restore lost volume and refine contour, placed with precision where it matters most. Your consultation determines the right product and amount for your look.</p>
-        <a href="https://booking.mangomint.com/894344" target="_blank" class="btn btn--terracotta"><span>Book Your Consultation</span></a>
+        <p class="pricing__card-desc">Restore lost volume and refine contour, placed with precision where it matters most. Lindsay will help you choose the right product and amount for your look.</p>
+        <a href="https://booking.mangomint.com/894344" target="_blank" class="btn btn--terracotta"><span>Book Your Service</span></a>
       </div>
 
       <div class="pricing__card">
@@ -854,12 +996,62 @@
         <p class="pricing__card-tagline">Collagen Stimulation</p>
         <p class="pricing__from">Biostimulator</p>
         <p class="pricing__amount">$750 <span>/ vial</span></p>
-        <p class="pricing__card-desc">Gradual, natural-looking renewal as your skin rebuilds its own collagen. Most plans include a short series of treatments, mapped out at your consultation.</p>
-        <a href="https://booking.mangomint.com/894344" target="_blank" class="btn btn--terracotta"><span>Book Your Consultation</span></a>
+        <p class="pricing__card-desc">Gradual, natural-looking renewal as your skin rebuilds its own collagen. Most plans include a short series of treatments, mapped out at your first visit.</p>
+        <a href="https://booking.mangomint.com/894344" target="_blank" class="btn btn--terracotta"><span>Book Your Service</span></a>
       </div>
     </div>
 
-    <p class="pricing__note">Final pricing confirmed at your consultation &middot; Payment plans available through Cherry</p>
+    <p class="pricing__note">Final pricing confirmed at your appointment &middot; Payment plans available through Cherry</p>
+  </section>
+
+  <!-- ============================================================
+       TIMELINE — Planning Around Injections
+  ============================================================ -->
+  <section class="timeline" id="timeline">
+    <div class="timeline__header reveal-up">
+      <p class="eyebrow">Timing Your Treatment</p>
+      <h2 class="section-headline">Plan Around<br><em>Your Injections</em></h2>
+      <p>Injectables need about two weeks to settle. If you have skin treatments or a massage on the calendar, here's how to space them out.</p>
+    </div>
+
+    <ol class="timeline__steps">
+      <li class="timeline__step reveal-up">
+        <span class="timeline__marker">1</span>
+        <div>
+          <p class="timeline__label">Before</p>
+          <h3 class="timeline__title">Come In Hydrated</h3>
+          <p class="timeline__desc">Lindsay likes to work with well-hydrated skin, so a HydraFacial before your injections is a nice extra. Recommended, not required.</p>
+          <p class="timeline__desc">Had a chemical peel, IPL, or anything else your skin needs to heal from? Wait until it's fully healed before your injection appointment.</p>
+        </div>
+      </li>
+
+      <li class="timeline__step reveal-up" style="transition-delay:0.1s;">
+        <span class="timeline__marker">2</span>
+        <div>
+          <p class="timeline__label">Day Of</p>
+          <h3 class="timeline__title">Your Appointment</h3>
+          <p class="timeline__desc">Lindsay goes over your goals, health history, and plan at the start of your visit, then gets started. Neurotoxin appointments usually take 15 to 30 minutes.</p>
+        </div>
+      </li>
+
+      <li class="timeline__step timeline__step--key reveal-up" style="transition-delay:0.2s;">
+        <span class="timeline__marker">3</span>
+        <div>
+          <p class="timeline__label">Days 1&ndash;14</p>
+          <h3 class="timeline__title">Hands Off Your Face</h3>
+          <p class="timeline__desc">Skip facials, HydraFacials, peels, microneedling, laser, and IPL. Hold off on massages where you lie face down, too. The face cradle presses right on treated areas while they're still settling.</p>
+        </div>
+      </li>
+
+      <li class="timeline__step reveal-up" style="transition-delay:0.3s;">
+        <span class="timeline__marker">4</span>
+        <div>
+          <p class="timeline__label">Day 14 On</p>
+          <h3 class="timeline__title">Back To Your Routine</h3>
+          <p class="timeline__desc">Your results have settled, and you're clear to book facials, skin treatments, and massages again.</p>
+        </div>
+      </li>
+    </ol>
   </section>
 
   <!-- ============================================================
@@ -869,7 +1061,7 @@
     <div class="safety__inner reveal-up">
       <p class="eyebrow">Safety First</p>
       <h2 class="section-headline">Medical Care,<br><em>Spa Comfort</em></h2>
-      <p class="safety__text">All injectable treatments at Maxará Aesthetics are administered by a licensed nurse practitioner following medically established protocols. A consultation is always required first — to confirm you're a good candidate, review your health history, and design a plan that's right for you.</p>
+      <p class="safety__text">All injectable treatments at Maxará Aesthetics are administered by a licensed nurse practitioner following medically established protocols. At the start of every appointment, Lindsay reviews your health history, confirms you're a good candidate, and talks through the plan with you.</p>
       <div class="safety__cols">
         <div>
           <p class="safety__col-title">Injectables May Not Be Right For You If</p>
@@ -883,7 +1075,7 @@
         <div>
           <p class="safety__col-title">After Your Treatment</p>
           <ul class="safety__list">
-            <li>Stay upright for 4 hours after wrinkle relaxers</li>
+            <li>Stay upright for 4 hours after neurotoxins</li>
             <li>Skip strenuous exercise for 24 hours</li>
             <li>Avoid rubbing or massaging treated areas</li>
             <li>Minor redness or bruising resolves in a few days</li>
@@ -898,10 +1090,10 @@
   ============================================================ -->
   <div class="marquee-strip marquee-strip--dark marquee-strip--lg">
     <div class="marquee-strip__track" aria-hidden="true">
-      <span>Now Booking Consultations With Our Nurse Practitioner</span><span class="dot">&nbsp;&nbsp;&middot;&nbsp;&nbsp;</span>
-      <span>Now Booking Consultations With Our Nurse Practitioner</span><span class="dot">&nbsp;&nbsp;&middot;&nbsp;&nbsp;</span>
-      <span>Now Booking Consultations With Our Nurse Practitioner</span><span class="dot">&nbsp;&nbsp;&middot;&nbsp;&nbsp;</span>
-      <span>Now Booking Consultations With Our Nurse Practitioner</span><span class="dot">&nbsp;&nbsp;&middot;&nbsp;&nbsp;</span>
+      <span>Now Booking With Our Nurse Practitioner</span><span class="dot">&nbsp;&nbsp;&middot;&nbsp;&nbsp;</span>
+      <span>Now Booking With Our Nurse Practitioner</span><span class="dot">&nbsp;&nbsp;&middot;&nbsp;&nbsp;</span>
+      <span>Now Booking With Our Nurse Practitioner</span><span class="dot">&nbsp;&nbsp;&middot;&nbsp;&nbsp;</span>
+      <span>Now Booking With Our Nurse Practitioner</span><span class="dot">&nbsp;&nbsp;&middot;&nbsp;&nbsp;</span>
     </div>
   </div>
 
@@ -918,11 +1110,11 @@
     <div class="faq__list" id="faqList">
       <div class="faq__item">
         <button class="faq__question" aria-expanded="false">
-          <span class="faq__question-text">What are wrinkle relaxers?</span>
+          <span class="faq__question-text">What are neurotoxins?</span>
           <svg class="faq__chevron" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M6 9l6 6 6-6"/></svg>
         </button>
         <div class="faq__answer">
-          <p class="faq__answer-inner">Wrinkle relaxers are purified neuromodulator injections (at Maxará we use Dysport&reg;) that temporarily soften the repeated muscle movements behind expression lines such as frown lines, forehead creases, and crow's feet. The injections take just minutes, and results appear gradually over the following days.</p>
+          <p class="faq__answer-inner">Neurotoxins are purified injections (at Maxará we use Dysport&reg;) that temporarily soften the repeated muscle movements behind expression lines such as frown lines, forehead creases, and crow's feet. The injections take just minutes, and results appear gradually over the following days.</p>
         </div>
       </div>
 
@@ -962,7 +1154,7 @@
           <svg class="faq__chevron" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M6 9l6 6 6-6"/></svg>
         </button>
         <div class="faq__answer">
-          <p class="faq__answer-inner">Most clients describe a quick pinch. We use ultra-fine needles, and numbing options are available for filler appointments. Wrinkle relaxer appointments typically take 15 to 30 minutes.</p>
+          <p class="faq__answer-inner">Most clients describe a quick pinch. We use ultra-fine needles, and numbing options are available for filler appointments. Neurotoxin appointments typically take 15 to 30 minutes.</p>
         </div>
       </div>
 
@@ -972,7 +1164,7 @@
           <svg class="faq__chevron" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M6 9l6 6 6-6"/></svg>
         </button>
         <div class="faq__answer">
-          <p class="faq__answer-inner">Wrinkle relaxer results typically last 3 to 4 months, while most dermal fillers last 6 to 18 months depending on the product and treatment area, and Sculptra results can last two years or more. At your consultation we'll map out a maintenance plan that fits your goals and budget.</p>
+          <p class="faq__answer-inner">Neurotoxin results typically last 3 to 4 months, while most dermal fillers last 6 to 18 months depending on the product and treatment area, and Sculptra results can last two years or more. Lindsay can map out a maintenance plan that fits your goals and budget.</p>
         </div>
       </div>
 
@@ -982,17 +1174,27 @@
           <svg class="faq__chevron" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M6 9l6 6 6-6"/></svg>
         </button>
         <div class="faq__answer">
-          <p class="faq__answer-inner">Very little. You can return to most normal activities immediately. Minor redness, swelling, or bruising at injection sites can occur and typically resolves within a few days. We'll send you home with simple aftercare guidance.</p>
+          <p class="faq__answer-inner">Very little. You can return to most normal activities immediately. Minor redness, swelling, or bruising at injection sites can occur and typically resolves within a few days. Just hold off on facial treatments and face-down massages for 2 weeks. We'll send you home with simple aftercare guidance.</p>
         </div>
       </div>
 
       <div class="faq__item">
         <button class="faq__question" aria-expanded="false">
-          <span class="faq__question-text">How do I get started?</span>
+          <span class="faq__question-text">How should I plan other treatments around injections?</span>
           <svg class="faq__chevron" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M6 9l6 6 6-6"/></svg>
         </button>
         <div class="faq__answer">
-          <p class="faq__answer-inner">Book a consultation with our nurse practitioner. She'll listen to your goals, evaluate your facial anatomy, confirm you're a good candidate, and put together a treatment plan for you. You won't be pressured into anything.</p>
+          <p class="faq__answer-inner">Wait at least 2 weeks after any injectable before facials, HydraFacials, chemical peels, microneedling, laser, IPL, or a massage where you lie face down. If you've had a peel, IPL, or anything else your skin needs to heal from, wait until it's fully healed before your injection appointment. A HydraFacial beforehand isn't required, but Lindsay recommends one so your skin comes in hydrated.</p>
+        </div>
+      </div>
+
+      <div class="faq__item">
+        <button class="faq__question" aria-expanded="false">
+          <span class="faq__question-text">Do I need a consultation first?</span>
+          <svg class="faq__chevron" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M6 9l6 6 6-6"/></svg>
+        </button>
+        <div class="faq__answer">
+          <p class="faq__answer-inner">No. If you know what you'd like, book that service directly. Lindsay goes over your goals, health history, and plan at the start of your appointment. If you're not sure what you want, book a consultation and she'll walk you through your options. You won't be pressured into anything.</p>
         </div>
       </div>
     </div>
@@ -1007,10 +1209,10 @@
     </div>
     <div class="cta__overlay"></div>
     <div class="cta__content" id="ctaContent">
-      <p class="eyebrow">Begin With A Conversation</p>
+      <p class="eyebrow">Book With Lindsay</p>
       <h2>Refreshed. Rested.<br><em>Still You.</em></h2>
-      <p>Everything starts with a consultation with our nurse practitioner, where you'll talk through your goals and leave with a plan. Lindsay currently sees clients on Mondays.</p>
-      <a href="https://booking.mangomint.com/894344" target="_blank" class="btn btn--light"><span>Book Your Consultation</span></a>
+      <p>Book the treatment you want, or start with a consultation if you're still deciding. Lindsay currently sees clients on Mondays.</p>
+      <a href="https://booking.mangomint.com/894344" target="_blank" class="btn btn--light"><span>Book Your Service</span></a>
     </div>
   </section>
 
@@ -1190,7 +1392,7 @@
         '#injectorMedia', '#injectorContent', '#injectorEyebrow',
         '.tx__card',
         '.pricing__card',
-        '#relaxersEyebrow', '#fillersEyebrow', '#pricingEyebrow',
+        '#neurotoxinsEyebrow', '#fillersEyebrow', '#pricingEyebrow',
         '#faqEyebrow',
         '#ctaContent',
         '.reveal-up',
